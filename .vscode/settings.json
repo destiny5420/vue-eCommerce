@@ -1,0 +1,12 @@
+{
+  "editor.formatOnSave": true,
+  "editor.snippetSuggestions": "top",
+  "blueprint.templatesPath": [".vscode/blueprint-templates"],
+
+  // prettier configure
+  "prettier.jsxBracketSameLine": true,
+  "prettier.singleQuote": false,
+  "prettier.semi": true,
+  "prettier.trailingComma": "none",
+  "prettier.arrowParens": "avoid"
+}

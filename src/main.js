@@ -1,7 +1,23 @@
 import Vue from "vue";
-import App from "./App.vue";
-import router from "./router";
-import store from "./store";
+import App from "@/views/vApp/index.vue";
+import router from "@/router";
+import store from "@/store";
+
+// vue-bootstrap
+import BootstrapVue from "bootstrap-vue";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-vue/dist/bootstrap-vue.css";
+Vue.use(BootstrapVue);
+
+// vue-axios
+import axios from "axios";
+import VueAxios from "vue-axios";
+Vue.use(VueAxios, axios);
+
+// vuex-router-sync
+import { sync } from "vuex-router-sync";
+const unsync = sync(store, router);
+unsync();
 
 Vue.config.productionTip = false;
 
@@ -10,3 +26,29 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount("#app");
+
+router.beforeEach((to, from, next) => {
+  // console.log(
+  //   "-- [ router.beforeEach ]\n/ to: ",
+  //   to,
+  //   "\n/ from: ",
+  //   from,
+  //   "\n/ next: ",
+  //   next
+  // );
+  next();
+  // if (to.meta.requiresAuth) {
+  //   let api = `${process.env.VUE_APP_APIPATH}/api/user/check`;
+  //   console.log(`-- [ Check API: Check ] / api: ${api}`);
+  //   Axios.post(api).then(response => {
+  //     console.log("-- [ Response: Check ] / res: ", response);
+  //     if (response.data.success) {
+  //       next();
+  //     } else {
+  //       next("/login");
+  //     }
+  //   });
+  // } else {
+  //   next();
+  // }
+});
