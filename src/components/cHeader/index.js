@@ -1,12 +1,23 @@
 export default {
-  name: "vApp",
-  props: {},
+  name: "cHeader",
+  props: {
+    prop_scroll_y: {
+      type: Number,
+      required: true
+    }
+  },
   components: {},
   data: function() {
     return {};
   },
   methods: {},
-  computed: {},
+  computed: {
+    classHeader: function() {
+      return {
+        sticky: this.prop_scroll_y > 30 ? true : false
+      };
+    }
+  },
   // life cycle
   beforeCreate: function() {},
   created: function() {},

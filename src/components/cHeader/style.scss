@@ -1,0 +1,50 @@
+.header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  padding: 25px 100px;
+  border-bottom: 1px solid transparent;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.25s;
+
+  .logo {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    span {
+      margin-left: 5px;
+    }
+  }
+
+  ul {
+    position: relative;
+    display: flex;
+
+    li {
+      position: relative;
+      list-style: none;
+
+      a {
+        position: relative;
+        display: inline-block;
+        margin: 0 15px;
+        color: rgb(114, 114, 114);
+        text-decoration: none;
+      }
+    }
+  }
+
+  &.sticky {
+    background: #fff;
+    padding: 20px 100px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+}

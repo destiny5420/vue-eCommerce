@@ -1,5 +1,5 @@
 export default {
-  name: "vApp",
+  name: "vHome",
   props: {},
   components: {},
   data: function() {
