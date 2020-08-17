@@ -12,6 +12,7 @@
   transition: 0.25s;
 
   .logo {
+    font-weight: 800;
     text-decoration: none;
     display: flex;
     flex-direction: row;
@@ -25,8 +26,12 @@
   }
 
   ul {
+    padding: 0;
+    margin: 0;
     position: relative;
     display: flex;
+    flex-direction: row;
+    justify-content: center;
 
     li {
       position: relative;
@@ -36,8 +41,10 @@
         position: relative;
         display: inline-block;
         margin: 0 15px;
-        color: rgb(114, 114, 114);
+        color: rgb(238, 238, 238);
         text-decoration: none;
+
+        transition: 0.5s;
       }
     }
   }
@@ -46,5 +53,16 @@
     background: #fff;
     padding: 20px 100px;
     border-bottom: 1px solid #e0e0e0;
+
+    a {
+      color: #636363;
+    }
+  }
+}
+
+.catalog {
+  span {
+    cursor: pointer;
+    margin: 0 10px;
   }
 }

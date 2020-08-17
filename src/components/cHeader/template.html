@@ -1,7 +1,9 @@
 <header class="header" :class="classHeader">
   <div class="logo">
     <img src="@/assets/z-shop-logo.png" style="height: 30px;" />
-    <span>Z-Shop</span>
+    <span
+      ><span style="margin: 0; color: rgb(253, 166, 67);">Z-</span>Shop</span
+    >
   </div>
   <div class="catalog">
     <span>Mem</span>
@@ -11,16 +13,13 @@
   <div class="toggle"></div>
   <ul>
     <li>
-      <a href="#">Home</a>
+      <a href="#"><font-awesome-icon icon="search"/></a>
     </li>
     <li>
-      <a href="#">Home</a>
+      <a href="#"><font-awesome-icon icon="shopping-cart"/></a>
     </li>
     <li>
-      <a href="#">Home</a>
-    </li>
-    <li>
-      <a href="#">Home</a>
+      <a href="#"><font-awesome-icon :icon="['far', 'user']"/></a>
     </li>
   </ul>
 </header>

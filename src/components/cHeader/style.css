@@ -20,6 +20,7 @@
 }
 
 .header .logo {
+  font-weight: 800;
   text-decoration: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -42,10 +43,19 @@
 }
 
 .header ul {
+  padding: 0;
+  margin: 0;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .header ul li {
@@ -57,13 +67,24 @@
   position: relative;
   display: inline-block;
   margin: 0 15px;
-  color: #727272;
+  color: #eeeeee;
   text-decoration: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .header.sticky {
   background: #fff;
   padding: 20px 100px;
   border-bottom: 1px solid #e0e0e0;
+}
+
+.header.sticky a {
+  color: #636363;
+}
+
+.catalog span {
+  cursor: pointer;
+  margin: 0 10px;
 }
 /*# sourceMappingURL=style.css.map */

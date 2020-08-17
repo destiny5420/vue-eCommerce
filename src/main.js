@@ -3,6 +3,14 @@ import App from "@/views/vApp/index.vue";
 import router from "@/router";
 import store from "@/store";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+
+import { faShoppingCart, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-regular-svg-icons";
+library.add(faShoppingCart, faSearch, faUser);
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+Vue.component("font-awesome-icon", FontAwesomeIcon);
+
 // vue-bootstrap
 import BootstrapVue from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.css";
