@@ -1,3 +1,10 @@
+$color: (
+  btn-bg-color: #ffffff8c,
+  btn-bg-color-hover: #6e6e6e8c,
+  font-color: #242424,
+  font-color-hover: #ffffff
+);
+
 .product-area {
   position: relative;
   background-color: #6d6d6d;
@@ -58,8 +65,8 @@
   height: 35px;
   padding: 0 15px;
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.55);
-  color: rgb(36, 36, 36);
+  background: map-get($map: $color, $key: btn-bg-color);
+  color: map-get($map: $color, $key: font-color);
   font-size: 10px;
   font-weight: bold;
   display: flex;
@@ -71,7 +78,7 @@
   transition: 0.15s;
 
   &:hover {
-    background: rgba(110, 110, 110, 0.55);
-    color: #fff;
+    background: map-get($map: $color, $key: btn-bg-color-hover);
+    color: map-get($map: $color, $key: font-color-hover);
   }
 }

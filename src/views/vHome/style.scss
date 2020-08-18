@@ -1,3 +1,13 @@
+$color: (
+  first-color: #ffcb7d,
+  main-border: #e0e0e0,
+  white: #fff,
+  btn-bg-color: #ffffff8c,
+  btn-bg-color-hover: #6e6e6e8c,
+  font-color: #242424,
+  font-color-hover: #ffffff
+);
+
 div {
   position: relative;
 }
@@ -17,7 +27,7 @@ div {
   .textBox {
     width: 700px;
     padding-left: 250px;
-    color: #fff;
+    color: map-get($map: $color, $key: white);
 
     text-align: left;
 
@@ -44,7 +54,7 @@ div {
     width: 40px;
     height: 40px;
     margin-right: 10px;
-    background: #ffcb7d;
+    background: map-get($map: $color, $key: first-color);
     border-radius: 50%;
 
     transition: 0.25s;
@@ -105,7 +115,7 @@ div {
         width: 43px;
         margin-right: 10px;
         font-size: 20px;
-        background: rgba(255, 209, 167, 0.692);
+        background: map-get($map: $color, $key: first-color);
         border-radius: 5px;
         display: flex;
         flex-direction: row;
@@ -128,23 +138,90 @@ div {
   }
 }
 
-.about {
-  width: 100%;
-  height: 1500px;
-
-  background: #fff;
-}
-
 .product-container {
   width: 100%;
-  height: 600px;
-  padding: 100px 100px;
+  padding-top: 100px;
+  padding-bottom: 100px;
   background: rgb(255, 255, 255);
 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.quickly-pics {
+  width: 100%;
+  height: 300px;
   display: flex;
   justify-content: space-around;
 }
 
-.no-margin {
-  margin: 0;
+.just-for-you {
+  div {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 25px;
+  }
+
+  > input {
+    width: 130px;
+    height: 40px;
+    padding: 0 5px;
+    background: map-get($map: $color, $key: btn-bg-color);
+
+    display: inline-block;
+    margin: 0 10px;
+
+    border-radius: 30px;
+    border: 1px solid map-get($map: $color, $key: main-border);
+
+    color: map-get($map: $color, $key: font-color);
+    font-weight: bold;
+    font-size: 10px;
+
+    transition: 0.15s;
+  }
+
+  & > input:hover {
+    background: map-get($map: $color, $key: btn-bg-color-hover);
+    color: map-get($map: $color, $key: font-color-hover);
+  }
+}
+
+.shop-window {
+  width: 100%;
+  height: 400px;
+  background: #e0e0e0;
+}
+
+.advantage {
+  width: 100%;
+  height: 200px;
+}
+
+$normal_padding-h-value: 100px;
+.normal-padding-h {
+  padding-left: $normal_padding-h-value;
+  padding-right: $normal_padding-h-value;
+}
+
+.layout-row-around {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.layout-row-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.layout-row-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }

@@ -25,17 +25,44 @@
       </div>
     </div>
   </div>
-  <div class="product-container no-margin">
-    <cQuicklyPics
-      :prop-flex="quitePicPaths[index].flex"
-      :prop-content="quitePicPaths[index].content"
-      :prop-cut-down="quitePicPaths[index].cutDown"
-      :prop-source-url="quitePicPaths[index].src"
-      :prop-btn-title="quitePicPaths[index].buttonTitle"
-      v-for="(item, index) in quitePicPaths"
-      :key="index"
-    />
+  <div class="product-container no-margin normal-padding-h">
+    <div class="quickly-pics p-mb-4">
+      <cQuicklyPics
+        :prop-flex="quitePicPaths[index].flex"
+        :prop-content="quitePicPaths[index].content"
+        :prop-cut-down="quitePicPaths[index].cutDown"
+        :prop-source-url="quitePicPaths[index].src"
+        :prop-btn-title="quitePicPaths[index].buttonTitle"
+        v-for="(item, index) in quitePicPaths"
+        :key="index"
+      />
+    </div>
+
+    <div class="just-for-you layout-row-between p-mb-4">
+      <div>Selected just for you</div>
+      <input type="button" value="SHOW MORE" />
+    </div>
+
+    <div class="shop-window p-mb-10"></div>
+
+    <div class="p-full-w p-font-25 layout-row-center p-mb-3">
+      Why should choice us ?
+    </div>
+
+    <div class="advantage layout-row-around p-mb-10">
+      <cAdvantage
+        :prop-symbol="item.symbol"
+        :prop-title="item.title"
+        :prop-content="item.content"
+        v-for="(item, index) in advantageData"
+        :key="index"
+      />
+    </div>
+
+    <div class="p-full-w p-font-25 layout-row-center">
+      Products in today
+    </div>
   </div>
-  <section class="about"></section>
+
   <cFooter />
 </div>

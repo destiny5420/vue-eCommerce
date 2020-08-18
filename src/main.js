@@ -10,7 +10,10 @@ import {
   faSearch,
   faTruck,
   faTools,
-  faArrowRight
+  faArrowRight,
+  faTrademark,
+  faMedal,
+  faHandHoldingUsd
 } from "@fortawesome/free-solid-svg-icons";
 import { faUser, faSmile } from "@fortawesome/free-regular-svg-icons";
 library.add(
@@ -20,7 +23,10 @@ library.add(
   faTruck,
   faSmile,
   faTools,
-  faArrowRight
+  faArrowRight,
+  faTrademark,
+  faMedal,
+  faHandHoldingUsd
 );
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 Vue.component("font-awesome-icon", FontAwesomeIcon);
