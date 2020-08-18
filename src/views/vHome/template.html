@@ -25,7 +25,17 @@
       </div>
     </div>
   </div>
-
+  <div class="product-container no-margin">
+    <cQuicklyPics
+      :prop-flex="quitePicPaths[index].flex"
+      :prop-content="quitePicPaths[index].content"
+      :prop-cut-down="quitePicPaths[index].cutDown"
+      :prop-source-url="quitePicPaths[index].src"
+      :prop-btn-title="quitePicPaths[index].buttonTitle"
+      v-for="(item, index) in quitePicPaths"
+      :key="index"
+    />
+  </div>
   <section class="about"></section>
   <cFooter />
 </div>

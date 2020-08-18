@@ -26,7 +26,7 @@ div {
 
 .banner .textBox {
   width: 700px;
-  padding-left: 150px;
+  padding-left: 250px;
   color: #fff;
   text-align: left;
 }
@@ -40,6 +40,10 @@ div {
 
 .banner .textBox span {
   font-weight: bold;
+}
+
+.shop-now {
+  display: inline-block;
 }
 
 .shop-now div {
@@ -64,8 +68,8 @@ div {
 .shop-now span {
   color: #fff;
   font-size: 12px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
 }
 
 .shop-now:hover {
@@ -74,10 +78,13 @@ div {
 
 .shop-now:hover div {
   background: #fab651;
+  -webkit-box-shadow: 2px 2px 3px 0px #00000052;
+          box-shadow: 2px 2px 3px 0px #00000052;
 }
 
 .shop-now:hover span {
   color: #fab651;
+  text-shadow: 2px 2px 1px #00000052;
 }
 
 .info-container {
@@ -170,6 +177,18 @@ div {
   width: 100%;
   height: 1500px;
   background: #fff;
+}
+
+.product-container {
+  width: 100%;
+  height: 600px;
+  padding: 100px 100px;
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .no-margin {

@@ -1,0 +1,10 @@
+<div class="product-area" :style="styleProduct">
+  <div class="mask"></div>
+  <div class="info-area">
+    <div class="count-down" v-if="propCutDown > 0">
+      -{{ this.propCutDown }}%
+    </div>
+    <div class="content">{{ this.propContent }}</div>
+    <div class="detail-btn">{{ propBtnTitle }}</div>
+  </div>
+</div>
