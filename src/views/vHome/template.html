@@ -1,4 +1,21 @@
 <div>
-  <div class="banner"></div>
+  <div>
+    <div class="banner"></div>
+    <div class="info-container">
+      <div class="info-area">
+        <div class="info" v-for="(item, index) in infoData" :key="index">
+          <div class="info-symbol">
+            <font-awesome-icon :icon="item.symbol" />
+          </div>
+          <div class="info-content">
+            <h6 class="no-margin">{{ item.title }}</h6>
+            <span>{{ item.content }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <section class="about"></section>
+  <cFooter />
 </div>

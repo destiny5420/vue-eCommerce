@@ -1,15 +1,80 @@
+div {
+  position: relative;
+}
+
 .banner {
   width: 100%;
   height: 100vh;
   background-size: contain;
-  background-position: -1500px 1500px;
+  background-position: center;
   background-repeat: no-repeat;
   background: url(../../assets/banner.png);
+}
+
+.info-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 75vw;
+  height: 120px;
+  padding: 35px 80px 35px 150px;
+  background: #fff;
+  z-index: 1;
+  border-radius: 0 45px 0 0;
+
+  .info-area {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+
+    .info {
+      flex: 1;
+      margin: 0 10px;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      text-align: left;
+
+      .info-symbol {
+        box-sizing: border-box;
+        height: 43px;
+        width: 43px;
+        margin-right: 10px;
+        font-size: 20px;
+        background: rgba(255, 209, 167, 0.692);
+        border-radius: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .info-content {
+        width: 75%;
+        h6 {
+          font-size: 12px;
+          font-weight: 800;
+        }
+        span {
+          font-size: 12px;
+          color: rgb(119, 119, 119);
+        }
+      }
+    }
+  }
 }
 
 .about {
   width: 100%;
   height: 1500px;
 
-  background: #e7e7e7;
+  background: #fff;
+}
+
+.no-margin {
+  margin: 0;
 }

@@ -5,9 +5,14 @@ import store from "@/store";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 
-import { faShoppingCart, faSearch } from "@fortawesome/free-solid-svg-icons";
-import { faUser } from "@fortawesome/free-regular-svg-icons";
-library.add(faShoppingCart, faSearch, faUser);
+import {
+  faShoppingCart,
+  faSearch,
+  faTruck,
+  faTools
+} from "@fortawesome/free-solid-svg-icons";
+import { faUser, faSmile } from "@fortawesome/free-regular-svg-icons";
+library.add(faShoppingCart, faSearch, faUser, faTruck, faSmile, faTools);
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 

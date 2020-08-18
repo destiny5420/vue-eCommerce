@@ -1,9 +1,31 @@
+import cFooter from "@/components/cFooter/index.vue";
+
 export default {
   name: "vHome",
   props: {},
-  components: {},
+  components: {
+    cFooter
+  },
   data: function() {
-    return {};
+    return {
+      infoData: [
+        {
+          symbol: ["fas", "truck"],
+          title: "Free Shipping",
+          content: "on purchases over $99"
+        },
+        {
+          symbol: ["far", "smile"],
+          title: "99% Satisfied Customers",
+          content: "our client's opinions speak for themselves"
+        },
+        {
+          symbol: ["fas", "tools"],
+          title: "Originality Guaranteed",
+          content: "30 days warrant for each product from our store"
+        }
+      ]
+    };
   },
   methods: {},
   computed: {},
