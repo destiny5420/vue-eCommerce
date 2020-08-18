@@ -9,10 +9,19 @@ import {
   faShoppingCart,
   faSearch,
   faTruck,
-  faTools
+  faTools,
+  faArrowRight
 } from "@fortawesome/free-solid-svg-icons";
 import { faUser, faSmile } from "@fortawesome/free-regular-svg-icons";
-library.add(faShoppingCart, faSearch, faUser, faTruck, faSmile, faTools);
+library.add(
+  faShoppingCart,
+  faSearch,
+  faUser,
+  faTruck,
+  faSmile,
+  faTools,
+  faArrowRight
+);
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 

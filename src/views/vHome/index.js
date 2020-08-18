@@ -8,6 +8,7 @@ export default {
   },
   data: function() {
     return {
+      arrowRight: ["fas", "arrow-right"],
       infoData: [
         {
           symbol: ["fas", "truck"],

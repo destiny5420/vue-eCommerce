@@ -5,10 +5,79 @@ div {
 .banner {
   width: 100%;
   height: 100vh;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background: url(../../assets/banner.png);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.banner .textBox {
+  width: 700px;
+  padding-left: 150px;
+  color: #fff;
+  text-align: left;
+}
+
+.banner .textBox h1 {
+  font-weight: 700;
+  font-family: "Palanquin Dark", sans-serif;
+  font-size: 72px;
+  margin-bottom: 70px;
+}
+
+.banner .textBox span {
+  font-weight: bold;
+}
+
+.shop-now div {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  background: #ffcb7d;
+  border-radius: 50%;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+
+.shop-now span {
+  color: #fff;
+  font-size: 12px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.shop-now:hover {
+  cursor: pointer;
+}
+
+.shop-now:hover div {
+  background: #fab651;
+}
+
+.shop-now:hover span {
+  color: #fab651;
 }
 
 .info-container {
