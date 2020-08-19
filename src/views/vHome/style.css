@@ -248,6 +248,7 @@ div {
   height: 200px;
   padding: 0 50px;
   background: url("https://i.postimg.cc/8kn3T2w5/kenan-buhic-yjcr-VIGAw9-A-unsplash-1.png");
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
   display: -webkit-box;
