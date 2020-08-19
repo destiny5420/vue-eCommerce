@@ -196,6 +196,7 @@ div {
   width: 100%;
   height: 400px;
   background: url("https://i.postimg.cc/fLYvV72q/benjamin-voros-Tn-No84-AJJ5-A-unsplash.jpg");
+  background-position: center;
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
@@ -203,13 +204,18 @@ div {
 
 .advantage {
   width: 100%;
-  height: 200px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .product-today {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: flex-start;
 
   img {
@@ -243,7 +249,7 @@ div {
     height: 40px;
     width: 200px;
     padding: 10px 20px;
-    margin: 0 15px;
+    margin: 0 15px 10px 15px;
     font-size: 10px;
     color: black;
 

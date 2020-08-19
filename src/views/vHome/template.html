@@ -48,7 +48,7 @@
     <div class="p-full-w p-font-large layout-row-center p-mb-3">
       Why should choice us ?
     </div>
-    <div class="advantage p-full-w layout-row-around p-mb-10">
+    <div class="advantage p-full-w p-mb-10">
       <cAdvantage
         :prop-symbol="item.symbol"
         :prop-title="item.title"
@@ -61,15 +61,17 @@
     <div class="p-full-w p-font-large layout-row-center  p-mb-3">
       Products in today
     </div>
-    <div class="product-today p-align-left p-full-w  p-mb-10">
-      <div class="p-ml-2 p-mr-2" v-for="(item, index) in dailyProduct" :key="index">
-        <img class="p-mb-2" :src="item.src">
-        <div class="p-font-sm p-font-lighter">{{item.title}}</div>
-        <div class="p-font-medium p-font-bold">${{item.price}}</div>
+    <div class="product-today p-align-left p-full-w  p-mb-5">
+        <div style="width: 25%; min-width: 170px;" v-for="(item, index) in dailyProduct" :key="index">
+          <div class="p-ml-2 p-mr-2 p-mb-3">
+            <img class="p-mb-2" :src="item.src">
+            <div class="p-font-sm p-font-lighter">{{item.title}}</div>
+            <div class="p-font-medium p-font-bold">${{item.price}}</div>
+          </div>
       </div>
     </div>
 
-    <div class="subscribe p-full-w p-mb-10"">
+    <div class="subscribe p-full-w p-mb-5"">
       <span>{{ subscribeData.content }}</span>
       <div>
         <input type="text" :placeholder="subscribeData.inputPlaceholder" />

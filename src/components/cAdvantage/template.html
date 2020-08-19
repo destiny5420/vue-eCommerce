@@ -1,7 +1,9 @@
 <div class="item">
-  <div class="symbol">
-    <font-awesome-icon :icon="propSymbol" />
+  <div class="item-container">
+    <div class="symbol">
+      <font-awesome-icon :icon="propSymbol" />
+    </div>
+    <div class="title p-mt-2 p-mb-1">{{ propTitle }}</div>
+    <div class="content">{{ propContent }}</div>
   </div>
-  <div class="title p-mt-3 p-mb-1">{{ propTitle }}</div>
-  <div class="content">{{ propContent }}</div>
 </div>
