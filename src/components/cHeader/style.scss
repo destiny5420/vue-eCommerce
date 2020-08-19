@@ -1,15 +1,71 @@
+$padding: (
+  desktop-header-horizontal: 200px,
+  pad-header-horizontal: 50px,
+  small-pad-header-horizontal: 30px,
+  phone-header-horizontal: 10px
+);
+
+$pc-media: 960px;
+$pcs-media: 959px;
+$pad-media: 760px;
+$pads-media: 759px;
+$phone-media: 480px;
+$phones-media: 479px;
+
+// 電腦
+@mixin pc-width {
+  @media all and (min-width: $pc-media) {
+    @content;
+  }
+}
+
+// 平板
+@mixin pad-width {
+  @media all and (min-width: $pad-media) and (max-width: $pcs-media) {
+    @content;
+  }
+}
+
+// 小平板
+@mixin small-pad-width {
+  @media all and (min-width: $phone-media) and (max-width: $pads-media) {
+    @content;
+  }
+}
+// 手機
+@mixin phone-width {
+  @media all and (max-width: $phones-media) {
+    @content;
+  }
+}
+
 .header {
   position: fixed;
   top: 0px;
   left: 0px;
   width: 100vw;
-  padding: 25px 100px;
   border-bottom: 1px solid transparent;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: 0.25s;
+  transition: 0.15s;
+
+  @include pc-width {
+    padding: 25px map-get($map: $padding, $key: desktop-header-horizontal);
+  }
+
+  @include pad-width {
+    padding: 25px map-get($map: $padding, $key: pad-header-horizontal);
+  }
+
+  @include small-pad-width {
+    padding: 25px map-get($map: $padding, $key: small-pad-header-horizontal);
+  }
+
+  @include phone-width {
+    padding: 25px map-get($map: $padding, $key: phone-header-horizontal);
+  }
 
   .logo {
     font-weight: 800;
@@ -51,8 +107,23 @@
 
   &.sticky {
     background: #fff;
-    padding: 20px 100px;
     border-bottom: 1px solid #e0e0e0;
+
+    @include pc-width {
+      padding: 25px map-get($map: $padding, $key: desktop-header-horizontal);
+    }
+
+    @include pad-width {
+      padding: 25px map-get($map: $padding, $key: pad-header-horizontal);
+    }
+
+    @include small-pad-width {
+      padding: 25px map-get($map: $padding, $key: small-pad-header-horizontal);
+    }
+
+    @include phone-width {
+      padding: 25px map-get($map: $padding, $key: phone-header-horizontal);
+    }
 
     a {
       color: #636363;

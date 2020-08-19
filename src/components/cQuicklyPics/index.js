@@ -27,9 +27,33 @@ export default {
   methods: {},
   computed: {
     styleProduct: function() {
+      switch (this.propFlex) {
+        case 4:
+          return {
+            "p-flex-4": true
+          };
+        case 3:
+          return {
+            "p-flex-3": true
+          };
+        case 2:
+          return {
+            "p-flex-2": true
+          };
+        default:
+          return {
+            "p-flex-1": true
+          };
+      }
+    },
+    styleArea: function() {
       return {
-        flex: this.propFlex,
         backgroundImage: `url(${this.propSourceUrl})`
+      };
+    },
+    styleTmp: function() {
+      return {
+        tmp: document.documentElement.clientWidth < 959 ? true : false
       };
     }
   },

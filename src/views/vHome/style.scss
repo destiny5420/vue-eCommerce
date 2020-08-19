@@ -12,6 +12,40 @@ $color: (
   font-color-hover: #ffffff
 );
 
+$pc-media: 960px;
+$pcs-media: 959px;
+$pad-media: 760px;
+$pads-media: 759px;
+$phone-media: 480px;
+$phones-media: 479px;
+
+// 電腦
+@mixin pc-width {
+  @media all and (min-width: $pc-media) {
+    @content;
+  }
+}
+
+// 平板
+@mixin pad-width {
+  @media all and (min-width: $pad-media) and (max-width: $pcs-media) {
+    @content;
+  }
+}
+
+// 小平板
+@mixin small-pad-width {
+  @media all and (min-width: $phone-media) and (max-width: $pads-media) {
+    @content;
+  }
+}
+// 手機
+@mixin phone-width {
+  @media all and (max-width: $phones-media) {
+    @content;
+  }
+}
+
 div {
   position: relative;
 }
@@ -29,11 +63,25 @@ div {
   align-items: center;
 
   .textBox {
-    width: 700px;
-    padding-left: 250px;
     color: map-get($map: $color, $key: white);
-
     text-align: left;
+    width: 700px;
+
+    @include pc-width {
+      padding-left: 250px;
+    }
+
+    @include pad-width {
+      padding-left: 150px;
+    }
+
+    @include small-pad-width {
+      padding-left: 150px;
+    }
+
+    @include phone-width {
+      padding-left: 150px;
+    }
 
     h1 {
       font-weight: 700;
@@ -155,7 +203,6 @@ div {
 
 .quickly-pics {
   width: 100%;
-  height: 300px;
   display: flex;
   justify-content: space-around;
 }

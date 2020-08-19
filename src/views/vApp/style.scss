@@ -44,19 +44,35 @@
   font-weight: bold;
 }
 
+// layout
 .p-full-w {
   width: 100%;
 }
+.p-full-h {
+  height: 100%;
+}
+.p-flex-1 {
+  flex: 1;
+}
+.p-flex-2 {
+  flex: 2;
+}
+.p-flex-3 {
+  flex: 3;
+}
+.p-flex-4 {
+  flex: 4;
+}
+.p-flex-5 {
+  flex: 5;
+}
 
+// text align
 .p-align-left {
   text-align: left;
 }
 .p-align-right {
   text-align: right;
-}
-
-.p-full-h {
-  height: 100%;
 }
 
 // mt

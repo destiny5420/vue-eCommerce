@@ -3,7 +3,6 @@
   top: 0px;
   left: 0px;
   width: 100vw;
-  padding: 25px 100px;
   border-bottom: 1px solid transparent;
   z-index: 1000;
   display: -webkit-box;
@@ -15,8 +14,32 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transition: 0.25s;
-  transition: 0.25s;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+
+@media all and (min-width: 960px) {
+  .header {
+    padding: 25px 200px;
+  }
+}
+
+@media all and (min-width: 760px) and (max-width: 959px) {
+  .header {
+    padding: 25px 50px;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .header {
+    padding: 25px 30px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .header {
+    padding: 25px 10px;
+  }
 }
 
 .header .logo {
@@ -75,8 +98,31 @@
 
 .header.sticky {
   background: #fff;
-  padding: 20px 100px;
   border-bottom: 1px solid #e0e0e0;
+}
+
+@media all and (min-width: 960px) {
+  .header.sticky {
+    padding: 25px 200px;
+  }
+}
+
+@media all and (min-width: 760px) and (max-width: 959px) {
+  .header.sticky {
+    padding: 25px 50px;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .header.sticky {
+    padding: 25px 30px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .header.sticky {
+    padding: 25px 10px;
+  }
 }
 
 .header.sticky a {

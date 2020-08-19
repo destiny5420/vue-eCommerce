@@ -1,11 +1,14 @@
 .product-area {
+  height: 300px;
   position: relative;
-  background-color: #6d6d6d;
+  margin: 0 10px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  margin: 0 10px;
   display: inline-block;
+}
+
+.product-area .product-item {
   width: 100%;
   height: 100%;
 }
