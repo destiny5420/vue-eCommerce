@@ -24,12 +24,24 @@
   font-size: 12px;
 }
 
+.p-font-sm {
+  font-size: 14px;
+}
+
 .p-font-medium {
   font-size: 16px;
 }
 
+.p-font-ml {
+  font-size: 20px;
+}
+
 .p-font-large {
-  font-size: 25px;
+  font-size: 24px;
+}
+
+.p-font-lighter {
+  font-weight: lighter;
 }
 
 .p-font-bold {
@@ -38,6 +50,14 @@
 
 .p-full-w {
   width: 100%;
+}
+
+.p-align-left {
+  text-align: left;
+}
+
+.p-align-right {
+  text-align: right;
 }
 
 .p-full-h {

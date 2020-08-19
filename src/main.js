@@ -21,7 +21,9 @@ import {
   faTwitter,
   faLinkedinIn,
   faInstagram,
-  faYoutube
+  faYoutube,
+  faGithubSquare,
+  faMedium
 } from "@fortawesome/free-brands-svg-icons";
 library.add(
   faShoppingCart,
@@ -38,7 +40,9 @@ library.add(
   faTwitter,
   faLinkedinIn,
   faInstagram,
-  faYoutube
+  faYoutube,
+  faGithubSquare,
+  faMedium
 );
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 Vue.component("font-awesome-icon", FontAwesomeIcon);

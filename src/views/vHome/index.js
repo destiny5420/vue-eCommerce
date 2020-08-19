@@ -53,6 +53,36 @@ export default {
           buttonTitle: "View all"
         }
       ],
+      dailyProduct: [
+        {
+          src:
+            "https://i.postimg.cc/4dxkJdN0/xu-duo-y-8-CPli-Ud-As-unsplash.jpg",
+          title: "Basic Slim Fit T-Shirt",
+          price: "79.99",
+          cutDown: 0
+        },
+        {
+          src:
+            "https://i.postimg.cc/DftCyZxM/amir-taheri-Cu-Xjrjy-Xr-E0-unsplash.jpg",
+          title: "Loose Texture T-Shirt",
+          price: "119.99",
+          cutDown: 0
+        },
+        {
+          src:
+            "https://i.postimg.cc/GhGXBCNh/ian-dooley-8-Hq-PXTTo-Mn0-unsplash.jpg",
+          title: "T-Shirt Summer Vibes",
+          price: "79.99",
+          cutDown: 0
+        },
+        {
+          src:
+            "https://i.postimg.cc/mg48Cnf3/pedram-normohamadian-a-K-V2-Kv-M29-M-unsplash.jpg",
+          title: "Loose Knit 3/4 Sleeve",
+          price: "119.99",
+          cutDown: 0
+        }
+      ],
       advantageData: [
         {
           symbol: ["fas", "truck"],
@@ -86,15 +116,34 @@ export default {
         buttonMessage: "subscribe"
       },
       socialMedia: [
-        ["fab", "facebook-f"],
-        ["fab", "twitter"],
-        ["fab", "linkedin-in"],
-        ["fab", "instagram"],
-        ["fab", "youtube"]
+        {
+          symbol: ["fab", "facebook-f"],
+          link: "https://www.facebook.com/ShiaoLiWei"
+        },
+        {
+          symbol: ["fab", "linkedin-in"],
+          link: "https://www.linkedin.com/in/力維-蕭-b06a09ba/"
+        },
+        {
+          symbol: ["fab", "instagram"],
+          link: "https://www.instagram.com/paperhsiao_/"
+        },
+        {
+          symbol: ["fab", "github-square"],
+          link: "https://github.com/destiny5420?tab=repositories/"
+        },
+        {
+          symbol: ["fab", "medium"],
+          link: "https://medium.com/@paper.hsiao"
+        }
       ]
     };
   },
-  methods: {},
+  methods: {
+    onSocialMedialHandler: function(url) {
+      window.open(url);
+    }
+  },
   computed: {},
   // life cycle
   beforeCreate: function() {},

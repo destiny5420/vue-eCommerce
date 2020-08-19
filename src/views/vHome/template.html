@@ -61,7 +61,13 @@
     <div class="p-full-w p-font-large layout-row-center  p-mb-3">
       Products in today
     </div>
-    <div class="product-today p-full-w  p-mb-10"></div>
+    <div class="product-today p-align-left p-full-w  p-mb-10">
+      <div class="p-ml-2 p-mr-2" v-for="(item, index) in dailyProduct" :key="index">
+        <img class="p-mb-2" :src="item.src">
+        <div class="p-font-sm p-font-lighter">{{item.title}}</div>
+        <div class="p-font-medium p-font-bold">${{item.price}}</div>
+      </div>
+    </div>
 
     <div class="subscribe p-full-w p-mb-10"">
       <span>{{ subscribeData.content }}</span>
@@ -80,7 +86,7 @@
         <span class="p-mb-3">We work with creative minds, content creators and technical geniuses willing to entertain and empower the world.</span>
         <div name="social-media">
           <div class="font-link p-mr-3" v-for="(item, index) in socialMedia" :key="index">
-            <font-awesome-icon :icon="item" />
+            <font-awesome-icon @click="onSocialMedialHandler(item.link)" :icon="item.symbol" />
           </div>
         </div>
       </div>
