@@ -84,7 +84,14 @@ export default {
           "Subscribe to our newsletter and receive exclusive offers every week",
         inputPlaceholder: "Enter your email",
         buttonMessage: "subscribe"
-      }
+      },
+      socialMedia: [
+        ["fab", "facebook-f"],
+        ["fab", "twitter"],
+        ["fab", "linkedin-in"],
+        ["fab", "instagram"],
+        ["fab", "youtube"]
+      ]
     };
   },
   methods: {},

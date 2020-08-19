@@ -5,6 +5,8 @@ $color: (
   tmp-background: #afafaf,
   btn-bg-color: #ffffff8c,
   font-color: #242424,
+  font-black: #242424,
+  font-gray: #8a8a8a,
   first-color-hover: #fab651,
   btn-bg-color-hover: #6e6e6e8c,
   font-color-hover: #ffffff
@@ -142,8 +144,8 @@ div {
 
 .product-container {
   width: 100%;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 80px;
+  padding-bottom: 10px;
   background: rgb(255, 255, 255);
 
   display: flex;
@@ -257,6 +259,53 @@ div {
 
     &:hover {
       background-color: map-get($map: $color, $key: first-color-hover);
+    }
+  }
+}
+
+.font-link {
+  cursor: pointer;
+  color: map-get($map: $color, $key: font-gray);
+  transition: 0.15s;
+
+  &:hover {
+    color: map-get($map: $color, $key: font-black);
+  }
+}
+
+.footer-info {
+  height: 230px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  > div {
+    margin: 0 20px;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+  }
+
+  div[name="main"] {
+    flex: 2;
+    box-sizing: content-box;
+
+    > span {
+      display: block;
+      font-size: 12px;
+    }
+
+    div[name="social-media"] {
+      display: flex;
+
+      font-size: 20px;
+
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
     }
   }
 }

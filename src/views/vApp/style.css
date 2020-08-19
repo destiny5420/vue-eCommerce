@@ -20,8 +20,20 @@
   color: #42b983;
 }
 
-.p-font-25 {
+.p-font-small {
+  font-size: 12px;
+}
+
+.p-font-medium {
+  font-size: 16px;
+}
+
+.p-font-large {
   font-size: 25px;
+}
+
+.p-font-bold {
+  font-weight: bold;
 }
 
 .p-full-w {
@@ -30,6 +42,14 @@
 
 .p-full-h {
   height: 100%;
+}
+
+.p-mt-1 {
+  margin-top: 10px;
+}
+
+.p-mt-2 {
+  margin-top: 20px;
 }
 
 .p-mt-3 {
@@ -64,6 +84,14 @@
   margin-top: 100px;
 }
 
+.p-mb-1 {
+  margin-bottom: 10px;
+}
+
+.p-mb-2 {
+  margin-bottom: 20px;
+}
+
 .p-mb-3 {
   margin-bottom: 30px;
 }
@@ -94,6 +122,86 @@
 
 .p-mb-10 {
   margin-bottom: 100px;
+}
+
+.p-ml-1 {
+  margin-left: 10px;
+}
+
+.p-ml-2 {
+  margin-left: 20px;
+}
+
+.p-ml-3 {
+  margin-left: 30px;
+}
+
+.p-ml-4 {
+  margin-left: 40px;
+}
+
+.p-ml-5 {
+  margin-left: 50px;
+}
+
+.p-ml-6 {
+  margin-left: 60px;
+}
+
+.p-ml-7 {
+  margin-left: 70px;
+}
+
+.p-ml-8 {
+  margin-left: 80px;
+}
+
+.p-ml-9 {
+  margin-left: 90px;
+}
+
+.p-ml-10 {
+  margin-left: 100px;
+}
+
+.p-mr-1 {
+  margin-right: 10px;
+}
+
+.p-mr-2 {
+  margin-right: 20px;
+}
+
+.p-mr-3 {
+  margin-right: 30px;
+}
+
+.p-mr-4 {
+  margin-right: 40px;
+}
+
+.p-mr-5 {
+  margin-right: 50px;
+}
+
+.p-mr-6 {
+  margin-right: 60px;
+}
+
+.p-mr-7 {
+  margin-right: 70px;
+}
+
+.p-mr-8 {
+  margin-right: 80px;
+}
+
+.p-mr-9 {
+  margin-right: 90px;
+}
+
+.p-mr-10 {
+  margin-right: 100px;
 }
 
 .no-margin {

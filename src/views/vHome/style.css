@@ -175,8 +175,8 @@ div {
 
 .product-container {
   width: 100%;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 80px;
+  padding-bottom: 10px;
   background: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -300,6 +300,74 @@ div {
 
 .subscribe input[type="button"]:hover {
   background-color: #fab651;
+}
+
+.font-link {
+  cursor: pointer;
+  color: #8a8a8a;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+
+.font-link:hover {
+  color: #242424;
+}
+
+.footer-info {
+  height: 230px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer-info > div {
+  margin: 0 20px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+}
+
+.footer-info div[name="main"] {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+.footer-info div[name="main"] > span {
+  display: block;
+  font-size: 12px;
+}
+
+.footer-info div[name="main"] div[name="social-media"] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 20px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .normal-padding-h {

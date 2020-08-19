@@ -16,6 +16,13 @@ import {
   faHandHoldingUsd
 } from "@fortawesome/free-solid-svg-icons";
 import { faUser, faSmile } from "@fortawesome/free-regular-svg-icons";
+import {
+  faFacebookF,
+  faTwitter,
+  faLinkedinIn,
+  faInstagram,
+  faYoutube
+} from "@fortawesome/free-brands-svg-icons";
 library.add(
   faShoppingCart,
   faSearch,
@@ -26,7 +33,12 @@ library.add(
   faArrowRight,
   faTrademark,
   faMedal,
-  faHandHoldingUsd
+  faHandHoldingUsd,
+  faFacebookF,
+  faTwitter,
+  faLinkedinIn,
+  faInstagram,
+  faYoutube
 );
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 Vue.component("font-awesome-icon", FontAwesomeIcon);
