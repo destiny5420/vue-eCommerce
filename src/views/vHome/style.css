@@ -238,6 +238,70 @@ div {
   height: 200px;
 }
 
+.product-today {
+  height: 400px;
+  background: #afafaf;
+}
+
+.subscribe {
+  position: relative;
+  height: 200px;
+  padding: 0 50px;
+  background: url("https://i.postimg.cc/8kn3T2w5/kenan-buhic-yjcr-VIGAw9-A-unsplash-1.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.subscribe span {
+  width: 400px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.subscribe input[type="text"] {
+  height: 40px;
+  width: 200px;
+  padding: 10px 20px;
+  margin: 0 15px;
+  font-size: 10px;
+  color: black;
+  outline: none;
+  border: 0px solid transparent;
+  border-radius: 17px;
+}
+
+.subscribe input[type="button"] {
+  height: 40px;
+  width: 120px;
+  padding: 0 20px;
+  background-color: #ffcb7d;
+  outline: none;
+  border: 0px solid transparent;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+
+.subscribe input[type="button"]:hover {
+  background-color: #fab651;
+}
+
 .normal-padding-h {
   padding-left: 100px;
   padding-right: 100px;

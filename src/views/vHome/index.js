@@ -78,7 +78,13 @@ export default {
           content:
             "Never miss a trend anymore. Browse through your friend’s and other people’s posts and spot the finest online content."
         }
-      ]
+      ],
+      subscribeData: {
+        content:
+          "Subscribe to our newsletter and receive exclusive offers every week",
+        inputPlaceholder: "Enter your email",
+        buttonMessage: "subscribe"
+      }
     };
   },
   methods: {},

@@ -2,9 +2,11 @@ $color: (
   first-color: #ffcb7d,
   main-border: #e0e0e0,
   white: #fff,
+  tmp-background: #afafaf,
   btn-bg-color: #ffffff8c,
-  btn-bg-color-hover: #6e6e6e8c,
   font-color: #242424,
+  first-color-hover: #fab651,
+  btn-bg-color-hover: #6e6e6e8c,
   font-color-hover: #ffffff
 );
 
@@ -70,12 +72,12 @@ div {
     cursor: pointer;
 
     div {
-      background: #fab651;
+      background: map-get($map: $color, $key: first-color-hover);
       box-shadow: 2px 2px 3px 0px #00000052;
     }
 
     span {
-      color: #fab651;
+      color: map-get($map: $color, $key: first-color-hover);
       text-shadow: 2px 2px 1px #00000052;
     }
   }
@@ -197,6 +199,66 @@ div {
 .advantage {
   width: 100%;
   height: 200px;
+}
+
+.product-today {
+  height: 400px;
+  background: map-get($map: $color, $key: tmp-background);
+}
+
+.subscribe {
+  position: relative;
+  height: 200px;
+  padding: 0 50px;
+  background: url("https://i.postimg.cc/8kn3T2w5/kenan-buhic-yjcr-VIGAw9-A-unsplash-1.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  span {
+    width: 400px;
+
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  input[type="text"] {
+    height: 40px;
+    width: 200px;
+    padding: 10px 20px;
+    margin: 0 15px;
+    font-size: 10px;
+    color: black;
+
+    outline: none;
+    border: 0px solid transparent;
+    border-radius: 17px;
+  }
+
+  input[type="button"] {
+    height: 40px;
+    width: 120px;
+    padding: 0 20px;
+    background-color: map-get($map: $color, $key: first-color);
+    outline: none;
+    border: 0px solid transparent;
+    border-radius: 20px;
+
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    transition: 0.15s;
+
+    &:hover {
+      background-color: map-get($map: $color, $key: first-color-hover);
+    }
+  }
 }
 
 $normal_padding-h-value: 100px;
