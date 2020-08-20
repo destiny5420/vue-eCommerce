@@ -1,3 +1,37 @@
+$pc-media: 960px;
+$pcs-media: 959px;
+$pad-media: 760px;
+$pads-media: 759px;
+$phone-media: 480px;
+$phones-media: 479px;
+
+// 電腦
+@mixin pc-width {
+  @media all and (min-width: $pc-media) {
+    @content;
+  }
+}
+
+// 平板
+@mixin pad-width {
+  @media all and (min-width: $pad-media) and (max-width: $pcs-media) {
+    @content;
+  }
+}
+
+// 小平板
+@mixin small-pad-width {
+  @media all and (min-width: $phone-media) and (max-width: $pads-media) {
+    @content;
+  }
+}
+// 手機
+@mixin phone-width {
+  @media all and (max-width: $phones-media) {
+    @content;
+  }
+}
+
 .login {
   width: 100%;
   height: 100vh;
@@ -17,6 +51,16 @@ $window-border-radius: 10px;
   border-radius: $window-border-radius;
   border: 1px solid #e3e3e380;
   box-shadow: -3px 4px 8px 0px #00000015;
+
+  @include pc-width() {
+    width: 80%;
+    height: 70%;
+  }
+
+  @include pad-width() {
+    width: 90%;
+    height: 50%;
+  }
 
   div[name="login-info"] {
     position: relative;

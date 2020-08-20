@@ -32,6 +32,20 @@
           box-shadow: -3px 4px 8px 0px #00000015;
 }
 
+@media all and (min-width: 960px) {
+  .login-window {
+    width: 80%;
+    height: 70%;
+  }
+}
+
+@media all and (min-width: 760px) and (max-width: 959px) {
+  .login-window {
+    width: 90%;
+    height: 50%;
+  }
+}
+
 .login-window div[name="login-info"] {
   position: relative;
   -webkit-box-flex: 1;
