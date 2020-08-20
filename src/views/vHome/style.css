@@ -58,6 +58,10 @@ div {
   font-weight: 700;
   font-size: 72px;
   margin-bottom: 70px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .banner .textBox .shop-now {
@@ -290,7 +294,7 @@ div {
 
 @media all and (min-width: 960px) {
   .product-container {
-    padding: 80px 100px 10px 100px;
+    padding: 80px 100px 50px 100px;
   }
 }
 

@@ -87,6 +87,7 @@ div {
       font-weight: 700;
       font-size: 72px;
       margin-bottom: 70px;
+      user-select: none;
     }
 
     .shop-now {
@@ -250,7 +251,7 @@ div {
   justify-content: flex-start;
 
   @include pc-width() {
-    padding: 80px 100px 10px 100px;
+    padding: 80px 100px 50px 100px;
   }
 
   @include pad-width() {
