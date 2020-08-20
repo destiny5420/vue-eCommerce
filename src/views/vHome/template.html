@@ -2,12 +2,12 @@
   <div>
     <div class="banner">
       <div class="textBox">
-        <h1>Sale of the summer collection</h1>
+        <h1 class="p-font-family-content">Sale of the summer collection</h1>
         <div class="shop-now">
           <div>
             <font-awesome-icon :icon="arrowRight" />
           </div>
-          <span><b>SHOP NOW</b></span>
+          <span class="p-font-family-content"><b>SHOP NOW</b></span>
         </div>
       </div>
     </div>
@@ -18,7 +18,7 @@
             <font-awesome-icon :icon="item.symbol" />
           </div>
           <div class="info-content">
-            <h6 class="no-margin">{{ item.title }}</h6>
+            <h6 class="no-margin p-font-family-button">{{ item.title }}</h6>
             <span>{{ item.content }}</span>
           </div>
         </div>
@@ -45,7 +45,7 @@
 
     <div class="shop-window p-mb-10"></div>
 
-    <div class="p-full-w p-font-large layout-row-center p-mb-3">
+    <div class="p-full-w p-font-large layout-row-center p-mb-3 p-font-family-button">
       Why should choice us ?
     </div>
     <div class="advantage p-full-w p-mb-10">
@@ -58,13 +58,15 @@
       />
     </div>
 
-    <div class="p-full-w p-font-large layout-row-center  p-mb-3">
+    <div class="p-full-w p-font-large layout-row-center p-mb-3 p-font-family-button">
       Products in today
     </div>
     <div class="product-today p-align-left p-full-w  p-mb-5">
         <div style="width: 25%; min-width: 170px;" v-for="(item, index) in dailyProduct" :key="index">
           <div class="p-ml-2 p-mr-2 p-mb-3">
-            <img class="p-mb-2" :src="item.src">
+            <div class="p-mb-2" style="max-height: 300px; overflow: hidden;">
+              <img :src="item.src">
+            </div>
             <div class="p-font-sm p-font-lighter">{{item.title}}</div>
             <div class="p-font-medium p-font-bold">${{item.price}}</div>
           </div>
@@ -83,7 +85,7 @@
       <div name="main">
         <div name="logo" class="p-mb-3">
           <img class="p-mr-1" src="@/assets/z-shop-logo.png" style="height: 50px;" />
-          <span class="p-font-bold"><span style="margin: 0; color: rgb(253, 166, 67);">Z-</span>Shop</span>
+          <span class="p-font-bold p-font-family-content"><span style="margin: 0; color: rgb(253, 166, 67);">Z-</span>Shop</span>
         </div>
         <span class="p-mb-3">We work with creative minds, content creators and technical geniuses willing to entertain and empower the world.</span>
         <div name="social-media">

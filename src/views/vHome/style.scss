@@ -85,7 +85,6 @@ div {
 
     h1 {
       font-weight: 700;
-      font-family: "Palanquin Dark", sans-serif;
       font-size: 72px;
       margin-bottom: 70px;
     }
@@ -178,6 +177,7 @@ div {
       .info-content {
         width: 75%;
         h6 {
+          font-family: "Roboto", sans-serif;
           font-size: 12px;
           font-weight: 800;
         }
@@ -266,7 +266,8 @@ div {
   align-items: flex-start;
 
   img {
-    max-width: 100%;
+    display: block;
+    width: 100%;
   }
 }
 

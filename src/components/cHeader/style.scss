@@ -110,19 +110,19 @@ $phones-media: 479px;
     border-bottom: 1px solid #e0e0e0;
 
     @include pc-width {
-      padding: 25px map-get($map: $padding, $key: desktop-header-horizontal);
+      padding: 20px map-get($map: $padding, $key: desktop-header-horizontal);
     }
 
     @include pad-width {
-      padding: 25px map-get($map: $padding, $key: pad-header-horizontal);
+      padding: 20px map-get($map: $padding, $key: pad-header-horizontal);
     }
 
     @include small-pad-width {
-      padding: 25px map-get($map: $padding, $key: small-pad-header-horizontal);
+      padding: 20px map-get($map: $padding, $key: small-pad-header-horizontal);
     }
 
     @include phone-width {
-      padding: 25px map-get($map: $padding, $key: phone-header-horizontal);
+      padding: 20px map-get($map: $padding, $key: phone-header-horizontal);
     }
 
     a {

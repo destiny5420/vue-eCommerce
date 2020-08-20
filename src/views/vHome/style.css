@@ -56,7 +56,6 @@ div {
 
 .banner .textBox h1 {
   font-weight: 700;
-  font-family: "Palanquin Dark", sans-serif;
   font-size: 72px;
   margin-bottom: 70px;
 }
@@ -187,6 +186,7 @@ div {
 }
 
 .info-container .info-area .info .info-content h6 {
+  font-family: "Roboto", sans-serif;
   font-size: 12px;
   font-weight: 800;
 }
@@ -297,7 +297,8 @@ div {
 }
 
 .product-today img {
-  max-width: 100%;
+  display: block;
+  width: 100%;
 }
 
 .subscribe {
