@@ -184,10 +184,6 @@ $phones-media: 479px;
       .hamburger-3 {
         transform: translateY($burger-line-spacing);
       }
-
-      // &:hover {
-      //   background: green;
-      // }
     }
   }
 
@@ -200,16 +196,20 @@ $phones-media: 479px;
   .side-bar {
     position: fixed;
     top: $normal-header;
-    left: 0px;
+    left: -100%;
     width: 100%;
     height: 100vh;
     height: calc(100vh - #{$normal-header});
     background: rgba(255, 255, 255, 0.89);
-    transition: 0.15s;
+    transition: 0.3s;
 
     &.sticky {
       top: $scroll-header;
       height: calc(100vh - #{$scroll-header});
     }
+  }
+
+  .side-bar.active {
+    left: 0;
   }
 }

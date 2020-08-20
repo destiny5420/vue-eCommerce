@@ -8,13 +8,26 @@ export default {
   },
   components: {},
   data: function() {
-    return {};
+    return {
+      openSideBar: false
+    };
   },
-  methods: {},
+  methods: {
+    onToggleHandler: function() {
+      console.log("onToggleHandler");
+      this.openSideBar = !this.openSideBar;
+    }
+  },
   computed: {
     classHeader: function() {
       return {
         sticky: this.prop_scroll_y > 30 ? true : false
+      };
+    },
+    classSideBar: function() {
+      return {
+        sticky: this.prop_scroll_y > 30 ? true : false,
+        active: this.openSideBar
       };
     }
   },

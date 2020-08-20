@@ -192,17 +192,21 @@
 .header .side-bar {
   position: fixed;
   top: 80px;
-  left: 0px;
+  left: -100%;
   width: 100%;
   height: 100vh;
   height: calc(100vh - 80px);
   background: rgba(255, 255, 255, 0.89);
-  -webkit-transition: 0.15s;
-  transition: 0.15s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .header .side-bar.sticky {
   top: 71px;
   height: calc(100vh - 71px);
+}
+
+.header .side-bar.active {
+  left: 0;
 }
 /*# sourceMappingURL=style.css.map */
