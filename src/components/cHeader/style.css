@@ -2,8 +2,8 @@
   position: fixed;
   top: 0px;
   left: 0px;
+  height: 80px;
   width: 100vw;
-  border-bottom: 1px solid transparent;
   z-index: 1000;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -27,18 +27,6 @@
 @media all and (min-width: 760px) and (max-width: 959px) {
   .header {
     padding: 25px 50px;
-  }
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .header {
-    padding: 25px 30px;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .header {
-    padding: 25px 10px;
   }
 }
 
@@ -92,11 +80,12 @@
   margin: 0 15px;
   color: #eeeeee;
   text-decoration: none;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
 }
 
 .header.sticky {
+  height: 71px;
   background: #fff;
   border-bottom: 1px solid #e0e0e0;
 }
@@ -113,24 +102,107 @@
   }
 }
 
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .header.sticky {
-    padding: 20px 30px;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .header.sticky {
-    padding: 20px 10px;
-  }
-}
-
 .header.sticky a {
   color: #636363;
 }
 
-.catalog span {
+.header .catalog span {
   cursor: pointer;
   margin: 0 10px;
+}
+
+.header .toggle {
+  display: none;
+}
+
+@media all and (min-width: 960px) {
+  .header .toggle {
+    display: none;
+  }
+}
+
+@media all and (min-width: 760px) and (max-width: 959px) {
+  .header .toggle {
+    display: inline-block;
+  }
+}
+
+.header .toggle input[type="checkbox"] {
+  display: none;
+}
+
+.header .toggle input[type="checkbox"]:checked + .menu-open-button .hamburger-1 {
+  -webkit-transform: translateY(0) rotate(45deg) scale(0.9, 1);
+          transform: translateY(0) rotate(45deg) scale(0.9, 1);
+}
+
+.header .toggle input[type="checkbox"]:checked + .menu-open-button .hamburger-2 {
+  -webkit-transform: translateY(0) scale(0.1, 1);
+          transform: translateY(0) scale(0.1, 1);
+  opacity: 0;
+}
+
+.header .toggle input[type="checkbox"]:checked + .menu-open-button .hamburger-3 {
+  -webkit-transform: translateY(0) rotate(-45deg) scale(0.9, 1);
+          transform: translateY(0) rotate(-45deg) scale(0.9, 1);
+}
+
+.header .toggle .menu-open-button {
+  position: relative;
+  width: 40px;
+  height: 50px;
+  cursor: pointer;
+  margin: 0;
+}
+
+.header .toggle .menu-open-button .hamburger {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  top: calc(50% - 2px);
+  left: calc(50% - (40px * 0.8 * 0.5));
+  width: 80%;
+  height: 4px;
+  background: #363636;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.header .toggle .menu-open-button .hamburger-1 {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+
+.header .toggle .menu-open-button .hamburger-2 {
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+.header .toggle .menu-open-button .hamburger-3 {
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+}
+
+@media all and (min-width: 760px) and (max-width: 959px) {
+  .header .menu {
+    display: none;
+  }
+}
+
+.header .side-bar {
+  position: fixed;
+  top: 80px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  height: calc(100vh - 80px);
+  background: rgba(255, 255, 255, 0.89);
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+
+.header .side-bar.sticky {
+  top: 71px;
+  height: calc(100vh - 71px);
 }
 /*# sourceMappingURL=style.css.map */

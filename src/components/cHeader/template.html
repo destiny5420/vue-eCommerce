@@ -10,8 +10,21 @@
     <span><b>Women</b></span>
     <span><b>Kids</b></span>
   </div>
-  <div class="toggle"></div>
-  <ul>
+  <div class="toggle">
+    <input
+      type="checkbox"
+      href="#"
+      class="menu-open"
+      name="menu-open"
+      id="menu-open"
+    />
+    <label class="menu-open-button" for="menu-open">
+      <span class="hamburger hamburger-1"></span>
+      <span class="hamburger hamburger-2"></span>
+      <span class="hamburger hamburger-3"></span>
+    </label>
+  </div>
+  <ul class="menu">
     <li>
       <a href="#"><font-awesome-icon :icon="['fas', 'search']"/></a>
     </li>
@@ -22,4 +35,5 @@
       <a href="#"><font-awesome-icon :icon="['far', 'user']"/></a>
     </li>
   </ul>
+  <div class="side-bar"></div>
 </header>
