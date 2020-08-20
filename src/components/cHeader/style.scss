@@ -15,6 +15,11 @@ $pads-media: 759px;
 $phone-media: 480px;
 $phones-media: 479px;
 
+$burger-area-width: 40px;
+$burger-line-height: 4px;
+$burger-line-spacing: 10px;
+$burger-line-color: #2c3e50;
+
 // 電腦
 @mixin pc-width {
   @media all and (min-width: $pc-media) {
@@ -119,10 +124,47 @@ $phones-media: 479px;
   }
 
   .catalog {
+    @include pc-width {
+      display: inline-block;
+    }
+
+    @include pad-width {
+      display: none;
+    }
+
     span {
       cursor: pointer;
       margin: 0 10px;
     }
+  }
+
+  .show-burger-line-1 {
+    transform: translateY(0) rotate(45deg) scale(0.8, 1);
+    top: calc((25% * 2) - #{$burger-line-height / 2});
+  }
+
+  .show-burger-line-2 {
+    transform: translateY(0) scale(0.1, 1);
+    opacity: 0;
+  }
+
+  .show-burger-line-3 {
+    transform: translateY(0) rotate(-45deg) scale(0.8, 1);
+    top: calc((25% * 2) - #{$burger-line-height / 2});
+  }
+
+  .hamburger-1 {
+    transform-origin: center center;
+    top: calc((25% * 1) - #{$burger-line-height / 2});
+  }
+
+  .hamburger-2 {
+    top: calc((25% * 2) - #{$burger-line-height / 2});
+  }
+
+  .hamburger-3 {
+    transform-origin: center center;
+    top: calc((25% * 3) - #{$burger-line-height / 2});
   }
 
   .toggle {
@@ -133,56 +175,37 @@ $phones-media: 479px;
     }
 
     @include pad-width {
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    div[name="toggle-cart"] {
       display: inline-block;
+      font-size: 30px;
+      margin-right: 20px;
+      cursor: pointer;
+      color: $burger-line-color;
     }
 
-    input[type="checkbox"] {
-      display: none;
-
-      &:checked + .menu-open-button .hamburger-1 {
-        transform: translateY(0) rotate(45deg) scale(0.9, 1);
-      }
-
-      &:checked + .menu-open-button .hamburger-2 {
-        transform: translateY(0) scale(0.1, 1);
-        opacity: 0;
-      }
-
-      &:checked + .menu-open-button .hamburger-3 {
-        transform: translateY(0) rotate(-45deg) scale(0.9, 1);
-      }
-    }
-
-    $burger-area-width: 40px;
-    $burger-line-height: 4px;
-    $burger-line-spacing: 10px;
-    $burger-line-color: #363636;
     .menu-open-button {
       position: relative;
       width: $burger-area-width;
       height: 50px;
       cursor: pointer;
+      user-select: none;
       margin: 0;
 
       .hamburger {
         box-sizing: border-box;
         position: absolute;
-        top: calc(50% - #{$burger-line-height / 2});
+        //top: calc(50% - #{$burger-line-height / 2});
         left: calc(50% - (#{$burger-area-width} * 0.8 * 0.5));
         width: 80%;
         height: $burger-line-height;
         background: $burger-line-color;
         transition: 0.3s;
-      }
-
-      .hamburger-1 {
-        transform: translateY(-$burger-line-spacing);
-      }
-      .hamburger-2 {
-        transform: translateY(0px);
-      }
-      .hamburger-3 {
-        transform: translateY($burger-line-spacing);
       }
     }
   }
@@ -199,9 +222,32 @@ $phones-media: 479px;
     left: -100%;
     width: 100%;
     height: 100vh;
+
     height: calc(100vh - #{$normal-header});
     background: rgba(255, 255, 255, 0.89);
     transition: 0.3s;
+
+    @include pc-width {
+      display: none;
+    }
+
+    .side-bar-item {
+      height: 100px;
+      margin: 0 20%;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+      font-size: 50px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      transition: 0.25s;
+      cursor: pointer;
+      text-transform: uppercase;
+      user-select: none;
+      &:hover {
+        background: rgba(0, 0, 0, 0.15);
+      }
+    }
 
     &.sticky {
       top: $scroll-header;
@@ -210,6 +256,6 @@ $phones-media: 479px;
   }
 
   .side-bar.active {
-    left: 0;
+    left: 0%;
   }
 }

@@ -11,18 +11,17 @@
     <span><b>Kids</b></span>
   </div>
   <div class="toggle">
-    <input
-      type="checkbox"
-      href="#"
-      class="menu-open"
-      name="menu-open"
-      id="menu-open"
-    />
-    <label class="menu-open-button" for="menu-open" @click="onToggleHandler">
-      <span class="hamburger hamburger-1"></span>
-      <span class="hamburger hamburger-2"></span>
-      <span class="hamburger hamburger-3"></span>
-    </label>
+    <div name="toggle-cart">
+      <font-awesome-icon
+        :icon="['fas', 'shopping-cart']"
+        @click="onCartHandler"
+      />
+    </div>
+    <div class="menu-open-button" @click="onToggleHandler">
+      <div :class="classBurgerLine1" class="hamburger"></div>
+      <div :class="classBurgerLine2" class="hamburger hamburger-2"></div>
+      <div :class="classBurgerLine3" class="hamburger"></div>
+    </div>
   </div>
   <ul class="menu">
     <li>
@@ -35,5 +34,11 @@
       <a href="#"><font-awesome-icon :icon="['far', 'user']"/></a>
     </li>
   </ul>
-  <div class="side-bar" :class="classSideBar"></div>
+  <div class="side-bar" :class="classSideBar">
+    <template v-for="(item, index) in sideBarData">
+      <div class="side-bar-item" :key="index" @click="onSideBarHandler(index)">
+        {{ item.title }}
+      </div>
+    </template>
+  </div>
 </header>

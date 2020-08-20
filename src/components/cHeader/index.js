@@ -9,13 +9,45 @@ export default {
   components: {},
   data: function() {
     return {
-      openSideBar: false
+      openSideBar: false,
+      sideBarData: [
+        {
+          title: "Mem",
+          tmp: function() {}
+        },
+        {
+          title: "Women",
+          tmp: function() {
+            console.log("Women");
+          }
+        },
+        {
+          title: "Kids",
+          tmp: function() {
+            console.log("Kids");
+          }
+        },
+        {
+          title: "Login",
+          tmp: function(vm) {
+            vm.$router.push("/login");
+          }
+        }
+      ]
     };
   },
   methods: {
     onToggleHandler: function() {
-      console.log("onToggleHandler");
       this.openSideBar = !this.openSideBar;
+    },
+    onSideBarHandler: function(index) {
+      let vm = this;
+      this.sideBarData[index].tmp(vm);
+    },
+    onCartHandler: function() {
+      if (this.openSideBar) {
+        this.openSideBar = !this.openSideBar;
+      }
     }
   },
   computed: {
@@ -28,6 +60,23 @@ export default {
       return {
         sticky: this.prop_scroll_y > 30 ? true : false,
         active: this.openSideBar
+      };
+    },
+    classBurgerLine1: function() {
+      return {
+        "show-burger-line-1": this.openSideBar,
+        "hamburger-1": !this.openSideBar
+      };
+    },
+    classBurgerLine2: function() {
+      return {
+        "show-burger-line-2": this.openSideBar
+      };
+    },
+    classBurgerLine3: function() {
+      return {
+        "show-burger-line-3": this.openSideBar,
+        "hamburger-3": !this.openSideBar
       };
     }
   },
