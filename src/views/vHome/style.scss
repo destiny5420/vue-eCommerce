@@ -72,7 +72,7 @@ div {
     }
 
     @include pad-width {
-      padding-left: 150px;
+      padding-left: 90px;
     }
 
     @include small-pad-width {
@@ -89,45 +89,82 @@ div {
       margin-bottom: 70px;
     }
 
-    span {
-      font-weight: bold;
-    }
-  }
-}
+    .shop-now {
+      display: inline-flex;
+      justify-content: space-between;
+      align-items: center;
 
-.shop-now {
-  display: inline-block;
+      div {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        background: map-get($map: $color, $key: first-color);
+        border-radius: 50%;
 
-  div {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-    background: map-get($map: $color, $key: first-color);
-    border-radius: 50%;
+        transition: 0.25s;
 
-    transition: 0.25s;
-  }
+        @include pc-width {
+          width: 40px;
+          height: 40px;
+        }
 
-  span {
-    color: #fff;
-    font-size: 12px;
-    transition: 0.25s;
-  }
+        @include pad-width {
+          width: 60px;
+          height: 60px;
+        }
 
-  &:hover {
-    cursor: pointer;
+        svg {
+          font-size: 20px;
 
-    div {
-      background: map-get($map: $color, $key: first-color-hover);
-      box-shadow: 2px 2px 3px 0px #00000052;
-    }
+          @include pc-width {
+            font-size: 20px;
+          }
 
-    span {
-      color: map-get($map: $color, $key: first-color-hover);
-      text-shadow: 2px 2px 1px #00000052;
+          @include pad-width {
+            font-size: 30px;
+          }
+        }
+      }
+
+      span {
+        color: #fff;
+        font-size: 12px;
+        transition: 0.25s;
+        font-weight: bold;
+
+        @include pc-width {
+          font-size: 16px;
+        }
+
+        @include pad-width {
+          font-size: 20px;
+        }
+
+        @include small-pad-width {
+          font-size: 16px;
+        }
+
+        @include phone-width {
+          font-size: 16px;
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        div {
+          background: map-get($map: $color, $key: first-color-hover);
+          box-shadow: 2px 2px 3px 0px #00000052;
+        }
+
+        span {
+          color: map-get($map: $color, $key: first-color-hover);
+          text-shadow: 2px 2px 1px #00000052;
+        }
+      }
     }
   }
 }
@@ -142,6 +179,18 @@ div {
   background: #fff;
   z-index: 1;
   border-radius: 0 45px 0 0;
+
+  @include pc-width() {
+    padding: 35px 80px 35px 150px;
+    height: 120px;
+  }
+
+  @include pad-width() {
+    width: 100vw;
+    position: relative;
+    padding: 35px 50px;
+    height: auto;
+  }
 
   .info-area {
     width: 100%;
@@ -199,6 +248,14 @@ div {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
+  @include pc-width() {
+    padding: 80px 100px 10px 100px;
+  }
+
+  @include pad-width() {
+    padding: 0px 20px 10px 20px;
+  }
 }
 
 .quickly-pics {
@@ -208,10 +265,23 @@ div {
 }
 
 .just-for-you {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
   div {
     display: inline-block;
     margin: 0 10px;
     font-size: 25px;
+
+    @include pc-width() {
+      font-size: 30px;
+    }
+
+    @include pad-width() {
+      font-size: 30px;
+    }
   }
 
   > input {
@@ -231,6 +301,18 @@ div {
     font-size: 10px;
 
     transition: 0.15s;
+
+    @include pc-width() {
+      width: 130px;
+      height: 40px;
+      font-size: 10px;
+    }
+
+    @include pad-width() {
+      width: 200px;
+      height: 60px;
+      font-size: 16px;
+    }
   }
 
   & > input:hover {
@@ -242,28 +324,84 @@ div {
 .shop-window {
   width: 100%;
   height: 400px;
+  margin-bottom: 100px;
   background: url("https://i.postimg.cc/fLYvV72q/benjamin-voros-Tn-No84-AJJ5-A-unsplash.jpg");
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
+
+  @include pc-width() {
+    margin-bottom: 100px;
+  }
+
+  @include pad-width() {
+    margin-bottom: 50px;
+  }
 }
 
 .advantage {
   width: 100%;
+  margin-bottom: 100px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
+
+  @include pc-width() {
+    margin-bottom: 100px;
+  }
+
+  @include pad-width() {
+    margin-bottom: 50px;
+  }
 }
 
 .product-today {
+  margin-bottom: 50px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
+
+  .product-today-item {
+    width: 25%;
+    min-width: 170px;
+
+    @include pc-width() {
+      width: 25%;
+    }
+
+    @include pad-width() {
+      width: 50%;
+    }
+
+    .product-today-title {
+      font-size: 12px;
+
+      @include pc-width() {
+        font-size: 12px;
+      }
+
+      @include pad-width() {
+        font-size: 16px;
+      }
+    }
+
+    .product-today-price {
+      font-size: 16px;
+
+      @include pc-width() {
+        font-size: 16px;
+      }
+
+      @include pad-width() {
+        font-size: 18px;
+      }
+    }
+  }
 
   img {
     display: block;
@@ -338,24 +476,50 @@ div {
 }
 
 .footer-info {
-  height: 230px;
-
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
+
+  @include pc-width() {
+    flex-wrap: nowrap;
+  }
+
+  @include pad-width() {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
 
   > div {
+    box-sizing: border-box;
     margin: 0 20px;
-    flex: 1;
-    width: 100%;
+    width: 20%;
     height: 100%;
     text-align: left;
+
+    @include pc-width() {
+      width: 20%;
+      margin: 0 20px;
+    }
+
+    @include pad-width() {
+      width: 50%;
+      margin: 0 0 50px 0;
+      padding: 0 6%;
+    }
   }
 
   div[name="main"] {
-    flex: 2;
-    box-sizing: content-box;
+    width: 40%;
+
+    @include pc-width() {
+      width: 40%;
+    }
+
+    @include pad-width() {
+      width: 50%;
+    }
 
     > span {
       display: block;

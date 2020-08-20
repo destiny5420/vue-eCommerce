@@ -3,6 +3,18 @@
   min-width: 170px;
 }
 
+@media all and (min-width: 960px) {
+  .item {
+    width: 25%;
+  }
+}
+
+@media all and (min-width: 760px) and (max-width: 959px) {
+  .item {
+    width: 50%;
+  }
+}
+
 .item .item-container {
   height: 100%;
   margin: 0 10px 20px 10px;

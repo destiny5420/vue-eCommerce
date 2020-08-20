@@ -25,7 +25,7 @@
       </div>
     </div>
   </div>
-  <div class="product-container no-margin normal-padding-h">
+  <div class="product-container no-margin">
     <div class="quickly-pics p-mb-4">
       <cQuicklyPics
         :prop-flex="quitePicPaths[index].flex"
@@ -38,17 +38,17 @@
       />
     </div>
 
-    <div class="just-for-you layout-row-between p-mb-4">
+    <div class="just-for-you p-mb-4 ">
       <div>Selected just for you</div>
-      <input type="button" value="SHOW MORE" />
+      <input class="p-font-family-button" type="button" value="SHOW MORE" />
     </div>
 
-    <div class="shop-window p-mb-10"></div>
+    <div class="shop-window"></div>
 
     <div class="p-full-w p-font-large layout-row-center p-mb-3 p-font-family-button">
       Why should choice us ?
     </div>
-    <div class="advantage p-full-w p-mb-10">
+    <div class="advantage p-full-w">
       <cAdvantage
         :prop-symbol="item.symbol"
         :prop-title="item.title"
@@ -61,14 +61,14 @@
     <div class="p-full-w p-font-large layout-row-center p-mb-3 p-font-family-button">
       Products in today
     </div>
-    <div class="product-today p-align-left p-full-w  p-mb-5">
-        <div style="width: 25%; min-width: 170px;" v-for="(item, index) in dailyProduct" :key="index">
+    <div class="product-today p-align-left p-full-w">
+        <div class="product-today-item" v-for="(item, index) in dailyProduct" :key="index">
           <div class="p-ml-2 p-mr-2 p-mb-3">
             <div class="p-mb-2" style="max-height: 300px; overflow: hidden;">
               <img :src="item.src">
             </div>
-            <div class="p-font-sm p-font-lighter">{{item.title}}</div>
-            <div class="p-font-medium p-font-bold">${{item.price}}</div>
+            <div class="product-today-title p-font-lighter">{{item.title}}</div>
+            <div class="product-today-price p-font-bold">${{item.price}}</div>
           </div>
       </div>
     </div>
