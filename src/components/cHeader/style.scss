@@ -84,6 +84,15 @@ $burger-line-spacing: 10px;
     align-items: center;
     cursor: pointer;
 
+    a {
+      text-decoration: none;
+      color: $seconds-color;
+
+      &:hover {
+        color: $seconds-color;
+      }
+    }
+
     span {
       margin-left: 5px;
     }
@@ -135,7 +144,7 @@ $burger-line-spacing: 10px;
     }
 
     a {
-      color: #636363;
+      color: $seconds-color;
     }
   }
 

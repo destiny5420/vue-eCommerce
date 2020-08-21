@@ -61,6 +61,15 @@
   cursor: pointer;
 }
 
+.header .logo a {
+  text-decoration: none;
+  color: #2c3e50;
+}
+
+.header .logo a:hover {
+  color: #2c3e50;
+}
+
 .header .logo span {
   margin-left: 5px;
 }
@@ -127,7 +136,7 @@
 }
 
 .header.sticky a {
-  color: #636363;
+  color: #2c3e50;
 }
 
 @media all and (min-width: 960px) {

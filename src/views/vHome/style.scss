@@ -97,6 +97,11 @@ div {
       justify-content: space-between;
       align-items: center;
 
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
+
       div {
         display: inline-flex;
         justify-content: center;

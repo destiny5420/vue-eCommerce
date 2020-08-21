@@ -77,6 +77,11 @@ div {
           align-items: center;
 }
 
+.banner .textBox .shop-now a {
+  text-decoration: none;
+  color: #fff;
+}
+
 .banner .textBox .shop-now div {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
