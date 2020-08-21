@@ -621,11 +621,17 @@ div {
   }
 
   span {
-    width: 95%;
-
     color: #fff;
     font-size: 24px;
     font-weight: bold;
+
+    @include pc-width() {
+      width: 50%;
+    }
+
+    @include pad-width() {
+      font-size: 20px;
+    }
 
     @include small-pad-width() {
       font-size: 20px;
@@ -633,6 +639,7 @@ div {
 
     @include phone-width() {
       font-size: 20px;
+      width: 95%;
     }
   }
 

@@ -839,10 +839,21 @@ div {
 }
 
 .subscribe span {
-  width: 95%;
   color: #fff;
   font-size: 24px;
   font-weight: bold;
+}
+
+@media all and (min-width: 960px) {
+  .subscribe span {
+    width: 50%;
+  }
+}
+
+@media all and (min-width: 760px) and (max-width: 959px) {
+  .subscribe span {
+    font-size: 20px;
+  }
 }
 
 @media all and (min-width: 480px) and (max-width: 759px) {
@@ -854,6 +865,7 @@ div {
 @media all and (max-width: 479px) {
   .subscribe span {
     font-size: 20px;
+    width: 95%;
   }
 }
 
