@@ -20,13 +20,25 @@
 
 @media all and (min-width: 960px) {
   .header {
-    padding: 25px 200px;
+    padding: 25px 100px;
   }
 }
 
 @media all and (min-width: 760px) and (max-width: 959px) {
   .header {
-    padding: 25px 50px;
+    padding: 25px 40px;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .header {
+    padding: 25px 30px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .header {
+    padding: 25px 20px;
   }
 }
 
@@ -92,13 +104,25 @@
 
 @media all and (min-width: 960px) {
   .header.sticky {
-    padding: 20px 200px;
+    padding: 20px 100px;
   }
 }
 
 @media all and (min-width: 760px) and (max-width: 959px) {
   .header.sticky {
-    padding: 20px 50px;
+    padding: 20px 40px;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .header.sticky {
+    padding: 20px 30px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .header.sticky {
+    padding: 20px 20px;
   }
 }
 
@@ -113,6 +137,18 @@
 }
 
 @media all and (min-width: 760px) and (max-width: 959px) {
+  .header .catalog {
+    display: none;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .header .catalog {
+    display: none;
+  }
+}
+
+@media all and (max-width: 479px) {
   .header .catalog {
     display: none;
   }
@@ -185,12 +221,66 @@
   }
 }
 
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .header .toggle {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .header .toggle {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 .header .toggle div[name="toggle-cart"] {
   display: inline-block;
   font-size: 30px;
   margin-right: 20px;
   cursor: pointer;
   color: #2c3e50;
+}
+
+@media all and (min-width: 760px) and (max-width: 959px) {
+  .header .toggle div[name="toggle-cart"] {
+    font-size: 30px;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .header .toggle div[name="toggle-cart"] {
+    font-size: 25px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .header .toggle div[name="toggle-cart"] {
+    font-size: 25px;
+  }
 }
 
 .header .toggle .menu-open-button {
@@ -203,6 +293,24 @@
       -ms-user-select: none;
           user-select: none;
   margin: 0;
+}
+
+@media all and (min-width: 760px) and (max-width: 959px) {
+  .header .toggle .menu-open-button {
+    height: 50px;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .header .toggle .menu-open-button {
+    height: 35px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .header .toggle .menu-open-button {
+    height: 30px;
+  }
 }
 
 .header .toggle .menu-open-button .hamburger {
@@ -218,6 +326,36 @@
 }
 
 @media all and (min-width: 760px) and (max-width: 959px) {
+  .header .toggle .menu-open-button .hamburger {
+    width: 80%;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .header .toggle .menu-open-button .hamburger {
+    width: 70%;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .header .toggle .menu-open-button .hamburger {
+    width: 65%;
+  }
+}
+
+@media all and (min-width: 760px) and (max-width: 959px) {
+  .header .menu {
+    display: none;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .header .menu {
+    display: none;
+  }
+}
+
+@media all and (max-width: 479px) {
   .header .menu {
     display: none;
   }

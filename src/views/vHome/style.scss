@@ -76,11 +76,12 @@ div {
     }
 
     @include small-pad-width {
-      padding-left: 150px;
+      padding-left: 65px;
     }
 
     @include phone-width {
-      padding-left: 150px;
+      padding-left: 55px;
+      width: 95%;
     }
 
     h1 {
@@ -117,6 +118,15 @@ div {
           height: 60px;
         }
 
+        @include small-pad-width {
+          width: 60px;
+          height: 60px;
+        }
+
+        @include phone-width {
+          width: 60px;
+          height: 60px;
+        }
         svg {
           font-size: 20px;
 
@@ -125,6 +135,14 @@ div {
           }
 
           @include pad-width {
+            font-size: 30px;
+          }
+
+          @include small-pad-width {
+            font-size: 30px;
+          }
+
+          @include phone-width {
             font-size: 30px;
           }
         }
@@ -174,7 +192,7 @@ div {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 75vw;
+  width: 85vw;
   height: 120px;
   padding: 35px 80px 35px 150px;
   background: #fff;
@@ -182,14 +200,28 @@ div {
   border-radius: 0 45px 0 0;
 
   @include pc-width() {
-    padding: 35px 80px 35px 150px;
+    padding: 35px 40px 35px 100px;
     height: 120px;
   }
 
   @include pad-width() {
     width: 100vw;
     position: relative;
+    padding: 35px 40px;
+    height: auto;
+  }
+
+  @include small-pad-width() {
+    width: 100vw;
+    position: relative;
     padding: 35px 50px;
+    height: auto;
+  }
+
+  @include phone-width() {
+    width: 100vw;
+    position: relative;
+    padding: 20px 20px;
     height: auto;
   }
 
@@ -202,13 +234,37 @@ div {
     justify-content: space-between;
     align-items: stretch;
 
+    @include small-pad-width() {
+      flex-wrap: wrap;
+    }
+
+    @include phone-width() {
+      flex-wrap: wrap;
+    }
+
     .info {
-      flex: 1;
+      width: 100%;
       margin: 0 10px;
       display: flex;
       flex-direction: row;
       align-items: flex-start;
       text-align: left;
+
+      @include small-pad-width() {
+        margin: 20px 0;
+
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      @include phone-width() {
+        margin: 20px 0;
+
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
 
       .info-symbol {
         box-sizing: border-box;
@@ -222,6 +278,22 @@ div {
         flex-direction: row;
         justify-content: center;
         align-items: center;
+
+        @include small-pad-width() {
+          margin-right: 0px;
+          margin-bottom: 20px;
+          height: 60px;
+          width: 60px;
+          font-size: 28px;
+        }
+
+        @include phone-width() {
+          margin-right: 0px;
+          margin-bottom: 20px;
+          height: 60px;
+          width: 60px;
+          font-size: 28px;
+        }
       }
 
       .info-content {
@@ -230,10 +302,26 @@ div {
           font-family: "Roboto", sans-serif;
           font-size: 12px;
           font-weight: 800;
+
+          @include small-pad-width() {
+            font-size: 25px;
+          }
+
+          @include phone-width() {
+            font-size: 18px;
+          }
         }
         span {
           font-size: 12px;
           color: rgb(119, 119, 119);
+
+          @include small-pad-width() {
+            font-size: 20px;
+          }
+
+          @include phone-width() {
+            font-size: 16px;
+          }
         }
       }
     }
@@ -257,12 +345,28 @@ div {
   @include pad-width() {
     padding: 0px 20px 10px 20px;
   }
+
+  @include small-pad-width() {
+    padding: 0px 20px 10px 20px;
+  }
+
+  @include phone-width() {
+    padding: 0px 20px 10px 20px;
+  }
 }
 
 .quickly-pics {
   width: 100%;
   display: flex;
   justify-content: space-around;
+
+  @include small-pad-width() {
+    flex-direction: column;
+  }
+
+  @include phone-width() {
+    flex-direction: column;
+  }
 }
 
 .just-for-you {
@@ -282,6 +386,14 @@ div {
 
     @include pad-width() {
       font-size: 30px;
+    }
+
+    @include small-pad-width() {
+      font-size: 22px;
+    }
+
+    @include phone-width() {
+      font-size: 20px;
     }
   }
 
@@ -314,6 +426,18 @@ div {
       height: 60px;
       font-size: 16px;
     }
+
+    @include small-pad-width() {
+      width: 150px;
+      height: 50px;
+      font-size: 14px;
+    }
+
+    @include phone-width() {
+      width: 130px;
+      height: 40px;
+      font-size: 14px;
+    }
   }
 
   & > input:hover {
@@ -339,6 +463,14 @@ div {
   @include pad-width() {
     margin-bottom: 50px;
   }
+
+  @include small-pad-width() {
+    margin-bottom: 50px;
+  }
+
+  @include phone-width() {
+    margin-bottom: 50px;
+  }
 }
 
 .advantage {
@@ -347,7 +479,7 @@ div {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   align-items: flex-start;
 
   @include pc-width() {
@@ -356,6 +488,22 @@ div {
 
   @include pad-width() {
     margin-bottom: 50px;
+  }
+
+  @include small-pad-width() {
+    margin-bottom: 50px;
+
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  @include phone-width() {
+    margin-bottom: 50px;
+
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
   }
 }
 
@@ -379,6 +527,14 @@ div {
       width: 50%;
     }
 
+    @include small-pad-width() {
+      width: 100%;
+    }
+
+    @include phone-width() {
+      width: 100%;
+    }
+
     .product-today-title {
       font-size: 12px;
 
@@ -387,6 +543,14 @@ div {
       }
 
       @include pad-width() {
+        font-size: 16px;
+      }
+
+      @include small-pad-width() {
+        font-size: 16px;
+      }
+
+      @include phone-width() {
         font-size: 16px;
       }
     }
@@ -401,7 +565,24 @@ div {
       @include pad-width() {
         font-size: 18px;
       }
+
+      @include small-pad-width() {
+        font-size: 18px;
+      }
+
+      @include phone-width() {
+        font-size: 18px;
+      }
     }
+  }
+
+  .img-block {
+    margin-bottom: 20px;
+    max-height: 300px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   img {
@@ -424,12 +605,34 @@ div {
   justify-content: space-around;
   align-items: center;
 
+  @include small-pad-width() {
+    padding: 10px 20px;
+
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  @include phone-width() {
+    padding: 10px 20px;
+
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
   span {
-    width: 400px;
+    width: 95%;
 
     color: #fff;
     font-size: 24px;
     font-weight: bold;
+
+    @include small-pad-width() {
+      font-size: 20px;
+    }
+
+    @include phone-width() {
+      font-size: 20px;
+    }
   }
 
   input[type="text"] {
@@ -443,6 +646,14 @@ div {
     outline: none;
     border: 0px solid transparent;
     border-radius: 17px;
+
+    @include small-pad-width() {
+      margin: 0 15px 0px 15px;
+    }
+
+    @include phone-width() {
+      margin: 0 15px 10px 15px;
+    }
   }
 
   input[type="button"] {
@@ -492,6 +703,16 @@ div {
     justify-content: flex-start;
   }
 
+  @include small-pad-width() {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  @include phone-width() {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
   > div {
     box-sizing: border-box;
     margin: 0 20px;
@@ -509,6 +730,18 @@ div {
       margin: 0 0 50px 0;
       padding: 0 6%;
     }
+
+    @include small-pad-width() {
+      width: 50%;
+      margin: 0 0 50px 0;
+      padding: 0 3%;
+    }
+
+    @include phone-width() {
+      width: 50%;
+      margin: 0 0 50px 0;
+      padding: 0 3%;
+    }
   }
 
   div[name="main"] {
@@ -522,6 +755,14 @@ div {
       width: 50%;
     }
 
+    @include small-pad-width() {
+      width: 100%;
+    }
+
+    @include phone-width() {
+      width: 100%;
+    }
+
     > span {
       display: block;
       font-size: 12px;
@@ -533,6 +774,7 @@ div {
       font-size: 20px;
 
       flex-direction: row;
+      flex-wrap: wrap;
       justify-content: flex-start;
       align-items: center;
     }

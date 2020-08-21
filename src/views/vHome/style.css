@@ -44,13 +44,14 @@ div {
 
 @media all and (min-width: 480px) and (max-width: 759px) {
   .banner .textBox {
-    padding-left: 150px;
+    padding-left: 65px;
   }
 }
 
 @media all and (max-width: 479px) {
   .banner .textBox {
-    padding-left: 150px;
+    padding-left: 55px;
+    width: 95%;
   }
 }
 
@@ -109,6 +110,20 @@ div {
   }
 }
 
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .banner .textBox .shop-now div {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .banner .textBox .shop-now div {
+    width: 60px;
+    height: 60px;
+  }
+}
+
 .banner .textBox .shop-now div svg {
   font-size: 20px;
 }
@@ -120,6 +135,18 @@ div {
 }
 
 @media all and (min-width: 760px) and (max-width: 959px) {
+  .banner .textBox .shop-now div svg {
+    font-size: 30px;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .banner .textBox .shop-now div svg {
+    font-size: 30px;
+  }
+}
+
+@media all and (max-width: 479px) {
   .banner .textBox .shop-now div svg {
     font-size: 30px;
   }
@@ -176,7 +203,7 @@ div {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 75vw;
+  width: 85vw;
   height: 120px;
   padding: 35px 80px 35px 150px;
   background: #fff;
@@ -186,7 +213,7 @@ div {
 
 @media all and (min-width: 960px) {
   .info-container {
-    padding: 35px 80px 35px 150px;
+    padding: 35px 40px 35px 100px;
     height: 120px;
   }
 }
@@ -195,7 +222,25 @@ div {
   .info-container {
     width: 100vw;
     position: relative;
+    padding: 35px 40px;
+    height: auto;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .info-container {
+    width: 100vw;
+    position: relative;
     padding: 35px 50px;
+    height: auto;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .info-container {
+    width: 100vw;
+    position: relative;
+    padding: 20px 20px;
     height: auto;
   }
 }
@@ -218,10 +263,22 @@ div {
           align-items: stretch;
 }
 
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .info-container .info-area {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .info-container .info-area {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
 .info-container .info-area .info {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  width: 100%;
   margin: 0 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -234,6 +291,34 @@ div {
       -ms-flex-align: start;
           align-items: flex-start;
   text-align: left;
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .info-container .info-area .info {
+    margin: 20px 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .info-container .info-area .info {
+    margin: 20px 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+  }
 }
 
 .info-container .info-area .info .info-symbol {
@@ -260,6 +345,26 @@ div {
           align-items: center;
 }
 
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .info-container .info-area .info .info-symbol {
+    margin-right: 0px;
+    margin-bottom: 20px;
+    height: 60px;
+    width: 60px;
+    font-size: 28px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .info-container .info-area .info .info-symbol {
+    margin-right: 0px;
+    margin-bottom: 20px;
+    height: 60px;
+    width: 60px;
+    font-size: 28px;
+  }
+}
+
 .info-container .info-area .info .info-content {
   width: 75%;
 }
@@ -270,9 +375,33 @@ div {
   font-weight: 800;
 }
 
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .info-container .info-area .info .info-content h6 {
+    font-size: 25px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .info-container .info-area .info .info-content h6 {
+    font-size: 18px;
+  }
+}
+
 .info-container .info-area .info .info-content span {
   font-size: 12px;
   color: #777777;
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .info-container .info-area .info .info-content span {
+    font-size: 20px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .info-container .info-area .info .info-content span {
+    font-size: 16px;
+  }
 }
 
 .product-container {
@@ -304,6 +433,18 @@ div {
   }
 }
 
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .product-container {
+    padding: 0px 20px 10px 20px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .product-container {
+    padding: 0px 20px 10px 20px;
+  }
+}
+
 .quickly-pics {
   width: 100%;
   display: -webkit-box;
@@ -311,6 +452,24 @@ div {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .quickly-pics {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .quickly-pics {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .just-for-you {
@@ -347,6 +506,18 @@ div {
   }
 }
 
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .just-for-you div {
+    font-size: 22px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .just-for-you div {
+    font-size: 20px;
+  }
+}
+
 .just-for-you > input {
   width: 130px;
   height: 40px;
@@ -379,6 +550,22 @@ div {
   }
 }
 
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .just-for-you > input {
+    width: 150px;
+    height: 50px;
+    font-size: 14px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .just-for-you > input {
+    width: 130px;
+    height: 40px;
+    font-size: 14px;
+  }
+}
+
 .just-for-you > input:hover {
   background: #6e6e6e8c;
   color: #ffffff;
@@ -407,6 +594,18 @@ div {
   }
 }
 
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .shop-window {
+    margin-bottom: 50px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .shop-window {
+    margin-bottom: 50px;
+  }
+}
+
 .advantage {
   width: 100%;
   margin-bottom: 100px;
@@ -419,9 +618,8 @@ div {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -436,6 +634,36 @@ div {
 @media all and (min-width: 760px) and (max-width: 959px) {
   .advantage {
     margin-bottom: 50px;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .advantage {
+    margin-bottom: 50px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .advantage {
+    margin-bottom: 50px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 }
 
@@ -475,6 +703,18 @@ div {
   }
 }
 
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .product-today .product-today-item {
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .product-today .product-today-item {
+    width: 100%;
+  }
+}
+
 .product-today .product-today-item .product-today-title {
   font-size: 12px;
 }
@@ -486,6 +726,18 @@ div {
 }
 
 @media all and (min-width: 760px) and (max-width: 959px) {
+  .product-today .product-today-item .product-today-title {
+    font-size: 16px;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .product-today .product-today-item .product-today-title {
+    font-size: 16px;
+  }
+}
+
+@media all and (max-width: 479px) {
   .product-today .product-today-item .product-today-title {
     font-size: 16px;
   }
@@ -505,6 +757,34 @@ div {
   .product-today .product-today-item .product-today-price {
     font-size: 18px;
   }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .product-today .product-today-item .product-today-price {
+    font-size: 18px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .product-today .product-today-item .product-today-price {
+    font-size: 18px;
+  }
+}
+
+.product-today .img-block {
+  margin-bottom: 20px;
+  max-height: 300px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .product-today img {
@@ -534,11 +814,47 @@ div {
           align-items: center;
 }
 
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .subscribe {
+    padding: 10px 20px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .subscribe {
+    padding: 10px 20px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+
 .subscribe span {
-  width: 400px;
+  width: 95%;
   color: #fff;
   font-size: 24px;
   font-weight: bold;
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .subscribe span {
+    font-size: 20px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .subscribe span {
+    font-size: 20px;
+  }
 }
 
 .subscribe input[type="text"] {
@@ -551,6 +867,18 @@ div {
   outline: none;
   border: 0px solid transparent;
   border-radius: 17px;
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .subscribe input[type="text"] {
+    margin: 0 15px 0px 15px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .subscribe input[type="text"] {
+    margin: 0 15px 10px 15px;
+  }
 }
 
 .subscribe input[type="button"] {
@@ -617,6 +945,26 @@ div {
   }
 }
 
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .footer-info {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .footer-info {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+
 .footer-info > div {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -641,6 +989,22 @@ div {
   }
 }
 
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .footer-info > div {
+    width: 50%;
+    margin: 0 0 50px 0;
+    padding: 0 3%;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .footer-info > div {
+    width: 50%;
+    margin: 0 0 50px 0;
+    padding: 0 3%;
+  }
+}
+
 .footer-info div[name="main"] {
   width: 40%;
 }
@@ -654,6 +1018,18 @@ div {
 @media all and (min-width: 760px) and (max-width: 959px) {
   .footer-info div[name="main"] {
     width: 50%;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .footer-info div[name="main"] {
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .footer-info div[name="main"] {
+    width: 100%;
   }
 }
 
@@ -671,6 +1047,8 @@ div {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;

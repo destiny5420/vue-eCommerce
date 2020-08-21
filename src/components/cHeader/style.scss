@@ -1,8 +1,8 @@
 $padding: (
-  desktop-header-horizontal: 200px,
-  pad-header-horizontal: 50px,
+  desktop-header-horizontal: 100px,
+  pad-header-horizontal: 40px,
   small-pad-header-horizontal: 30px,
-  phone-header-horizontal: 10px
+  phone-header-horizontal: 20px
 );
 
 $normal-header: 80px;
@@ -67,6 +67,14 @@ $burger-line-color: #2c3e50;
     padding: 25px map-get($map: $padding, $key: pad-header-horizontal);
   }
 
+  @include small-pad-width {
+    padding: 25px map-get($map: $padding, $key: small-pad-header-horizontal);
+  }
+
+  @include phone-width {
+    padding: 25px map-get($map: $padding, $key: phone-header-horizontal);
+  }
+
   .logo {
     font-weight: 800;
     text-decoration: none;
@@ -118,6 +126,14 @@ $burger-line-color: #2c3e50;
       padding: 20px map-get($map: $padding, $key: pad-header-horizontal);
     }
 
+    @include small-pad-width {
+      padding: 20px map-get($map: $padding, $key: small-pad-header-horizontal);
+    }
+
+    @include phone-width {
+      padding: 20px map-get($map: $padding, $key: phone-header-horizontal);
+    }
+
     a {
       color: #636363;
     }
@@ -129,6 +145,14 @@ $burger-line-color: #2c3e50;
     }
 
     @include pad-width {
+      display: none;
+    }
+
+    @include small-pad-width {
+      display: none;
+    }
+
+    @include phone-width {
       display: none;
     }
 
@@ -181,12 +205,38 @@ $burger-line-color: #2c3e50;
       align-items: center;
     }
 
+    @include small-pad-width {
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @include phone-width {
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
     div[name="toggle-cart"] {
       display: inline-block;
       font-size: 30px;
       margin-right: 20px;
       cursor: pointer;
       color: $burger-line-color;
+
+      @include pad-width {
+        font-size: 30px;
+      }
+
+      @include small-pad-width {
+        font-size: 25px;
+      }
+
+      @include phone-width {
+        font-size: 25px;
+      }
     }
 
     .menu-open-button {
@@ -197,21 +247,52 @@ $burger-line-color: #2c3e50;
       user-select: none;
       margin: 0;
 
+      @include pad-width {
+        height: 50px;
+      }
+
+      @include small-pad-width {
+        height: 35px;
+      }
+
+      @include phone-width {
+        height: 30px;
+      }
+
       .hamburger {
         box-sizing: border-box;
         position: absolute;
-        //top: calc(50% - #{$burger-line-height / 2});
         left: calc(50% - (#{$burger-area-width} * 0.8 * 0.5));
         width: 80%;
         height: $burger-line-height;
         background: $burger-line-color;
         transition: 0.3s;
+
+        @include pad-width {
+          width: 80%;
+        }
+
+        @include small-pad-width {
+          width: 70%;
+        }
+
+        @include phone-width {
+          width: 65%;
+        }
       }
     }
   }
 
   .menu {
     @include pad-width {
+      display: none;
+    }
+
+    @include small-pad-width {
+      display: none;
+    }
+
+    @include phone-width {
       display: none;
     }
   }
