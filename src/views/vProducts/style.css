@@ -1,4 +1,147 @@
+* {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
 .main {
   padding: 80px 100px;
+}
+
+.nav-bar {
+  margin: 20px 0;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+}
+
+.nav-bar .home-btn {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.nav-bar .home-btn a {
+  text-decoration: none;
+  color: #8f8f8f;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+
+.nav-bar .home-btn a:hover {
+  color: #2c3e50;
+}
+
+.nav-bar span {
+  color: #8f8f8f;
+}
+
+.nav-bar .path {
+  color: #8f8f8f;
+  position: relative;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.view {
+  position: relative;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.view .filter-area {
+  width: 25%;
+}
+
+.view .filter-area .type .type-select {
+  padding: 0 20px;
+  height: 130px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-transition: 0.35s;
+  transition: 0.35s;
+}
+
+.view .filter-area .type .type-select input {
+  margin-right: 10px;
+}
+
+.view .filter-area .type .type-select :nth-child(n) {
+  margin-bottom: 5px;
+}
+
+.view .filter-area .price {
+  height: 250px;
+}
+
+.view .filter-area .size {
+  height: 250px;
+}
+
+.view .filter-area > :nth-child(n) {
+  border: 1px solid rgba(158, 158, 158, 0.541);
+  margin-bottom: 5px;
+}
+
+.view .product-item-area {
+  width: 75%;
+}
+
+.arrow {
+  -webkit-transform: rotateX(0deg);
+          transform: rotateX(0deg);
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+
+.type-title {
+  cursor: pointer;
+  padding: 0 20px;
+  height: 50px;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=style.css.map */

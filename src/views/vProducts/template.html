@@ -1,7 +1,55 @@
 <div class="main">
-  <div style="height: 500px; background: chartreuse;"></div>
-  <div style="height: 500px; background: red;"></div>
-  <div style="height: 500px; background: fuchsia;"></div>
-  <div style="height: 500px; background: indianred;"></div>
-  <div style="height: 500px; background: orchid;"></div>
+  <div class="nav-bar">
+    <div class="home-btn">
+      <router-link to="/home">
+        <font-awesome-icon :icon="['fas', 'home']" />
+      </router-link>
+    </div>
+    <span>/</span>
+    <div class="path">All products</div>
+  </div>
+  <div class="view">
+    <div class="filter-area">
+      <!-- Type -->
+      <div class="type">
+        <div class="type-title" @click="onProductTypeHandler">
+          PRODUCT TYPE
+          <font-awesome-icon
+            :icon="['fas', 'angle-down']"
+            class="arrow"
+            :style="styleArrow('type')"
+          />
+        </div>
+        <div class="type-select" :style="styleTypeSelect">
+          <div v-for="(item, index) in filterData_type.option" :key="index">
+            <input type="checkbox" /> {{ item.title }}
+          </div>
+        </div>
+      </div>
+      <!-- Price -->
+      <div class="price">
+        <div class="type-title" @click="onPriceTypeHandler">
+          PRICE
+          <font-awesome-icon
+            :icon="['fas', 'angle-down']"
+            class="arrow"
+            :style="styleArrow('price')"
+          />
+        </div>
+      </div>
+      <!-- Size -->
+      <div class="size">
+        <div class="type-title" @click="onSizeTypeHandler">
+          SIZE
+          <font-awesome-icon
+            :icon="['fas', 'angle-down']"
+            class="arrow"
+            :style="styleArrow('size')"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item-area"></div>
+  </div>
 </div>
