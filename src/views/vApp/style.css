@@ -20,6 +20,24 @@
   color: #42b983;
 }
 
+.hove-line::after {
+  position: absolute;
+  content: "";
+  height: 3px;
+  width: 80%;
+  margin-left: calc((100% - 80%) / 2);
+  background: #2c3e50;
+  left: 0;
+  bottom: -5px;
+  z-index: 2;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-transform: scale(0, 1);
+          transform: scale(0, 1);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
 .p-font-small {
   font-size: 12px;
 }

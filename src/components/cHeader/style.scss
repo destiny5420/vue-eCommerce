@@ -5,6 +5,7 @@ $padding: (
   phone-header-horizontal: 20px
 );
 
+$seconds-color: #2c3e50;
 $normal-header: 80px;
 $scroll-header: 71px;
 
@@ -18,7 +19,6 @@ $phones-media: 479px;
 $burger-area-width: 40px;
 $burger-line-height: 4px;
 $burger-line-spacing: 10px;
-$burger-line-color: #2c3e50;
 
 // 電腦
 @mixin pc-width {
@@ -157,8 +157,14 @@ $burger-line-color: #2c3e50;
     }
 
     span {
+      position: relative;
       cursor: pointer;
-      margin: 0 10px;
+      padding: 0 10px;
+      transition: 0.15s;
+
+      &:hover .hove-line::after {
+        transform: scale(1, 1);
+      }
     }
   }
 
@@ -224,7 +230,7 @@ $burger-line-color: #2c3e50;
       font-size: 30px;
       margin-right: 20px;
       cursor: pointer;
-      color: $burger-line-color;
+      color: $seconds-color;
 
       @include pad-width {
         font-size: 30px;
@@ -265,7 +271,7 @@ $burger-line-color: #2c3e50;
         left: calc(50% - (#{$burger-area-width} * 0.8 * 0.5));
         width: 80%;
         height: $burger-line-height;
-        background: $burger-line-color;
+        background: $seconds-color;
         transition: 0.3s;
 
         @include pad-width {
@@ -294,6 +300,17 @@ $burger-line-color: #2c3e50;
 
     @include phone-width {
       display: none;
+    }
+
+    li {
+      position: relative;
+      a {
+        color: $seconds-color;
+      }
+
+      &:hover .hove-line::after {
+        transform: scale(1, 1);
+      }
     }
   }
 
