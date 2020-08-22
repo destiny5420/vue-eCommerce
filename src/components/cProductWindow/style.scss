@@ -1,0 +1,40 @@
+$picture-height: 88%;
+.product-window-main {
+  width: calc(33.3% - (10px * 2));
+  min-width: 370px;
+  height: 700px;
+  padding: 0px;
+  margin: 10px 10px;
+
+  .picture {
+    width: 100%;
+    height: $picture-height;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+  }
+
+  .info {
+    width: 100%;
+    height: calc(100% - #{$picture-height});
+
+    padding-top: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    span[name="title"] {
+      font-size: 18px;
+    }
+
+    span[name="price"] {
+      font-size: 24px;
+    }
+
+    & > :nth-child(n) {
+      margin-bottom: 5px;
+    }
+  }
+}

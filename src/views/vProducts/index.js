@@ -1,7 +1,11 @@
+import cProductWindow from "@/components/cProductWindow/index.vue";
+
 export default {
   name: "vProducts",
   props: {},
-  components: {},
+  components: {
+    cProductWindow
+  },
   data: function() {
     return {
       filterData_type: {
@@ -26,52 +30,114 @@ export default {
         ]
       },
       filterData_price: {
-        show: true
+        show: true,
+        min: 0,
+        max: 500,
+        sliderValue: 0
       },
       filterData_size: {
-        show: true
-      },
-      priceData: {
-        min: 0,
-        max: 500
-      },
-      sizeData: [
-        {
-          title: "S"
-        },
-        {
-          title: "M"
-        },
-        {
-          title: "L"
-        },
-        {
-          title: "XL"
-        }
-      ],
-      sliderValue: 0,
-      conditionBar: {
-        sortTitle: "Sort:",
-        curSortValue: "default",
-        options: [
+        show: true,
+        sizeData: [
           {
-            displayName: "DEFAULT",
-            value: "default"
+            title: "S"
           },
           {
-            displayName: "POPULAR",
-            value: "popular"
+            title: "M"
           },
           {
-            displayName: "PRICE LOW TO HIGH",
-            value: "lowPrice"
+            title: "L"
           },
           {
-            displayName: "PRICE HIGH TO LOW",
-            value: "highPrice"
+            title: "XL"
           }
         ]
-      }
+      },
+      conditionBar: {
+        title: "Women's Tops",
+        sort: {
+          title: "Sort",
+          curValue: "default",
+          options: [
+            {
+              displayName: "DEFAULT",
+              value: "default"
+            },
+            {
+              displayName: "POPULAR",
+              value: "popular"
+            },
+            {
+              displayName: "PRICE LOW TO HIGH",
+              value: "lowPrice"
+            },
+            {
+              displayName: "PRICE HIGH TO LOW",
+              value: "highPrice"
+            }
+          ]
+        }
+      },
+      productList: [
+        {
+          title: "T-Shirt Summer Vibes",
+          price: 89.99,
+          url: "https://i.postimg.cc/qMwH8V8V/photo-1548549557-dbe9946621da.jpg"
+        },
+        {
+          title: "Loose Knit 3/4 Sleeve",
+          price: 119.99,
+          url:
+            "https://i.postimg.cc/NFJqvRGG/oswaldo-ibanez-EG3-1s-MLm-M-unsplash.jpg"
+        },
+        {
+          title: "Basic Slim Fit T-Shirt",
+          price: 79.99,
+          url:
+            "https://i.postimg.cc/vmWzVMV5/daniela-mota-BXZzxj-C4l-TY-unsplash.jpg"
+        },
+        {
+          title: "T-Shirt Summer Vibes",
+          price: 89.99,
+          url:
+            "https://i.postimg.cc/c4rBcf3x/darko-mitev-c5t-j1zlk1-Y-unsplash.jpg"
+        },
+        {
+          title: "Loose Knit 3/4 Sleeve",
+          price: 119.99,
+          url:
+            "https://i.postimg.cc/FHPfC6Xw/analise-benevides-Dh-Yc-NZmqzns-unsplash.jpg"
+        },
+        {
+          title: "Basic Slim Fit T-Shirt",
+          price: 79.99,
+          url:
+            "https://i.postimg.cc/kGdDt3WR/antonino-visalli-Kwrx8n-GAwe-A-unsplash.jpg"
+        },
+        {
+          title: "T-Shirt Summer Vibes",
+          price: 89.99,
+          url:
+            "https://i.postimg.cc/vBncBHxd/calvin-lupiya-y-Pg8cus-GD8-unsplash.jpg"
+        },
+        {
+          title: "Loose Knit 3/4 Sleeve",
+          price: 119.99,
+          url:
+            "https://i.postimg.cc/tgwspVT5/luobulinka-QCOZz4iq-U-M-unsplash.jpg"
+        },
+        {
+          title: "Basic Slim Fit T-Shirt",
+          price: 79.99,
+          url:
+            "https://i.postimg.cc/HLVrqtpn/sergio-souza-JF6-N57x-Olg-unsplash.jpg"
+        },
+        {
+          title: "T-Shirt Summer Vibes",
+          price: 89.99,
+          url:
+            "https://i.postimg.cc/Y0f06nxn/thanh-duc-phan-Oi-Dw-Yvzo9pw-unsplash.jpg"
+        }
+      ]
     };
   },
   methods: {

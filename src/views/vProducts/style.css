@@ -253,14 +253,15 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-transition: 0.35s;
   transition: 0.35s;
 }
 
 .view .filter-area .size .size-option > :nth-child(n) {
+  margin-right: 5px;
   width: 50px;
   height: 50px;
   border: 1px solid rgba(158, 158, 158, 0.35);
@@ -283,7 +284,7 @@
 }
 
 .view .filter-area .size .size-option > :nth-child(n):hover {
-  background: #a0a0a0;
+  border: 1px solid #444444;
 }
 
 .view .filter-area > :nth-child(n) {
@@ -297,8 +298,9 @@
   margin-left: 25px;
 }
 
-.condition-bar {
+.view .product-item-area .condition-bar {
   position: relative;
+  margin: 0 10px 15px 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -306,19 +308,24 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-.condition-bar span[name="title"] {
+.view .product-item-area .condition-bar .short-title {
+  font-size: 26px;
+}
+
+.view .product-item-area .condition-bar .sort span[name="title"] {
   margin-right: 10px;
 }
 
-.condition-bar .sort-style {
+.view .product-item-area .condition-bar .sort .sort-style {
+  cursor: pointer;
   outline: none;
   padding: 6px 15px;
   border-radius: 30px;
@@ -329,6 +336,24 @@
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+}
+
+.view .product-item-area .product-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .arrow {

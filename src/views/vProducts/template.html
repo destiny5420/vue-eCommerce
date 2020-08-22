@@ -49,15 +49,15 @@
         </div>
         <div class="price-option" :style="stylePriceSelect">
           <div class="price-area">
-            <div>{{ priceData.min }}USD</div>
-            <div>{{ priceData.max }}USD</div>
+            <div>{{ filterData_price.min }}USD</div>
+            <div>{{ filterData_price.max }}USD</div>
           </div>
           <div class="slider-area">
             <input
               type="range"
-              :min="priceData.min"
-              :max="priceData.max"
-              v-model="sliderValue"
+              :min="filterData_price.min"
+              :max="filterData_price.max"
+              v-model="filterData_price.sliderValue"
             />
           </div>
         </div>
@@ -73,7 +73,7 @@
           />
         </div>
         <div class="size-option" :style="styleSizeSelect">
-          <div v-for="(item, index) in sizeData" :key="index">
+          <div v-for="(item, index) in filterData_size.sizeData" :key="index">
             {{ item.title }}
           </div>
         </div>
@@ -81,19 +81,33 @@
     </div>
     <div class="product-item-area p-font-family-content">
       <div class="condition-bar">
-        <span name="title">{{ conditionBar.sortTitle }}</span>
-        <select
-          class="sort-style "
-          name="sort"
-          v-model="conditionBar.curSortValue"
-        >
-          <option
-            v-for="(item, index) in conditionBar.options"
-            :key="index"
-            :value="item.value"
-            >{{ item.displayName }}</option
+        <div class="short-title p-font-family-button">
+          {{ conditionBar.title }}
+        </div>
+        <div class="sort">
+          <span name="title">{{ conditionBar.sort.title }}: </span>
+          <select
+            class="sort-style"
+            name="sort"
+            v-model="conditionBar.sort.curValue"
           >
-        </select>
+            <option
+              v-for="(item, index) in conditionBar.sort.options"
+              :key="index"
+              :value="item.value"
+              >{{ item.displayName }}</option
+            >
+          </select>
+        </div>
+      </div>
+      <div class="product-list">
+        <cProductWindow
+          v-for="(item, index) in productList"
+          :key="index"
+          :props_title="item.title"
+          :props_price="item.price"
+          :props_url="item.url"
+        />
       </div>
     </div>
   </div>

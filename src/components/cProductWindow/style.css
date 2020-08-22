@@ -1,0 +1,47 @@
+.product-window-main {
+  width: calc(33.3% - (10px * 2));
+  min-width: 370px;
+  height: 700px;
+  padding: 0px;
+  margin: 10px 10px;
+}
+
+.product-window-main .picture {
+  width: 100%;
+  height: 88%;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.product-window-main .info {
+  width: 100%;
+  height: calc(100% - 88%);
+  padding-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.product-window-main .info span[name="title"] {
+  font-size: 18px;
+}
+
+.product-window-main .info span[name="price"] {
+  font-size: 24px;
+}
+
+.product-window-main .info > :nth-child(n) {
+  margin-bottom: 5px;
+}
+/*# sourceMappingURL=style.css.map */
