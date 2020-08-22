@@ -90,9 +90,9 @@ $spacing: 10px;
     width: 25%;
 
     .type {
-      .type-select {
+      .type-option {
         padding: 0 20px;
-        height: 130px;
+        height: 190px;
         overflow: hidden;
         display: flex;
         flex-direction: column;
@@ -100,26 +100,153 @@ $spacing: 10px;
         align-items: flex-start;
         transition: 0.35s;
 
-        input {
-          margin-right: 10px;
+        input[type="checkbox"] {
+          display: none;
         }
 
-        & :nth-child(n) {
-          margin-bottom: 5px;
+        .nike {
+          position: relative;
+        }
+
+        .nike label::after {
+          z-index: 1;
+          content: "";
+          position: absolute;
+          top: 7px;
+          left: 6px;
+          width: 18px;
+          height: 12px;
+          border: 0 solid #fff;
+          border-left: 4px solid transparent;
+          border-bottom: 4px solid transparent;
+          transform: rotateZ(-45deg);
+
+          transition: 0.15s;
+        }
+
+        label {
+          margin: 0 20px 0 0;
+          width: 30px;
+          height: 30px;
+          background: #fff;
+          border: 1px solid #8f8f8f;
+          transition: 0.15s;
+          cursor: pointer;
+        }
+
+        input:checked ~ .nike label::after {
+          border-left: 4px solid #fff;
+          border-bottom: 4px solid #fff;
+        }
+
+        input:checked ~ .nike label {
+          background: #000000;
+        }
+
+        & > :nth-child(n) {
+          margin-bottom: 8px;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
         }
       }
     }
 
     .price {
-      height: 250px;
+      .price-option {
+        height: 100px;
+        padding: 0 20px;
+        overflow: hidden;
+        transition: 0.35s;
+
+        .price-area {
+          margin-bottom: 30px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+
+          & > :nth-child(n) {
+            padding: 0px 10px;
+            height: 32px;
+            background: rgba(196, 196, 196, 0.521);
+            font-size: 14px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+        }
+
+        .slider-area {
+          height: 30px;
+
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+
+          input {
+            width: 100%;
+            height: 4px;
+            background: black;
+            border-radius: 10px;
+            appearance: none;
+            outline: none;
+
+            &::-webkit-slider-thumb {
+              width: 20px;
+              height: 20px;
+              border-radius: 50%;
+              border: 2px solid black;
+              appearance: none;
+              background: #fff;
+              cursor: pointer;
+            }
+
+            &::-moz-slider-thumb {
+              width: 25px;
+              height: 25px;
+            }
+          }
+        }
+      }
     }
 
     .size {
-      height: 250px;
+      .size-option {
+        padding: 0 20px;
+        height: 60px;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        transition: 0.35s;
+
+        & > :nth-child(n) {
+          flex: 1;
+          height: 30px;
+          border: 1px solid hsla(0, 0%, 67%, 0.514);
+
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+
+          transition: 0.15s;
+        }
+
+        & > :nth-child(n):hover {
+          background: rgb(160, 160, 160);
+        }
+      }
     }
 
     & > :nth-child(n) {
-      border: 1px solid rgba(158, 158, 158, 0.541);
+      border-radius: 3px;
+      border: 1px solid rgba(158, 158, 158, 0.35);
       margin-bottom: 5px;
     }
   }
@@ -134,14 +261,15 @@ $spacing: 10px;
   transition: 0.25s;
 }
 
-.type-title {
+.filter-title {
   cursor: pointer;
   padding: 0 20px;
-  height: 50px;
+  height: 75px;
   font-weight: bold;
 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  font-size: 16px;
 }

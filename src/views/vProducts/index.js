@@ -30,17 +30,41 @@ export default {
       },
       filterData_size: {
         show: true
-      }
+      },
+      priceData: {
+        min: 0,
+        max: 500
+      },
+      sizeData: [
+        {
+          title: "XS"
+        },
+        {
+          title: "S"
+        },
+        {
+          title: "M"
+        },
+        {
+          title: "L"
+        },
+        {
+          title: "XL"
+        },
+        {
+          title: "XXL"
+        }
+      ]
     };
   },
   methods: {
-    onProductTypeHandler: function() {
+    onTypeShowHandler: function() {
       this.filterData_type.show = !this.filterData_type.show;
     },
-    onPriceTypeHandler: function() {
+    onPriceShowHandler: function() {
       this.filterData_price.show = !this.filterData_price.show;
     },
-    onSizeTypeHandler: function() {
+    onSizeShowHandler: function() {
       this.filterData_size.show = !this.filterData_size.show;
     }
   },
@@ -48,7 +72,16 @@ export default {
     styleTypeSelect: function() {
       return {
         height: !this.filterData_type.show ? "0px" : ""
-        // unCollapse: !this.filterData.show
+      };
+    },
+    stylePriceSelect: function() {
+      return {
+        height: !this.filterData_price.show ? "0px" : ""
+      };
+    },
+    styleSizeSelect: function() {
+      return {
+        height: !this.filterData_size.show ? "0px" : ""
       };
     },
     styleArrow: function() {
@@ -71,6 +104,11 @@ export default {
         }
 
         // transform: !this.filterData_type.show ? " rotateX(180deg)" : ""
+      };
+    },
+    matchID: function() {
+      return function(value) {
+        return `check-box-${value}`;
       };
     }
   },
