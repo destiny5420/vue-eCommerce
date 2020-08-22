@@ -1,5 +1,10 @@
 <div class="product-window-main">
-  <div class="picture" :style="stylePicture"></div>
+  <div class="picture" :style="stylePicture">
+    <div class="picture-mask"></div>
+    <div class="picture-favorite" @click="onFavoriteHandler">
+      <font-awesome-icon :icon="['fab', 'gratipay']" />
+    </div>
+  </div>
   <div class="info">
     <span name="title" class="p-font-family-button">{{ props_title }}</span>
     <span name="price" class="p-font-family-button">${{ props_price }}</span>

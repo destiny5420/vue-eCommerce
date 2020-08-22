@@ -17,7 +17,11 @@ export default {
   data: function() {
     return {};
   },
-  methods: {},
+  methods: {
+    onFavoriteHandler: function() {
+      console.log("onFavoriteHandler");
+    }
+  },
   computed: {
     stylePicture: function() {
       return {
