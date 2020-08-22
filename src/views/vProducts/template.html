@@ -53,7 +53,12 @@
             <div>{{ priceData.max }}USD</div>
           </div>
           <div class="slider-area">
-            <input type="range" :min="priceData.min" :max="priceData.max" />
+            <input
+              type="range"
+              :min="priceData.min"
+              :max="priceData.max"
+              v-model="sliderValue"
+            />
           </div>
         </div>
       </div>
@@ -74,6 +79,22 @@
         </div>
       </div>
     </div>
-    <div class="product-item-area"></div>
+    <div class="product-item-area p-font-family-content">
+      <div class="condition-bar">
+        <span name="title">{{ conditionBar.sortTitle }}</span>
+        <select
+          class="sort-style "
+          name="sort"
+          v-model="conditionBar.curSortValue"
+        >
+          <option
+            v-for="(item, index) in conditionBar.options"
+            :key="index"
+            :value="item.value"
+            >{{ item.displayName }}</option
+          >
+        </select>
+      </div>
+    </div>
   </div>
 </div>

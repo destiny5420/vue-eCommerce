@@ -37,9 +37,6 @@ export default {
       },
       sizeData: [
         {
-          title: "XS"
-        },
-        {
           title: "S"
         },
         {
@@ -50,11 +47,31 @@ export default {
         },
         {
           title: "XL"
-        },
-        {
-          title: "XXL"
         }
-      ]
+      ],
+      sliderValue: 0,
+      conditionBar: {
+        sortTitle: "Sort:",
+        curSortValue: "default",
+        options: [
+          {
+            displayName: "DEFAULT",
+            value: "default"
+          },
+          {
+            displayName: "POPULAR",
+            value: "popular"
+          },
+          {
+            displayName: "PRICE LOW TO HIGH",
+            value: "lowPrice"
+          },
+          {
+            displayName: "PRICE HIGH TO LOW",
+            value: "highPrice"
+          }
+        ]
+      }
     };
   },
   methods: {
