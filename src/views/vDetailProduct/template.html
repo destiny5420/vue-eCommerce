@@ -28,6 +28,14 @@
           >${{ data.originPrice }}</span
         >
       </div>
+      <div class="product-info-star">
+        <font-awesome-icon
+          :icon="['fas', 'star']"
+          v-for="(item, index) in 5"
+          :key="index"
+          :style="styleStar(index)"
+        />
+      </div>
       <div class="product-info-content">{{ data.content }}</div>
     </div>
     <div class="detail-color">
@@ -49,9 +57,9 @@
     </div>
     <div class="detail-quantity">
       <div class="calculator">
-        <font-awesome-icon :icon="['fas', 'minus']" />
+        <font-awesome-icon :icon="['fas', 'minus']" @click="onMinusHandler" />
         <span>{{ count }}</span>
-        <font-awesome-icon :icon="['fas', 'plus']" />
+        <font-awesome-icon :icon="['fas', 'plus']" @click="onPlusHandler" />
       </div>
       <div class="cart-btn">
         <span>add to cart</span>

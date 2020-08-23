@@ -12,7 +12,8 @@ export default {
         originPrice: 119.9,
         content:
           "The Little Tikes 2-in-1 snug secure swing is for children who absolutely love to swing. This baby swing from Little Tikes is the perfect combination of safety and comfort. Caring parents will love all of the different safety features found on the Little Tikes swing. A T-bar and straps hold the child securely in place and can be removed as the child grows. It's a baby swing and a toddler swing in one! features: - T-bar that rotates down for easy loading and unloading - adjustable stay-put shoulder straps hold baby securely in place - if using with a child who doesn't require the T-bar or straps.",
-        url: "https://i.postimg.cc/qMwH8V8V/photo-1548549557-dbe9946621da.jpg"
+        url: "https://i.postimg.cc/qMwH8V8V/photo-1548549557-dbe9946621da.jpg",
+        starScore: 3
       },
       freightData: [
         {
@@ -42,11 +43,25 @@ export default {
       count: 0
     };
   },
-  methods: {},
+  methods: {
+    onPlusHandler: function() {
+      this.count = this.count >= 10 ? this.count : this.count + 1;
+    },
+    onMinusHandler: function() {
+      this.count = this.count <= 0 ? this.count : this.count - 1;
+    }
+  },
   computed: {
     styleDetailPicture: function() {
       return {
         backgroundImage: `url(${this.data.url})`
+      };
+    },
+    styleStar: function() {
+      return function(index) {
+        return {
+          color: index < this.data.starScore ? "#ffc950" : "#adabab"
+        };
       };
     }
   },
