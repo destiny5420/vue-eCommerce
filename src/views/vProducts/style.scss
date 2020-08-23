@@ -44,43 +44,6 @@ $phones-media: 479px;
   padding: 80px 100px;
 }
 
-$spacing: 10px;
-.nav-bar {
-  margin: 20px 0;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  font-size: 18px;
-
-  .home-btn {
-    position: relative;
-    display: inline-block;
-    margin-right: $spacing;
-
-    a {
-      text-decoration: none;
-      color: #8f8f8f;
-      transition: 0.15s;
-
-      &:hover {
-        color: $seconds-color;
-      }
-    }
-  }
-
-  span {
-    color: $medium_grey-color;
-  }
-
-  .path {
-    color: $medium_grey-color;
-    position: relative;
-    display: inline-block;
-    margin-left: $spacing;
-  }
-}
-
 .view {
   position: relative;
   width: 100%;

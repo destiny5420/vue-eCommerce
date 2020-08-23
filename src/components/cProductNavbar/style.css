@@ -1,0 +1,44 @@
+.nav-bar {
+  margin: 20px 0;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+}
+
+.nav-bar .home-btn {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.nav-bar .home-btn a {
+  text-decoration: none;
+  color: #8f8f8f8c;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+
+.nav-bar .home-btn a:hover {
+  color: #2c3e50;
+}
+
+.nav-bar span {
+  color: #8f8f8f8c;
+}
+
+.nav-bar .path {
+  color: #8f8f8f8c;
+  position: relative;
+  display: inline-block;
+  margin: 0 10px;
+}
+/*# sourceMappingURL=style.css.map */

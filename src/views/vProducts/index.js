@@ -1,13 +1,26 @@
 import cProductWindow from "@/components/cProductWindow/index.vue";
+import cProductNavbar from "@/components/cProductNavbar/index.vue";
 
 export default {
   name: "vProducts",
   props: {},
   components: {
-    cProductWindow
+    cProductWindow,
+    cProductNavbar
   },
   data: function() {
     return {
+      navbar_info: [
+        {
+          displayName: `Men's Tops`
+        },
+        {
+          displayName: `T-Shirt`
+        },
+        {
+          displayName: `T-Shirt Summer Vibess`
+        }
+      ],
       filterData_type: {
         show: true,
         option: [

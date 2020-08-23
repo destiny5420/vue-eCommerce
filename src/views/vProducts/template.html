@@ -1,13 +1,5 @@
 <div class="main">
-  <div class="nav-bar">
-    <div class="home-btn">
-      <router-link to="/home">
-        <font-awesome-icon :icon="['fas', 'home']" />
-      </router-link>
-    </div>
-    <span>/</span>
-    <div class="path">All products</div>
-  </div>
+  <cProductNavbar :props_links="navbar_info" />
   <div class="view">
     <div class="filter-area">
       <!-- Type -->

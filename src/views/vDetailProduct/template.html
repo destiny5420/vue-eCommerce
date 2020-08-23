@@ -1,0 +1,67 @@
+<div class="detail-product-main">
+  <div class="detail-left">
+    <cProductNavbar class="navbar-info" :props_links="navbar_info" />
+    <div class="detail-picture" :style="styleDetailPicture"></div>
+  </div>
+  <div class="detail-right">
+    <div class="detail-freight-info">
+      <div
+        class="detail-freight-item"
+        v-for="(item, index) in freightData"
+        :key="index"
+      >
+        <font-awesome-icon :icon="item.symbol" />
+        <div class="freight-message">
+          <div>{{ item.title }}</div>
+          <div>{{ item.content }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="detail-product-info">
+      <div>Sale</div>
+      <div class="product-info-title">{{ data.title }}</div>
+      <div class="product-info-price">
+        <span>
+          ${{ data.price }}
+        </span>
+        <span class="origin-price" v-if="data.originPrice"
+          >${{ data.originPrice }}</span
+        >
+      </div>
+      <div class="product-info-content">{{ data.content }}</div>
+    </div>
+    <div class="detail-color">
+      <span>Color</span>
+      <div class="group">
+        <div v-for="(item, index) in colorData" :key="index" class="block">
+          <div :style="{ 'background': colorData[index] }"></div>
+        </div>
+      </div>
+    </div>
+    <div class="detail-size">
+      <span>Size</span>
+      <div class="group">
+        <div v-for="(item, index) in sizeData" :key="index" class="block">
+          <div>{{ item }}</div>
+        </div>
+      </div>
+      <span>size table</span>
+    </div>
+    <div class="detail-quantity">
+      <div class="calculator">
+        <font-awesome-icon :icon="['fas', 'minus']" />
+        <span>{{ count }}</span>
+        <font-awesome-icon :icon="['fas', 'plus']" />
+      </div>
+      <div class="cart-btn">
+        <span>add to cart</span>
+      </div>
+      <div class="favorite">
+        <font-awesome-icon
+          class="picture-favorite"
+          :icon="['fab', 'gratipay']"
+        />
+      </div>
+    </div>
+  </div>
+</div>
