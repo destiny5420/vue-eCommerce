@@ -5,6 +5,7 @@ import Home from "@/views/vHome/index.vue";
 import Products from "@/views/vProducts/index.vue";
 import DetailProduct from "@/views/vDetailProduct/index.vue";
 import Login from "@/views/vLogin/index.vue";
+import Dashboard from "@/views/vDashboard/index.vue";
 
 Vue.use(VueRouter);
 
@@ -43,6 +44,11 @@ const routes = [
     path: "/login",
     name: "vLogin",
     component: Login
+  },
+  {
+    path: "/dashboard",
+    name: "vDashboard",
+    component: Dashboard
   }
 ];
 
