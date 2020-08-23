@@ -20,7 +20,9 @@ import {
   faShuttleVan,
   faMinus,
   faPlus,
-  faStar
+  faStar,
+  faEnvelope,
+  faLock
 } from "@fortawesome/free-solid-svg-icons";
 import { faUser, faSmile } from "@fortawesome/free-regular-svg-icons";
 import {
@@ -58,7 +60,9 @@ library.add(
   faShuttleVan,
   faMinus,
   faPlus,
-  faStar
+  faStar,
+  faEnvelope,
+  faLock
 );
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 Vue.component("font-awesome-icon", FontAwesomeIcon);

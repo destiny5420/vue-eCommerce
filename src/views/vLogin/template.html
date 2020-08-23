@@ -4,13 +4,19 @@
       <img
         class="p-mt-5"
         src="../../assets/z-shop-logo.png"
-        style="width: 50px;"
+        style="width: 50px; user-select: none;"
       />
       <div class="p-mt-3 p-mb-3" style="font-weight: bold;">
         Sign in to <span style="color: #ffcb7d;">Z-</span>Shop
       </div>
-      <div class="p-mb-2"><input type="text" placeholder="Email" /></div>
-      <div class="p-mb-2"><input type="text" placeholder="Password" /></div>
+      <div class="p-mb-2 input-area">
+        <input type="text" placeholder="Email" />
+        <font-awesome-icon :icon="['fas', 'envelope']" class="symbol" />
+      </div>
+      <div class="p-mb-2 input-area">
+        <input type="text" placeholder="Password" />
+        <font-awesome-icon :icon="['fas', 'lock']" class="symbol" />
+      </div>
       <div class="p-mb-2"><input type="submit" value="Sign in" /></div>
       <div class="p-mb-1  p-mr-3 p-ml-3 footer"></div>
     </div>
