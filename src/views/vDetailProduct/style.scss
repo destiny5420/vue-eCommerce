@@ -139,6 +139,7 @@ $light-grey-color: #9e9e9e59;
     }
 
     .product-info-content {
+      user-select: text;
       text-align: left;
     }
   }
@@ -270,6 +271,7 @@ $light-grey-color: #9e9e9e59;
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
+      transition: 0.25s;
 
       & div:first-child {
         width: 100%;
@@ -281,6 +283,10 @@ $light-grey-color: #9e9e9e59;
         align-items: center;
 
         font-size: 22px;
+      }
+
+      &:hover {
+        border: 3px solid #8f8f8f;
       }
     }
   }

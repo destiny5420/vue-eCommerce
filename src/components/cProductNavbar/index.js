@@ -11,7 +11,7 @@ export default {
   components: {},
   data: function() {
     return {
-      homePath: "/login"
+      homePath: "/home"
     };
   },
   methods: {},

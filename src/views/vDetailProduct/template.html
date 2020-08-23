@@ -41,7 +41,13 @@
     <div class="detail-color">
       <span>Color</span>
       <div class="group">
-        <div v-for="(item, index) in colorData" :key="index" class="block">
+        <div
+          v-for="(item, index) in colorData"
+          :key="index"
+          class="block"
+          @click="onColorHandler(index)"
+          :style="styleColorBorder(index)"
+        >
           <div :style="{ 'background': colorData[index] }"></div>
         </div>
       </div>
@@ -49,7 +55,13 @@
     <div class="detail-size">
       <span>Size</span>
       <div class="group">
-        <div v-for="(item, index) in sizeData" :key="index" class="block">
+        <div
+          v-for="(item, index) in sizeData"
+          :key="index"
+          :style="styleSizeBorder(index)"
+          class="block"
+          @click="onSizeHandler(index)"
+        >
           <div>{{ item }}</div>
         </div>
       </div>
