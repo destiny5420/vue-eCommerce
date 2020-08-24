@@ -27,6 +27,8 @@ export default {
     },
     onClickHandler: function() {
       this.$store.commit("detailProduct/SET_PRODUCT_ID", this.props_id);
+
+      this.$router.push("/detail-products");
     }
   },
   computed: {

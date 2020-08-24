@@ -1,4 +1,4 @@
-<div class="detail-product-main">
+<div class="detail-product-main" v-if="product">
   <div class="detail-left">
     <cProductNavbar class="navbar-info" :props_links="navbar_info" />
     <div class="detail-picture" :style="styleDetailPicture"></div>
@@ -19,14 +19,14 @@
     </div>
     <div class="detail-product-info">
       <div>Sale</div>
-      <div class="product-info-title">{{ data.title }}</div>
+      <div class="product-info-title">
+        {{ product.title }}
+      </div>
       <div class="product-info-price">
         <span>
-          ${{ data.price }}
+          ${{ product.price }}
         </span>
-        <span class="origin-price" v-if="data.originPrice"
-          >${{ data.originPrice }}</span
-        >
+        <span class="origin-price">${{ product.origin_price }}</span>
       </div>
       <div class="product-info-star">
         <font-awesome-icon

@@ -28,12 +28,21 @@ const module_detailProduct = {
     SAVE_PRODUCT_DATA: function(state, data) {
       state.productData = data;
       console.log("--- SAVE_PRODUCT_DATA --- / data: ", data);
+    },
+    CLEAN_PRODUCT_DATA: function(state) {
+      console.log("--- CLEAN_PRODUCT_DATA --- ");
+      state.productData = null;
     }
   },
   actions: {
     GetProduct: function(context) {
-      console.log("GetProduct / productID: ", context.state.productID);
+      console.log(
+        "Vuex / action / GetProduct / productID: ",
+        context.state.productID
+      );
       if (!context.state.productID) return;
+
+      context.commit("CLEAN_PRODUCT_DATA");
 
       let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/product/${context.state.productID}`;
 

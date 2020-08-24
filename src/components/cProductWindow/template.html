@@ -1,10 +1,10 @@
 <div class="product-window-main">
   <div class="picture" :style="stylePicture">
-    <div class="picture-mask">
-      <router-link
+    <div class="picture-mask" @click="onClickHandler">
+      <!-- <router-link
         to="/detail-products"
         @click.native="onClickHandler"
-      ></router-link>
+      ></router-link> -->
     </div>
     <div @click="onFavoriteHandler" class="picture-favorite">
       <font-awesome-icon class="picture-favorite" :icon="['fab', 'gratipay']" />
