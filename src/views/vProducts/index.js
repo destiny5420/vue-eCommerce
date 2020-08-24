@@ -206,13 +206,19 @@ export default {
       return function(value) {
         return `check-box-${value}`;
       };
+    },
+    products: function() {
+      return this.$store.getters.products;
     }
   },
   // life cycle
   beforeCreate: function() {},
   created: function() {},
   beforeMounted: function() {},
-  mounted: function() {},
+  mounted: function() {
+    this.$store.dispatch("GetProductList");
+    console.warn("mounted / dispatch / Get Product List");
+  },
   beforeUpdate: function() {},
   updated: function() {},
   beforeDestroy: function() {},
