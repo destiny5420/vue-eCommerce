@@ -56,7 +56,7 @@ const module_detailProduct = {
 export default new Vuex.Store({
   strict: true,
   state: {
-    count: 102,
+    isLoading: false,
     products: []
   },
   getters: {
@@ -68,6 +68,9 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    TOGGLE_LOADING: function(state, data) {
+      state.isLoading = data;
+    },
     SAVE_PRODUCT_LIST: function(state, data) {
       state.products = data;
     }

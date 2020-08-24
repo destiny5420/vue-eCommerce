@@ -1,9 +1,15 @@
+import Loading from "vue-loading-overlay";
+import "vue-loading-overlay/dist/vue-loading.css";
+
 export default {
   name: "vDashboard",
   props: {},
-  components: {},
+  components: {
+    Loading
+  },
   data: function() {
     return {
+      isLoading: false,
       loginData: {
         account: "paper.hsiao@gmail.com",
         password: "LOVEman0245"
@@ -135,7 +141,10 @@ export default {
         }
       };
 
+      this.isLoading = true;
+
       this.axios.post(api, data).then(response => {
+        this.isLoading = false;
         console.log(response.data);
       });
     },
@@ -152,6 +161,7 @@ export default {
       const formData = new FormData();
       formData.append("file-to-upload", uploadFile);
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/upload`;
+      this.isLoading = true;
       this.axios
         .post(api, formData, {
           headers: {
@@ -160,7 +170,7 @@ export default {
         })
         .then(response => {
           console.log(response.data);
-
+          this.isLoading = false;
           if (response.data.success) {
             vm.createData.imageUrl = response.data.imageUrl;
           } else {

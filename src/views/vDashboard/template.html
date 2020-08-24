@@ -1,4 +1,6 @@
 <div class="main">
+  <loading :active.sync="isLoading"></loading>
+
   <div class="btn-view">
     <div class="login">
       <b-button variant="primary" @click="onLoginHandler">登入</b-button>
