@@ -18,10 +18,49 @@ export default {
         description: "",
         content: "",
         is_enabled: 1,
-        imageUrl: ""
+        imageUrl: "",
+        starScore: 0,
+        favorite: false
       },
       deleteData: {
         id: ""
+      },
+      viewData: {
+        category: {
+          options: [
+            {
+              label: "Men",
+              options: [
+                { value: "T-Shirt", text: "T-Shirt" },
+                { value: "Long-Sleeves", text: "Long Sleeves 長袖" },
+                { value: "Tank-Tops", text: "Tank Tops 背心" },
+                { value: "Dress-Shirt", text: "Dress Shirt 襯衫" }
+              ]
+            },
+            {
+              label: "Women",
+              options: []
+            },
+            {
+              label: "Kids",
+              options: []
+            }
+          ]
+        },
+        starScore: {
+          options: [
+            {
+              label: "請選擇星星數",
+              options: [
+                { value: 5, text: "五顆星" },
+                { value: 4, text: "四顆星" },
+                { value: 3, text: "三顆星" },
+                { value: 2, text: "兩顆星" },
+                { value: 1, text: "一顆星" }
+              ]
+            }
+          ]
+        }
       }
     };
   },
@@ -62,9 +101,9 @@ export default {
           description: this.createData.description,
           content: "",
           is_enabled: 1,
-          imageUrl: "",
-          startScore: 4,
-          favorite: true
+          imageUrl: this.createData.imageUrl,
+          starScore: this.createData.starScore,
+          favorite: this.createData.favorite
         }
       };
 
@@ -78,6 +117,28 @@ export default {
       this.axios.delete(api).then(response => {
         console.log(response);
       });
+    },
+    onUploadFile: function() {
+      const vm = this;
+      const uploadFile = this.$refs.files.files[0];
+      const formData = new FormData();
+      formData.append("file-to-upload", uploadFile);
+      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/upload`;
+      this.axios
+        .post(api, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data"
+          }
+        })
+        .then(response => {
+          console.log(response.data);
+
+          if (response.data.success) {
+            vm.createData.imageUrl = response.data.imageUrl;
+          } else {
+            console.error(response.data.message);
+          }
+        });
     }
   },
   computed: {
