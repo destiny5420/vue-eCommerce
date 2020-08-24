@@ -26,9 +26,16 @@ export default {
       console.log("onFavoriteHandler");
     },
     onClickHandler: function() {
-      this.$store.commit("detailProduct/SET_PRODUCT_ID", this.props_id);
+      // this.$store.commit("detailProduct/SET_PRODUCT_ID", this.props_id);
 
-      this.$router.push("/detail-products");
+      // Type.1
+      // this.$router.push("/detail-products");
+
+      // Type.2
+      this.$router.push({
+        name: "vDetailProduct",
+        params: { id: this.props_id }
+      });
     }
   },
   computed: {

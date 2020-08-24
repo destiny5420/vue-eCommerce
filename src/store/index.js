@@ -22,15 +22,12 @@ const module_detailProduct = {
   },
   mutations: {
     SET_PRODUCT_ID: function(state, data) {
-      console.log("SET_PRODUCT_ID / data: ", data);
       state.productID = data;
     },
     SAVE_PRODUCT_DATA: function(state, data) {
       state.productData = data;
-      console.log("--- SAVE_PRODUCT_DATA --- / data: ", data);
     },
     CLEAN_PRODUCT_DATA: function(state) {
-      console.log("--- CLEAN_PRODUCT_DATA --- ");
       state.productData = null;
     }
   },
@@ -73,7 +70,6 @@ export default new Vuex.Store({
   mutations: {
     SAVE_PRODUCT_LIST: function(state, data) {
       state.products = data;
-      console.warn("-- SAVE PRODUCT LIST -- / Data: ", data);
     }
   },
   actions: {

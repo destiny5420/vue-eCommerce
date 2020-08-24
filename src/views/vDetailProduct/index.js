@@ -63,7 +63,7 @@ export default {
   computed: {
     styleDetailPicture: function() {
       return {
-        backgroundImage: `url(${this.product.imageUrl})`
+        backgroundImage: this.product ? `url(${this.product.imageUrl})` : ""
       };
     },
     styleStar: function() {
@@ -96,7 +96,7 @@ export default {
   created: function() {},
   beforeMounted: function() {},
   mounted: function() {
-    // this.$store.state.detailProduct.productID
+    this.$store.commit("detailProduct/SET_PRODUCT_ID", this.$route.params.id);
     this.$store.dispatch("detailProduct/GetProduct");
   },
   beforeUpdate: function() {},

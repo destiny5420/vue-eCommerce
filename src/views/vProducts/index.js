@@ -217,7 +217,6 @@ export default {
   beforeMounted: function() {},
   mounted: function() {
     this.$store.dispatch("GetProductList");
-    console.warn("mounted / dispatch / Get Product List");
   },
   beforeUpdate: function() {},
   updated: function() {},
