@@ -1,8 +1,52 @@
 <div class="main">
   <div class="btn-view">
-    <div>
-      <input type="button" value="取得商品列表" @click="onGetProductAllList" />
+    <div class="login">
+      <b-button variant="primary" @click="onLoginHandler">登入</b-button>
+      <b-button variant="danger" @click="onLogoutHandler">登出</b-button>
     </div>
-    <div class="create-product"></div>
+    <div class="get-product">
+      <b-button variant="success" @click="onGetProductAllList"
+        >取得商品列表</b-button
+      >
+    </div>
+    <div class="create-product">
+      <b-form-input
+        v-model="createData.title"
+        placeholder="Title"
+      ></b-form-input>
+      <b-form-input
+        v-model="createData.category"
+        placeholder="category"
+      ></b-form-input>
+      <b-form-input
+        v-model.number="createData.origin_price"
+        placeholder="origin_price"
+      ></b-form-input>
+      <b-form-input
+        v-model.number="createData.price"
+        placeholder="price"
+      ></b-form-input
+      ><b-form-input
+        v-model="createData.description"
+        placeholder="description"
+      ></b-form-input>
+      <form
+        :action="pictureAction"
+        enctype="multipart/form-data"
+        method="post"
+        :style="stylePictureForm"
+      >
+        <input type="file" name="file-to-upload" />
+        <input type="submit" value="Upload" />
+      </form>
+      <b-button variant="primary" @click="onCreateProduct">創建商品</b-button>
+    </div>
+    <div class="delete-product">
+      <b-form-input
+        v-model.trim="deleteData.id"
+        placeholder="input delete ID"
+      ></b-form-input>
+      <b-button variant="danger" @click="onDeleteProduct">刪除商品</b-button>
+    </div>
   </div>
 </div>

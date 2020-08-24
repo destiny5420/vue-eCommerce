@@ -76,6 +76,7 @@ Vue.use(BootstrapVue);
 // vue-axios
 import axios from "axios";
 import VueAxios from "vue-axios";
+axios.defaults.withCredentials = true;
 Vue.use(VueAxios, axios);
 
 // vuex-router-sync

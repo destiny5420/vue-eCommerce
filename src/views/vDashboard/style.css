@@ -9,4 +9,52 @@
   height: 100%;
   background: #979797;
 }
+
+.main .btn-view .get-product,
+.main .btn-view .create-product,
+.main .btn-view .delete-product {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.main .btn-view .get-product > :nth-child(n),
+.main .btn-view .create-product > :nth-child(n),
+.main .btn-view .delete-product > :nth-child(n) {
+  margin-bottom: 5px;
+}
+
+.main .btn-view .login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.main .btn-view .login > :nth-child(n) {
+  margin-right: 15px;
+}
+
+.main .btn-view div:nth-child(n) {
+  margin-bottom: 20px;
+}
 /*# sourceMappingURL=style.css.map */

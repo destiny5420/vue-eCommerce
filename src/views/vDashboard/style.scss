@@ -8,7 +8,32 @@
     height: 100%;
     background: rgb(151, 151, 151);
 
-    .create-product {
+    .get-product,
+    .create-product,
+    .delete-product {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      & > :nth-child(n) {
+        margin-bottom: 5px;
+      }
+    }
+
+    .login {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      & > :nth-child(n) {
+        margin-right: 15px;
+      }
+    }
+
+    & div:nth-child(n) {
+      margin-bottom: 20px;
     }
   }
 }
