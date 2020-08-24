@@ -19,16 +19,18 @@
     </div>
     <div class="detail-product-info">
       <div>Sale</div>
-      <div class="product-info-title">{{ data.title }}</div>
-      <div class="product-info-price">
+      <div class="product-info-title" v-if="product">
+        {{ product.title }}
+      </div>
+      <div class="product-info-price" v-if="product">
         <span>
-          ${{ data.price }}
+          ${{ product.price }}
         </span>
-        <span class="origin-price" v-if="data.originPrice"
-          >${{ data.originPrice }}</span
+        <span class="origin-price" v-if="product"
+          >${{ product.origin_price }}</span
         >
       </div>
-      <div class="product-info-star">
+      <div class="product-info-star" v-if="product">
         <font-awesome-icon
           :icon="['fas', 'star']"
           v-for="(item, index) in 5"
@@ -36,7 +38,9 @@
           :style="styleStar(index)"
         />
       </div>
-      <div class="product-info-content">{{ data.content }}</div>
+      <div v-if="product" class="product-info-content">
+        {{ product.description }}
+      </div>
     </div>
     <div class="detail-color">
       <span>Color</span>

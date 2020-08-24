@@ -1,13 +1,17 @@
 .main {
+  margin: 0;
+  padding: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background: gray;
 }
 
 .main .btn-view {
-  width: 30%;
+  padding: 0 10px;
+  width: 70%;
   height: 100%;
-  background: #979797;
+  background: white;
+  text-align: left;
 }
 
 .main .btn-view .get-product,
@@ -31,7 +35,14 @@
 .main .btn-view .get-product > :nth-child(n),
 .main .btn-view .create-product > :nth-child(n),
 .main .btn-view .delete-product > :nth-child(n) {
-  margin-bottom: 5px;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+.main .btn-view .create-product {
+  padding: 20px 0px;
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
 }
 
 .main .btn-view .login {

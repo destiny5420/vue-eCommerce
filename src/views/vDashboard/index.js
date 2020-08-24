@@ -1,16 +1,30 @@
+import Loading from "vue-loading-overlay";
+import "vue-loading-overlay/dist/vue-loading.css";
+
 export default {
   name: "vDashboard",
   props: {},
-  components: {},
+  components: {
+    Loading
+  },
   data: function() {
     return {
+      isLoading: false,
       loginData: {
         account: "paper.hsiao@gmail.com",
         password: "LOVEman0245"
       },
       createData: {
         title: "",
-        category: "",
+        category: null,
+        sex: null,
+        size: [
+          { caption: "XS", state: false },
+          { caption: "S", state: false },
+          { caption: "M", state: false },
+          { caption: "L", state: false },
+          { caption: "XL", state: false }
+        ],
         origin_price: 0,
         price: 0,
         unit: "",
@@ -19,7 +33,7 @@ export default {
         content: "",
         is_enabled: 1,
         imageUrl: "",
-        starScore: 0,
+        starScore: null,
         favorite: false
       },
       deleteData: {
@@ -28,23 +42,36 @@ export default {
       viewData: {
         category: {
           options: [
-            {
-              label: "Men",
-              options: [
-                { value: "T-Shirt", text: "T-Shirt" },
-                { value: "Long-Sleeves", text: "Long Sleeves 長袖" },
-                { value: "Tank-Tops", text: "Tank Tops 背心" },
-                { value: "Dress-Shirt", text: "Dress Shirt 襯衫" }
-              ]
-            },
-            {
-              label: "Women",
-              options: []
-            },
-            {
-              label: "Kids",
-              options: []
-            }
+            { value: null, text: "Please select category", disabled: true },
+            { value: "T-Shirt", text: "T-Shirt" },
+            { value: "Long-Sleeves", text: "Long Sleeves 長袖" },
+            { value: "Tank-Tops", text: "Tank Tops 背心" },
+            { value: "Dress-Shirt", text: "Dress Shirt 襯衫" }
+            // {
+            //   label: "Men",
+            //   options: [
+            //     { value: "T-Shirt", text: "T-Shirt" },
+            //     { value: "Long-Sleeves", text: "Long Sleeves 長袖" },
+            //     { value: "Tank-Tops", text: "Tank Tops 背心" },
+            //     { value: "Dress-Shirt", text: "Dress Shirt 襯衫" }
+            //   ]
+            // },
+            // {
+            //   label: "Women",
+            //   options: []
+            // },
+            // {
+            //   label: "Kids",
+            //   options: []
+            // }
+          ]
+        },
+        sex: {
+          options: [
+            { value: null, text: "Please select sex", disabled: true },
+            { value: "women", text: "女生 Women" },
+            { value: "men", text: "男生 Men" },
+            { value: "kids", text: "小孩 Kids" }
           ]
         },
         starScore: {
@@ -52,6 +79,11 @@ export default {
             {
               label: "請選擇星星數",
               options: [
+                {
+                  value: null,
+                  text: "Please select star score",
+                  disabled: true
+                },
                 { value: 5, text: "五顆星" },
                 { value: 4, text: "四顆星" },
                 { value: 3, text: "三顆星" },
@@ -103,19 +135,24 @@ export default {
           is_enabled: 1,
           imageUrl: this.createData.imageUrl,
           starScore: this.createData.starScore,
-          favorite: this.createData.favorite
+          favorite: this.createData.favorite,
+          sex: this.createData.sex,
+          size: this.createData.size
         }
       };
 
+      this.isLoading = true;
+
       this.axios.post(api, data).then(response => {
-        console.log(response);
+        this.isLoading = false;
+        console.log(response.data);
       });
     },
     onDeleteProduct: function() {
       let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/${this.deleteData.id}`;
       console.log(api);
       this.axios.delete(api).then(response => {
-        console.log(response);
+        console.log(response.data);
       });
     },
     onUploadFile: function() {
@@ -124,6 +161,7 @@ export default {
       const formData = new FormData();
       formData.append("file-to-upload", uploadFile);
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/upload`;
+      this.isLoading = true;
       this.axios
         .post(api, formData, {
           headers: {
@@ -132,7 +170,7 @@ export default {
         })
         .then(response => {
           console.log(response.data);
-
+          this.isLoading = false;
           if (response.data.success) {
             vm.createData.imageUrl = response.data.imageUrl;
           } else {

@@ -11,6 +11,14 @@ export default {
     },
     props_url: {
       type: String
+    },
+    props_id: {
+      type: String,
+      required: true
+    },
+    props_starScore: {
+      type: Number,
+      required: true
     }
   },
   components: {},
@@ -20,12 +28,31 @@ export default {
   methods: {
     onFavoriteHandler: function() {
       console.log("onFavoriteHandler");
+    },
+    onClickHandler: function() {
+      // this.$store.commit("detailProduct/SET_PRODUCT_ID", this.props_id);
+
+      // Type.1
+      // this.$router.push("/detail-products");
+
+      // Type.2
+      this.$router.push({
+        name: "vDetailProduct",
+        params: { id: this.props_id }
+      });
     }
   },
   computed: {
     stylePicture: function() {
       return {
         backgroundImage: `url(${this.props_url})`
+      };
+    },
+    styleStar: function() {
+      return function(index) {
+        return {
+          color: index < this.props_starScore ? "#ffc950" : "#adabab"
+        };
       };
     }
   },

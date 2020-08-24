@@ -57,20 +57,19 @@ export default {
       this.data.colorIndex = index;
     },
     onSizeHandler: function(index) {
-      console.log("onSizeHandler");
       this.data.sizeIndex = index;
     }
   },
   computed: {
     styleDetailPicture: function() {
       return {
-        backgroundImage: `url(${this.data.url})`
+        backgroundImage: this.product ? `url(${this.product.imageUrl})` : ""
       };
     },
     styleStar: function() {
       return function(index) {
         return {
-          color: index < this.data.starScore ? "#ffc950" : "#adabab"
+          color: index < this.product.starScore ? "#ffc950" : "#adabab"
         };
       };
     },
@@ -87,13 +86,19 @@ export default {
           border: index === this.data.sizeIndex ? `3px solid #8f8f8f` : ""
         };
       };
+    },
+    product: function() {
+      return this.$store.state.detailProduct.productData;
     }
   },
   // life cycle
   beforeCreate: function() {},
   created: function() {},
   beforeMounted: function() {},
-  mounted: function() {},
+  mounted: function() {
+    this.$store.commit("detailProduct/SET_PRODUCT_ID", this.$route.params.id);
+    this.$store.dispatch("detailProduct/GetProduct");
+  },
   beforeUpdate: function() {},
   updated: function() {},
   beforeDestroy: function() {},

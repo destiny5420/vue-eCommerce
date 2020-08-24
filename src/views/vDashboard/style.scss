@@ -1,12 +1,16 @@
 .main {
+  margin: 0;
+  padding: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background: gray;
 
   .btn-view {
-    width: 30%;
+    padding: 0 10px;
+    width: 70%;
     height: 100%;
-    background: rgb(151, 151, 151);
+    background: rgb(255, 255, 255);
+    text-align: left;
 
     .get-product,
     .create-product,
@@ -17,8 +21,15 @@
       align-items: flex-start;
 
       & > :nth-child(n) {
-        margin-bottom: 5px;
+        margin-bottom: 20px;
+        font-size: 12px;
       }
+    }
+
+    .create-product {
+      padding: 20px 0px;
+      border-top: 5px solid black;
+      border-bottom: 5px solid black;
     }
 
     .login {

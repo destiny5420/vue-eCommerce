@@ -208,7 +208,7 @@ export default {
       };
     },
     products: function() {
-      return this.$store.getters.products;
+      return this.$store.getters["products"];
     }
   },
   // life cycle
@@ -217,7 +217,6 @@ export default {
   beforeMounted: function() {},
   mounted: function() {
     this.$store.dispatch("GetProductList");
-    console.warn("mounted / dispatch / Get Product List");
   },
   beforeUpdate: function() {},
   updated: function() {},
