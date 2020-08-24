@@ -37,23 +37,27 @@ export default {
         category: {
           options: [
             { value: null, text: "Please select category", disabled: true },
-            {
-              label: "Men",
-              options: [
-                { value: "T-Shirt", text: "T-Shirt" },
-                { value: "Long-Sleeves", text: "Long Sleeves 長袖" },
-                { value: "Tank-Tops", text: "Tank Tops 背心" },
-                { value: "Dress-Shirt", text: "Dress Shirt 襯衫" }
-              ]
-            },
-            {
-              label: "Women",
-              options: []
-            },
-            {
-              label: "Kids",
-              options: []
-            }
+            { value: "T-Shirt", text: "T-Shirt" },
+            { value: "Long-Sleeves", text: "Long Sleeves 長袖" },
+            { value: "Tank-Tops", text: "Tank Tops 背心" },
+            { value: "Dress-Shirt", text: "Dress Shirt 襯衫" }
+            // {
+            //   label: "Men",
+            //   options: [
+            //     { value: "T-Shirt", text: "T-Shirt" },
+            //     { value: "Long-Sleeves", text: "Long Sleeves 長袖" },
+            //     { value: "Tank-Tops", text: "Tank Tops 背心" },
+            //     { value: "Dress-Shirt", text: "Dress Shirt 襯衫" }
+            //   ]
+            // },
+            // {
+            //   label: "Women",
+            //   options: []
+            // },
+            // {
+            //   label: "Kids",
+            //   options: []
+            // }
           ]
         },
         sex: {
@@ -125,19 +129,21 @@ export default {
           is_enabled: 1,
           imageUrl: this.createData.imageUrl,
           starScore: this.createData.starScore,
-          favorite: this.createData.favorite
+          favorite: this.createData.favorite,
+          sex: this.createData.sex,
+          size: this.createData.size
         }
       };
 
       this.axios.post(api, data).then(response => {
-        console.log(response);
+        console.log(response.data);
       });
     },
     onDeleteProduct: function() {
       let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/${this.deleteData.id}`;
       console.log(api);
       this.axios.delete(api).then(response => {
-        console.log(response);
+        console.log(response.data);
       });
     },
     onUploadFile: function() {
