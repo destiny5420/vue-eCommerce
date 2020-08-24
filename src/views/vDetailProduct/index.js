@@ -93,7 +93,10 @@ export default {
   beforeCreate: function() {},
   created: function() {},
   beforeMounted: function() {},
-  mounted: function() {},
+  mounted: function() {
+    // this.$store.state.detailProduct.productID
+    this.$store.dispatch("detailProduct/GetProduct");
+  },
   beforeUpdate: function() {},
   updated: function() {},
   beforeDestroy: function() {},

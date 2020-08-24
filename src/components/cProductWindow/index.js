@@ -11,6 +11,10 @@ export default {
     },
     props_url: {
       type: String
+    },
+    props_id: {
+      type: String,
+      required: true
     }
   },
   components: {},
@@ -20,6 +24,9 @@ export default {
   methods: {
     onFavoriteHandler: function() {
       console.log("onFavoriteHandler");
+    },
+    onClickHandler: function() {
+      this.$store.commit("detailProduct/SET_PRODUCT_ID", this.props_id);
     }
   },
   computed: {

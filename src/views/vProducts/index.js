@@ -208,7 +208,7 @@ export default {
       };
     },
     products: function() {
-      return this.$store.getters.products;
+      return this.$store.getters["products"];
     }
   },
   // life cycle
