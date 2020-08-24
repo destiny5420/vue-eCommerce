@@ -1,17 +1,20 @@
 <div class="product-window-main">
   <div class="picture" :style="stylePicture">
-    <div class="picture-mask" @click="onClickHandler">
-      <!-- <router-link
-        to="/detail-products"
-        @click.native="onClickHandler"
-      ></router-link> -->
-    </div>
+    <div class="picture-mask" @click="onClickHandler"></div>
     <div @click="onFavoriteHandler" class="picture-favorite">
       <font-awesome-icon class="picture-favorite" :icon="['fab', 'gratipay']" />
     </div>
   </div>
   <div class="info">
     <span name="title" class="p-font-family-button">{{ props_title }}</span>
+    <div>
+      <font-awesome-icon
+        :icon="['fas', 'star']"
+        v-for="(item, index) in 5"
+        :key="index"
+        :style="styleStar(index)"
+      />
+    </div>
     <span name="price" class="p-font-family-button">${{ props_price }}</span>
   </div>
 </div>

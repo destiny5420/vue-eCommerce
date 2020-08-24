@@ -10,7 +10,15 @@ export default {
       },
       createData: {
         title: "",
-        category: "",
+        category: null,
+        sex: null,
+        size: [
+          { caption: "XS", state: false },
+          { caption: "S", state: false },
+          { caption: "M", state: false },
+          { caption: "L", state: false },
+          { caption: "XL", state: false }
+        ],
         origin_price: 0,
         price: 0,
         unit: "",
@@ -19,7 +27,7 @@ export default {
         content: "",
         is_enabled: 1,
         imageUrl: "",
-        starScore: 0,
+        starScore: null,
         favorite: false
       },
       deleteData: {
@@ -28,6 +36,7 @@ export default {
       viewData: {
         category: {
           options: [
+            { value: null, text: "Please select category", disabled: true },
             {
               label: "Men",
               options: [
@@ -47,11 +56,24 @@ export default {
             }
           ]
         },
+        sex: {
+          options: [
+            { value: null, text: "Please select sex", disabled: true },
+            { value: "women", text: "女生 Women" },
+            { value: "men", text: "男生 Men" },
+            { value: "kids", text: "小孩 Kids" }
+          ]
+        },
         starScore: {
           options: [
             {
               label: "請選擇星星數",
               options: [
+                {
+                  value: null,
+                  text: "Please select star score",
+                  disabled: true
+                },
                 { value: 5, text: "五顆星" },
                 { value: 4, text: "四顆星" },
                 { value: 3, text: "三顆星" },

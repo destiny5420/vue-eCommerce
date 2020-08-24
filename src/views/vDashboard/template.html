@@ -10,31 +10,101 @@
       >
     </div>
     <div class="create-product">
-      <b-form-input
-        v-model="createData.title"
-        placeholder="Title"
-      ></b-form-input>
-      <b-form-select
-        v-model="createData.category"
-        :options="viewData.category.options"
-      ></b-form-select>
-      <b-form-input
-        v-model.number="createData.origin_price"
-        placeholder="origin_price"
-      ></b-form-input>
-      <b-form-input
-        v-model.number="createData.price"
-        placeholder="price"
-      ></b-form-input
-      ><b-form-input
-        v-model="createData.description"
-        placeholder="description"
-      ></b-form-input>
-      
-      <b-form-select
+       <!-- Title -->
+      <b-form-group
+        id="input-group-1"
+        label="Title"
+        label-for="input-1"
+        >
+        <b-form-input
+          id="input-1"
+          v-model="createData.title"
+          type="email"
+          required
+          placeholder="Enter title"
+        ></b-form-input>
+      </b-form-group>
+
+      <!-- Sex -->
+      <b-form-group id="input-group-3" label="Sex" label-for="input-3">
+        <b-form-select
+          id="input-3"
+          v-model="createData.sex"
+          :options="viewData.sex.options"
+          required
+        ></b-form-select>
+      </b-form-group>
+
+      <!-- Category -->
+      <b-form-group id="input-group-3" label="Category" label-for="input-3">
+        <b-form-select
+          id="input-3"
+          v-model="createData.category"
+          :options="viewData.category.options"
+          required
+        ></b-form-select>
+      </b-form-group>
+
+      <!-- Star -->
+      <div>
+        Star:
+        <b-form-select
         v-model="createData.starScore"
         :options="viewData.starScore.options"
       ></b-form-select>
+      </div>
+
+      <!-- Size -->
+      <div>
+        <span style="display: block; margin-bottom: 8px;">Size:</span>
+        <b-button-group size="sm">
+          
+          <b-button
+            v-for="(item, index) in createData.size"
+            :key="index"
+            :pressed.sync="item.state"
+            variant="outline-primary"
+          >
+            {{ item.caption }}
+          </b-button>
+        </b-button-group>
+      </div>
+      
+      <!-- Description -->
+      <div>
+        <span style="display: block; margin-bottom: 8px;">Description:</span>
+        <b-row>
+          <b-col sm="10">
+            <b-form-textarea
+              id="textarea"
+              size="sm"
+              placeholder="description"
+              v-model="createData.description"
+            ></b-form-textarea>
+          </b-col>
+        </b-row>
+      </div>
+
+      <!-- Price -->
+      <div>
+        <div style="display: inline-block; margin-right: 30px;">
+          Origin Price
+          <b-form-input
+          v-model.number="createData.origin_price"
+          placeholder="origin_price"
+          ></b-form-input>
+        </div>
+        
+        <div style="display: inline-block">
+          Price
+          <b-form-input
+          v-model.number="createData.price"
+          placeholder="price"
+        ></b-form-input>
+        </div>
+        
+      </div>
+      
       <input
       type="file"
       class="form-control"

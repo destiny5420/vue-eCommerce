@@ -24,7 +24,7 @@
   transition: 0.15s ease-out;
 }
 
-.product-window-main .picture .picture-mask a {
+.product-window-main .picture .picture-mask div {
   display: block;
   width: 100%;
   height: 100%;

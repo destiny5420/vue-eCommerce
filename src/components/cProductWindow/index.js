@@ -15,6 +15,10 @@ export default {
     props_id: {
       type: String,
       required: true
+    },
+    props_starScore: {
+      type: Number,
+      required: true
     }
   },
   components: {},
@@ -42,6 +46,13 @@ export default {
     stylePicture: function() {
       return {
         backgroundImage: `url(${this.props_url})`
+      };
+    },
+    styleStar: function() {
+      return function(index) {
+        return {
+          color: index < this.props_starScore ? "#ffc950" : "#adabab"
+        };
       };
     }
   },
