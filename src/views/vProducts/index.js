@@ -89,68 +89,7 @@ export default {
             }
           ]
         }
-      },
-      productList: [
-        {
-          title: "T-Shirt Summer Vibes",
-          price: 89.99,
-          url: "https://i.postimg.cc/qMwH8V8V/photo-1548549557-dbe9946621da.jpg"
-        },
-        {
-          title: "Loose Knit 3/4 Sleeve",
-          price: 119.99,
-          url:
-            "https://i.postimg.cc/NFJqvRGG/oswaldo-ibanez-EG3-1s-MLm-M-unsplash.jpg"
-        },
-        {
-          title: "Basic Slim Fit T-Shirt",
-          price: 79.99,
-          url:
-            "https://i.postimg.cc/vmWzVMV5/daniela-mota-BXZzxj-C4l-TY-unsplash.jpg"
-        },
-        {
-          title: "T-Shirt Summer Vibes",
-          price: 89.99,
-          url:
-            "https://i.postimg.cc/c4rBcf3x/darko-mitev-c5t-j1zlk1-Y-unsplash.jpg"
-        },
-        {
-          title: "Loose Knit 3/4 Sleeve",
-          price: 119.99,
-          url:
-            "https://i.postimg.cc/FHPfC6Xw/analise-benevides-Dh-Yc-NZmqzns-unsplash.jpg"
-        },
-        {
-          title: "Basic Slim Fit T-Shirt",
-          price: 79.99,
-          url:
-            "https://i.postimg.cc/kGdDt3WR/antonino-visalli-Kwrx8n-GAwe-A-unsplash.jpg"
-        },
-        {
-          title: "T-Shirt Summer Vibes",
-          price: 89.99,
-          url:
-            "https://i.postimg.cc/vBncBHxd/calvin-lupiya-y-Pg8cus-GD8-unsplash.jpg"
-        },
-        {
-          title: "Loose Knit 3/4 Sleeve",
-          price: 119.99,
-          url:
-            "https://i.postimg.cc/tgwspVT5/luobulinka-QCOZz4iq-U-M-unsplash.jpg"
-        },
-        {
-          title: "Basic Slim Fit T-Shirt",
-          price: 79.99,
-          url:
-            "https://i.postimg.cc/HLVrqtpn/sergio-souza-JF6-N57x-Olg-unsplash.jpg"
-        },
-        {
-          title: "T-Shirt Summer Vibes",
-          price: 89.99,
-          url:
-            "https://i.postimg.cc/Y0f06nxn/thanh-duc-phan-Oi-Dw-Yvzo9pw-unsplash.jpg"
-        }
-      ]
+      }
     };
   },
   methods: {
@@ -198,8 +137,6 @@ export default {
           default:
             return {};
         }
-
-        // transform: !this.filterData_type.show ? " rotateX(180deg)" : ""
       };
     },
     matchID: function() {

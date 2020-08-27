@@ -105,13 +105,13 @@ export default {
       };
 
       this.axios.post(api, data).then(response => {
-        console.log(response);
+        console.log(response.data);
       });
     },
     onLogoutHandler: function() {
       let api = `${process.env.VUE_APP_APIPATH}/logout`;
       this.axios.post(api).then(response => {
-        console.log(response);
+        console.log(response.data);
       });
     },
     onGetProductAllList: function() {
@@ -121,31 +121,62 @@ export default {
       });
     },
     onCreateProduct: function() {
-      let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product`;
-      let data = {
-        data: {
-          title: this.createData.title,
-          category: this.createData.category,
-          origin_price: this.createData.origin_price,
-          price: this.createData.price,
-          unit: "美元",
-          image: "",
-          description: this.createData.description,
-          content: "",
-          is_enabled: 1,
-          imageUrl: this.createData.imageUrl,
-          starScore: this.createData.starScore,
-          favorite: this.createData.favorite,
-          sex: this.createData.sex,
-          size: this.createData.size
+      let vm = this;
+      vm.isLoading = true;
+      let checkLogin = new Promise(function(resolve, reject) {
+        let api = `${process.env.VUE_APP_APIPATH}/api/user/check`;
+
+        vm.axios
+          .post(api)
+          .then(response => {
+            resolve(response);
+          })
+          .catch(function(error) {
+            reject(error);
+          });
+      });
+
+      checkLogin.then(function(value) {
+        if (value.data.success) {
+          let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product`;
+          let data = {
+            data: {
+              title: vm.createData.title,
+              category: vm.createData.category,
+              origin_price: vm.createData.origin_price,
+              price: vm.createData.price,
+              unit: "美元",
+              image: "",
+              description: vm.createData.description,
+              content: "",
+              is_enabled: 1,
+              imageUrl: vm.createData.imageUrl,
+              starScore: vm.createData.starScore,
+              favorite: vm.createData.favorite,
+              sex: vm.createData.sex,
+              size: vm.createData.size
+            }
+          };
+
+          vm.axios
+            .post(api, data)
+            .then(response => {
+              vm.isLoading = false;
+              console.log(response.data);
+            })
+            .catch(function(error) {
+              vm.isLoading = false;
+              console.error(error);
+            });
+        } else {
+          vm.isLoading = false;
+          console.error("Please login before create product.");
         }
-      };
+      });
 
-      this.isLoading = true;
-
-      this.axios.post(api, data).then(response => {
-        this.isLoading = false;
-        console.log(response.data);
+      checkLogin.catch(function(value) {
+        vm.isLoading = false;
+        console.error("catch in promise reject: ", value);
       });
     },
     onDeleteProduct: function() {

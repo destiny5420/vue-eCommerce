@@ -11,7 +11,11 @@ export default new Vuex.Store({
     isLoading: false,
     products: []
   },
-  getters: {},
+  getters: {
+    products: function(state) {
+      return state.products;
+    }
+  },
   mutations: {
     TOGGLE_LOADING: function(state, data) {
       state.isLoading = data;
