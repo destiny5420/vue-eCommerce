@@ -14,8 +14,32 @@ export default {
       homePath: "/home"
     };
   },
-  methods: {},
-  computed: {},
+  methods: {
+    onClickHandler: function(index) {
+      if (this.isLast(index) === true) {
+        return;
+      } else {
+        this.$router.push({
+          path: `/products/${this.props_links[index].params}`
+        });
+      }
+    }
+  },
+  computed: {
+    isLast: function() {
+      return function(index) {
+        return index === this.props_links.length - 1 ? true : false;
+      };
+    },
+    styleDirection: function() {
+      return function(index) {
+        return {
+          color: this.isLast(index) ? "black" : "",
+          cursor: this.isLast(index) ? "default" : "pointer"
+        };
+      };
+    }
+  },
   // life cycle
   beforeCreate: function() {},
   created: function() {},

@@ -12,7 +12,8 @@
     <span>/</span>
     <div
       class="path"
-      :style="{ 'color': index === props_links.length - 1 ? 'black': '' }"
+      :style="styleDirection(index)"
+      @click="onClickHandler(index)"
     >
       {{ item.displayName }}
     </div>

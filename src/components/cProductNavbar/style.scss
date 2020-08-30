@@ -35,5 +35,10 @@ $spacing: 10px;
     position: relative;
     display: inline-block;
     margin: 0 $spacing;
+    transition: 0.25s ease;
+
+    &:hover {
+      color: black;
+    }
   }
 }

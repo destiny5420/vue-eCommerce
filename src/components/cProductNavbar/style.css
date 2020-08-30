@@ -40,5 +40,11 @@
   position: relative;
   display: inline-block;
   margin: 0 10px;
+  -webkit-transition: 0.25s ease;
+  transition: 0.25s ease;
+}
+
+.nav-bar .path:hover {
+  color: black;
 }
 /*# sourceMappingURL=style.css.map */

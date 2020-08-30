@@ -10,17 +10,7 @@ export default {
   },
   data: function() {
     return {
-      navbar_info: [
-        {
-          displayName: `${this.$route.params.id}`
-        },
-        {
-          displayName: `T-Shirt`
-        },
-        {
-          displayName: `T-Shirt Summer Vibess`
-        }
-      ],
+      navbar_info: [],
       filterData_type: {
         show: true,
         option: [
@@ -149,24 +139,43 @@ export default {
     conditionBarTitle: function() {
       let first_name = "Default";
       let trail_name = "'s Tops";
+      this.navbar_info = [];
+      this.navbar_info[0] = {
+        displayName: "All Product",
+        params: "all-products"
+      };
       switch (this.$route.params.id) {
         case "all-products":
           first_name = `All Product`;
+
           break;
         case "men":
           first_name = `Men`;
+          this.navbar_info[1] = {
+            displayName: "Men",
+            params: this.$route.params.id
+          };
           break;
         case "women":
           first_name = `Women`;
+          this.navbar_info[1] = {
+            displayName: "Women",
+            params: this.$route.params.id
+          };
           break;
         case "kids":
           first_name = `Kids`;
+          this.navbar_info[1] = {
+            displayName: "Kids",
+            params: this.$route.params.id
+          };
           break;
       }
 
       return first_name + trail_name;
     },
     navBarInfo: function() {
+      console.log(this.conditionBarTitle);
       return [
         {
           displayName: `${this.conditionBarTitle}`
