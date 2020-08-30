@@ -28,13 +28,23 @@
       </b-form-group>
 
       <!-- Sex -->
-      <b-form-group id="input-group-3" label="Sex" label-for="input-3">
+      <b-form-group id="input-group-2" label="Sex" label-for="input-3">
         <b-form-select
           id="input-3"
           v-model="createData.sex"
           :options="viewData.sex.options"
           required
         ></b-form-select>
+      </b-form-group>
+
+      <!-- Color -->
+      <b-form-group id="input-group-3" label="Color" label-for="input-3">
+        <input class="color-picker" v-for="(item, index) in createData.colors" :key="index"type="color" v-model="createData.colors[index]">
+        <button class="create-color-btn" @click="onCreateColorHandler">
+          <font-awesome-icon
+          :icon="['fas', 'plus']"
+        />
+        </button>
       </b-form-group>
 
       <!-- Category -->

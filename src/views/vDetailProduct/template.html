@@ -69,15 +69,15 @@
     </div>
     <div class="detail-color">
       <span>Color</span>
-      <div class="group">
+      <div class="group" v-if="product">
         <div
-          v-for="(item, index) in colorData"
+          v-for="(item, index) in product.colors"
           :key="index"
           class="block"
           @click="onColorHandler(index)"
           :style="styleColorBorder(index)"
         >
-          <div :style="{ 'background': colorData[index] }"></div>
+          <div :style="{ 'background': product.colors[index] }"></div>
         </div>
       </div>
     </div>

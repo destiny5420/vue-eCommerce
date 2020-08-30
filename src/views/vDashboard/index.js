@@ -25,6 +25,7 @@ export default {
           { caption: "L", state: false },
           { caption: "XL", state: false }
         ],
+        colors: [],
         origin_price: 0,
         price: 0,
         unit: "",
@@ -120,6 +121,9 @@ export default {
         console.log(response);
       });
     },
+    onCreateColorHandler: function() {
+      this.createData.colors.push("#ffffff");
+    },
     onCreateProduct: function() {
       let vm = this;
       vm.isLoading = true;
@@ -154,7 +158,8 @@ export default {
               starScore: vm.createData.starScore,
               favorite: vm.createData.favorite,
               sex: vm.createData.sex,
-              size: vm.createData.size
+              size: vm.createData.size,
+              colors: vm.createData.colors
             }
           };
 
