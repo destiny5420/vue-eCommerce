@@ -22,6 +22,8 @@
 
 // component
 .hove-line {
+  cursor: pointer;
+  user-select: none;
   &::after {
     position: absolute;
     content: "";

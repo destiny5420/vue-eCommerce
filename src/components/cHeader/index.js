@@ -59,9 +59,12 @@ export default {
       this.sideBarData[index].tmp(vm);
     },
     onCartHandler: function() {
+      console.log("-- onCartHandler --");
       if (this.openSideBar) {
         this.openSideBar = !this.openSideBar;
       }
+
+      this.$store.dispatch("GetCartList");
     },
     onGoShop: function(value) {
       if (value === this.$route.params.id) {

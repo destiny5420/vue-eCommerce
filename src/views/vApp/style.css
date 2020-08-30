@@ -20,6 +20,14 @@
   color: #42b983;
 }
 
+.hove-line {
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
 .hove-line::after {
   position: absolute;
   content: "";

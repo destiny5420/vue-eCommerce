@@ -43,9 +43,12 @@
       /></a>
     </li>
     <li>
-      <router-link class="hove-line" to="/cart"
-        ><font-awesome-icon :icon="['fas', 'shopping-cart']"
-      /></router-link>
+      <a class="hove-line">
+        <font-awesome-icon
+          :icon="['fas', 'shopping-cart']"
+          @click="onCartHandler"
+        />
+      </a>
     </li>
     <li>
       <router-link class="hove-line" to="/login"

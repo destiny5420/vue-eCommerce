@@ -75,6 +75,18 @@ export default new Vuex.Store({
           context.commit("SAVE_PRODUCT_LIST", response.data.products);
         }
       });
+    },
+    GetCartList: function() {
+      let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
+
+      axios
+        .get(api)
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(err => {
+          console.error(err);
+        });
     }
   },
   modules: { detailProduct: module_detailProduct }
