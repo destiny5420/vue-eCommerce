@@ -22,7 +22,8 @@ import {
   faPlus,
   faStar,
   faEnvelope,
-  faLock
+  faLock,
+  faTimes
 } from "@fortawesome/free-solid-svg-icons";
 import { faUser, faSmile } from "@fortawesome/free-regular-svg-icons";
 import {
@@ -62,7 +63,8 @@ library.add(
   faPlus,
   faStar,
   faEnvelope,
-  faLock
+  faLock,
+  faTimes
 );
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 Vue.component("font-awesome-icon", FontAwesomeIcon);
@@ -81,8 +83,7 @@ Vue.use(VueAxios, axios);
 
 // vuex-router-sync
 import { sync } from "vuex-router-sync";
-const unsync = sync(store, router);
-unsync();
+sync(store, router);
 
 Vue.config.productionTip = false;
 

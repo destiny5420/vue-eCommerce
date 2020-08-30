@@ -12,7 +12,7 @@ export default {
     return {
       navbar_info: [
         {
-          displayName: `Men's Tops`
+          displayName: `${this.$route.params.id}`
         },
         {
           displayName: `T-Shirt`
@@ -66,7 +66,6 @@ export default {
         ]
       },
       conditionBar: {
-        title: "Women's Tops",
         sort: {
           title: "Sort",
           curValue: "default",
@@ -144,8 +143,48 @@ export default {
         return `check-box-${value}`;
       };
     },
+    test: function() {
+      return "hello";
+    },
+    conditionBarTitle: function() {
+      let first_name = "Default";
+      let trail_name = "'s Tops";
+      switch (this.$route.params.id) {
+        case "all-products":
+          first_name = `All Product`;
+          break;
+        case "men":
+          first_name = `Men`;
+          break;
+        case "women":
+          first_name = `Women`;
+          break;
+        case "kids":
+          first_name = `Kids`;
+          break;
+      }
+
+      return first_name + trail_name;
+    },
+    navBarInfo: function() {
+      return [
+        {
+          displayName: `${this.conditionBarTitle}`
+        }
+      ];
+    },
     products: function() {
       return this.$store.getters["products"];
+    }
+  },
+  watch: {
+    $route: {
+      handler: function() {
+        // console.log("-- watch / newName: ", newName, " / oldName: ", oldName);
+        // this.conditionBar.title = newName.params.id;
+        this.$store.dispatch("GetProductList");
+      },
+      deep: true
     }
   },
   // life cycle

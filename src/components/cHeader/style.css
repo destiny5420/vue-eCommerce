@@ -163,6 +163,11 @@
   }
 }
 
+.header .catalog a {
+  text-decoration: none;
+  color: #2c3e50;
+}
+
 .header .catalog span {
   position: relative;
   cursor: pointer;

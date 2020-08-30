@@ -41,6 +41,31 @@ export default {
           displayName: `T-Shirt Summer Vibess`
         }
       ],
+      sizeTable: {
+        isShow: false,
+        title: "Product Size",
+        header: ["Size", "Chest", "Waist", "Length"],
+        data: [
+          {
+            Size: "S",
+            Chest: 40.5,
+            Waist: 43,
+            Length: 54
+          },
+          {
+            Size: "M",
+            Chest: 42.5,
+            Waist: 45.5,
+            Length: 55.5
+          },
+          {
+            Size: "L",
+            Chest: 45,
+            Waist: 48,
+            Length: 57
+          }
+        ]
+      },
       colorData: ["#8f8f8f", "#9e9e9e59", "#2c3e50"],
       sizeData: ["S", "M", "L", "XL"],
       count: 0
@@ -58,6 +83,10 @@ export default {
     },
     onSizeHandler: function(index) {
       this.data.sizeIndex = index;
+    },
+    onSizeTableToggleHandler: function(key) {
+      console.log("onSizeTableToggleHandler / key: ", key);
+      this.sizeTable.isShow = key;
     }
   },
   computed: {
@@ -87,7 +116,14 @@ export default {
         };
       };
     },
+    styleSizeTable: function() {
+      return {
+        opacity: this.sizeTable.isShow ? 1 : 0,
+        "pointer-events": this.sizeTable.isShow ? "auto" : "none"
+      };
+    },
     product: function() {
+      console.log("product: ", this.$store.state.detailProduct.productData);
       return this.$store.state.detailProduct.productData;
     }
   },

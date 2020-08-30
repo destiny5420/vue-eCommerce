@@ -6,6 +6,7 @@
 }
 
 .detail-product-main {
+  position: relative;
   padding: 80px 100px;
   height: 100vh;
   background: white;
@@ -22,6 +23,94 @@
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+}
+
+.size-table {
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(53, 53, 53, 0.712);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+.size-table > div {
+  position: relative;
+  padding: 0 20px;
+  width: 500px;
+  height: 285px;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.size-table > div .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: transparent;
+  background: transparent;
+  outline: none;
+  width: 30px;
+  height: 30px;
+}
+
+.size-table > div .close-btn svg {
+  font-size: 25px;
+  color: gray;
+  -webkit-transition: 0.25s ease;
+  transition: 0.25s ease;
+}
+
+.size-table > div .close-btn:hover svg {
+  color: black;
+}
+
+.size-table > div div[name="title"] {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.35);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 80px;
+  font-size: 20px;
+}
+
+.size-table > div table {
+  width: 100%;
+}
+
+.size-table > div table th {
+  padding: 15px 0;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.45);
+}
+
+.size-table > div table td {
+  padding: 10px 0;
+}
+
+.size-table > div table tbody tr {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.35);
+}
+
+.size-table > div table tbody tr:nth-last-child(1) {
+  border-bottom: none;
 }
 
 .detail-left,
@@ -189,14 +278,18 @@
   text-align: left;
 }
 
-.detail-right .detail-size span:last-child {
-  cursor: pointer;
+.detail-right .detail-size button {
+  padding: 0;
   color: gray;
+  height: 50px;
+  background: transparent;
+  border: transparent;
+  outline: none;
   border-bottom: 1px solid gray;
   height: 20px;
 }
 
-.detail-right .detail-size span:last-child:hover {
+.detail-right .detail-size button:hover {
   color: #323232;
   border-bottom: 1px solid #323232;
 }

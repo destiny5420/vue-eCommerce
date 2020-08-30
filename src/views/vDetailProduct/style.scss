@@ -7,6 +7,7 @@ $light-grey-color: #9e9e9e59;
 }
 
 .detail-product-main {
+  position: relative;
   padding: 80px 100px;
   height: 100vh;
   background: rgb(255, 255, 255);
@@ -15,6 +16,82 @@ $light-grey-color: #9e9e9e59;
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
+}
+
+.size-table {
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(53, 53, 53, 0.712);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s ease;
+
+  > div {
+    position: relative;
+    padding: 0 20px;
+    width: 500px;
+    height: 285px;
+    background: #fff;
+    border-radius: 5px;
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      border: transparent;
+      background: transparent;
+      outline: none;
+      width: 30px;
+      height: 30px;
+
+      svg {
+        font-size: 25px;
+        color: gray;
+        transition: 0.25s ease;
+      }
+
+      &:hover svg {
+        color: black;
+      }
+    }
+
+    div[name="title"] {
+      border-bottom: 1px solid rgba(128, 128, 128, 0.35);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80px;
+      font-size: 20px;
+    }
+
+    table {
+      width: 100%;
+
+      th {
+        padding: 15px 0;
+        border-bottom: 2px solid rgba(128, 128, 128, 0.45);
+      }
+
+      td {
+        padding: 10px 0;
+      }
+
+      tbody {
+        tr {
+          border-bottom: 1px solid rgba(128, 128, 128, 0.35);
+        }
+
+        & tr:nth-last-child(1) {
+          border-bottom: none;
+        }
+      }
+    }
+  }
 }
 
 .detail-left,
@@ -145,16 +222,20 @@ $light-grey-color: #9e9e9e59;
   }
 
   .detail-size {
-    & span:last-child {
-      cursor: pointer;
+    button {
+      padding: 0;
       color: gray;
+      height: 50px;
+      background: transparent;
+      border: transparent;
+      outline: none;
       border-bottom: 1px solid gray;
       height: 20px;
-    }
 
-    & span:last-child:hover {
-      color: rgb(50, 50, 50);
-      border-bottom: 1px solid rgb(50, 50, 50);
+      &:hover {
+        color: rgb(50, 50, 50);
+        border-bottom: 1px solid rgb(50, 50, 50);
+      }
     }
   }
 

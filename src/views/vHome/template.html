@@ -4,7 +4,7 @@
       <div class="textBox">
         <h1 class="p-font-family-content">Sale of the summer collection</h1>
         <div class="shop-now">
-          <router-link to="/products">
+          <router-link :to="{ name: 'vProducts', params: { id: 'all-products' }}">
             <div>
               <font-awesome-icon :icon="arrowRight" />
             </div>

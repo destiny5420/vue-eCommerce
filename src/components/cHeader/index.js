@@ -10,6 +10,20 @@ export default {
   data: function() {
     return {
       openSideBar: false,
+      shopPathData: [
+        {
+          displayName: "Men",
+          value: "men"
+        },
+        {
+          displayName: "Women",
+          value: "women"
+        },
+        {
+          displayName: "Kids",
+          value: "kids"
+        }
+      ],
       sideBarData: [
         {
           title: "Mem",
@@ -48,6 +62,16 @@ export default {
       if (this.openSideBar) {
         this.openSideBar = !this.openSideBar;
       }
+    },
+    onGoShop: function(value) {
+      if (value === this.$route.params.id) {
+        return;
+      }
+
+      this.$router.push({
+        name: "vProducts",
+        params: { id: value }
+      });
     }
   },
   computed: {

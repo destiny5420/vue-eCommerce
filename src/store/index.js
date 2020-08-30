@@ -5,6 +5,33 @@ import module_detailProduct from "./detailProductStore";
 
 Vue.use(Vuex);
 
+const ProductFilter = {
+  AllProduct: function(data) {
+    return data;
+  },
+  Women: function(data) {
+    let result = data.filter(data => {
+      return data.sex === "women";
+    });
+
+    return result;
+  },
+  Men: function(data) {
+    let result = data.filter(data => {
+      return data.sex === "men";
+    });
+
+    return result;
+  },
+  Kids: function(data) {
+    let result = data.filter(data => {
+      return data.sex === "kids";
+    });
+
+    return result;
+  }
+};
+
 export default new Vuex.Store({
   strict: true,
   state: {
@@ -13,7 +40,23 @@ export default new Vuex.Store({
   },
   getters: {
     products: function(state) {
-      return state.products;
+      let functionName = "AllProduct";
+      switch (state.route.params.id) {
+        case "women":
+          functionName = "Women";
+          break;
+        case "men":
+          functionName = "Men";
+          break;
+        case "kids":
+          functionName = "Kids";
+          break;
+        default:
+          functionName = "AllProduct";
+          break;
+      }
+
+      return ProductFilter[functionName](state.products);
     }
   },
   mutations: {

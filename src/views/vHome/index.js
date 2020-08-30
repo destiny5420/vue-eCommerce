@@ -142,6 +142,12 @@ export default {
   methods: {
     onSocialMedialHandler: function(url) {
       window.open(url);
+    },
+    onGoShopButtonHandler: function() {
+      this.$router.push({
+        name: "vProducts",
+        params: { id: "all-product" }
+      });
     }
   },
   computed: {},

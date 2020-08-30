@@ -1,4 +1,27 @@
 <div class="detail-product-main">
+  <div class="size-table" :style="styleSizeTable">
+    <div>
+      <button class="close-btn" @click="onSizeTableToggleHandler(false)">
+        <font-awesome-icon :icon="['fas', 'times']" />
+      </button>
+      <div name="title">{{ sizeTable.title }}</div>
+      <table>
+        <tr>
+          <th v-for="(item, index) in sizeTable.header" :key="index">
+            {{ item }}
+          </th>
+        </tr>
+        <tbody>
+          <tr v-for="(item, index) in sizeTable.data">
+            <td>{{ item.Size }}</td>
+            <td>{{ item.Chest }}</td>
+            <td>{{ item.Waist }}</td>
+            <td>{{ item.Length }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
   <div class="detail-left">
     <cProductNavbar class="navbar-info" :props_links="navbar_info" />
     <div class="detail-picture" :style="styleDetailPicture"></div>
@@ -56,20 +79,21 @@
         </div>
       </div>
     </div>
-    <div class="detail-size">
+    <div class="detail-size" v-if="product">
       <span>Size</span>
       <div class="group">
         <div
-          v-for="(item, index) in sizeData"
+          v-for="(item, index) in product.size"
           :key="index"
           :style="styleSizeBorder(index)"
           class="block"
+          v-if="item.state"
           @click="onSizeHandler(index)"
         >
-          <div>{{ item }}</div>
+          <div>{{ item.caption }}</div>
         </div>
       </div>
-      <span>size table</span>
+      <button @click="onSizeTableToggleHandler(true)">size table</button>
     </div>
     <div class="detail-quantity">
       <div class="calculator">
