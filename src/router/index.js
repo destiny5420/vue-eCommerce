@@ -4,6 +4,7 @@ import Root from "@/views/vRoot/index.vue";
 import Home from "@/views/vHome/index.vue";
 import Products from "@/views/vProducts/index.vue";
 import DetailProduct from "@/views/vDetailProduct/index.vue";
+import Cart from "@/views/vCart/index.vue";
 import Login from "@/views/vLogin/index.vue";
 import Dashboard from "@/views/vDashboard/index.vue";
 
@@ -37,6 +38,11 @@ const routes = [
         path: "detail-products/:id?",
         name: "vDetailProduct",
         component: DetailProduct
+      },
+      {
+        path: "cart",
+        name: "vCart",
+        component: Cart
       }
     ]
   },

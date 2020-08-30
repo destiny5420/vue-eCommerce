@@ -63,8 +63,13 @@ export default {
       if (this.openSideBar) {
         this.openSideBar = !this.openSideBar;
       }
+      this.$router
+        .push({
+          name: "vCart"
+        })
+        .catch(() => {});
 
-      this.$store.dispatch("GetCartList");
+      // this.$store.dispatch("GetCartList");
     },
     onGoShop: function(value) {
       if (value === this.$route.params.id) {
