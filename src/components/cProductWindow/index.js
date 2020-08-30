@@ -19,6 +19,10 @@ export default {
     props_starScore: {
       type: Number,
       required: true
+    },
+    props_size: {
+      type: Array,
+      required: true
     }
   },
   components: {},

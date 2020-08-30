@@ -72,8 +72,33 @@ $picture-height: 80%;
       font-size: 24px;
     }
 
+    .info-size {
+      display: inline-block;
+      height: 40px;
+
+      & > div:nth-child(n) {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2px 5px;
+        margin: 0 2px;
+        border: 1px solid rgba(0, 0, 0, 0.45);
+        border-radius: 3px;
+        font-size: 14px;
+        font-weight: normal;
+        width: 32px;
+        height: 26px;
+      }
+    }
+
     & > :nth-child(n) {
       margin-bottom: 5px;
+    }
+
+    & > :nth-child(1) {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
     }
   }
 }

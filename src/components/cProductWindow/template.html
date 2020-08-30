@@ -6,7 +6,14 @@
     </div>
   </div>
   <div class="info">
-    <span name="title" class="p-font-family-button">{{ props_title }}</span>
+    <div>
+      <span name="title" class="p-font-family-button">{{ props_title }}</span>
+      <div class="info-size p-font-family-button">
+        <div v-if="item.state" v-for="(item, index) in props_size" :key="index">
+          {{ item.caption }}
+        </div>
+      </div>
+    </div>
     <div>
       <font-awesome-icon
         :icon="['fas', 'star']"
