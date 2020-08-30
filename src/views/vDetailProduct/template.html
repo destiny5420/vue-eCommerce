@@ -1,4 +1,6 @@
 <div class="detail-product-main">
+  <loading :active.sync="isLoadingForAddCart"></loading>
+
   <div class="size-table" :style="styleSizeTable">
     <div>
       <button class="close-btn" @click="onSizeTableToggleHandler(false)">
@@ -98,10 +100,10 @@
     <div class="detail-quantity">
       <div class="calculator">
         <font-awesome-icon :icon="['fas', 'minus']" @click="onMinusHandler" />
-        <span>{{ count }}</span>
+        <span>{{ data.count }}</span>
         <font-awesome-icon :icon="['fas', 'plus']" @click="onPlusHandler" />
       </div>
-      <div class="cart-btn">
+      <div class="cart-btn" @click="onAddCartHandler">
         <span>add to cart</span>
       </div>
       <div class="favorite">

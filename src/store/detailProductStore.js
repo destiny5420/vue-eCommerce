@@ -5,7 +5,10 @@ export default {
   state: function() {
     return {
       productID: null,
-      productData: null
+      productData: null,
+      isLoading: {
+        addCart: false
+      }
     };
   },
   getters: {},
@@ -18,14 +21,13 @@ export default {
     },
     CLEAN_PRODUCT_DATA: function(state) {
       state.productData = null;
+    },
+    TOGGLE_LOADING_ADD_CART: function(state, data) {
+      state.isLoading.addCart = data;
     }
   },
   actions: {
     GetProduct: function(context) {
-      console.log(
-        "Vuex / action / GetProduct / productID: ",
-        context.state.productID
-      );
       if (!context.state.productID) return;
 
       context.commit("CLEAN_PRODUCT_DATA");
@@ -33,11 +35,35 @@ export default {
       let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/product/${context.state.productID}`;
 
       axios.get(api).then(response => {
-        console.log("GetProduct / response: ", response);
         if (response.data.success) {
           context.commit("SAVE_PRODUCT_DATA", response.data.product);
         }
       });
+    },
+    AddCart: function(context, data) {
+      let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
+      context.commit("TOGGLE_LOADING_ADD_CART", true);
+      let infoData = {
+        data: {
+          product_id: context.state.productID,
+          qty: data.count,
+          customData: {
+            sizeIndex: data.sizeIndex,
+            colorIndex: data.colorIndex
+          }
+        }
+      };
+
+      axios
+        .post(api, infoData)
+        .then(response => {
+          context.commit("TOGGLE_LOADING_ADD_CART", false);
+          console.log("AddCart result: ", response.data);
+        })
+        .catch(error => {
+          context.commit("TOGGLE_LOADING_ADD_CART", false);
+          console.log(error);
+        });
     }
   }
 };
