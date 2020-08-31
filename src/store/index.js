@@ -105,7 +105,6 @@ export default new Vuex.Store({
         .get(api)
         .then(response => {
           context.commit("TOGGLE_LOADING_GET_CART_LIST", false);
-          console.log(response.data);
           context.commit("SAVE_CART_DATA", response.data.data);
         })
         .catch(err => {

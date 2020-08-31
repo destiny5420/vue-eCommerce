@@ -76,32 +76,7 @@ export default {
   beforeCreate: function() {},
   created: function() {},
   beforeMounted: function() {},
-  mounted: function() {
-    console.log("-- Cart mounted --");
-    switch (this.$route.name) {
-      case "vShoppingList":
-        {
-          (this.title = "Shopping Cart"), (this.stepData.userStep = 0);
-        }
-        break;
-      case "vShoppingDeliveryInfo":
-        {
-          (this.title = "Address data type fo delivery"),
-            (this.stepData.userStep = 1);
-        }
-        break;
-      case "vShoppingPaymentInfo":
-        {
-          (this.title = "Shipping and Payment"), (this.stepData.userStep = 2);
-        }
-        break;
-      default:
-        {
-          (this.title = "Default Title"), (this.stepData.userStep = 0);
-        }
-        break;
-    }
-  },
+  mounted: function() {},
   beforeUpdate: function() {},
   updated: function() {},
   beforeDestroy: function() {},
