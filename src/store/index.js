@@ -66,7 +66,7 @@ export default new Vuex.Store({
   },
   mutations: {
     TOGGLE_LOADING_GET_PRODUCT_LIST: function(state, data) {
-      state.isLoading.productList = data;
+      state.isLoading.getProductList = data;
     },
     TOGGLE_LOADING_GET_CART_LIST: function(state, data) {
       state.isLoading.getCartList = data;
@@ -84,11 +84,19 @@ export default new Vuex.Store({
   actions: {
     GetProductList: function(context) {
       let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/products/all`;
-      axios.get(api).then(response => {
-        if (response.data.success) {
-          context.commit("SAVE_PRODUCT_LIST", response.data.products);
-        }
-      });
+      context.commit("TOGGLE_LOADING_GET_PRODUCT_LIST", true);
+      axios
+        .get(api)
+        .then(response => {
+          if (response.data.success) {
+            context.commit("TOGGLE_LOADING_GET_PRODUCT_LIST", false);
+            context.commit("SAVE_PRODUCT_LIST", response.data.products);
+          }
+        })
+        .catch(err => {
+          context.commit("TOGGLE_LOADING_GET_PRODUCT_LIST", false);
+          console.error(err);
+        });
     },
     GetCartList: function(context) {
       let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;

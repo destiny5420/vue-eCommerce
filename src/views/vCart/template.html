@@ -34,7 +34,9 @@
         </div>
       </div>
       <div>{{ item.product.category }}</div>
-      <div class="p-font-family-title">{{ item.customData.size }}</div>
+      <div class="p-font-family-title">
+        {{ item.product.size[item.customData.sizeIndex].caption }}
+      </div>
       <div class="p-font-family-button">${{ item.product.price }}</div>
       <div>{{ item.qty }}</div>
       <div @click="deleteCartItem(item.id)">
@@ -52,8 +54,8 @@
         <input type="text" placeholder="Entry your coupon" />
       </div>
       <div>
-        <span class="p-font-family-button">Total cost: </span>
-        <span>${{ finalCost }}</span>
+        <span>Total cost: </span>
+        <span class="p-font-family-button">${{ finalCost }}</span>
       </div>
       <div>Next Step</div>
     </div>

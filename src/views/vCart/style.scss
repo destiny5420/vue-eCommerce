@@ -1,7 +1,7 @@
 $first-color: #ffcb7d;
 $first-color-hover: #fab651;
 
-$image-width: 300px;
+$image-width: 400px;
 $category-width: 110px;
 $size-width: 60px;
 $price-width: 100px;
@@ -157,7 +157,7 @@ $function-width: 30px;
         align-items: center;
         width: $size-width;
         height: 28px;
-        font-size: 20px;
+        font-size: 14px;
         border: 1px solid rgba(94, 94, 94, 0.75);
         border-radius: 15px;
       }
@@ -167,6 +167,7 @@ $function-width: 30px;
         width: $price-width;
       }
 
+      // count
       & > div:nth-child(5) {
         width: $count-width;
       }
@@ -245,8 +246,13 @@ $function-width: 30px;
       & > div:nth-child(2) {
         & > span:nth-child(1) {
           margin-right: 10px;
-          font-size: 20px;
+          font-size: 18px;
           color: rgba(128, 128, 128, 0.55);
+        }
+
+        & > span:nth-child(2) {
+          font-weight: bold;
+          font-size: 20px;
         }
       }
 
@@ -259,16 +265,16 @@ $function-width: 30px;
         justify-content: center;
         align-items: center;
 
-        height: 40px;
+        height: 60px;
         width: 200px;
         background: $first-color;
-        border-radius: 20px;
+        border-radius: 60px;
         margin: 0px 0px;
 
         font-size: 14px;
         font-weight: bold;
         text-transform: uppercase;
-        transition: 0.15s ease;
+        transition: 0.25s ease;
 
         &:hover {
           background: $first-color-hover;

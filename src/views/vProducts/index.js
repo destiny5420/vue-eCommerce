@@ -1,12 +1,14 @@
 import cProductWindow from "@/components/cProductWindow/index.vue";
 import cProductNavbar from "@/components/cProductNavbar/index.vue";
+import Loading from "vue-loading-overlay";
 
 export default {
   name: "vProducts",
   props: {},
   components: {
     cProductWindow,
-    cProductNavbar
+    cProductNavbar,
+    Loading
   },
   data: function() {
     return {
@@ -184,6 +186,9 @@ export default {
     },
     products: function() {
       return this.$store.getters["products"];
+    },
+    isLoading: function() {
+      return this.$store.state.isLoading.getProductList;
     }
   },
   watch: {
