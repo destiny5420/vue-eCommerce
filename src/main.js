@@ -25,7 +25,8 @@ import {
   faLock,
   faTimes,
   faCartArrowDown,
-  faCreditCard
+  faCreditCard,
+  faLongArrowAltLeft
 } from "@fortawesome/free-solid-svg-icons";
 import { faUser, faSmile } from "@fortawesome/free-regular-svg-icons";
 import {
@@ -68,7 +69,8 @@ library.add(
   faLock,
   faTimes,
   faCartArrowDown,
-  faCreditCard
+  faCreditCard,
+  faLongArrowAltLeft
 );
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 Vue.component("font-awesome-icon", FontAwesomeIcon);

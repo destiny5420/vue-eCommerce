@@ -36,7 +36,8 @@ export default new Vuex.Store({
   strict: true,
   state: {
     isLoading: false,
-    products: []
+    products: [],
+    cart_data: []
   },
   getters: {
     products: function(state) {
@@ -65,6 +66,9 @@ export default new Vuex.Store({
     },
     SAVE_PRODUCT_LIST: function(state, data) {
       state.products = data;
+    },
+    SAVE_CART_DATA: function(state, data) {
+      state.cart_data = data;
     }
   },
   actions: {
@@ -76,13 +80,14 @@ export default new Vuex.Store({
         }
       });
     },
-    GetCartList: function() {
+    GetCartList: function(context) {
       let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
 
       axios
         .get(api)
         .then(response => {
           console.log(response.data);
+          context.commit("SAVE_CART_DATA", response.data.data);
         })
         .catch(err => {
           console.error(err);

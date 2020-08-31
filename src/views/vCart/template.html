@@ -1,5 +1,6 @@
 <div class="main">
-  <div name="nav-bar">
+  <loading :active.sync="deleteLoading"></loading>
+  <div class="nav-bar">
     <h3 class="p-font-family-button">{{title}}</h3>
     <div class="symbol">
       <div
@@ -12,6 +13,49 @@
         </div>
         <div v-if="index !== stepData.symbols.length - 1"></div>
       </div>
+    </div>
+  </div>
+  <div class="product-category">
+    <div
+      class="p-font-family-filter-title"
+      v-for="(item, index) in categoryData"
+      :key="index"
+    >
+      {{ item.title }}
+    </div>
+  </div>
+  <div class="product-list">
+    <div class="list" v-for="(item, index) in cartList" :key="index">
+      <div>
+        <div :style="styleImage(item.product.imageUrl)" name="image"></div>
+        <div>
+          <h4 class="p-font-family-button">{{ item.product.title }}</h4>
+          <div>{{ item.id }}</div>
+        </div>
+      </div>
+      <div>{{ item.product.category }}</div>
+      <div class="p-font-family-title">{{ item.customData.size }}</div>
+      <div class="p-font-family-button">${{ item.product.price }}</div>
+      <div>{{ item.qty }}</div>
+      <div>
+        <font-awesome-icon :icon="['fas', 'times']" />
+      </div>
+    </div>
+  </div>
+  <div class="foot-bar">
+    <div>
+      <font-awesome-icon :icon="['fas', 'long-arrow-alt-left']" />
+      <span>Continue Shopping</span>
+    </div>
+    <div>
+      <div>
+        <input type="text" placeholder="Entry your coupon" />
+      </div>
+      <div>
+        <span class="p-font-family-button">Total cost: </span>
+        <span>${{ finalCost }}</span>
+      </div>
+      <div>Next Step</div>
     </div>
   </div>
 </div>

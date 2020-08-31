@@ -1,7 +1,11 @@
+import Loading from "vue-loading-overlay";
+
 export default {
   name: "vCart",
   props: {},
-  components: {},
+  components: {
+    Loading
+  },
   data: function() {
     return {
       title: "Shopping Cart",
@@ -12,7 +16,27 @@ export default {
           ["fas", "truck"],
           ["fas", "credit-card"]
         ]
-      }
+      },
+      categoryData: [
+        {
+          title: "Product"
+        },
+        {
+          title: "Category"
+        },
+        {
+          title: "Size"
+        },
+        {
+          title: "Price"
+        },
+        {
+          title: "Count"
+        },
+        {
+          title: ""
+        }
+      ]
     };
   },
   methods: {},
@@ -26,17 +50,37 @@ export default {
           color:
             index <= this.stepData.userStep
               ? index <= this.stepData.userStep - 1
-                ? "orange"
+                ? "#ffcb7d"
                 : "white"
               : "gray",
           background:
             index <= this.stepData.userStep
               ? index <= this.stepData.userStep - 1
                 ? "transparent"
-                : "orange"
+                : "#ffcb7d"
               : "transparent"
         };
       };
+    },
+    styleImage: function() {
+      return function(link) {
+        return {
+          "background-image": `url(${link})`
+        };
+      };
+    },
+    cartList: function() {
+      console.log(
+        "cartList in cart.js / data: ",
+        this.$store.state.cart_data.carts
+      );
+      return this.$store.state.cart_data.carts;
+    },
+    finalCost: function() {
+      return this.$store.state.cart_data.final_total;
+    },
+    deleteLoading: function() {
+      return false;
     }
   },
   // life cycle
