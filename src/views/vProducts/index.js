@@ -177,7 +177,6 @@ export default {
       return first_name + trail_name;
     },
     navBarInfo: function() {
-      console.log(this.conditionBarTitle);
       return [
         {
           displayName: `${this.conditionBarTitle}`

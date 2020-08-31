@@ -8,7 +8,7 @@ export default {
   },
   data: function() {
     return {
-      title: "Shopping Cart",
+      title: "",
       stepData: {
         userStep: 0,
         symbols: [
@@ -16,40 +16,10 @@ export default {
           ["fas", "truck"],
           ["fas", "credit-card"]
         ]
-      },
-      categoryData: [
-        {
-          title: "Product"
-        },
-        {
-          title: "Category"
-        },
-        {
-          title: "Size"
-        },
-        {
-          title: "Price"
-        },
-        {
-          title: "Count"
-        },
-        {
-          title: ""
-        }
-      ]
+      }
     };
   },
-  methods: {
-    deleteCartItem: function(id) {
-      this.$store.dispatch("DeleteCartItem", id);
-    },
-    onContinueShopHandler: function() {
-      this.$router.push({
-        name: "vProducts",
-        params: { id: "all-products" }
-      });
-    }
-  },
+  methods: {},
   computed: {
     doneStep: function() {
       return this.userStep - 1;
@@ -72,28 +42,34 @@ export default {
         };
       };
     },
-    styleImage: function() {
-      return function(link) {
-        return {
-          "background-image": `url(${link})`
-        };
-      };
-    },
-    cartList: function() {
-      console.log(
-        "cartList in cart.js / data: ",
-        this.$store.state.cart_data.carts
-      );
-      return this.$store.state.cart_data.carts;
-    },
-    finalCost: function() {
-      return this.$store.state.cart_data.final_total;
-    },
     deleteLoading: function() {
       return (
         this.$store.state.isLoading.getCartList ||
         this.$store.state.isLoading.deleteCartItem
       );
+    },
+    stepInfo: function() {
+      let title = "";
+      switch (this.$route.name) {
+        case "vShoppingList":
+          this.stepData.userStep = 0;
+          title = "Shopping Cart";
+          break;
+        case "vShoppingDeliveryInfo":
+          this.stepData.userStep = 1;
+          title = "Address data type fo delivery";
+          break;
+        case "vShoppingPaymentInfo":
+          this.stepData.userStep = 2;
+          title = "Shipping and Payment";
+          break;
+        default:
+          this.stepData.userStep = 0;
+          title = "Default Title";
+          break;
+      }
+
+      return title;
     }
   },
   // life cycle
@@ -101,7 +77,30 @@ export default {
   created: function() {},
   beforeMounted: function() {},
   mounted: function() {
-    this.$store.dispatch("GetCartList");
+    console.log("-- Cart mounted --");
+    switch (this.$route.name) {
+      case "vShoppingList":
+        {
+          (this.title = "Shopping Cart"), (this.stepData.userStep = 0);
+        }
+        break;
+      case "vShoppingDeliveryInfo":
+        {
+          (this.title = "Address data type fo delivery"),
+            (this.stepData.userStep = 1);
+        }
+        break;
+      case "vShoppingPaymentInfo":
+        {
+          (this.title = "Shipping and Payment"), (this.stepData.userStep = 2);
+        }
+        break;
+      default:
+        {
+          (this.title = "Default Title"), (this.stepData.userStep = 0);
+        }
+        break;
+    }
   },
   beforeUpdate: function() {},
   updated: function() {},

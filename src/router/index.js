@@ -5,12 +5,25 @@ import Home from "@/views/vHome/index.vue";
 import Products from "@/views/vProducts/index.vue";
 import DetailProduct from "@/views/vDetailProduct/index.vue";
 import Cart from "@/views/vCart/index.vue";
+import ShoppingList from "@/views/vShoppingList/index.vue";
+import ShoppingDeliveryInfo from "@/views/vShoppingDeliveryInfo/index.vue";
+import ShoppingPaymentInfo from "@/views/vShoppingPaymentInfo/index.vue";
 import Login from "@/views/vLogin/index.vue";
 import Dashboard from "@/views/vDashboard/index.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
+  {
+    path: "/login",
+    name: "vLogin",
+    component: Login
+  },
+  {
+    path: "/dashboard",
+    name: "vDashboard",
+    component: Dashboard
+  },
   {
     path: "*",
     redirect: "/home"
@@ -42,19 +55,27 @@ const routes = [
       {
         path: "cart",
         name: "vCart",
-        component: Cart
+        redirect: "/cart/shopping-list",
+        component: Cart,
+        children: [
+          {
+            path: "shopping-list",
+            name: "vShoppingList",
+            component: ShoppingList
+          },
+          {
+            path: "shopping-delivery-info",
+            name: "vShoppingDeliveryInfo",
+            component: ShoppingDeliveryInfo
+          },
+          {
+            path: "shopping-payment-info",
+            name: "vShoppingPaymentInfo",
+            component: ShoppingPaymentInfo
+          }
+        ]
       }
     ]
-  },
-  {
-    path: "/login",
-    name: "vLogin",
-    component: Login
-  },
-  {
-    path: "/dashboard",
-    name: "vDashboard",
-    component: Dashboard
   }
 ];
 

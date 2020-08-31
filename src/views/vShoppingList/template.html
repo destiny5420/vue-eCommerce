@@ -1,0 +1,48 @@
+<div class="list-main">
+  <div class="product-category">
+    <div
+      class="p-font-family-filter-title"
+      v-for="(item, index) in categoryData"
+      :key="index"
+    >
+      {{ item.title }}
+    </div>
+  </div>
+  <div class="product-list">
+    <div class="list" v-for="(item, index) in cartList" :key="index">
+      <div>
+        <div :style="styleImage(item.product.imageUrl)" name="image"></div>
+        <div>
+          <h4 class="p-font-family-button">{{ item.product.title }}</h4>
+          <div>{{ item.id }}</div>
+        </div>
+      </div>
+      <div>{{ item.product.category }}</div>
+      <div class="p-font-family-title">
+        {{ item.product.size[item.customData.sizeIndex].caption }}
+      </div>
+      <div class="p-font-family-button">${{ item.product.price }}</div>
+      <div>{{ item.qty }}</div>
+      <div @click="deleteCartItem(item.id)">
+        <font-awesome-icon :icon="['fas', 'times']" />
+      </div>
+    </div>
+  </div>
+  <div class="foot-bar">
+    <div @click="onContinueShopHandler">
+      <font-awesome-icon :icon="['fas', 'long-arrow-alt-left']" />
+      <span>Continue Shopping</span>
+    </div>
+    <div>
+      <div>
+        <input type="text" placeholder="Entry your coupon" />
+        <font-awesome-icon :icon="['fas', 'ticket-alt']" />
+      </div>
+      <div>
+        <span>Total cost: </span>
+        <span class="p-font-family-button">${{ finalCost }}</span>
+      </div>
+      <div>Next Step</div>
+    </div>
+  </div>
+</div>
