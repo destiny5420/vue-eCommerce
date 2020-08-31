@@ -1,0 +1,135 @@
+.main-delivery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.main-delivery .input-area {
+  width: 55%;
+  height: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.main-delivery .input-area > div:nth-child(n) {
+  display: inline-block;
+  padding: 20px 60px 20px 0px;
+  width: 50%;
+  text-align: left;
+}
+
+.main-delivery .input-area > div:nth-child(n) > div:nth-child(1) {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.main-delivery .input-area > div:nth-child(n) input {
+  width: 100%;
+  height: 40px;
+  padding: 5px 20px;
+  background: #fff;
+  outline: none;
+  border: 1px solid rgba(128, 128, 128, 0.45);
+  border-radius: 40px;
+  font-size: 15px;
+}
+
+.main-delivery .delivery-area {
+  width: calc(100% - 55%);
+  height: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-delivery .delivery-area > div:nth-child(n) {
+  margin: 0 1%;
+  width: 32%;
+  height: 48%;
+  background: #fff;
+  border: 1px solid rgba(136, 136, 136, 0.35);
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 16px 0px;
+}
+
+.main-delivery .delivery-area > div:nth-child(n) > div:nth-child(n) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-delivery .delivery-area > div:nth-child(n) > div:nth-child(1) {
+  width: 80%;
+  height: 50%;
+  background: orange;
+}
+
+.main-delivery .delivery-area > div:nth-child(n) > div:nth-child(2) {
+  font-weight: bold;
+  width: 80%;
+  height: 30%;
+}
+
+.main-delivery .delivery-area > div:nth-child(n) > div:nth-child(3) {
+  width: 80%;
+  height: 20%;
+}
+
+.main-delivery .delivery-area > div:nth-child(3n-2) {
+  margin-left: 0;
+}
+
+.main-delivery .delivery-area > div:nth-child(3n) {
+  margin-right: 0;
+}
+/*# sourceMappingURL=style.css.map */

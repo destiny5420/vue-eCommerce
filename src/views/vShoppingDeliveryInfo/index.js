@@ -3,7 +3,34 @@ export default {
   props: {},
   components: {},
   data: function() {
-    return {};
+    return {
+      deliveryOption: [
+        {
+          price: "15.00",
+          content: "7-11"
+        },
+        {
+          price: "15.00",
+          content: "7-11"
+        },
+        {
+          price: "15.00",
+          content: "7-11"
+        },
+        {
+          price: "15.00",
+          content: "7-11"
+        },
+        {
+          price: "15.00",
+          content: "7-11"
+        },
+        {
+          price: "15.00",
+          content: "7-11"
+        }
+      ]
+    };
   },
   methods: {},
   computed: {},

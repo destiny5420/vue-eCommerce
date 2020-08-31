@@ -35,6 +35,11 @@ export default {
         name: "vProducts",
         params: { id: "all-products" }
       });
+    },
+    onNextStep: function() {
+      this.$router.push({
+        name: "vShoppingDeliveryInfo"
+      });
     }
   },
   computed: {

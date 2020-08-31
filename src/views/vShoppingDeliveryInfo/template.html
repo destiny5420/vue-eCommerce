@@ -1,1 +1,19 @@
-<div></div>
+<div class="main-delivery">
+  <div class="input-area">
+    <div>
+      <div>First Name</div>
+      <input type="text" placeholder="First Name" />
+    </div>
+    <div>
+      <div>Last Name</div>
+      <input type="text" placeholder="First Name" />
+    </div>
+  </div>
+  <div class="delivery-area">
+    <div v-for="(item, index) in deliveryOption" :key="index">
+      <div>logo</div>
+      <div>${{ item.price }}</div>
+      <div>{{ item.content }}</div>
+    </div>
+  </div>
+</div>

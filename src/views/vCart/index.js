@@ -32,7 +32,7 @@ export default {
               ? index <= this.stepData.userStep - 1
                 ? "#ffcb7d"
                 : "white"
-              : "gray",
+              : "#6666663f",
           background:
             index <= this.stepData.userStep
               ? index <= this.stepData.userStep - 1
