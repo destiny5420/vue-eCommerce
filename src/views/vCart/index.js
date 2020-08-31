@@ -39,7 +39,11 @@ export default {
       ]
     };
   },
-  methods: {},
+  methods: {
+    deleteCartItem: function(id) {
+      this.$store.dispatch("DeleteCartItem", id);
+    }
+  },
   computed: {
     doneStep: function() {
       return this.userStep - 1;
@@ -80,7 +84,10 @@ export default {
       return this.$store.state.cart_data.final_total;
     },
     deleteLoading: function() {
-      return false;
+      return (
+        this.$store.state.isLoading.getCartList ||
+        this.$store.state.isLoading.deleteCartItem
+      );
     }
   },
   // life cycle

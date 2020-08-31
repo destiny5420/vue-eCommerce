@@ -35,7 +35,11 @@ const ProductFilter = {
 export default new Vuex.Store({
   strict: true,
   state: {
-    isLoading: false,
+    isLoading: {
+      getProductList: false,
+      getCartList: false,
+      deleteCartItem: false
+    },
     products: [],
     cart_data: []
   },
@@ -61,8 +65,14 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    TOGGLE_LOADING: function(state, data) {
-      state.isLoading = data;
+    TOGGLE_LOADING_GET_PRODUCT_LIST: function(state, data) {
+      state.isLoading.productList = data;
+    },
+    TOGGLE_LOADING_GET_CART_LIST: function(state, data) {
+      state.isLoading.getCartList = data;
+    },
+    TOGGLE_LOADING_DELETE_CART_ITEM: function(state, data) {
+      state.isLoading.deleteCartItem = data;
     },
     SAVE_PRODUCT_LIST: function(state, data) {
       state.products = data;
@@ -82,16 +92,37 @@ export default new Vuex.Store({
     },
     GetCartList: function(context) {
       let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
-
+      context.commit("TOGGLE_LOADING_GET_CART_LIST", true);
       axios
         .get(api)
         .then(response => {
+          context.commit("TOGGLE_LOADING_GET_CART_LIST", false);
           console.log(response.data);
           context.commit("SAVE_CART_DATA", response.data.data);
         })
         .catch(err => {
+          context.commit("TOGGLE_LOADING_GET_CART_LIST", false);
           console.error(err);
         });
+    },
+    DeleteCartItem: async function(context, id) {
+      let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart/${id}`;
+      context.commit("TOGGLE_LOADING_DELETE_CART_ITEM", true);
+
+      await axios
+        .delete(api)
+        .then(response => {
+          context.commit("TOGGLE_LOADING_DELETE_CART_ITEM", false);
+          console.log(response.data);
+        })
+        .catch(err => {
+          context.commit("TOGGLE_LOADING_DELETE_CART_ITEM", false);
+          console.error(err);
+        });
+
+      console.log("delete finish!! ", this);
+
+      this.dispatch("GetCartList");
     }
   },
   modules: { detailProduct: module_detailProduct }

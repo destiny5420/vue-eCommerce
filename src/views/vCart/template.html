@@ -37,7 +37,7 @@
       <div class="p-font-family-title">{{ item.customData.size }}</div>
       <div class="p-font-family-button">${{ item.product.price }}</div>
       <div>{{ item.qty }}</div>
-      <div>
+      <div @click="deleteCartItem(item.id)">
         <font-awesome-icon :icon="['fas', 'times']" />
       </div>
     </div>
