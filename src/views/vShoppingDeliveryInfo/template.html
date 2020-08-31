@@ -1,19 +1,31 @@
 <div class="main-delivery">
-  <div class="input-area">
-    <div>
-      <div>First Name</div>
-      <input type="text" placeholder="First Name" />
+  <div>
+    <div class="input-area">
+      <div>
+        <div>First Name</div>
+        <input type="text" placeholder="First Name" />
+      </div>
+      <div>
+        <div>Last Name</div>
+        <input type="text" placeholder="First Name" />
+      </div>
     </div>
-    <div>
-      <div>Last Name</div>
-      <input type="text" placeholder="First Name" />
+    <div class="delivery-area">
+      <div v-for="(item, index) in deliveryOption" :key="index">
+        <div>logo</div>
+        <div>${{ item.price }}</div>
+        <div>{{ item.content }}</div>
+      </div>
     </div>
   </div>
-  <div class="delivery-area">
-    <div v-for="(item, index) in deliveryOption" :key="index">
-      <div>logo</div>
-      <div>${{ item.price }}</div>
-      <div>{{ item.content }}</div>
+  <div class="foot-bar">
+    <div @click="onBackHandler">
+      <font-awesome-icon :icon="['fas', 'long-arrow-alt-left']" />
+      <span>Back</span>
+    </div>
+    <div>
+      <div @click="onContinueShopHandler">Continue Shopping</div>
+      <div @click="onNextStepHandler">Next Step</div>
     </div>
   </div>
 </div>

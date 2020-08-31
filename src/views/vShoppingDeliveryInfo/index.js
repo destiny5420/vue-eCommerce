@@ -32,7 +32,21 @@ export default {
       ]
     };
   },
-  methods: {},
+  methods: {
+    onBackHandler: function() {
+      console.log("-- onBackHandler --");
+      this.$router.go(-1);
+    },
+    onContinueShopHandler: function() {
+      this.$router.push({
+        name: "vProducts",
+        params: { id: "all-products" }
+      });
+    },
+    onNextStepHandler: function() {
+      console.log("-- onNextStepHandler --");
+    }
+  },
   computed: {},
   // life cycle
   beforeCreate: function() {},
