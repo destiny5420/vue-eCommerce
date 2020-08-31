@@ -1,1 +1,17 @@
-<div></div>
+<div class="main">
+  <div name="nav-bar">
+    <h3 class="p-font-family-button">{{title}}</h3>
+    <div class="symbol">
+      <div
+        style="margin: 0; padding: 0;"
+        v-for="(item, index) in stepData.symbols"
+        :key="index"
+      >
+        <div :style="styleSymbol(index)">
+          <font-awesome-icon :icon="item" />
+        </div>
+        <div v-if="index !== stepData.symbols.length - 1"></div>
+      </div>
+    </div>
+  </div>
+</div>

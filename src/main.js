@@ -23,7 +23,9 @@ import {
   faStar,
   faEnvelope,
   faLock,
-  faTimes
+  faTimes,
+  faCartArrowDown,
+  faCreditCard
 } from "@fortawesome/free-solid-svg-icons";
 import { faUser, faSmile } from "@fortawesome/free-regular-svg-icons";
 import {
@@ -64,7 +66,9 @@ library.add(
   faStar,
   faEnvelope,
   faLock,
-  faTimes
+  faTimes,
+  faCartArrowDown,
+  faCreditCard
 );
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 Vue.component("font-awesome-icon", FontAwesomeIcon);
