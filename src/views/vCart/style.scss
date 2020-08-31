@@ -232,13 +232,24 @@ $function-width: 30px;
       // Coupon input
       & > div:nth-child(1) {
         margin: 0px 0px;
+        position: relative;
+
         input {
           width: 230px;
           height: 40px;
           outline: none;
-          padding: 5px 18px;
+          padding: 5px 42px 5px 18px;
           border: 1px solid rgba(128, 128, 128, 0.55);
           border-radius: 40px;
+        }
+
+        svg {
+          position: absolute;
+          top: 50%;
+          right: 15px;
+          transform: translate(0%, -50%);
+          color: rgba(128, 128, 128, 0.55);
+          font-size: 20px;
         }
       }
 

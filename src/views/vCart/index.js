@@ -42,6 +42,12 @@ export default {
   methods: {
     deleteCartItem: function(id) {
       this.$store.dispatch("DeleteCartItem", id);
+    },
+    onContinueShopHandler: function() {
+      this.$router.push({
+        name: "vProducts",
+        params: { id: "all-products" }
+      });
     }
   },
   computed: {

@@ -298,15 +298,26 @@
 
 .main .foot-bar > div:nth-child(2) > div:nth-child(1) {
   margin: 0px 0px;
+  position: relative;
 }
 
 .main .foot-bar > div:nth-child(2) > div:nth-child(1) input {
   width: 230px;
   height: 40px;
   outline: none;
-  padding: 5px 18px;
+  padding: 5px 42px 5px 18px;
   border: 1px solid rgba(128, 128, 128, 0.55);
   border-radius: 40px;
+}
+
+.main .foot-bar > div:nth-child(2) > div:nth-child(1) svg {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  -webkit-transform: translate(0%, -50%);
+          transform: translate(0%, -50%);
+  color: rgba(128, 128, 128, 0.55);
+  font-size: 20px;
 }
 
 .main .foot-bar > div:nth-child(2) > div:nth-child(2) > span:nth-child(1) {
