@@ -45,7 +45,8 @@ export default {
     deleteLoading: function() {
       return (
         this.$store.state.isLoading.getCartList ||
-        this.$store.state.isLoading.deleteCartItem
+        this.$store.state.isLoading.deleteCartItem ||
+        this.$store.state.checkoutPage.isLoading.getItemData
       );
     },
     stepInfo: function() {
