@@ -29,7 +29,11 @@ import {
   faLongArrowAltLeft,
   faTicketAlt
 } from "@fortawesome/free-solid-svg-icons";
-import { faUser, faSmile } from "@fortawesome/free-regular-svg-icons";
+import {
+  faUser,
+  faSmile,
+  faCheckSquare
+} from "@fortawesome/free-regular-svg-icons";
 import {
   faFacebookF,
   faTwitter,
@@ -72,7 +76,8 @@ library.add(
   faCartArrowDown,
   faCreditCard,
   faLongArrowAltLeft,
-  faTicketAlt
+  faTicketAlt,
+  faCheckSquare
 );
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 Vue.component("font-awesome-icon", FontAwesomeIcon);
