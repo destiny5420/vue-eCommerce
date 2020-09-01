@@ -132,20 +132,43 @@
           <div name="payment-info-title">
             Enter your card information:
           </div>
-          <input
-            name="credit-card-number"
-            type="text"
-            placeholder="Credit/Debit Card Number"
-          />
-          <div
-            style="display: flex; flex-direction: row; justify-content: space-between;"
-          >
+          <div name="payment-info-credit-card">
             <input
-              name="credit-expiration"
+              name="credit-card-number"
               type="text"
-              placeholder="Expiration MM/YY"
+              :style="{ border: validation.hasError('creditCardValue') ? '1px solid rgb(250, 96, 96)' : '1px solid rgba(128, 128, 128, 0.45)' }"
+              :placeholder="creditCard.placeholder"
+              v-model="creditCardValue"
             />
-            <input name="credit-cvv" type="text" placeholder="CVV" />
+            <div class="errorMsg">
+              {{ validation.firstError('creditCardValue') }}
+            </div>
+          </div>
+          <div name="payment-info-last">
+            <div name="expiration">
+              <input
+                name="credit-expiration"
+                type="text"
+                :placeholder="expiration.placeholder"
+                v-model="expirationValue"
+                :style="{ border: validation.hasError('expirationValue') ? '1px solid rgb(250, 96, 96)' : '1px solid rgba(128, 128, 128, 0.45)' }"
+              />
+              <div class="errorMsg">
+                {{ validation.firstError('expirationValue') }}
+              </div>
+            </div>
+            <div name="cvv">
+              <input
+                name="credit-cvv"
+                type="text"
+                :placeholder="cvv.placeholder"
+                v-model="cvvValue"
+                :style="{ border: validation.hasError('cvvValue') ? '1px solid rgb(250, 96, 96)' : '1px solid rgba(128, 128, 128, 0.45)' }"
+              />
+              <div class="errorMsg">
+                {{ validation.firstError('cvvValue') }}
+              </div>
+            </div>
           </div>
         </div>
         <div>

@@ -47,6 +47,18 @@ export default {
         title: "Postcode",
         placeholder: "Postcode"
       },
+      creditCardValue: "",
+      creditCard: {
+        placeholder: "Credit/Debit Card Number"
+      },
+      expirationValue: "",
+      expiration: {
+        placeholder: "Expiration MM/YY"
+      },
+      cvvValue: "",
+      cvv: {
+        placeholder: "CVV"
+      },
       deliveryCurIndex: 0,
       deliveryOption: [
         {
@@ -95,6 +107,21 @@ export default {
       return Validator.value(value)
         .required()
         .email();
+    },
+    creditCardValue: function(value) {
+      return Validator.value(value)
+        .required()
+        .digit()
+        .length(16);
+    },
+    expirationValue: function(value) {
+      return Validator.value(value).required();
+    },
+    cvvValue: function(value) {
+      return Validator.value(value)
+        .required()
+        .digit()
+        .length(3);
     }
   },
   methods: {
