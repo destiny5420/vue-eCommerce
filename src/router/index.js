@@ -7,7 +7,7 @@ import DetailProduct from "@/views/vDetailProduct/index.vue";
 import Cart from "@/views/vCart/index.vue";
 import ShoppingList from "@/views/vShoppingList/index.vue";
 import ShoppingDeliveryInfo from "@/views/vShoppingDeliveryInfo/index.vue";
-import ShoppingPaymentInfo from "@/views/vShoppingPaymentInfo/index.vue";
+import CheckoutPage from "@/views/vCheckoutPage/index.vue";
 import Login from "@/views/vLogin/index.vue";
 import Dashboard from "@/views/vDashboard/index.vue";
 
@@ -69,9 +69,9 @@ const routes = [
             component: ShoppingDeliveryInfo
           },
           {
-            path: "shopping-payment-info",
-            name: "vShoppingPaymentInfo",
-            component: ShoppingPaymentInfo
+            path: "check-out/:id?",
+            name: "vCheckoutPage",
+            component: CheckoutPage
           }
         ]
       }

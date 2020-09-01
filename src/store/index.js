@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
 import module_detailProduct from "./detailProductStore";
+import module_checkoutPage from "./checkoutPageStore";
 
 Vue.use(Vuex);
 
@@ -38,7 +39,8 @@ export default new Vuex.Store({
     isLoading: {
       getProductList: false,
       getCartList: false,
-      deleteCartItem: false
+      deleteCartItem: false,
+      checkoutPage: false
     },
     products: [],
     cart_data: []
@@ -73,6 +75,9 @@ export default new Vuex.Store({
     },
     TOGGLE_LOADING_DELETE_CART_ITEM: function(state, data) {
       state.isLoading.deleteCartItem = data;
+    },
+    TOGGLE_LOADING_CHECKOUT_PAGE: function(state, data) {
+      state.isLoading.checkoutPage = data;
     },
     SAVE_PRODUCT_LIST: function(state, data) {
       state.products = data;
@@ -127,10 +132,25 @@ export default new Vuex.Store({
           console.error(err);
         });
 
-      console.log("delete finish!! ", this);
-
       this.dispatch("GetCartList");
+    },
+    CheckOutPage: function(context, data) {
+      console.log("-- Check Out Page -- / data: ", data);
+      let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/order`;
+      context.commit("TOGGLE_LOADING_CHECKOUT_PAGE", true);
+
+      axios
+        .post(api, data)
+        .then(response => {
+          console.log("-- Check Out Page -- / response: ", response);
+        })
+        .catch(err => {
+          console.error(err);
+        });
     }
   },
-  modules: { detailProduct: module_detailProduct }
+  modules: {
+    detailProduct: module_detailProduct,
+    checkoutPage: module_checkoutPage
+  }
 });

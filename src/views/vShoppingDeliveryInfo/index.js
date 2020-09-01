@@ -10,12 +10,12 @@ export default {
       firstNameValue: "",
       firstName: {
         title: "* FirstName",
-        placeholder: "Hsiao"
+        placeholder: "Paper"
       },
       lastNameValue: "",
       lastName: {
         title: "* LastName",
-        placeholder: "Paper"
+        placeholder: "Hsiao"
       },
       addressValue: "",
       address: {
@@ -109,19 +109,17 @@ export default {
         .email();
     },
     creditCardValue: function(value) {
-      return Validator.value(value)
-        .required()
-        .digit()
-        .length(16);
+      return Validator.value(value).required();
+      // .digit()
+      // .length(16);
     },
     expirationValue: function(value) {
       return Validator.value(value).required();
     },
     cvvValue: function(value) {
-      return Validator.value(value)
-        .required()
-        .digit()
-        .length(3);
+      return Validator.value(value).required();
+      // .digit()
+      // .length(3);
     }
   },
   methods: {
@@ -136,13 +134,37 @@ export default {
       });
     },
     onNextStepHandler: function() {
-      console.log("-- onNextStepHandler --");
-
-      this.$validate().then(function(success) {
-        if (success) {
-          alert("Validation succeeded!");
-        }
-      });
+      console.log("-- onNextStepHandler - 1 --");
+      let vm = this;
+      this.$validate()
+        .then(function(success) {
+          if (success) {
+            let dataInfo = {
+              data: {
+                user: {
+                  name: `${vm.firstNameValue} ${vm.lastNameValue}`,
+                  email: vm.emailValue,
+                  tel: vm.phoneValue,
+                  address: vm.addressValue,
+                  city: vm.cityValue,
+                  state: vm.stateValue,
+                  postcode: vm.postcodeValue,
+                  creditCardNumber: vm.creditCardValue,
+                  expiration: vm.expirationValue,
+                  cvv: vm.cvvValue
+                },
+                deliveryIndex: vm.deliveryCurIndex,
+                paymentIndex: vm.paymentCurIndex,
+                message: "null"
+              }
+            };
+            console.log("onNextStepHandler - 2");
+            vm.$store.dispatch("CheckOutPage", dataInfo);
+          }
+        })
+        .catch(err => {
+          console.error(err);
+        });
     },
     onDeliverySelect: function(index) {
       this.deliveryCurIndex = index;

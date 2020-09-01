@@ -59,9 +59,9 @@ export default {
           this.stepData.userStep = 1;
           title = "Shipping and Payment data";
           break;
-        case "vShoppingPaymentInfo":
+        case "vCheckoutPage":
           this.stepData.userStep = 2;
-          title = "Shipping and Payment";
+          title = "Summary";
           break;
         default:
           this.stepData.userStep = 0;
@@ -76,7 +76,13 @@ export default {
   beforeCreate: function() {},
   created: function() {},
   beforeMounted: function() {},
-  mounted: function() {},
+  mounted: function() {
+    let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/orders?page=0`;
+
+    this.axios.get(api).then(response => {
+      console.log(response.data);
+    });
+  },
   beforeUpdate: function() {},
   updated: function() {},
   beforeDestroy: function() {},
