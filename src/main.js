@@ -93,6 +93,10 @@ Vue.use(VueAxios, axios);
 import { sync } from "vuex-router-sync";
 sync(store, router);
 
+// simple-vue-validation
+import SimpleVueValidation from "simple-vue-validator";
+Vue.use(SimpleVueValidation);
+
 Vue.config.productionTip = false;
 
 new Vue({

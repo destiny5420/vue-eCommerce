@@ -2,69 +2,83 @@ $first-color: #ffcb7d;
 $first-color-hover: #fab651;
 $input-area-width: 55%;
 
-.main-delivery {
-  & > div:nth-child(1) {
+.main-view {
+  margin-top: 50px;
+}
+
+.main-control {
+  display: flex;
+  flex-direction: row;
+
+  .input-area {
+    width: $input-area-width;
+    height: 500px;
+
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
 
-    .input-area {
-      width: $input-area-width;
-      height: 500px;
+    & > div:nth-child(n) {
+      display: inline-block;
+      padding: 10px 60px 10px 0px;
+      width: 50%;
+      text-align: left;
 
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: flex-start;
+      & > div:nth-child(1) {
+        font-weight: bold;
+        margin-bottom: 11px;
+      }
 
-      & > div:nth-child(n) {
-        display: inline-block;
-        padding: 20px 60px 20px 0px;
-        width: 50%;
-        text-align: left;
-
-        & > div:nth-child(1) {
-          font-weight: bold;
-          margin-bottom: 10px;
-        }
-
-        input {
-          width: 100%;
-          height: 40px;
-          padding: 5px 20px;
-          background: #fff;
-          outline: none;
-          border: 1px solid rgba(128, 128, 128, 0.45);
-          border-radius: 40px;
-          font-size: 15px;
-        }
+      input {
+        width: 100%;
+        height: 55px;
+        padding: 0px 20px;
+        background: #fff;
+        outline: none;
+        border: 1px solid rgba(128, 128, 128, 0.45);
+        border-radius: 14px;
+        font-size: 16px;
       }
     }
+  }
 
-    .delivery-area {
-      width: calc(100% - #{$input-area-width});
-      height: 600px;
+  .right-area {
+    width: calc(100% - #{$input-area-width});
+
+    .delivery-method {
+      width: 100%;
+      margin-bottom: 30px;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      justify-content: flex-start;
+      justify-content: space-between;
       align-items: center;
+      align-content: flex-start;
 
-      $height: 48%;
+      img {
+        width: 40px;
+        height: 40px;
+      }
+
+      $height: 75px;
 
       & > div:nth-child(n) {
-        margin: 0 1%;
-        width: 32%;
+        margin-bottom: 20px;
+        cursor: pointer;
+        width: 23%;
         height: $height;
         background: #fff;
-        border: 1px solid rgba(136, 136, 136, 0.35);
-        border-radius: 20px;
+        border-radius: 10px;
 
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        flex-direction: row;
+        justify-content: space-around;
         align-items: center;
 
-        padding: 16px 0px;
+        transition: 0.25s ease;
 
         & > div:nth-child(n) {
           display: flex;
@@ -72,105 +86,181 @@ $input-area-width: 55%;
           justify-content: center;
           align-items: center;
         }
+      }
+    }
 
-        // logo
-        & > div:nth-child(1) {
-          width: 80%;
-          height: 50%;
-          background: orange;
-        }
+    .payment-method {
+      width: 100%;
+      margin-bottom: 30px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      align-content: flex-start;
 
-        // price
-        & > div:nth-child(2) {
-          font-weight: bold;
-          width: 80%;
-          height: 30%;
-        }
-
-        // content
-        & > div:nth-child(3) {
-          width: 80%;
-          height: 20%;
-        }
+      img {
+        width: 45px;
+        height: 45px;
       }
 
-      & > div:nth-child(3n-2) {
-        margin-left: 0;
+      & > div:nth-child(n) {
+        margin-bottom: 10px;
+        cursor: pointer;
+        width: 23%;
+        height: 75px;
+        background: #fff;
+        border-radius: 12px;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+
+        transition: 0.25s ease;
+      }
+    }
+
+    .payment-info {
+      width: 100%;
+      height: 200px;
+
+      display: flex;
+      flex-direction: row;
+
+      & > div:nth-child(n) {
+        text-align: left;
+        display: inline-block;
+        width: 50%;
+        height: 100%;
       }
 
-      & > div:nth-child(3n) {
-        margin-right: 0;
+      & > div:nth-child(2) {
+        padding-left: 20px;
       }
+
+      div[name="payment-info-title"] {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      input {
+        margin-bottom: 10px;
+        padding: 1px 15px;
+        width: 100%;
+        height: 50px;
+        outline: none;
+        border: 1px solid rgba(128, 128, 128, 0.45);
+        border-radius: 10px;
+      }
+
+      input[name="credit-card-number"] {
+        width: 100%;
+      }
+
+      input[name="credit-expiration"] {
+        flex: 2;
+        margin-right: 10px;
+      }
+
+      input[name="credit-cvv"] {
+        flex: 1;
+      }
+    }
+  }
+}
+
+.foot-bar {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  & > div:nth-child(1) {
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: rgba(128, 128, 128, 0.55);
+    transition: 0.25s ease;
+    svg {
+      font-size: 26px;
+      margin-right: 20px;
+    }
+    span {
+      font-size: 20px;
+    }
+
+    &:hover {
+      color: rgba(48, 48, 48, 0.9);
     }
   }
 
   & > div:nth-child(2) {
-    margin-top: 80px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
-    & > div:nth-child(1) {
+    & > div:nth-child(n) {
+      display: inline-block;
+      text-transform: uppercase;
       cursor: pointer;
-      display: flex;
-      justify-content: flex-start;
+
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: center;
       align-items: center;
-      color: rgba(128, 128, 128, 0.55);
+
+      height: 60px;
+      width: 200px;
+
+      border-radius: 60px;
+
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
       transition: 0.25s ease;
-      svg {
-        font-size: 26px;
-        margin-right: 20px;
-      }
-      span {
-        font-size: 20px;
-      }
+    }
+
+    // Continue Shopping
+    & > div:nth-child(1) {
+      border: 1px solid rgba(136, 136, 136, 0.35);
+      margin-right: 50px;
 
       &:hover {
-        color: rgba(48, 48, 48, 0.9);
+        border: 1px solid rgba(136, 136, 136, 0.95);
       }
     }
 
+    // Next Step
     & > div:nth-child(2) {
-      & > div:nth-child(n) {
-        display: inline-block;
-        text-transform: uppercase;
-        cursor: pointer;
+      background: $first-color;
 
-        display: inline-flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-
-        height: 60px;
-        width: 200px;
-
-        border-radius: 60px;
-
-        font-size: 14px;
-        font-weight: bold;
-        text-transform: uppercase;
-        transition: 0.25s ease;
-      }
-
-      // Continue Shopping
-      & > div:nth-child(1) {
-        border: 1px solid rgba(136, 136, 136, 0.35);
-        margin-right: 50px;
-
-        &:hover {
-          border: 1px solid rgba(136, 136, 136, 0.95);
-        }
-      }
-
-      // Next Step
-      & > div:nth-child(2) {
-        background: $first-color;
-
-        &:hover {
-          background: $first-color-hover;
-        }
+      &:hover {
+        background: $first-color-hover;
       }
     }
   }
+}
+
+.errorMsg {
+  color: rgb(250, 96, 96);
+  margin-top: 5px;
+  padding-left: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.errorInput {
+  border: 1px solid rgb(250, 96, 96);
+}
+
+.input-title {
+  color: gray;
+}
+
+.item-title {
+  width: 100%;
+  margin-bottom: 20px;
+  display: block;
+  text-align: left;
+  font-size: 22px;
+  font-weight: 900;
 }
