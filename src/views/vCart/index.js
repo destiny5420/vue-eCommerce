@@ -13,8 +13,8 @@ export default {
         userStep: 0,
         symbols: [
           ["fas", "cart-arrow-down"],
-          ["fas", "truck"],
-          ["fas", "credit-card"]
+          ["fas", "credit-card"],
+          ["far", "check-square"]
         ]
       }
     };
@@ -57,7 +57,7 @@ export default {
           break;
         case "vShoppingDeliveryInfo":
           this.stepData.userStep = 1;
-          title = "Address data type fo delivery";
+          title = "Shipping and Payment data";
           break;
         case "vShoppingPaymentInfo":
           this.stepData.userStep = 2;
