@@ -40,6 +40,12 @@ export default {
     },
     onCheckOutHandler: function() {
       this.$store.dispatch("checkoutPage/CheckOut");
+    },
+    onContinueShopHandler: function() {
+      this.$router.push({
+        name: "vProducts",
+        params: { id: "all-products" }
+      });
     }
   },
   computed: {
@@ -83,6 +89,21 @@ export default {
           "background-image": `url(${link})`
         };
       };
+    }
+  },
+  watch: {
+    $route: {
+      handler: function(newName) {
+        // console.log("-- watch / newName: ", newName, " / oldName: ", oldName);
+        // this.conditionBar.title = newName.params.id;
+        // this.$store.dispatch("GetProductList");
+        this.$store.commit(
+          "checkoutPage/SET_CHECKOUT_ITEM_ID",
+          newName.query.id
+        );
+        this.$store.dispatch("checkoutPage/GetItemData");
+      },
+      deep: true
     }
   },
   // life cycle
