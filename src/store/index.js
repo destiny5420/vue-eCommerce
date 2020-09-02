@@ -133,20 +133,6 @@ export default new Vuex.Store({
         });
 
       this.dispatch("GetCartList");
-    },
-    CheckOutPage: function(context, data) {
-      console.log("-- Check Out Page -- / data: ", data);
-      let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/order`;
-      context.commit("TOGGLE_LOADING_CHECKOUT_PAGE", true);
-
-      axios
-        .post(api, data)
-        .then(response => {
-          console.log("-- Check Out Page -- / response: ", response);
-        })
-        .catch(err => {
-          console.error(err);
-        });
     }
   },
   modules: {

@@ -109,22 +109,23 @@ export default {
         .email();
     },
     creditCardValue: function(value) {
-      return Validator.value(value).required();
-      // .digit()
-      // .length(16);
+      return Validator.value(value)
+        .required()
+        .digit()
+        .length(16);
     },
     expirationValue: function(value) {
       return Validator.value(value).required();
     },
     cvvValue: function(value) {
-      return Validator.value(value).required();
-      // .digit()
-      // .length(3);
+      return Validator.value(value)
+        .required()
+        .digit()
+        .length(3);
     }
   },
   methods: {
     onBackHandler: function() {
-      console.log("-- onBackHandler --");
       this.$router.go(-1);
     },
     onContinueShopHandler: function() {
@@ -134,7 +135,6 @@ export default {
       });
     },
     onNextStepHandler: function() {
-      console.log("-- onNextStepHandler - 1 --");
       let vm = this;
       this.$validate()
         .then(function(success) {
@@ -151,15 +151,14 @@ export default {
                   postcode: vm.postcodeValue,
                   creditCardNumber: vm.creditCardValue,
                   expiration: vm.expirationValue,
-                  cvv: vm.cvvValue
+                  cvv: vm.cvvValue,
+                  deliveryIndex: vm.deliveryCurIndex,
+                  paymentIndex: vm.paymentCurIndex
                 },
-                deliveryIndex: vm.deliveryCurIndex,
-                paymentIndex: vm.paymentCurIndex,
                 message: "null"
               }
             };
-            console.log("onNextStepHandler - 2");
-            vm.$store.dispatch("CheckOutPage", dataInfo);
+            vm.$store.dispatch("checkoutPage/AddCheckoutData", dataInfo);
           }
         })
         .catch(err => {

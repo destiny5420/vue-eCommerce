@@ -8,20 +8,49 @@ export default {
       itemID: null,
       itemData: null,
       isLoading: {
+        addInfoToCheckoutList: false,
         getItemData: false
       }
     };
   },
   getters: {},
   mutations: {
+    TOGGLE_LOADING_ADD_INFO_TO_CHECKOUT: function(state, data) {
+      state.isLoading.addInfoToCheckoutList = data;
+    },
     TOGGLE_LOADING_GET_ITEM: function(state, data) {
       state.isLoading.getItemData = data;
     },
     SET_CHECKOUT_ITEM_ID: function(state, data) {
       state.itemID = data;
+    },
+    SET_CHECKOUT_ITEM_DATA: function(state, data) {
+      state.itemData = data;
     }
   },
   actions: {
+    AddCheckoutData: function(context, data) {
+      let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/order`;
+      context.commit("TOGGLE_LOADING_ADD_INFO_TO_CHECKOUT", true);
+
+      axios
+        .post(api, data)
+        .then(response => {
+          context.commit("TOGGLE_LOADING_ADD_INFO_TO_CHECKOUT", false);
+          if (response.data.success) {
+            router.push({
+              name: "vCheckoutPage",
+              query: { id: response.data.orderId }
+            });
+          } else {
+            console.error(response.message);
+          }
+        })
+        .catch(err => {
+          context.commit("TOGGLE_LOADING_ADD_INFO_TO_CHECKOUT", false);
+          console.error(err);
+        });
+    },
     GetItemData: function(context) {
       if (!context.state.itemID) return;
       context.commit("TOGGLE_LOADING_GET_ITEM", true);
@@ -41,7 +70,7 @@ export default {
                 name: "vHome"
               });
             } else {
-              context.commit("SET_CHECKOUT_ITEM_ID", response.data.order);
+              context.commit("SET_CHECKOUT_ITEM_DATA", response.data.order);
             }
           } else {
             console.error(response);

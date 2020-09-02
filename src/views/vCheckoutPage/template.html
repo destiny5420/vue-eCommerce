@@ -1,1 +1,62 @@
-<div></div>
+<div class="main-summary">
+  <div class="top-block">
+    <div class="method-block">
+      <!-- Delivery Info -->
+      <div class="method">
+        <span class="p-font-family-button item-title">Delivery method</span>
+        <div
+          class="select-section"
+          v-for="(item, index) in deliveryOption"
+          :key="index"
+          :style="styleDeliveryOption(index)"
+        >
+          <img class="section-img" :src="item.imageUrl" />
+          <div class="p-font-family-filter-title">${{ item.price }}</div>
+        </div>
+      </div>
+      <!-- Payment Info -->
+      <div class="method">
+        <span class="p-font-family-button item-title">Payment method</span>
+        <div
+          class="select-section"
+          v-for="(item, index) in paymentOption"
+          :key="index"
+          :style="stylePaymentOption(index)"
+        >
+          <img class="section-img" :src="item.imageUrl" />
+        </div>
+      </div>
+    </div>
+    <div class="order-info-block">
+      <div class="order-info" v-if="this.pageInfo">
+        <span class="p-font-family-button item-title">Order information</span>
+        <div class="order-group">
+          <h1>{{ this.pageInfo.user.name }}</h1>
+          <div class="p-font-family-lato order-single-item">
+            <div>Address:</div>
+            <div>{{ this.pageInfo.user.address }}</div>
+          </div>
+          <div class="p-font-family-lato order-single-item">
+            <div>Email:</div>
+            <div>{{ this.pageInfo.user.email }}</div>
+          </div>
+          <div class="p-font-family-lato order-single-item">
+            <div>Phone:</div>
+            <div>{{ this.pageInfo.user.tel }}</div>
+          </div>
+          <div class="p-font-family-lato order-single-item">
+            <div>Credit Card:</div>
+            <div>{{ this.pageInfo.user.creditCardNumber }}</div>
+          </div>
+          <div class="p-font-family-lato order-single-item">
+            <div>Status:</div>
+            <div :style="{ 'color': this.pageInfo.is_paid ? 'black' : 'red' }">
+              {{ this.pageInfo.is_paid ? "" : "Not paid yet" }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-block"></div>
+</div>
