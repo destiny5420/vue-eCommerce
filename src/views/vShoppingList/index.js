@@ -37,6 +37,10 @@ export default {
       });
     },
     onNextStep: function() {
+      if (this.cartList.length === 0) {
+        return;
+      }
+
       this.$router.push({
         name: "vShoppingDeliveryInfo"
       });
