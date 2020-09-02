@@ -36,6 +36,9 @@ export default {
     onBackHandler: function() {
       let vm = this;
       vm.$router.go(-1);
+    },
+    onCheckOutHandler: function() {
+      this.$store.dispatch("checkoutPage/CheckOut");
     }
   },
   computed: {
@@ -46,7 +49,7 @@ export default {
       return function(index) {
         let selectedColor = "2px solid #ffcb7d";
         let unSelectedColor = "2px solid rgba(136, 136, 136, 0.35)";
-        console.log("pageInfo: ", this.pageInfo);
+        // console.log("pageInfo: ", this.pageInfo);
         return {
           border: this.pageInfo
             ? index === this.pageInfo.user.deliveryIndex

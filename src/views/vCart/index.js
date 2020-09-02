@@ -47,7 +47,8 @@ export default {
         this.$store.state.isLoading.getCartList ||
         this.$store.state.isLoading.deleteCartItem ||
         this.$store.state.checkoutPage.isLoading.addInfoToCheckoutList ||
-        this.$store.state.checkoutPage.isLoading.getItemData 
+        this.$store.state.checkoutPage.isLoading.getItemData ||
+        this.$store.state.checkoutPage.isLoading.checkout
       );
     },
     stepInfo: function() {

@@ -9,7 +9,8 @@ export default {
       itemData: null,
       isLoading: {
         addInfoToCheckoutList: false,
-        getItemData: false
+        getItemData: false,
+        checkout: false
       }
     };
   },
@@ -20,6 +21,9 @@ export default {
     },
     TOGGLE_LOADING_GET_ITEM: function(state, data) {
       state.isLoading.getItemData = data;
+    },
+    TOGGLE_LOADING_CHECKOUT: function(state, data) {
+      state.isLoading.checkout = data;
     },
     SET_CHECKOUT_ITEM_ID: function(state, data) {
       state.itemID = data;
@@ -78,6 +82,20 @@ export default {
         })
         .catch(err => {
           context.commit("TOGGLE_LOADING_GET_ITEM", false);
+          console.error(err);
+        });
+    },
+    CheckOut: function(context) {
+      let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/pay/${context.state.itemID}`;
+      context.commit("TOGGLE_LOADING_CHECKOUT", true);
+      axios
+        .post(api)
+        .then(response => {
+          context.commit("TOGGLE_LOADING_CHECKOUT", false);
+          console.log("-- CheckOut -- / response: ", response);
+        })
+        .catch(err => {
+          context.commit("TOGGLE_LOADING_CHECKOUT", false);
           console.error(err);
         });
     }
