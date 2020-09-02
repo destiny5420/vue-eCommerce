@@ -34,13 +34,16 @@ export default {
       ],
       navbar_info: [
         {
-          displayName: `Men's Tops`
+          displayName: "All Product",
+          params: "all-products"
         },
         {
-          displayName: `T-Shirt`
+          displayName: "Women",
+          params: "women"
         },
         {
-          displayName: `T-Shirt Summer Vibess`
+          displayName: "T-Shirt Summer Vibess",
+          params: ""
         }
       ],
       sizeTable: {
@@ -139,6 +142,33 @@ export default {
     },
     product: function() {
       return this.$store.state.detailProduct.productData;
+    },
+    navBarInfo: function() {
+      if (this.$store.state.detailProduct.productData === null) {
+        return null;
+      }
+
+      let data = [];
+      data.push({ displayName: "All Product", params: "all-products" });
+
+      switch (this.$store.state.detailProduct.productData.sex) {
+        case "women":
+          data.push({ displayName: "Women", params: "women" });
+          break;
+        case "men":
+          data.push({ displayName: "Men", params: "men" });
+          break;
+        case "kids":
+          data.push({ displayName: "Kids", params: "kids" });
+          break;
+      }
+
+      data.push({
+        displayName: this.$store.state.detailProduct.productData.title,
+        params: ""
+      });
+
+      return data;
     }
   },
   // life cycle
