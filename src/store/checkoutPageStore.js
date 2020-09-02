@@ -64,7 +64,10 @@ export default {
       axios
         .get(api)
         .then(response => {
-          console.log(response);
+          console.log(
+            "-- Checkout Page Store [GetItemData] -- / data: ",
+            response.data
+          );
           context.commit("TOGGLE_LOADING_GET_ITEM", false);
 
           if (response.data.success) {
@@ -88,11 +91,13 @@ export default {
     CheckOut: function(context) {
       let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/pay/${context.state.itemID}`;
       context.commit("TOGGLE_LOADING_CHECKOUT", true);
+      let vm = this;
       axios
         .post(api)
         .then(response => {
           context.commit("TOGGLE_LOADING_CHECKOUT", false);
           console.log("-- CheckOut -- / response: ", response);
+          vm.dispatch("checkoutPage/GetItemData");
         })
         .catch(err => {
           context.commit("TOGGLE_LOADING_CHECKOUT", false);

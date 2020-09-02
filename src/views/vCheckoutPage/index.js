@@ -4,6 +4,7 @@ export default {
   components: {},
   data: function() {
     return {
+      test: true,
       deliveryCurIndex: 0,
       deliveryOption: [
         {
@@ -43,6 +44,7 @@ export default {
   },
   computed: {
     pageInfo: function() {
+      // console.log("----> ", this.$store.state.checkoutPage.itemData);
       return this.$store.state.checkoutPage.itemData;
     },
     styleDeliveryOption: function() {

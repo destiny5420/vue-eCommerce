@@ -43,7 +43,7 @@ export default new Vuex.Store({
       checkoutPage: false
     },
     products: [],
-    cart_data: []
+    cart_data: null
   },
   getters: {
     products: function(state) {
@@ -64,6 +64,20 @@ export default new Vuex.Store({
       }
 
       return ProductFilter[functionName](state.products);
+    },
+    cartList: function(state) {
+      return state.cart_data;
+    },
+    isThereItemInCart: function(state) {
+      if (state.cart_data === null) {
+        return false;
+      }
+
+      if (state.cart_data.carts.length <= 0) {
+        return false;
+      }
+
+      return true;
     }
   },
   mutations: {
@@ -123,9 +137,8 @@ export default new Vuex.Store({
 
       await axios
         .delete(api)
-        .then(response => {
+        .then(() => {
           context.commit("TOGGLE_LOADING_DELETE_CART_ITEM", false);
-          console.log(response.data);
         })
         .catch(err => {
           context.commit("TOGGLE_LOADING_DELETE_CART_ITEM", false);

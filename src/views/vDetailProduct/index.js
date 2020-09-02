@@ -90,11 +90,15 @@ export default {
       this.sizeTable.isShow = key;
     },
     onAddCartHandler: function() {
-      this.$store.dispatch("detailProduct/AddCart", {
-        count: this.data.count,
-        sizeIndex: this.data.sizeIndex,
-        colorIndex: this.data.colorIndex
-      });
+      this.$store.dispatch(
+        "detailProduct/AddCart",
+        {
+          count: this.data.count,
+          sizeIndex: this.data.sizeIndex,
+          colorIndex: this.data.colorIndex
+        },
+        { root: true }
+      );
     }
   },
   computed: {

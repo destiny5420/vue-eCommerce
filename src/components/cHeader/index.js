@@ -59,7 +59,6 @@ export default {
       this.sideBarData[index].tmp(vm);
     },
     onCartHandler: function() {
-      console.log("-- onCartHandler --");
       if (this.openSideBar) {
         this.openSideBar = !this.openSideBar;
       }
@@ -110,13 +109,18 @@ export default {
         "show-burger-line-3": this.openSideBar,
         "hamburger-3": !this.openSideBar
       };
+    },
+    isThereItemInCart: function() {
+      return this.$store.getters["isThereItemInCart"];
     }
   },
   // life cycle
   beforeCreate: function() {},
   created: function() {},
   beforeMounted: function() {},
-  mounted: function() {},
+  mounted: function() {
+    this.$store.dispatch("GetCartList");
+  },
   beforeUpdate: function() {},
   updated: function() {},
   beforeDestroy: function() {},

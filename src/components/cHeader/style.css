@@ -391,6 +391,16 @@
   color: #2c3e50;
 }
 
+.header .menu li a .cart-count-icon {
+  position: absolute;
+  bottom: -3px;
+  right: -8px;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 0, 0, 0.95);
+  border-radius: 50%;
+}
+
 .header .menu li:hover .hove-line::after {
   -webkit-transform: scale(1, 1);
           transform: scale(1, 1);

@@ -11,6 +11,43 @@ $count-width: 60px;
   width: 100%;
 }
 
+.checkout-done {
+  height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#checkout-done-title {
+  font-size: 120px;
+  height: 40%;
+}
+
+.checkout-done-content {
+  font-size: 20px;
+}
+
+.continue-shop-btn {
+  cursor: pointer;
+  width: 230px;
+  height: 60px;
+  background: $first-color;
+  border-radius: 35px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: 0.25s ease;
+  font-weight: bold;
+
+  &:hover {
+    background: $first-color-hover;
+  }
+}
+
 .top-block {
   width: 100%;
   height: 300px;

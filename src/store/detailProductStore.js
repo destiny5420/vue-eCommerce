@@ -43,6 +43,7 @@ export default {
     AddCart: function(context, data) {
       let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
       context.commit("TOGGLE_LOADING_ADD_CART", true);
+
       let infoData = {
         data: {
           product_id: context.state.productID,
@@ -56,9 +57,9 @@ export default {
 
       axios
         .post(api, infoData)
-        .then(response => {
+        .then(() => {
           context.commit("TOGGLE_LOADING_ADD_CART", false);
-          console.log("AddCart result: ", response.data);
+          context.dispatch("GetCartList", null, { root: true });
         })
         .catch(error => {
           context.commit("TOGGLE_LOADING_ADD_CART", false);

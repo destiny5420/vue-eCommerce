@@ -48,10 +48,18 @@ export default {
   },
   computed: {
     finalCost: function() {
-      return this.$store.state.cart_data.final_total;
+      if (this.$store.getters["cartList"] === null) {
+        return 0;
+      } else {
+        return this.$store.getters["cartList"].final_total;
+      }
     },
     cartList: function() {
-      return this.$store.state.cart_data.carts;
+      if (this.$store.getters["cartList"] === null) {
+        return 0;
+      } else {
+        return this.$store.getters["cartList"].carts;
+      }
     },
     styleImage: function() {
       return function(link) {
