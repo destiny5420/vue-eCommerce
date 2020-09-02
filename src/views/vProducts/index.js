@@ -44,6 +44,9 @@ export default {
         show: true,
         sizeData: [
           {
+            title: "XS"
+          },
+          {
             title: "S"
           },
           {
@@ -92,6 +95,9 @@ export default {
     },
     onSizeShowHandler: function() {
       this.filterData_size.show = !this.filterData_size.show;
+    },
+    onClickSizeHandler: function(index) {
+      this.$store.commit("TOGGLE_SIZE", index);
     }
   },
   computed: {
@@ -110,20 +116,27 @@ export default {
         height: !this.filterData_size.show ? "0px" : ""
       };
     },
+    styleSizeOption: function() {
+      return function(index) {
+        return {
+          border: this.sizeToggle(index) ? "1px solid #444444" : ""
+        };
+      };
+    },
     styleArrow: function() {
       return function(value) {
         switch (value) {
           case "type":
             return {
-              transform: !this.filterData_type.show ? " rotateX(180deg)" : ""
+              transform: !this.filterData_type.show ? "rotateX(180deg)" : ""
             };
           case "price":
             return {
-              transform: !this.filterData_price.show ? " rotateX(180deg)" : ""
+              transform: !this.filterData_price.show ? "rotateX(180deg)" : ""
             };
           case "size":
             return {
-              transform: !this.filterData_size.show ? " rotateX(180deg)" : ""
+              transform: !this.filterData_size.show ? "rotateX(180deg)" : ""
             };
           default:
             return {};
@@ -184,11 +197,15 @@ export default {
       ];
     },
     products: function() {
-      console.log(" -- Product -- / data: ", this.$store.getters["products"]);
       return this.$store.getters["products"];
     },
     isLoading: function() {
       return this.$store.state.isLoading.getProductList;
+    },
+    sizeToggle: function() {
+      return function(index) {
+        return this.$store.getters["sizeToggle"](index);
+      };
     }
   },
   watch: {

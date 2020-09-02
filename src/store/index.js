@@ -36,6 +36,48 @@ const ProductFilter = {
 export default new Vuex.Store({
   strict: true,
   state: {
+    filter: {
+      productType: [
+        {
+          value: "T-Shirt",
+          key: false
+        },
+        {
+          value: "Long-Sleeves",
+          key: false
+        },
+        {
+          value: "Tank-Tops",
+          key: false
+        },
+        {
+          value: "Dress Shirt",
+          key: false
+        }
+      ],
+      size: [
+        {
+          value: "XS",
+          key: false
+        },
+        {
+          value: "S",
+          key: false
+        },
+        {
+          value: "M",
+          key: false
+        },
+        {
+          value: "L",
+          key: false
+        },
+        {
+          value: "XL",
+          key: false
+        }
+      ]
+    },
     isLoading: {
       getProductList: false,
       getCartList: false,
@@ -78,6 +120,11 @@ export default new Vuex.Store({
       }
 
       return true;
+    },
+    sizeToggle: function(state) {
+      return function(index) {
+        return state.filter.size[index].key;
+      };
     }
   },
   mutations: {
@@ -92,6 +139,10 @@ export default new Vuex.Store({
     },
     TOGGLE_LOADING_CHECKOUT_PAGE: function(state, data) {
       state.isLoading.checkoutPage = data;
+    },
+    TOGGLE_SIZE: function(state, data) {
+      // Here 'data' is index
+      state.filter.size[data].key = !state.filter.size[data].key;
     },
     SAVE_PRODUCT_LIST: function(state, data) {
       state.products = data;

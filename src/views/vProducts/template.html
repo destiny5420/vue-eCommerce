@@ -66,7 +66,12 @@
           />
         </div>
         <div class="size-option" :style="styleSizeSelect">
-          <div v-for="(item, index) in filterData_size.sizeData" :key="index">
+          <div
+            :style="styleSizeOption(index)"
+            v-for="(item, index) in filterData_size.sizeData"
+            :key="index"
+            @click="onClickSizeHandler(index)"
+          >
             {{ item.title }}
           </div>
         </div>
