@@ -1,3 +1,12 @@
+$first-color: #ffcb7d;
+$first-color-hover: #fab651;
+
+$image-width: 40px;
+$category-width: 110px;
+$size-width: 60px;
+$price-width: 100px;
+$count-width: 60px;
+
 .main-summary {
   width: 100%;
 }
@@ -11,8 +20,6 @@
 
 .bottom-block {
   width: 100%;
-  height: 500px;
-  background: lightcoral;
 }
 
 .method-block {
@@ -26,7 +33,7 @@
 
 .order-info-block {
   width: 30%;
-  padding-left: 20px;
+  padding-left: 50px;
   text-align: left;
 
   h1 {
@@ -64,7 +71,7 @@
   }
 
   & > div:nth-child(2) {
-    flex: 3;
+    flex: 2;
   }
 }
 
@@ -114,4 +121,127 @@
   text-align: left;
   font-size: 22px;
   font-weight: 900;
+}
+
+.cart {
+  display: inline-block;
+  width: 100%;
+}
+
+.cart-list {
+  width: 70%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-image {
+  & > div {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+.cart-title {
+  text-align: left;
+}
+
+.cart-category {
+}
+
+.cart-size {
+}
+
+.cart-price {
+  font-size: 16px;
+}
+
+.cart-count {
+}
+
+.foot-bar {
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  // Continue Shopping
+  .foot-back {
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: rgba(128, 128, 128, 0.55);
+    transition: 0.25s ease;
+    svg {
+      font-size: 26px;
+      margin-right: 20px;
+    }
+    span {
+      font-size: 20px;
+    }
+
+    &:hover {
+      color: rgba(48, 48, 48, 0.9);
+    }
+  }
+
+  // Right
+  .foot-checkout-info {
+    margin-bottom: 50px;
+    width: 400px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    // Total cost
+    .footer-total-cost {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      & > span:nth-child(1) {
+        margin-right: 15px;
+        font-size: 18px;
+        color: rgba(128, 128, 128, 0.55);
+      }
+
+      & > span:nth-child(2) {
+        font-weight: bold;
+        font-size: 22px;
+      }
+    }
+
+    // Next Step Button
+    .footer-checkout-btn {
+      cursor: pointer;
+
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      height: 60px;
+      width: 200px;
+      background: $first-color;
+      border-radius: 60px;
+      margin: 0px 0px;
+
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: 0.25s ease;
+
+      &:hover {
+        background: $first-color-hover;
+      }
+    }
+  }
 }

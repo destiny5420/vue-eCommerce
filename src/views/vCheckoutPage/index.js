@@ -32,7 +32,12 @@ export default {
       ]
     };
   },
-  methods: {},
+  methods: {
+    onBackHandler: function() {
+      let vm = this;
+      vm.$router.go(-1);
+    }
+  },
   computed: {
     pageInfo: function() {
       return this.$store.state.checkoutPage.itemData;
@@ -41,7 +46,7 @@ export default {
       return function(index) {
         let selectedColor = "2px solid #ffcb7d";
         let unSelectedColor = "2px solid rgba(136, 136, 136, 0.35)";
-        console.log(this.pageInfo);
+        console.log("pageInfo: ", this.pageInfo);
         return {
           border: this.pageInfo
             ? index === this.pageInfo.user.deliveryIndex
@@ -64,6 +69,13 @@ export default {
               ? "2px solid #ffcb7d"
               : "2px solid rgba(136, 136, 136, 0.35)",
           opacity: index === this.paymentCurIndex ? 1 : 0.5
+        };
+      };
+    },
+    styleImage: function() {
+      return function(link) {
+        return {
+          "background-image": `url(${link})`
         };
       };
     }

@@ -49,6 +49,10 @@
             <div>{{ this.pageInfo.user.creditCardNumber }}</div>
           </div>
           <div class="p-font-family-lato order-single-item">
+            <div>Order Number:</div>
+            <div>{{ this.pageInfo.id }}</div>
+          </div>
+          <div class="p-font-family-lato order-single-item">
             <div>Status:</div>
             <div :style="{ 'color': this.pageInfo.is_paid ? 'black' : 'red' }">
               {{ this.pageInfo.is_paid ? "" : "Not paid yet" }}
@@ -58,5 +62,47 @@
       </div>
     </div>
   </div>
-  <div class="bottom-block"></div>
+  <div class="bottom-block">
+    <div class="cart" v-if="pageInfo">
+      <span class="p-font-family-button item-title">Your cart</span>
+      <div
+        class="cart-list"
+        v-for="(item, index) in pageInfo.products"
+        :key="index"
+      >
+        <div class="cart-image">
+          <div :style="styleImage(item.product.imageUrl)"></div>
+        </div>
+        <div class="cart-title">
+          <h4 class="p-font-family-button ">
+            {{ item.product.title }}
+          </h4>
+          <span>{{ item.product.id }}</span>
+        </div>
+        <div class="cart-category">{{ item.product.category }}</div>
+        <div class="cart-size">
+          {{ item.product.size[item.customData.sizeIndex].caption }}
+        </div>
+        <div class="p-font-family-filter-title cart-price">
+          ${{ item.product.price }}
+        </div>
+        <div class="cart-count">{{ item.qty }}</div>
+      </div>
+    </div>
+    <div class="foot-bar">
+      <div class="foot-back" @click="onBackHandler">
+        <font-awesome-icon :icon="['fas', 'long-arrow-alt-left']" />
+        <span>Back</span>
+      </div>
+      <div class="foot-checkout-info">
+        <div class="footer-total-cost">
+          <span>Total cost: </span>
+          <span class="p-font-family-button" v-if="pageInfo"
+            >${{ pageInfo.total }}</span
+          >
+        </div>
+        <div class="footer-checkout-btn">Check Out</div>
+      </div>
+    </div>
+  </div>
 </div>

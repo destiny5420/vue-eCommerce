@@ -13,8 +13,6 @@
 
 .bottom-block {
   width: 100%;
-  height: 500px;
-  background: lightcoral;
 }
 
 .method-block {
@@ -34,7 +32,7 @@
 
 .order-info-block {
   width: 30%;
-  padding-left: 20px;
+  padding-left: 50px;
   text-align: left;
 }
 
@@ -89,9 +87,9 @@
 }
 
 .order-single-item > div:nth-child(2) {
-  -webkit-box-flex: 3;
-      -ms-flex: 3;
-          flex: 3;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
 }
 
 .method {
@@ -166,5 +164,160 @@
   text-align: left;
   font-size: 22px;
   font-weight: 900;
+}
+
+.cart {
+  display: inline-block;
+  width: 100%;
+}
+
+.cart-list {
+  width: 70%;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cart-image > div {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.cart-title {
+  text-align: left;
+}
+
+.cart-price {
+  font-size: 16px;
+}
+
+.foot-bar {
+  margin-top: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.foot-bar .foot-back {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: rgba(128, 128, 128, 0.55);
+  -webkit-transition: 0.25s ease;
+  transition: 0.25s ease;
+}
+
+.foot-bar .foot-back svg {
+  font-size: 26px;
+  margin-right: 20px;
+}
+
+.foot-bar .foot-back span {
+  font-size: 20px;
+}
+
+.foot-bar .foot-back:hover {
+  color: rgba(48, 48, 48, 0.9);
+}
+
+.foot-bar .foot-checkout-info {
+  margin-bottom: 50px;
+  width: 400px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.foot-bar .foot-checkout-info .footer-total-cost {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.foot-bar .foot-checkout-info .footer-total-cost > span:nth-child(1) {
+  margin-right: 15px;
+  font-size: 18px;
+  color: rgba(128, 128, 128, 0.55);
+}
+
+.foot-bar .foot-checkout-info .footer-total-cost > span:nth-child(2) {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.foot-bar .foot-checkout-info .footer-checkout-btn {
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60px;
+  width: 200px;
+  background: #ffcb7d;
+  border-radius: 60px;
+  margin: 0px 0px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  -webkit-transition: 0.25s ease;
+  transition: 0.25s ease;
+}
+
+.foot-bar .foot-checkout-info .footer-checkout-btn:hover {
+  background: #fab651;
 }
 /*# sourceMappingURL=style.css.map */
