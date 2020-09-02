@@ -64,10 +64,6 @@ $picture-height: 80%;
     justify-content: flex-start;
     align-items: flex-start;
 
-    span[name="title"] {
-      font-size: 18px;
-    }
-
     span[name="price"] {
       font-size: 24px;
     }
@@ -100,5 +96,19 @@ $picture-height: 80%;
       display: flex;
       justify-content: space-between;
     }
+  }
+}
+
+.title-block {
+  #title {
+    font-size: 22px;
+    text-align: left;
+  }
+
+  #category {
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    color: gray;
+    font-size: 14px;
   }
 }

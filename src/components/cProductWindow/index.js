@@ -23,6 +23,10 @@ export default {
     props_size: {
       type: Array,
       required: true
+    },
+    props_category: {
+      type: String,
+      required: true
     }
   },
   components: {},

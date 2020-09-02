@@ -184,6 +184,7 @@ export default {
       ];
     },
     products: function() {
+      console.log(" -- Product -- / data: ", this.$store.getters["products"]);
       return this.$store.getters["products"];
     },
     isLoading: function() {

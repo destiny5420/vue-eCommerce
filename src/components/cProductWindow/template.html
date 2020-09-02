@@ -7,7 +7,10 @@
   </div>
   <div class="info">
     <div>
-      <span name="title" class="p-font-family-button">{{ props_title }}</span>
+      <div class="title-block">
+        <div id="title" class="p-font-family-button">{{ props_title }}</div>
+        <div id="category">{{ props_category }}</div>
+      </div>
       <div class="info-size p-font-family-button">
         <div v-if="item.state" v-for="(item, index) in props_size" :key="index">
           {{ item.caption }}
