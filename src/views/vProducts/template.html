@@ -54,6 +54,7 @@
               :min="filterData_price.min"
               :max="filterData_price.max"
               v-model="filterData_price.sliderValue"
+              @change="onPriceHandler"
             />
           </div>
         </div>

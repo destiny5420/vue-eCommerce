@@ -105,7 +105,8 @@ export default new Vuex.Store({
           value: "XL",
           key: false
         }
-      ]
+      ],
+      price: 0
     },
     isLoading: {
       getProductList: false,
@@ -223,6 +224,13 @@ export default new Vuex.Store({
       }
 
       console.log("3.[Type Filter] - resultData: ", result_data);
+      console.log("---------------");
+
+      // Price Filter
+      result_data = result_data.filter(
+        item => item.price >= state.filter.price
+      );
+      console.log("4.[Price Filter] - resultData: ", result_data);
 
       console.warn("-------------------------------");
       return result_data;
@@ -267,6 +275,9 @@ export default new Vuex.Store({
     TOGGLE_SIZE: function(state, data) {
       // Here 'data' is index
       state.filter.size[data].key = !state.filter.size[data].key;
+    },
+    TOGGLE_PRICE: function(state, data) {
+      state.filter.price = data;
     },
     SAVE_PRODUCT_LIST: function(state, data) {
       state.products = data;

@@ -37,7 +37,7 @@ export default {
       filterData_price: {
         show: true,
         min: 0,
-        max: 500,
+        max: 100,
         sliderValue: 0
       },
       filterData_size: {
@@ -84,6 +84,13 @@ export default {
     },
     onClickTypeHandler: function(index) {
       this.$store.commit("TOGGLE_TYPE", index);
+    },
+    onPriceHandler: function() {
+      console.log(
+        "onPriceHandler / Value: ",
+        this.filterData_price.sliderValue
+      );
+      this.$store.commit("TOGGLE_PRICE", this.filterData_price.sliderValue);
     }
   },
   computed: {
