@@ -135,3 +135,11 @@ router.beforeEach((to, from, next) => {
   //   next();
   // }
 });
+
+let no_log_mode = false;
+
+if (no_log_mode) {
+  console.log = function() {};
+  console.warn = function() {};
+  console.error = function() {};
+}
