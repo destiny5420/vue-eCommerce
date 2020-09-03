@@ -105,7 +105,19 @@ export default new Vuex.Store({
           break;
       }
 
-      return ProductFilter[functionName](state.products);
+      let resultData = ProductFilter[functionName](state.products);
+      console.log("1 - resultData: ", resultData);
+
+      for (let i = 0; i < state.filter.size.length; i++) {
+        if (state.filter.size[i].key === true) {
+          resultData = resultData.filter(item => item.size[i].state === true);
+        }
+      }
+
+      console.log("2 - resultData: ", resultData);
+
+      console.warn("-------------------------------");
+      return resultData;
     },
     cartList: function(state) {
       return state.cart_data;

@@ -41,24 +41,7 @@ export default {
         sliderValue: 0
       },
       filterData_size: {
-        show: true,
-        sizeData: [
-          {
-            title: "XS"
-          },
-          {
-            title: "S"
-          },
-          {
-            title: "M"
-          },
-          {
-            title: "L"
-          },
-          {
-            title: "XL"
-          }
-        ]
+        show: true
       },
       conditionBar: {
         sort: {
@@ -198,6 +181,9 @@ export default {
     },
     products: function() {
       return this.$store.getters["products"];
+    },
+    sizeList: function() {
+      return this.$store.state.filter.size;
     },
     isLoading: function() {
       return this.$store.state.isLoading.getProductList;
