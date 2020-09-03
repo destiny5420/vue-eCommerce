@@ -45,8 +45,11 @@
         </div>
         <div class="price-option" :style="stylePriceSelect">
           <div class="price-area">
-            <div>{{ filterData_price.min }}USD</div>
-            <div>{{ filterData_price.max }}USD</div>
+            <div style="font-size: 12px;">{{ filterData_price.min }}</div>
+            <div id="filter-price" style="font-size: 22px;">
+              ${{ filterData_price.sliderValue }}
+            </div>
+            <div style="font-size: 12px;">{{ filterData_price.max }}</div>
           </div>
           <div class="slider-area">
             <input

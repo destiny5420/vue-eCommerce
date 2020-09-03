@@ -128,15 +128,21 @@ $phones-media: 479px;
         transition: 0.35s;
 
         .price-area {
-          margin-bottom: 30px;
+          margin-bottom: 15px;
           display: flex;
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
 
-          & > :nth-child(n) {
-            padding: 0px 10px;
+          #filter-price {
             height: 32px;
+            padding: 5px 10px;
+            background: rgba(136, 136, 136, 0.521);
+          }
+
+          & > :nth-child(n) {
+            padding: 0px 5px;
+            height: 20px;
             background: rgba(196, 196, 196, 0.521);
             font-size: 14px;
             border-radius: 5px;

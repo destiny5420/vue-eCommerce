@@ -122,7 +122,7 @@
 }
 
 .view .filter-area .price .price-option .price-area {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -138,9 +138,15 @@
           align-items: center;
 }
 
-.view .filter-area .price .price-option .price-area > :nth-child(n) {
-  padding: 0px 10px;
+.view .filter-area .price .price-option .price-area #filter-price {
   height: 32px;
+  padding: 5px 10px;
+  background: rgba(136, 136, 136, 0.521);
+}
+
+.view .filter-area .price .price-option .price-area > :nth-child(n) {
+  padding: 0px 5px;
+  height: 20px;
   background: rgba(196, 196, 196, 0.521);
   font-size: 14px;
   border-radius: 5px;
