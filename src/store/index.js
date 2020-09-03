@@ -33,25 +33,25 @@ const ProductFilter = {
   }
 };
 
-// function quickSort(arr) {
-//   if (arr.length <= 1) {
-//     return arr;
-//   }
+function quickSort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
 
-//   let pivot = arr.length - 1;
-//   let left = [];
-//   let right = [];
+  let pivot = arr[arr.length - 1];
+  let left = [];
+  let right = [];
 
-//   for (let i = 0; i < arr.length - 1; i++) {
-//     if (arr[i] < pivot) {
-//       left.push(arr[i]);
-//     } else {
-//       right.push(arr[i]);
-//     }
-//   }
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] < pivot) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
+    }
+  }
 
-//   return quickSort(left).concat(pivot, quickSort(right));
-// }
+  return quickSort(left).concat(pivot, quickSort(right));
+}
 
 function catchCorrectData(indexList, resultData) {
   let data = [];
@@ -134,47 +134,59 @@ export default new Vuex.Store({
           break;
       }
 
-      let resultData = ProductFilter[functionName](state.products);
-      console.log("1 - resultData: ", resultData);
+      let filter_router_data = ProductFilter[functionName](state.products);
+      console.log("1 - resultData: ", filter_router_data);
 
       // Size Filter
       for (let i = 0; i < state.filter.size.length; i++) {
         if (state.filter.size[i].key === true) {
-          resultData = resultData.filter(item => item.size[i].state === true);
+          filter_router_data = filter_router_data.filter(
+            item => item.size[i].state === true
+          );
         }
       }
-      console.log("2 - size filter / resultData: ", resultData);
+      console.log("2 - size filter / resultData: ", filter_router_data);
 
       // Product Type Filter
-      let productTypeIndexList = [];
+      let filter_type_index_list = [];
       let selected = false;
       for (let i = 0; i < state.filter.productType.length; i++) {
         if (state.filter.productType[i].key === true) {
           selected = true;
-          for (let j = 0; j < resultData.length; j++) {
-            if (resultData[j].category === state.filter.productType[i].value) {
-              productTypeIndexList.push(j);
+          for (let j = 0; j < filter_router_data.length; j++) {
+            if (
+              filter_router_data[j].category ===
+              state.filter.productType[i].value
+            ) {
+              filter_type_index_list.push(j);
             }
           }
         }
       }
 
+      let DataBeforeShort = filter_type_index_list;
+      filter_type_index_list = quickSort(filter_type_index_list);
       console.log(
-        "3 - product type filter / productTypeIndexList: ",
-        productTypeIndexList
+        "3. product type filter / ProductTypeIndexList / Before: ",
+        DataBeforeShort,
+        " / After: ",
+        filter_type_index_list
       );
 
       let finalData = [];
-      if (productTypeIndexList.length <= 0 && selected === false) {
-        finalData = resultData;
+      if (filter_type_index_list.length <= 0 && selected === false) {
+        finalData = filter_router_data;
       } else {
-        finalData = catchCorrectData(productTypeIndexList, resultData);
+        finalData = catchCorrectData(
+          filter_type_index_list,
+          filter_router_data
+        );
       }
 
       console.log("4 - product type filter / finalData: ", finalData);
 
       console.warn("-------------------------------");
-      return resultData;
+      return finalData;
     },
     cartList: function(state) {
       return state.cart_data;
