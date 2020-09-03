@@ -94,114 +94,135 @@ export default {
     }
   },
   computed: {
-    styleTypeSelect: function() {
-      return {
-        height: !this.filterData_type.show ? "0px" : ""
-      };
-    },
-    stylePriceSelect: function() {
-      return {
-        height: !this.filterData_price.show ? "0px" : ""
-      };
-    },
-    styleSizeSelect: function() {
-      return {
-        height: !this.filterData_size.show ? "0px" : ""
-      };
-    },
-    styleSizeOption: function() {
-      return function(index) {
+    styleTypeSelect: {
+      get: function() {
         return {
-          border: this.sizeToggle(index) ? "1px solid #444444" : ""
+          height: !this.filterData_type.show ? "0px" : ""
         };
-      };
-    },
-    styleArrow: function() {
-      return function(value) {
-        switch (value) {
-          case "type":
-            return {
-              transform: !this.filterData_type.show ? "rotateX(180deg)" : ""
-            };
-          case "price":
-            return {
-              transform: !this.filterData_price.show ? "rotateX(180deg)" : ""
-            };
-          case "size":
-            return {
-              transform: !this.filterData_size.show ? "rotateX(180deg)" : ""
-            };
-          default:
-            return {};
-        }
-      };
-    },
-    matchID: function() {
-      return function(value) {
-        return `check-box-${value}`;
-      };
-    },
-    test: function() {
-      return "hello";
-    },
-    conditionBarTitle: function() {
-      let first_name = "Default";
-      let trail_name = "'s Tops";
-      this.navbar_info = [];
-      this.navbar_info[0] = {
-        displayName: "All Product",
-        params: "all-products"
-      };
-      switch (this.$route.params.id) {
-        case "all-products":
-          first_name = `All Product`;
-
-          break;
-        case "men":
-          first_name = `Men`;
-          this.navbar_info[1] = {
-            displayName: "Men",
-            params: this.$route.params.id
-          };
-          break;
-        case "women":
-          first_name = `Women`;
-          this.navbar_info[1] = {
-            displayName: "Women",
-            params: this.$route.params.id
-          };
-          break;
-        case "kids":
-          first_name = `Kids`;
-          this.navbar_info[1] = {
-            displayName: "Kids",
-            params: this.$route.params.id
-          };
-          break;
       }
+    },
+    stylePriceSelect: {
+      get: function() {
+        return {
+          height: !this.filterData_price.show ? "0px" : ""
+        };
+      }
+    },
+    styleSizeSelect: {
+      get: function() {
+        return {
+          height: !this.filterData_size.show ? "0px" : ""
+        };
+      }
+    },
+    styleSizeOption: {
+      get: function() {
+        return function(index) {
+          return {
+            border: this.sizeToggle(index) ? "1px solid #444444" : ""
+          };
+        };
+      }
+    },
+    styleArrow: {
+      get: function() {
+        return function(value) {
+          switch (value) {
+            case "type":
+              return {
+                transform: !this.filterData_type.show ? "rotateX(180deg)" : ""
+              };
+            case "price":
+              return {
+                transform: !this.filterData_price.show ? "rotateX(180deg)" : ""
+              };
+            case "size":
+              return {
+                transform: !this.filterData_size.show ? "rotateX(180deg)" : ""
+              };
+            default:
+              return {};
+          }
+        };
+      }
+    },
+    matchID: {
+      get: function() {
+        return function(value) {
+          return `check-box-${value}`;
+        };
+      }
+    },
+    conditionBarTitle: {
+      get: function() {
+        let first_name = "Default";
+        let trail_name = "'s Tops";
+        this.navbar_info = [];
+        this.navbar_info[0] = {
+          displayName: "All Product",
+          params: "all-products"
+        };
+        switch (this.$route.params.id) {
+          case "all-products":
+            first_name = `All Product`;
 
-      return first_name + trail_name;
-    },
-    navBarInfo: function() {
-      return [
-        {
-          displayName: `${this.conditionBarTitle}`
+            break;
+          case "men":
+            first_name = `Men`;
+            this.navbar_info[1] = {
+              displayName: "Men",
+              params: this.$route.params.id
+            };
+            break;
+          case "women":
+            first_name = `Women`;
+            this.navbar_info[1] = {
+              displayName: "Women",
+              params: this.$route.params.id
+            };
+            break;
+          case "kids":
+            first_name = `Kids`;
+            this.navbar_info[1] = {
+              displayName: "Kids",
+              params: this.$route.params.id
+            };
+            break;
         }
-      ];
+
+        return first_name + trail_name;
+      }
     },
-    products: function() {
-      return this.$store.getters["products"];
+    navBarInfo: {
+      get: function() {
+        return [
+          {
+            displayName: `${this.conditionBarTitle}`
+          }
+        ];
+      }
     },
-    sizeList: function() {
-      return this.$store.state.filter.size;
+    products: {
+      get: function() {
+        return this.$store.getters["products"];
+      }
     },
-    isLoading: function() {
-      return this.$store.state.isLoading.getProductList;
+    sizeList: {
+      get: function() {
+        return this.$store.state.filter.size;
+      }
     },
-    sizeToggle: function() {
-      return function(index) {
-        return this.$store.getters["sizeToggle"](index);
-      };
+    isLoading: {
+      get: function() {
+        return this.$store.state.isLoading.getProductList;
+      }
+    },
+    sizeToggle: {
+      get: function() {
+        return function(index) {
+          return this.$store.getters["sizeToggle"](index);
+        };
+      }
     }
   },
   watch: {
