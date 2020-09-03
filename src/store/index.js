@@ -119,6 +119,11 @@ export default new Vuex.Store({
   getters: {
     products: function(state) {
       let functionName = "AllProduct";
+
+      if (state.route.name !== "vProducts") {
+        return;
+      }
+
       switch (state.route.params.id) {
         case "women":
           functionName = "Women";
