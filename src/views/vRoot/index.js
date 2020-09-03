@@ -1,10 +1,12 @@
 import cHeader from "@/components/cHeader/index.vue";
+import cAlertMessage from "@/components/cAlertMessage/index.vue";
 
 export default {
   name: "vRoot",
   props: {},
   components: {
-    cHeader
+    cHeader,
+    cAlertMessage
   },
   data: function() {
     return {

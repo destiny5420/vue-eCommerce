@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "@/views/vApp/index.vue";
 import router from "@/router";
 import store from "@/store";
+import "@/common/bus.js";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 
