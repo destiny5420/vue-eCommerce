@@ -135,58 +135,92 @@ export default new Vuex.Store({
       }
 
       let filter_router_data = ProductFilter[functionName](state.products);
-      console.log("1 - resultData: ", filter_router_data);
+      let result_data = filter_router_data;
+      console.log("1.[Router Filter] - resultData: ", filter_router_data);
+      console.log("---------------");
 
       // Size Filter
+      let filter_size_index_list = [];
+      let sizeSelected = false;
       for (let i = 0; i < state.filter.size.length; i++) {
         if (state.filter.size[i].key === true) {
-          filter_router_data = filter_router_data.filter(
-            item => item.size[i].state === true
-          );
+          sizeSelected = true;
+          for (let j = 0; j < filter_router_data.length; j++) {
+            if (filter_router_data[j].size[i].state === true) {
+              filter_size_index_list.push(j);
+            }
+          }
         }
       }
-      console.log("2 - size filter / resultData: ", filter_router_data);
+
+      if (sizeSelected === true) {
+        let sizeDataBeforeShort = filter_size_index_list;
+        filter_size_index_list = quickSort(filter_size_index_list);
+
+        console.log(
+          "2. size filter / SizeIndexList / Before: ",
+          sizeDataBeforeShort,
+          " / After: ",
+          filter_size_index_list
+        );
+      }
+
+      if (filter_size_index_list.length <= 0 && sizeSelected === false) {
+        console.log("2. no size filter");
+      } else {
+        // Remove Duplicate number
+        let length = filter_size_index_list.length;
+        let index = 0;
+        for (index = 1; index < length; index++) {
+          if (
+            filter_size_index_list[index] === filter_size_index_list[index - 1]
+          ) {
+            filter_size_index_list.splice(index, 1);
+            length -= 1;
+            index -= 1;
+          }
+        }
+        result_data = catchCorrectData(filter_size_index_list, result_data);
+      }
+
+      console.log("2.[Size Filter] - resultData: ", result_data);
+      console.log("---------------");
 
       // Product Type Filter
       let filter_type_index_list = [];
-      let selected = false;
+      let typeSelected = false;
       for (let i = 0; i < state.filter.productType.length; i++) {
         if (state.filter.productType[i].key === true) {
-          selected = true;
-          for (let j = 0; j < filter_router_data.length; j++) {
-            if (
-              filter_router_data[j].category ===
-              state.filter.productType[i].value
-            ) {
+          typeSelected = true;
+          for (let j = 0; j < result_data.length; j++) {
+            if (result_data[j].category === state.filter.productType[i].value) {
               filter_type_index_list.push(j);
             }
           }
         }
       }
 
-      let DataBeforeShort = filter_type_index_list;
-      filter_type_index_list = quickSort(filter_type_index_list);
-      console.log(
-        "3. product type filter / ProductTypeIndexList / Before: ",
-        DataBeforeShort,
-        " / After: ",
-        filter_type_index_list
-      );
-
-      let finalData = [];
-      if (filter_type_index_list.length <= 0 && selected === false) {
-        finalData = filter_router_data;
-      } else {
-        finalData = catchCorrectData(
-          filter_type_index_list,
-          filter_router_data
+      if (typeSelected === true) {
+        let DataBeforeShort = filter_type_index_list;
+        filter_type_index_list = quickSort(filter_type_index_list);
+        console.log(
+          "3. product type filter / ProductTypeIndexList / Before: ",
+          DataBeforeShort,
+          " / After: ",
+          filter_type_index_list
         );
       }
 
-      console.log("4 - product type filter / finalData: ", finalData);
+      if (filter_type_index_list.length <= 0 && typeSelected === false) {
+        console.log("3. no product type filter");
+      } else {
+        result_data = catchCorrectData(filter_type_index_list, result_data);
+      }
+
+      console.log("3.[Type Filter] - resultData: ", result_data);
 
       console.warn("-------------------------------");
-      return finalData;
+      return result_data;
     },
     cartList: function(state) {
       return state.cart_data;
