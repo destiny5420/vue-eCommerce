@@ -33,6 +33,35 @@ const ProductFilter = {
   }
 };
 
+// function quickSort(arr) {
+//   if (arr.length <= 1) {
+//     return arr;
+//   }
+
+//   let pivot = arr.length - 1;
+//   let left = [];
+//   let right = [];
+
+//   for (let i = 0; i < arr.length - 1; i++) {
+//     if (arr[i] < pivot) {
+//       left.push(arr[i]);
+//     } else {
+//       right.push(arr[i]);
+//     }
+//   }
+
+//   return quickSort(left).concat(pivot, quickSort(right));
+// }
+
+function catchCorrectData(indexList, resultData) {
+  let data = [];
+
+  for (let i = 0; i < indexList.length; i++) {
+    data.push(resultData[indexList[i]]);
+  }
+  return data;
+}
+
 export default new Vuex.Store({
   strict: true,
   state: {
@@ -108,13 +137,41 @@ export default new Vuex.Store({
       let resultData = ProductFilter[functionName](state.products);
       console.log("1 - resultData: ", resultData);
 
+      // Size Filter
       for (let i = 0; i < state.filter.size.length; i++) {
         if (state.filter.size[i].key === true) {
           resultData = resultData.filter(item => item.size[i].state === true);
         }
       }
+      console.log("2 - size filter / resultData: ", resultData);
 
-      console.log("2 - resultData: ", resultData);
+      // Product Type Filter
+      let productTypeIndexList = [];
+      let selected = false;
+      for (let i = 0; i < state.filter.productType.length; i++) {
+        if (state.filter.productType[i].key === true) {
+          selected = true;
+          for (let j = 0; j < resultData.length; j++) {
+            if (resultData[j].category === state.filter.productType[i].value) {
+              productTypeIndexList.push(j);
+            }
+          }
+        }
+      }
+
+      console.log(
+        "3 - product type filter / productTypeIndexList: ",
+        productTypeIndexList
+      );
+
+      let finalData = [];
+      if (productTypeIndexList.length <= 0 && selected === false) {
+        finalData = resultData;
+      } else {
+        finalData = catchCorrectData(productTypeIndexList, resultData);
+      }
+
+      console.log("4 - product type filter / finalData: ", finalData);
 
       console.warn("-------------------------------");
       return resultData;
@@ -151,6 +208,10 @@ export default new Vuex.Store({
     },
     TOGGLE_LOADING_CHECKOUT_PAGE: function(state, data) {
       state.isLoading.checkoutPage = data;
+    },
+    TOGGLE_TYPE: function(state, data) {
+      // Here 'data' is index
+      state.filter.productType[data].key = !state.filter.productType[data].key;
     },
     TOGGLE_SIZE: function(state, data) {
       // Here 'data' is index

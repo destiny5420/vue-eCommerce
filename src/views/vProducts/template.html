@@ -21,8 +21,11 @@
           :style="styleTypeSelect"
         >
           <div v-for="(item, index) in filterData_type.option" :key="index">
-            <input type="checkbox" :id="matchID(index)" />
-
+            <input
+              type="checkbox"
+              :id="matchID(index)"
+              @click="onClickTypeHandler(index)"
+            />
             <div class="nike">
               <label :for="matchID(index)"></label>
             </div>

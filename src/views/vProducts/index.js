@@ -81,6 +81,9 @@ export default {
     },
     onClickSizeHandler: function(index) {
       this.$store.commit("TOGGLE_SIZE", index);
+    },
+    onClickTypeHandler: function(index) {
+      this.$store.commit("TOGGLE_TYPE", index);
     }
   },
   computed: {
