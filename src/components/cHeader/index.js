@@ -82,36 +82,48 @@ export default {
     }
   },
   computed: {
-    classHeader: function() {
-      return {
-        sticky: this.prop_scroll_y > 30 ? true : false
-      };
+    classHeader: {
+      get: function() {
+        return {
+          sticky: this.prop_scroll_y > 30 ? true : false
+        };
+      }
     },
-    classSideBar: function() {
-      return {
-        sticky: this.prop_scroll_y > 30 ? true : false,
-        active: this.openSideBar
-      };
+    classSideBar: {
+      get: function() {
+        return {
+          sticky: this.prop_scroll_y > 30 ? true : false,
+          active: this.openSideBar
+        };
+      }
     },
-    classBurgerLine1: function() {
-      return {
-        "show-burger-line-1": this.openSideBar,
-        "hamburger-1": !this.openSideBar
-      };
+    classBurgerLine1: {
+      get: function() {
+        return {
+          "show-burger-line-1": this.openSideBar,
+          "hamburger-1": !this.openSideBar
+        };
+      }
     },
-    classBurgerLine2: function() {
-      return {
-        "show-burger-line-2": this.openSideBar
-      };
+    classBurgerLine2: {
+      get: function() {
+        return {
+          "show-burger-line-2": this.openSideBar
+        };
+      }
     },
-    classBurgerLine3: function() {
-      return {
-        "show-burger-line-3": this.openSideBar,
-        "hamburger-3": !this.openSideBar
-      };
+    classBurgerLine3: {
+      get: function() {
+        return {
+          "show-burger-line-3": this.openSideBar,
+          "hamburger-3": !this.openSideBar
+        };
+      }
     },
-    isThereItemInCart: function() {
-      return this.$store.getters["isThereItemInCart"];
+    isThereItemInCart: {
+      get: function() {
+        return this.$store.getters["isThereItemInCart"];
+      }
     }
   },
   // life cycle

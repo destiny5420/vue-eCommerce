@@ -105,70 +105,86 @@ export default {
     }
   },
   computed: {
-    styleDetailPicture: function() {
-      return {
-        backgroundImage: this.product ? `url(${this.product.imageUrl})` : ""
-      };
-    },
-    styleStar: function() {
-      return function(index) {
+    styleDetailPicture: {
+      get: function() {
         return {
-          color: index < this.product.starScore ? "#ffc950" : "#adabab"
+          backgroundImage: this.product ? `url(${this.product.imageUrl})` : ""
         };
-      };
-    },
-    styleColorBorder: function() {
-      return function(index) {
-        return {
-          border: index === this.data.colorIndex ? `3px solid #8f8f8f` : ""
-        };
-      };
-    },
-    styleSizeBorder: function() {
-      return function(index) {
-        return {
-          border: index === this.data.sizeIndex ? `3px solid #8f8f8f` : ""
-        };
-      };
-    },
-    styleSizeTable: function() {
-      return {
-        opacity: this.sizeTable.isShow ? 1 : 0,
-        "pointer-events": this.sizeTable.isShow ? "auto" : "none"
-      };
-    },
-    isLoadingForAddCart: function() {
-      return this.$store.state.detailProduct.isLoading.addCart;
-    },
-    product: function() {
-      return this.$store.state.detailProduct.productData;
-    },
-    navBarInfo: function() {
-      if (this.$store.state.detailProduct.productData === null) {
-        return null;
       }
-
-      let data = [];
-      data.push({ displayName: "All Product", params: "all-products" });
-
-      switch (this.$store.state.detailProduct.productData.sex) {
-        case "women":
-          data.push({ displayName: "Women", params: "women" });
-          break;
-        case "men":
-          data.push({ displayName: "Men", params: "men" });
-          break;
-        case "kids":
-          data.push({ displayName: "Kids", params: "kids" });
-          break;
+    },
+    styleStar: {
+      get: function() {
+        return function(index) {
+          return {
+            color: index < this.product.starScore ? "#ffc950" : "#adabab"
+          };
+        };
       }
+    },
+    styleColorBorder: {
+      get: function() {
+        return function(index) {
+          return {
+            border: index === this.data.colorIndex ? `3px solid #8f8f8f` : ""
+          };
+        };
+      }
+    },
+    styleSizeBorder: {
+      get: function() {
+        return function(index) {
+          return {
+            border: index === this.data.sizeIndex ? `3px solid #8f8f8f` : ""
+          };
+        };
+      }
+    },
+    styleSizeTable: {
+      get: function() {
+        return {
+          opacity: this.sizeTable.isShow ? 1 : 0,
+          "pointer-events": this.sizeTable.isShow ? "auto" : "none"
+        };
+      }
+    },
+    isLoadingForAddCart: {
+      get: function() {
+        return this.$store.state.detailProduct.isLoading.addCart;
+      }
+    },
+    product: {
+      get: function() {
+        return this.$store.state.detailProduct.productData;
+      }
+    },
+    navBarInfo: {
+      get: function() {
+        if (this.$store.state.detailProduct.productData === null) {
+          return null;
+        }
 
-      data.push({
-        displayName: this.$store.state.detailProduct.productData.title,
-        params: ""
-      });
+        let data = [];
+        data.push({ displayName: "All Product", params: "all-products" });
 
-      return data;
+        switch (this.$store.state.detailProduct.productData.sex) {
+          case "women":
+            data.push({ displayName: "Women", params: "women" });
+            break;
+          case "men":
+            data.push({ displayName: "Men", params: "men" });
+            break;
+          case "kids":
+            data.push({ displayName: "Kids", params: "kids" });
+            break;
+        }
+
+        data.push({
+          displayName: this.$store.state.detailProduct.productData.title,
+          params: ""
+        });
+
+        return data;
+      }
     }
   },
   // life cycle

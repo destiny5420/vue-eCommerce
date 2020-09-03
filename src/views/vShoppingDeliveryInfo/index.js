@@ -173,27 +173,31 @@ export default {
     }
   },
   computed: {
-    styleDeliveryOption: function() {
-      return function(index) {
-        return {
-          border:
-            index === this.deliveryCurIndex
-              ? "2px solid #ffcb7d"
-              : "2px solid rgba(136, 136, 136, 0.35)",
-          opacity: index === this.deliveryCurIndex ? 1 : 0.5
+    styleDeliveryOption: {
+      get: function() {
+        return function(index) {
+          return {
+            border:
+              index === this.deliveryCurIndex
+                ? "2px solid #ffcb7d"
+                : "2px solid rgba(136, 136, 136, 0.35)",
+            opacity: index === this.deliveryCurIndex ? 1 : 0.5
+          };
         };
-      };
+      }
     },
-    stylePaymentOption: function() {
-      return function(index) {
-        return {
-          border:
-            index === this.paymentCurIndex
-              ? "2px solid #ffcb7d"
-              : "2px solid rgba(136, 136, 136, 0.35)",
-          opacity: index === this.paymentCurIndex ? 1 : 0.5
+    stylePaymentOption: {
+      get: function() {
+        return function(index) {
+          return {
+            border:
+              index === this.paymentCurIndex
+                ? "2px solid #ffcb7d"
+                : "2px solid rgba(136, 136, 136, 0.35)",
+            opacity: index === this.paymentCurIndex ? 1 : 0.5
+          };
         };
-      };
+      }
     }
   },
   // life cycle

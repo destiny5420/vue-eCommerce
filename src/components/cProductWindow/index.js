@@ -51,17 +51,21 @@ export default {
     }
   },
   computed: {
-    stylePicture: function() {
-      return {
-        backgroundImage: `url(${this.props_url})`
-      };
-    },
-    styleStar: function() {
-      return function(index) {
+    stylePicture: {
+      get: function() {
         return {
-          color: index < this.props_starScore ? "#ffc950" : "#adabab"
+          backgroundImage: `url(${this.props_url})`
         };
-      };
+      }
+    },
+    styleStar: {
+      get: function() {
+        return function(index) {
+          return {
+            color: index < this.props_starScore ? "#ffc950" : "#adabab"
+          };
+        };
+      }
     }
   },
   // life cycle

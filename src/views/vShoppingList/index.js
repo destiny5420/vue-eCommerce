@@ -47,26 +47,32 @@ export default {
     }
   },
   computed: {
-    finalCost: function() {
-      if (this.$store.getters["cartList"] === null) {
-        return 0;
-      } else {
-        return this.$store.getters["cartList"].final_total;
+    finalCost: {
+      get: function() {
+        if (this.$store.getters["cartList"] === null) {
+          return 0;
+        } else {
+          return this.$store.getters["cartList"].final_total;
+        }
       }
     },
-    cartList: function() {
-      if (this.$store.getters["cartList"] === null) {
-        return 0;
-      } else {
-        return this.$store.getters["cartList"].carts;
+    cartList: {
+      get: function() {
+        if (this.$store.getters["cartList"] === null) {
+          return 0;
+        } else {
+          return this.$store.getters["cartList"].carts;
+        }
       }
     },
-    styleImage: function() {
-      return function(link) {
-        return {
-          "background-image": `url(${link})`
+    styleImage: {
+      get: function() {
+        return function(link) {
+          return {
+            "background-image": `url(${link})`
+          };
         };
-      };
+      }
     }
   },
   // life cycle

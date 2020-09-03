@@ -216,16 +216,20 @@ export default {
     }
   },
   computed: {
-    pictureAction: function() {
-      return `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/upload`;
+    pictureAction: {
+      get: function() {
+        return `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/upload`;
+      }
     },
-    stylePictureForm: function() {
-      return {
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        alignItems: "flex-start"
-      };
+    stylePictureForm: {
+      get: function() {
+        return {
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-start",
+          alignItems: "flex-start"
+        };
+      }
     }
   },
   // life cycle

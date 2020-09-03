@@ -26,18 +26,22 @@ export default {
     }
   },
   computed: {
-    isLast: function() {
-      return function(index) {
-        return index === this.props_links.length - 1 ? true : false;
-      };
-    },
-    styleDirection: function() {
-      return function(index) {
-        return {
-          color: this.isLast(index) ? "black" : "",
-          cursor: this.isLast(index) ? "default" : "pointer"
+    isLast: {
+      get: function() {
+        return function(index) {
+          return index === this.props_links.length - 1 ? true : false;
         };
-      };
+      }
+    },
+    styleDirection: {
+      get: function() {
+        return function(index) {
+          return {
+            color: this.isLast(index) ? "black" : "",
+            cursor: this.isLast(index) ? "default" : "pointer"
+          };
+        };
+      }
     }
   },
   // life cycle
