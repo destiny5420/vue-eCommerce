@@ -21,58 +21,66 @@ export default {
   },
   methods: {},
   computed: {
-    doneStep: function() {
-      return this.userStep - 1;
-    },
-    styleSymbol: function() {
-      return function(index) {
-        return {
-          color:
-            index <= this.stepData.userStep
-              ? index <= this.stepData.userStep - 1
-                ? "#ffcb7d"
-                : "white"
-              : "#6666663f",
-          background:
-            index <= this.stepData.userStep
-              ? index <= this.stepData.userStep - 1
-                ? "transparent"
-                : "#ffcb7d"
-              : "transparent"
-        };
-      };
-    },
-    deleteLoading: function() {
-      return (
-        this.$store.state.isLoading.getCartList ||
-        this.$store.state.isLoading.deleteCartItem ||
-        this.$store.state.checkoutPage.isLoading.addInfoToCheckoutList ||
-        this.$store.state.checkoutPage.isLoading.getItemData ||
-        this.$store.state.checkoutPage.isLoading.checkout
-      );
-    },
-    stepInfo: function() {
-      let title = "";
-      switch (this.$route.name) {
-        case "vShoppingList":
-          this.stepData.userStep = 0;
-          title = "Shopping Cart";
-          break;
-        case "vShoppingDeliveryInfo":
-          this.stepData.userStep = 1;
-          title = "Shipping and Payment data";
-          break;
-        case "vCheckoutPage":
-          this.stepData.userStep = 2;
-          title = "Summary";
-          break;
-        default:
-          this.stepData.userStep = 0;
-          title = "Default Title";
-          break;
+    doneStep: {
+      get: function() {
+        return this.userStep - 1;
       }
+    },
+    styleSymbol: {
+      get: function() {
+        return function(index) {
+          return {
+            color:
+              index <= this.stepData.userStep
+                ? index <= this.stepData.userStep - 1
+                  ? "#ffcb7d"
+                  : "white"
+                : "#6666663f",
+            background:
+              index <= this.stepData.userStep
+                ? index <= this.stepData.userStep - 1
+                  ? "transparent"
+                  : "#ffcb7d"
+                : "transparent"
+          };
+        };
+      }
+    },
+    deleteLoading: {
+      get: function() {
+        return (
+          this.$store.state.isLoading.getCartList ||
+          this.$store.state.isLoading.deleteCartItem ||
+          this.$store.state.checkoutPage.isLoading.addInfoToCheckoutList ||
+          this.$store.state.checkoutPage.isLoading.getItemData ||
+          this.$store.state.checkoutPage.isLoading.checkout
+        );
+      }
+    },
+    stepInfo: {
+      get: function() {
+        let title = "";
+        switch (this.$route.name) {
+          case "vShoppingList":
+            this.stepData.userStep = 0;
+            title = "Shopping Cart";
+            break;
+          case "vShoppingDeliveryInfo":
+            this.stepData.userStep = 1;
+            title = "Shipping and Payment data";
+            break;
+          case "vCheckoutPage":
+            this.stepData.userStep = 2;
+            title = "Summary";
+            break;
+          default:
+            this.stepData.userStep = 0;
+            title = "Default Title";
+            break;
+        }
 
-      return title;
+        return title;
+      }
     }
   },
   // life cycle
