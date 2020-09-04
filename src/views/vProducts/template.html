@@ -35,7 +35,10 @@
       </div>
       <!-- Price -->
       <div class="price">
-        <div class="filter-title" @click="onPriceShowHandler">
+        <div
+          class="filter-title p-font-family-content"
+          @click="onPriceShowHandler"
+        >
           PRICE
           <font-awesome-icon
             :icon="['fas', 'angle-down']"
@@ -45,11 +48,11 @@
         </div>
         <div class="price-option" :style="stylePriceSelect">
           <div class="price-area">
-            <div style="font-size: 12px;">{{ filterData_price.min }}</div>
+            <div class="limit-number">{{ filterData_price.min }}</div>
             <div id="filter-price" style="font-size: 22px;">
               ${{ filterData_price.sliderValue }}
             </div>
-            <div style="font-size: 12px;">{{ filterData_price.max }}</div>
+            <div class="limit-number">{{ filterData_price.max }}</div>
           </div>
           <div class="slider-area">
             <input
@@ -64,7 +67,10 @@
       </div>
       <!-- Size -->
       <div class="size">
-        <div class="filter-title" @click="onSizeShowHandler">
+        <div
+          class="filter-title p-font-family-content"
+          @click="onSizeShowHandler"
+        >
           SIZE
           <font-awesome-icon
             :icon="['fas', 'angle-down']"
