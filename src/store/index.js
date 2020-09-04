@@ -11,9 +11,9 @@ const ProductFilter = {
   AllProduct: function(data) {
     return data;
   },
-  Women: function(data) {
+  Woman: function(data) {
     let result = data.filter(data => {
-      return data.sex === "women";
+      return data.sex === "woman";
     });
 
     return result;
@@ -127,8 +127,8 @@ export default new Vuex.Store({
       }
 
       switch (state.route.params.id) {
-        case "women":
-          functionName = "Women";
+        case "woman":
+          functionName = "Woman";
           break;
         case "men":
           functionName = "Men";

@@ -16,8 +16,8 @@ export default {
           value: "men"
         },
         {
-          displayName: "Women",
-          value: "women"
+          displayName: "Woman",
+          value: "woman"
         },
         {
           displayName: "Kids",
@@ -37,11 +37,11 @@ export default {
           }
         },
         {
-          title: "Women",
+          title: "Woman",
           eventFunction: function(vm) {
             vm.$router.push({
               name: "vProducts",
-              params: { id: "women" }
+              params: { id: "woman" }
             });
 
             vm.openSideBar = false;

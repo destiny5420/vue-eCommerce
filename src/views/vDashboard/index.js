@@ -58,7 +58,7 @@ export default {
             //   ]
             // },
             // {
-            //   label: "Women",
+            //   label: "Woman",
             //   options: []
             // },
             // {
@@ -70,7 +70,7 @@ export default {
         sex: {
           options: [
             { value: null, text: "Please select sex", disabled: true },
-            { value: "women", text: "女生 Women" },
+            { value: "woman", text: "女生 Woman" },
             { value: "men", text: "男生 Men" },
             { value: "kids", text: "小孩 Kids" }
           ]

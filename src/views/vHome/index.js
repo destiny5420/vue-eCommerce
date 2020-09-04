@@ -45,7 +45,7 @@ export default {
           content: "Basic t-shirts $29,99",
           cutDown: 0,
           buttonTitle: "More details",
-          link: "women"
+          link: "woman"
         },
         {
           flex: 2,
