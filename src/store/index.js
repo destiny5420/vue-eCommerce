@@ -3,6 +3,7 @@ import Vuex from "vuex";
 import axios from "axios";
 import module_detailProduct from "./detailProductStore";
 import module_checkoutPage from "./checkoutPageStore";
+import alertMsgList from "@/common/alertMsgList.js";
 
 Vue.use(Vuex);
 
@@ -288,8 +289,10 @@ export default new Vuex.Store({
   },
   actions: {
     GetProductList: function(context) {
+      const vm = this;
       let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/products/all`;
       context.commit("TOGGLE_LOADING_GET_PRODUCT_LIST", true);
+
       axios
         .get(api)
         .then(response => {
@@ -301,11 +304,19 @@ export default new Vuex.Store({
         .catch(err => {
           context.commit("TOGGLE_LOADING_GET_PRODUCT_LIST", false);
           console.error(err);
+
+          vm._vm.$bus.$emit(
+            "alertMsg",
+            alertMsgList.GET_PRODUCT_LIST_FAIL.msg,
+            alertMsgList.GET_PRODUCT_LIST_FAIL.type
+          );
         });
     },
     GetCartList: function(context) {
+      const vm = this;
       let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
       context.commit("TOGGLE_LOADING_GET_CART_LIST", true);
+
       axios
         .get(api)
         .then(response => {
@@ -315,9 +326,16 @@ export default new Vuex.Store({
         .catch(err => {
           context.commit("TOGGLE_LOADING_GET_CART_LIST", false);
           console.error(err);
+
+          vm._vm.$bus.$emit(
+            "alertMsg",
+            alertMsgList.GET_CART_LIST_FAIL.msg,
+            alertMsgList.GET_CART_LIST_FAIL.type
+          );
         });
     },
     DeleteCartItem: async function(context, id) {
+      const vm = this;
       let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart/${id}`;
       context.commit("TOGGLE_LOADING_DELETE_CART_ITEM", true);
 
@@ -325,10 +343,22 @@ export default new Vuex.Store({
         .delete(api)
         .then(() => {
           context.commit("TOGGLE_LOADING_DELETE_CART_ITEM", false);
+
+          vm._vm.$bus.$emit(
+            "alertMsg",
+            alertMsgList.DELETE_ITEM.msg,
+            alertMsgList.DELETE_ITEM.type
+          );
         })
         .catch(err => {
           context.commit("TOGGLE_LOADING_DELETE_CART_ITEM", false);
           console.error(err);
+
+          vm._vm.$bus.$emit(
+            "alertMsg",
+            alertMsgList.DELETE_ITEM_FAIL.msg,
+            alertMsgList.DELETE_ITEM_FAIL.type
+          );
         });
 
       this.dispatch("GetCartList");

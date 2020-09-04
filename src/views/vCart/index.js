@@ -87,13 +87,7 @@ export default {
   beforeCreate: function() {},
   created: function() {},
   beforeMounted: function() {},
-  mounted: function() {
-    let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/orders?page=0`;
-
-    this.axios.get(api).then(response => {
-      console.log(response.data);
-    });
-  },
+  mounted: function() {},
   beforeUpdate: function() {},
   updated: function() {},
   beforeDestroy: function() {},

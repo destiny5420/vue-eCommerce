@@ -149,7 +149,10 @@ export default {
     },
     isLoadingForAddCart: {
       get: function() {
-        return this.$store.state.detailProduct.isLoading.addCart;
+        return (
+          this.$store.state.detailProduct.isLoading.addCart ||
+          this.$store.state.detailProduct.isLoading.getProductData
+        );
       }
     },
     product: {
