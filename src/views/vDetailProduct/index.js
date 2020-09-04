@@ -7,7 +7,6 @@ export default {
   components: { cProductNavbar, Loading },
   data: function() {
     return {
-      colorIndex: 0,
       data: {
         title: "T-Shirt Summer Vibes",
         price: 89.99,
