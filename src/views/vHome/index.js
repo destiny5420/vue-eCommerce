@@ -151,6 +151,12 @@ export default {
         name: "vProducts",
         params: { id: "all-product" }
       });
+    },
+    onShowMoreHandler: function() {
+      this.$router.push({
+        name: "vProducts",
+        params: { id: "all-products" }
+      });
     }
   },
   computed: {},
