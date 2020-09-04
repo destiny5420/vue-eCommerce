@@ -240,6 +240,7 @@ $burger-line-spacing: 10px;
     }
 
     div[name="toggle-cart"] {
+      position: relative;
       display: inline-block;
       font-size: 30px;
       margin-right: 20px;
@@ -320,16 +321,6 @@ $burger-line-spacing: 10px;
       position: relative;
       a {
         color: $seconds-color;
-
-        .cart-count-icon {
-          position: absolute;
-          bottom: -3px;
-          right: -8px;
-          width: 10px;
-          height: 10px;
-          background: rgba(255, 0, 0, 0.95);
-          border-radius: 50%;
-        }
       }
 
       &:hover .hove-line::after {
@@ -380,4 +371,14 @@ $burger-line-spacing: 10px;
   .side-bar.active {
     left: 0%;
   }
+}
+
+.cart-count-icon {
+  position: absolute;
+  bottom: -3px;
+  right: -8px;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 0, 0, 0.95);
+  border-radius: 50%;
 }

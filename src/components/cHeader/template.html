@@ -22,6 +22,7 @@
         :icon="['fas', 'shopping-cart']"
         @click="onCartHandler"
       />
+      <div v-if="isThereItemInCart" class="cart-count-icon"></div>
     </div>
     <div class="menu-open-button" @click="onToggleHandler">
       <div :class="classBurgerLine1" class="hamburger"></div>

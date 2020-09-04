@@ -280,6 +280,7 @@
 }
 
 .header .toggle div[name="toggle-cart"] {
+  position: relative;
   display: inline-block;
   font-size: 30px;
   margin-right: 20px;
@@ -391,16 +392,6 @@
   color: #2c3e50;
 }
 
-.header .menu li a .cart-count-icon {
-  position: absolute;
-  bottom: -3px;
-  right: -8px;
-  width: 10px;
-  height: 10px;
-  background: rgba(255, 0, 0, 0.95);
-  border-radius: 50%;
-}
-
 .header .menu li:hover .hove-line::after {
   -webkit-transform: scale(1, 1);
           transform: scale(1, 1);
@@ -463,5 +454,15 @@
 
 .header .side-bar.active {
   left: 0%;
+}
+
+.cart-count-icon {
+  position: absolute;
+  bottom: -3px;
+  right: -8px;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 0, 0, 0.95);
+  border-radius: 50%;
 }
 /*# sourceMappingURL=style.css.map */
