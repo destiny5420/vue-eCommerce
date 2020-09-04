@@ -174,10 +174,10 @@ export default {
               params: this.$route.params.id
             };
             break;
-          case "women":
-            first_name = `Women`;
+          case "woman":
+            first_name = `Woman`;
             this.navbar_info[1] = {
-              displayName: "Women",
+              displayName: "Woman",
               params: this.$route.params.id
             };
             break;
@@ -241,6 +241,7 @@ export default {
   beforeMounted: function() {},
   mounted: function() {
     this.$store.dispatch("GetProductList");
+    this.$store.commit("RESET_SIZE");
   },
   beforeUpdate: function() {},
   updated: function() {},

@@ -7,7 +7,6 @@ export default {
   components: { cProductNavbar, Loading },
   data: function() {
     return {
-      colorIndex: 0,
       data: {
         title: "T-Shirt Summer Vibes",
         price: 89.99,
@@ -38,8 +37,8 @@ export default {
           params: "all-products"
         },
         {
-          displayName: "Women",
-          params: "women"
+          displayName: "Woman",
+          params: "woman"
         },
         {
           displayName: "T-Shirt Summer Vibess",
@@ -170,8 +169,8 @@ export default {
         data.push({ displayName: "All Product", params: "all-products" });
 
         switch (this.$store.state.detailProduct.productData.sex) {
-          case "women":
-            data.push({ displayName: "Women", params: "women" });
+          case "woman":
+            data.push({ displayName: "Woman", params: "woman" });
             break;
           case "men":
             data.push({ displayName: "Men", params: "men" });

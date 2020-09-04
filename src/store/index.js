@@ -11,9 +11,9 @@ const ProductFilter = {
   AllProduct: function(data) {
     return data;
   },
-  Women: function(data) {
+  Woman: function(data) {
     let result = data.filter(data => {
-      return data.sex === "women";
+      return data.sex === "woman";
     });
 
     return result;
@@ -127,8 +127,8 @@ export default new Vuex.Store({
       }
 
       switch (state.route.params.id) {
-        case "women":
-          functionName = "Women";
+        case "woman":
+          functionName = "Woman";
           break;
         case "men":
           functionName = "Men";
@@ -143,8 +143,8 @@ export default new Vuex.Store({
 
       let filter_router_data = ProductFilter[functionName](state.products);
       let result_data = filter_router_data;
-      console.log("1.[Router Filter] - resultData: ", filter_router_data);
-      console.log("---------------");
+      // console.log("1.[Router Filter] - resultData: ", filter_router_data);
+      // console.log("---------------");
 
       // Size Filter
       let filter_size_index_list = [];
@@ -161,19 +161,19 @@ export default new Vuex.Store({
       }
 
       if (sizeSelected === true) {
-        let sizeDataBeforeShort = filter_size_index_list;
+        // let sizeDataBeforeShort = filter_size_index_list;
         filter_size_index_list = quickSort(filter_size_index_list);
 
-        console.log(
-          "2. size filter / SizeIndexList / Before: ",
-          sizeDataBeforeShort,
-          " / After: ",
-          filter_size_index_list
-        );
+        // console.log(
+        //   "2. size filter / SizeIndexList / Before: ",
+        //   sizeDataBeforeShort,
+        //   " / After: ",
+        //   filter_size_index_list
+        // );
       }
 
       if (filter_size_index_list.length <= 0 && sizeSelected === false) {
-        console.log("2. no size filter");
+        // console.log("2. no size filter");
       } else {
         // Remove Duplicate number
         let length = filter_size_index_list.length;
@@ -190,8 +190,8 @@ export default new Vuex.Store({
         result_data = catchCorrectData(filter_size_index_list, result_data);
       }
 
-      console.log("2.[Size Filter] - resultData: ", result_data);
-      console.log("---------------");
+      // console.log("2.[Size Filter] - resultData: ", result_data);
+      // console.log("---------------");
 
       // Product Type Filter
       let filter_type_index_list = [];
@@ -208,32 +208,32 @@ export default new Vuex.Store({
       }
 
       if (typeSelected === true) {
-        let DataBeforeShort = filter_type_index_list;
+        // let DataBeforeShort = filter_type_index_list;
         filter_type_index_list = quickSort(filter_type_index_list);
-        console.log(
-          "3. product type filter / ProductTypeIndexList / Before: ",
-          DataBeforeShort,
-          " / After: ",
-          filter_type_index_list
-        );
+        // console.log(
+        //   "3. product type filter / ProductTypeIndexList / Before: ",
+        //   DataBeforeShort,
+        //   " / After: ",
+        //   filter_type_index_list
+        // );
       }
 
       if (filter_type_index_list.length <= 0 && typeSelected === false) {
-        console.log("3. no product type filter");
+        // console.log("3. no product type filter");
       } else {
         result_data = catchCorrectData(filter_type_index_list, result_data);
       }
 
-      console.log("3.[Type Filter] - resultData: ", result_data);
-      console.log("---------------");
+      // console.log("3.[Type Filter] - resultData: ", result_data);
+      // console.log("---------------");
 
       // Price Filter
       result_data = result_data.filter(
         item => item.price >= state.filter.price
       );
-      console.log("4.[Price Filter] - resultData: ", result_data);
+      // console.log("4.[Price Filter] - resultData: ", result_data);
 
-      console.warn("-------------------------------");
+      // console.warn("-------------------------------");
       return result_data;
     },
     cartList: function(state) {
@@ -285,6 +285,11 @@ export default new Vuex.Store({
     },
     SAVE_CART_DATA: function(state, data) {
       state.cart_data = data;
+    },
+    RESET_SIZE: function(state) {
+      for (let i = 0; i < state.filter.size.length; i++) {
+        state.filter.size[i].key = false;
+      }
     }
   },
   actions: {
