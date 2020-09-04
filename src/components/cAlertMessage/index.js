@@ -40,6 +40,10 @@ export default {
               color = "#e4e3e2a6";
               borderColor = "#9c9c9c";
               break;
+            case "success":
+              color = "#c3ffb2a6";
+              borderColor = "#33963b66";
+              break;
             case "warning":
               color = "#ffd95ea6";
               borderColor = "#c3a039";

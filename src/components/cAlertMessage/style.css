@@ -1,3 +1,7 @@
+* {
+  pointer-events: none;
+}
+
 .alert-message-main {
   width: 100%;
   padding: 45px;

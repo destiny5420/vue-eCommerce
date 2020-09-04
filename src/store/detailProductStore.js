@@ -1,4 +1,5 @@
 import axios from "axios";
+import alertMsgList from "@/common/alertMsgList.js";
 
 export default {
   namespaced: true,
@@ -43,7 +44,7 @@ export default {
     AddCart: function(context, data) {
       let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
       context.commit("TOGGLE_LOADING_ADD_CART", true);
-
+      let vm = this;
       let infoData = {
         data: {
           product_id: context.state.productID,
@@ -60,6 +61,12 @@ export default {
         .then(() => {
           context.commit("TOGGLE_LOADING_ADD_CART", false);
           context.dispatch("GetCartList", null, { root: true });
+          console.log("--> ", vm);
+          vm._vm.$bus.$emit(
+            "alertMsg",
+            alertMsgList.ADD_TO_CART.msg,
+            alertMsgList.ADD_TO_CART.type
+          );
         })
         .catch(error => {
           context.commit("TOGGLE_LOADING_ADD_CART", false);
