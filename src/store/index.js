@@ -285,6 +285,11 @@ export default new Vuex.Store({
     },
     SAVE_CART_DATA: function(state, data) {
       state.cart_data = data;
+    },
+    RESET_SIZE: function(state) {
+      for (let i = 0; i < state.filter.size.length; i++) {
+        state.filter.size[i].key = false;
+      }
     }
   },
   actions: {

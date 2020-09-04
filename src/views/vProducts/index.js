@@ -241,6 +241,7 @@ export default {
   beforeMounted: function() {},
   mounted: function() {
     this.$store.dispatch("GetProductList");
+    this.$store.commit("RESET_SIZE");
   },
   beforeUpdate: function() {},
   updated: function() {},
