@@ -25,6 +25,10 @@ const routes = [
     component: Dashboard
   },
   {
+    path: "/products",
+    redirect: "/products/all-products"
+  },
+  {
     path: "*",
     redirect: "/home"
   },

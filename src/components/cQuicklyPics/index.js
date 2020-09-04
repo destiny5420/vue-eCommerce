@@ -18,13 +18,23 @@ export default {
     propBtnTitle: {
       type: String,
       default: "Default"
+    },
+    propLink: {
+      type: String
     }
   },
   components: {},
   data: function() {
     return {};
   },
-  methods: {},
+  methods: {
+    onClickHandler: function() {
+      this.$router.push({
+        name: "vProducts",
+        params: { id: `${this.propLink}` }
+      });
+    }
+  },
   computed: {
     styleProduct: {
       get: function() {

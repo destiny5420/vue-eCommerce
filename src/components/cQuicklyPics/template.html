@@ -6,7 +6,9 @@
         -{{ this.propCutDown }}%
       </div>
       <div class="content p-font-family-button">{{ this.propContent }}</div>
-      <div class="detail-btn p-font-family-button">{{ propBtnTitle }}</div>
+      <div class="detail-btn p-font-family-button" @click="onClickHandler">
+        {{ propBtnTitle }}
+      </div>
     </div>
   </div>
 </div>

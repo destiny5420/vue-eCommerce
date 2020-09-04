@@ -36,21 +36,24 @@ export default {
           src: "https://i.postimg.cc/d0CbGKGt/pic-01.png",
           content: "New arrivals are now in!",
           cutDown: 0,
-          buttonTitle: "Show collection"
+          buttonTitle: "Show collection",
+          link: "men"
         },
         {
           flex: 3,
           src: "https://i.postimg.cc/cHNVm5c7/pic-02.png",
           content: "Basic t-shirts $29,99",
           cutDown: 0,
-          buttonTitle: "More details"
+          buttonTitle: "More details",
+          link: "women"
         },
         {
           flex: 2,
           src: "https://i.postimg.cc/FRgwngPM/pic-03.png",
           content: "Sale this summer",
           cutDown: 50,
-          buttonTitle: "View all"
+          buttonTitle: "View all",
+          link: "kids"
         }
       ],
       dailyProduct: [
