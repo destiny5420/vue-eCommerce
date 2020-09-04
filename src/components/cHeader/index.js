@@ -27,24 +27,43 @@ export default {
       sideBarData: [
         {
           title: "Mem",
-          tmp: function() {}
+          eventFunction: function(vm) {
+            vm.$router.push({
+              name: "vProducts",
+              params: { id: "men" }
+            });
+
+            vm.openSideBar = false;
+          }
         },
         {
           title: "Women",
-          tmp: function() {
-            console.log("Women");
+          eventFunction: function(vm) {
+            vm.$router.push({
+              name: "vProducts",
+              params: { id: "women" }
+            });
+
+            vm.openSideBar = false;
           }
         },
         {
           title: "Kids",
-          tmp: function() {
-            console.log("Kids");
+          eventFunction: function(vm) {
+            vm.$router.push({
+              name: "vProducts",
+              params: { id: "kids" }
+            });
+
+            vm.openSideBar = false;
           }
         },
         {
           title: "Login",
-          tmp: function(vm) {
-            vm.$router.push("/login");
+          eventFunction: function(vm) {
+            vm.$router.push({
+              name: "vLogin"
+            });
           }
         }
       ]
@@ -55,8 +74,8 @@ export default {
       this.openSideBar = !this.openSideBar;
     },
     onSideBarHandler: function(index) {
-      let vm = this;
-      this.sideBarData[index].tmp(vm);
+      const vm = this;
+      this.sideBarData[index].eventFunction(vm);
     },
     onCartHandler: function() {
       if (this.openSideBar) {
