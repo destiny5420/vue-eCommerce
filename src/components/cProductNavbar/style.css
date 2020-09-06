@@ -14,6 +14,36 @@
   font-size: 14px;
 }
 
+@media all and (min-width: 1280px) and (max-width: 1919px) {
+  .nav-bar {
+    font-size: 18px;
+  }
+}
+
+@media all and (min-width: 960px) and (max-width: 1279px) {
+  .nav-bar {
+    font-size: 18px;
+  }
+}
+
+@media all and (min-width: 760px) and (max-width: 959px) {
+  .nav-bar {
+    font-size: 18px;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .nav-bar {
+    font-size: 16px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .nav-bar {
+    font-size: 16px;
+  }
+}
+
 .nav-bar .home-btn {
   position: relative;
   display: inline-block;

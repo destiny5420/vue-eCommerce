@@ -2,6 +2,8 @@ $seconds-color: #2c3e50;
 $medium_grey-color: #8f8f8f;
 $light-grey-color: #9e9e9e59;
 
+$pc2-media: 1280px;
+$pc2s-media: 1279px;
 $pc-media: 960px;
 $pcs-media: 959px;
 $pad-media: 760px;
@@ -10,8 +12,15 @@ $phone-media: 480px;
 $phones-media: 479px;
 
 // 電腦
+@mixin pc2-width {
+  @media all and (min-width: $pc2-media) {
+    @content;
+  }
+}
+
+// 電腦
 @mixin pc-width {
-  @media all and (min-width: $pc-media) {
+  @media all and (min-width: $pc-media) and (max-width: $pc2s-media) {
     @content;
   }
 }
@@ -42,6 +51,22 @@ $phones-media: 479px;
 
 .main {
   padding: 80px 100px;
+
+  @include pc-width {
+    padding: 80px 50px 20px 50px;
+  }
+
+  @include pad-width {
+    padding: 80px 40px 20px 40px;
+  }
+
+  @include small-pad-width {
+    padding: 80px 30px 10px 30px;
+  }
+
+  @include phone-width {
+    padding: 80px 30px 10px 30px;
+  }
 }
 
 .view {
@@ -51,8 +76,40 @@ $phones-media: 479px;
   flex-direction: row;
   align-items: flex-start;
 
+  @include pc-width {
+    flex-direction: column;
+  }
+
+  @include pad-width {
+    flex-direction: column;
+  }
+
+  @include small-pad-width {
+    flex-direction: column;
+  }
+
+  @include phone-width {
+    flex-direction: column;
+  }
+
   .filter-area {
     width: 25%;
+
+    @include pc-width {
+      width: 100%;
+    }
+
+    @include pad-width {
+      width: 100%;
+    }
+
+    @include small-pad-width {
+      width: 100%;
+    }
+
+    @include phone-width {
+      width: 100%;
+    }
 
     .type {
       .type-option {
@@ -138,6 +195,11 @@ $phones-media: 479px;
             height: 32px;
             padding: 5px 10px;
             background: rgba(136, 136, 136, 0.521);
+
+            @include pc-width {
+              height: 30px;
+              font-size: 18px;
+            }
           }
 
           & > :nth-child(n) {
@@ -149,6 +211,30 @@ $phones-media: 479px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+
+            @include pc-width {
+              height: 30px;
+              font-size: 18px;
+              padding: 0px 10px;
+            }
+
+            @include pad-width {
+              height: 30px;
+              font-size: 18px;
+              padding: 0px 10px;
+            }
+
+            @include small-pad-width {
+              height: 30px;
+              font-size: 18px;
+              padding: 0px 10px;
+            }
+
+            @include phone-width {
+              height: 30px;
+              font-size: 18px;
+              padding: 0px 10px;
+            }
           }
         }
 
@@ -229,21 +315,90 @@ $phones-media: 479px;
     width: 75%;
     margin-left: 25px;
 
+    @include pc-width {
+      width: 100%;
+      margin: 0;
+    }
+
+    @include pad-width {
+      width: 100%;
+      margin: 0;
+    }
+
+    @include small-pad-width {
+      width: 100%;
+      margin: 0;
+    }
+
+    @include phone-width {
+      width: 100%;
+      margin: 0;
+    }
+
     .condition-bar {
       position: relative;
-      margin: 0 10px 15px 10px;
+      margin: 20px 10px 15px 10px;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
 
+      @include small-pad-width {
+        height: 120px;
+        flex-direction: column;
+        justify-content: space-around;
+      }
+
+      @include phone-width {
+        height: 120px;
+        flex-direction: column;
+        justify-content: space-around;
+      }
+
       .short-title {
         font-size: 26px;
+
+        @include pc-width {
+          font-size: 32px;
+        }
+
+        @include pad-width {
+          font-size: 32px;
+        }
+
+        @include small-pad-width {
+          font-size: 32px;
+        }
+
+        @include phone-width {
+          font-size: 32px;
+        }
       }
 
       .sort {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+
         span[name="title"] {
           margin-right: 10px;
+
+          @include pc-width {
+            font-size: 22px;
+          }
+
+          @include pad-width {
+            font-size: 22px;
+          }
+
+          @include small-pad-width {
+            font-size: 22px;
+          }
+
+          @include phone-width {
+            font-size: 22px;
+          }
         }
 
         .sort-style {
@@ -266,6 +421,18 @@ $phones-media: 479px;
       flex-wrap: wrap;
       justify-content: flex-start;
       align-items: flex-start;
+
+      @include pc-width {
+      }
+
+      @include pad-width {
+      }
+
+      @include small-pad-width {
+      }
+
+      @include phone-width {
+      }
     }
   }
 }
@@ -286,4 +453,20 @@ $phones-media: 479px;
   justify-content: space-between;
   align-items: center;
   font-size: 16px;
+
+  @include pc-width {
+    font-size: 22px;
+  }
+
+  @include pad-width {
+    font-size: 22px;
+  }
+
+  @include small-pad-width {
+    font-size: 22px;
+  }
+
+  @include phone-width {
+    font-size: 22px;
+  }
 }

@@ -1,10 +1,102 @@
+// pc3-width
+$pc3-media: 1920px;
+
+// pc2-width
+$pc3s-media: 1919px;
+$pc2-media: 1280px;
+
+// pc-width
+$pc2s-media: 1279px;
+$pc-media: 960px;
+
+// pad-width
+$pcs-media: 959px;
+$pad-media: 760px;
+
+// small-pad-width
+$pads-media: 759px;
+$phone-media: 480px;
+
+// phone-width
+$phones-media: 479px;
+
+// 電腦3
+@mixin pc3-width {
+  @media all and (min-width: $pc3-media) {
+    @content;
+  }
+}
+
+// 電腦2
+@mixin pc2-width {
+  @media all and (min-width: $pc2-media) and (max-width: $pc3s-media) {
+    @content;
+  }
+}
+
+// 電腦
+@mixin pc-width {
+  @media all and (min-width: $pc-media) and (max-width: $pc2s-media) {
+    @content;
+  }
+}
+
+// 平板
+@mixin pad-width {
+  @media all and (min-width: $pad-media) and (max-width: $pcs-media) {
+    @content;
+  }
+}
+
+// 小平板
+@mixin small-pad-width {
+  @media all and (min-width: $phone-media) and (max-width: $pads-media) {
+    @content;
+  }
+}
+// 手機
+@mixin phone-width {
+  @media all and (max-width: $phones-media) {
+    @content;
+  }
+}
+
 $picture-height: 80%;
 .product-window-main {
   width: calc(33.3% - (10px * 2));
   min-width: 370px;
-  height: 700px;
+  height: 1000px;
   padding: 0px;
   margin: 10px 10px;
+
+  @include pc2-width {
+    max-width: none;
+    width: calc(50% - 20px);
+  }
+
+  @include pc-width {
+    max-width: none;
+    width: calc(50% - 20px);
+    height: 945px;
+  }
+
+  @include pad-width {
+    max-width: none;
+    width: calc(100% - 10px);
+    height: 960px;
+  }
+
+  @include small-pad-width {
+    max-width: none;
+    width: calc(100% - 10px);
+    height: 940px;
+  }
+
+  @include phone-width {
+    max-width: none;
+    width: calc(100% - 10px);
+    height: 940px;
+  }
 
   .picture {
     position: relative;
@@ -12,6 +104,31 @@ $picture-height: 80%;
     height: $picture-height;
     background-position: center;
     background-size: cover;
+
+    @include pc2-width {
+      background-position: center;
+      height: 700px;
+    }
+
+    @include pc-width {
+      background-position: center;
+      height: 700px;
+    }
+
+    @include pad-width {
+      background-position: center;
+      height: 700px;
+    }
+
+    @include small-pad-width {
+      background-position: center;
+      height: 700px;
+    }
+
+    @include phone-width {
+      background-position: center;
+      height: 700px;
+    }
 
     .picture-mask {
       width: 100%;
@@ -66,11 +183,51 @@ $picture-height: 80%;
 
     span[name="price"] {
       font-size: 24px;
+
+      @include pc2-width {
+        font-size: 30px;
+      }
+
+      @include pc-width {
+        font-size: 30px;
+      }
+
+      @include pad-width {
+        font-size: 30px;
+      }
+
+      @include small-pad-width {
+        font-size: 30px;
+      }
+
+      @include phone-width {
+        font-size: 30px;
+      }
     }
 
     .info-size {
       display: inline-block;
       height: 40px;
+
+      @include pc2-width {
+        margin-top: 10px;
+      }
+
+      @include pc-width {
+        margin-top: 10px;
+      }
+
+      @include pad-width {
+        margin-top: 10px;
+      }
+
+      @include small-pad-width {
+        margin-top: 10px;
+      }
+
+      @include phone-width {
+        margin-top: 10px;
+      }
 
       & > div:nth-child(n) {
         display: inline-flex;
@@ -84,17 +241,119 @@ $picture-height: 80%;
         font-weight: normal;
         width: 32px;
         height: 26px;
+
+        @include pc2-width {
+          width: 45px;
+          height: auto;
+          padding: 0px 10px;
+          margin: 0 5px;
+          font-size: 22px;
+        }
+
+        @include pc-width {
+          width: 45px;
+          height: auto;
+          padding: 0px 10px;
+          margin: 0 5px;
+          font-size: 22px;
+        }
+
+        @include pad-width {
+          width: 45px;
+          height: auto;
+          padding: 0px 10px;
+          margin: 0 5px;
+          font-size: 22px;
+        }
+
+        @include small-pad-width {
+          width: 45px;
+          height: auto;
+          padding: 0px 10px;
+          margin: 0 5px;
+          font-size: 22px;
+        }
+
+        @include phone-width {
+          width: 45px;
+          height: auto;
+          padding: 0px 10px;
+          margin: 0 5px;
+          font-size: 22px;
+        }
+      }
+
+      & > div:nth-child(1) {
+        margin-left: 0px;
       }
     }
 
     & > :nth-child(n) {
       margin-bottom: 5px;
+
+      @include pc2-width {
+        margin-bottom: 10px;
+      }
+
+      @include pc-width {
+        margin-bottom: 10px;
+      }
+
+      @include pad-width {
+        margin-bottom: 10px;
+      }
+
+      @include small-pad-width {
+        margin-bottom: 5px;
+      }
+
+      @include phone-width {
+        margin-bottom: 10px;
+      }
     }
 
     & > :nth-child(1) {
       width: 100%;
       display: flex;
       justify-content: space-between;
+
+      @include pc2-width {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+
+      @include pc-width {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+
+      @include pad-width {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+
+      @include small-pad-width {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+
+      @include phone-width {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+    }
+
+    & > :nth-child(2) {
+      font-size: 22px;
+
+      @include pc-width {
+        font-size: 20px;
+      }
     }
   }
 }
@@ -103,6 +362,26 @@ $picture-height: 80%;
   #title {
     font-size: 22px;
     text-align: left;
+
+    @include pc2-width {
+      font-size: 30px;
+    }
+
+    @include pc-width {
+      font-size: 30px;
+    }
+
+    @include pad-width {
+      font-size: 30px;
+    }
+
+    @include small-pad-width {
+      font-size: 30px;
+    }
+
+    @include phone-width {
+      font-size: 30px;
+    }
   }
 
   #category {
@@ -110,5 +389,25 @@ $picture-height: 80%;
     font-family: Arial, Helvetica, sans-serif;
     color: gray;
     font-size: 14px;
+
+    @include pc2-width {
+      font-size: 18px;
+    }
+
+    @include pc-width {
+      font-size: 18px;
+    }
+
+    @include pad-width {
+      font-size: 18px;
+    }
+
+    @include small-pad-width {
+      font-size: 18px;
+    }
+
+    @include phone-width {
+      font-size: 18px;
+    }
   }
 }
