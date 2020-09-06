@@ -242,6 +242,7 @@ export default {
   mounted: function() {
     this.$store.dispatch("GetProductList");
     this.$store.commit("RESET_SIZE");
+    this.$store.commit("RESET_TYPE");
   },
   beforeUpdate: function() {},
   updated: function() {},

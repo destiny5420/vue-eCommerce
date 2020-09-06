@@ -290,6 +290,11 @@ export default new Vuex.Store({
       for (let i = 0; i < state.filter.size.length; i++) {
         state.filter.size[i].key = false;
       }
+    },
+    RESET_TYPE: function(state) {
+      for (let i = 0; i < state.filter.productType.length; i++) {
+        state.filter.productType[i].key = false;
+      }
     }
   },
   actions: {
