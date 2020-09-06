@@ -166,6 +166,7 @@ $count-width: 60px;
 
   @include small-pad-width() {
     padding-right: 0px;
+    flex-direction: column;
     width: 100%;
   }
 
@@ -304,13 +305,13 @@ $count-width: 60px;
 
   @include small-pad-width() {
     margin-bottom: 15px;
-    flex-direction: column;
+    flex-direction: row;
     align-items: stretch;
   }
 
   @include phone-width() {
     margin-bottom: 15px;
-    flex-direction: column;
+    flex-direction: row;
     align-items: stretch;
   }
 }
@@ -336,11 +337,11 @@ $count-width: 60px;
   transition: 0.25s ease;
 
   @include small-pad-width() {
-    width: auto;
+    width: 49%;
   }
 
   @include phone-width() {
-    width: auto;
+    width: 100%;
   }
 
   & > div:nth-child(n) {

@@ -153,6 +153,10 @@
 @media all and (min-width: 480px) and (max-width: 759px) {
   .method-block {
     padding-right: 0px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     width: 100%;
   }
 }
@@ -372,10 +376,10 @@
 @media all and (min-width: 480px) and (max-width: 759px) {
   .method {
     margin-bottom: 15px;
-    -webkit-box-orient: vertical;
+    -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+        -ms-flex-direction: row;
+            flex-direction: row;
     -webkit-box-align: stretch;
         -ms-flex-align: stretch;
             align-items: stretch;
@@ -385,10 +389,10 @@
 @media all and (max-width: 479px) {
   .method {
     margin-bottom: 15px;
-    -webkit-box-orient: vertical;
+    -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+        -ms-flex-direction: row;
+            flex-direction: row;
     -webkit-box-align: stretch;
         -ms-flex-align: stretch;
             align-items: stretch;
@@ -425,13 +429,13 @@
 
 @media all and (min-width: 480px) and (max-width: 759px) {
   .select-section {
-    width: auto;
+    width: 49%;
   }
 }
 
 @media all and (max-width: 479px) {
   .select-section {
-    width: auto;
+    width: 100%;
   }
 }
 
