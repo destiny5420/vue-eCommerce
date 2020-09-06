@@ -67,6 +67,14 @@ $phones-media: 479px;
 
   padding: 0 100px;
 
+  @include pc2-width() {
+    padding: 0 50px;
+  }
+
+  @include pc-width() {
+    padding: 0 50px;
+  }
+
   @include pad-width() {
     padding: 0 50px;
   }

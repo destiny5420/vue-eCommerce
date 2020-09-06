@@ -1,3 +1,66 @@
+// pc3-width
+$pc3-media: 1920px;
+
+// pc2-width
+$pc3s-media: 1919px;
+$pc2-media: 1280px;
+
+// pc-width
+$pc2s-media: 1279px;
+$pc-media: 960px;
+
+// pad-width
+$pcs-media: 959px;
+$pad-media: 760px;
+
+// small-pad-width
+$pads-media: 759px;
+$phone-media: 480px;
+
+// phone-width
+$phones-media: 479px;
+
+// 電腦3
+@mixin pc3-width {
+  @media all and (min-width: $pc3-media) {
+    @content;
+  }
+}
+
+// 電腦2
+@mixin pc2-width {
+  @media all and (min-width: $pc2-media) and (max-width: $pc3s-media) {
+    @content;
+  }
+}
+
+// 電腦
+@mixin pc-width {
+  @media all and (min-width: $pc-media) and (max-width: $pc2s-media) {
+    @content;
+  }
+}
+
+// 平板
+@mixin pad-width {
+  @media all and (min-width: $pad-media) and (max-width: $pcs-media) {
+    @content;
+  }
+}
+
+// 小平板
+@mixin small-pad-width {
+  @media all and (min-width: $phone-media) and (max-width: $pads-media) {
+    @content;
+  }
+}
+// 手機
+@mixin phone-width {
+  @media all and (max-width: $phones-media) {
+    @content;
+  }
+}
+
 $first-color: #ffcb7d;
 $first-color-hover: #fab651;
 $input-area-width: 55%;
@@ -5,6 +68,18 @@ $input-area-width: 55%;
 .main-control {
   display: flex;
   flex-direction: row;
+
+  @include pad-width() {
+    flex-direction: column;
+  }
+
+  @include small-pad-width() {
+    flex-direction: column;
+  }
+
+  @include phone-width() {
+    flex-direction: column;
+  }
 
   .input-area {
     width: $input-area-width;
@@ -17,11 +92,46 @@ $input-area-width: 55%;
     align-items: flex-start;
     align-content: flex-start;
 
+    @include pad-width() {
+      width: 100%;
+      margin-bottom: 50px;
+    }
+
+    @include small-pad-width() {
+      width: 100%;
+      margin-bottom: 50px;
+      height: auto;
+    }
+
+    @include phone-width() {
+      width: 100%;
+      margin-bottom: 30px;
+      height: auto;
+    }
+
     & > div:nth-child(n) {
       display: inline-block;
       padding: 10px 60px 10px 0px;
       width: 50%;
       text-align: left;
+
+      @include pc-width() {
+        padding: 10px 20px 10px 0px;
+      }
+
+      @include pad-width() {
+        padding: 10px 20px 10px 0px;
+      }
+
+      @include small-pad-width() {
+        padding: 10px 0px 10px 0px;
+        width: 100%;
+      }
+
+      @include phone-width() {
+        padding: 10px 0px 10px 0px;
+        width: 100%;
+      }
 
       & > div:nth-child(1) {
         font-weight: bold;
@@ -44,6 +154,18 @@ $input-area-width: 55%;
   .right-area {
     width: calc(100% - #{$input-area-width});
 
+    @include pad-width() {
+      width: 100%;
+    }
+
+    @include small-pad-width() {
+      width: 100%;
+    }
+
+    @include phone-width() {
+      width: 100%;
+    }
+
     .delivery-method {
       width: 100%;
       margin-bottom: 30px;
@@ -53,6 +175,19 @@ $input-area-width: 55%;
       justify-content: space-between;
       align-items: center;
       align-content: flex-start;
+
+      @include pc-width() {
+        margin-bottom: 10px;
+      }
+
+      @include small-pad-width() {
+        flex-direction: row;
+      }
+
+      @include phone-width() {
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
 
       img {
         width: 40px;
@@ -76,6 +211,22 @@ $input-area-width: 55%;
 
         transition: 0.25s ease;
 
+        @include pc-width() {
+          flex-direction: column;
+          justify-content: center;
+          height: 80px;
+        }
+
+        @include small-pad-width() {
+          width: 48%;
+          margin-bottom: 10px;
+        }
+
+        @include phone-width() {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+
         & > div:nth-child(n) {
           display: flex;
           flex-direction: row;
@@ -94,6 +245,10 @@ $input-area-width: 55%;
       justify-content: space-between;
       align-items: center;
       align-content: flex-start;
+
+      @include pc-width() {
+        margin-bottom: 10px;
+      }
 
       img {
         width: 45px;
@@ -114,6 +269,14 @@ $input-area-width: 55%;
         align-items: center;
 
         transition: 0.25s ease;
+
+        @include small-pad-width() {
+          width: 48%;
+        }
+
+        @include phone-width() {
+          width: 100%;
+        }
       }
     }
 
@@ -124,17 +287,53 @@ $input-area-width: 55%;
       display: flex;
       flex-direction: row;
 
+      @include pc-width() {
+        flex-wrap: wrap;
+      }
+
+      @include small-pad-width() {
+        flex-wrap: wrap;
+        height: auto;
+      }
+
+      @include phone-width() {
+        flex-wrap: wrap;
+        height: auto;
+      }
+
       & > div:nth-child(n) {
         text-align: left;
         display: inline-block;
         width: 50%;
         height: 100%;
+
+        @include pc-width() {
+          flex-wrap: wrap;
+          width: 100%;
+          height: auto;
+        }
+
+        @include small-pad-width() {
+          flex-wrap: wrap;
+          width: 100%;
+          height: auto;
+        }
+
+        @include phone-width() {
+          flex-wrap: wrap;
+          width: 100%;
+          height: auto;
+        }
       }
 
       & > div:nth-child(1) {
         div[name="payment-info-title"] {
           font-size: 20px;
           margin-bottom: 10px;
+
+          @include pc-width() {
+            font-size: 16px;
+          }
         }
 
         div[name="payment-info-credit-card"] {
@@ -168,6 +367,20 @@ $input-area-width: 55%;
       // other information
       & > div:nth-child(2) {
         padding-left: 20px;
+
+        @include pc-width() {
+          padding-left: 0px;
+        }
+
+        @include small-pad-width() {
+          margin-top: 20px;
+          padding-left: 0px;
+        }
+
+        @include phone-width() {
+          margin-top: 20px;
+          padding-left: 0px;
+        }
       }
     }
   }
@@ -180,6 +393,25 @@ $input-area-width: 55%;
   justify-content: space-between;
   align-items: center;
 
+  @include pad-width() {
+    margin-top: 15px;
+    margin-bottom: 50px;
+  }
+
+  @include small-pad-width() {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  @include phone-width() {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
   & > div:nth-child(1) {
     cursor: pointer;
     display: flex;
@@ -187,12 +419,29 @@ $input-area-width: 55%;
     align-items: center;
     color: rgba(128, 128, 128, 0.55);
     transition: 0.25s ease;
+
     svg {
       font-size: 26px;
       margin-right: 20px;
+
+      @include small-pad-width() {
+        display: none;
+      }
+
+      @include phone-width() {
+        display: none;
+      }
     }
     span {
       font-size: 20px;
+
+      @include small-pad-width() {
+        margin: 0 auto;
+      }
+
+      @include phone-width() {
+        margin: 0 auto;
+      }
     }
 
     &:hover {
@@ -201,6 +450,26 @@ $input-area-width: 55%;
   }
 
   & > div:nth-child(2) {
+    @include small-pad-width() {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: stretch;
+
+      height: 150px;
+      margin-bottom: 20px;
+    }
+
+    @include phone-width() {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: stretch;
+
+      height: 150px;
+      margin-bottom: 20px;
+    }
+
     & > div:nth-child(n) {
       display: inline-block;
       text-transform: uppercase;
@@ -220,12 +489,28 @@ $input-area-width: 55%;
       font-weight: bold;
       text-transform: uppercase;
       transition: 0.25s ease;
+
+      @include small-pad-width() {
+        width: auto;
+      }
+
+      @include phone-width() {
+        width: auto;
+      }
     }
 
     // Continue Shopping
     & > div:nth-child(1) {
       border: 1px solid rgba(136, 136, 136, 0.35);
       margin-right: 50px;
+
+      @include small-pad-width() {
+        margin-right: 0px;
+      }
+
+      @include phone-width() {
+        margin-right: 0px;
+      }
 
       &:hover {
         border: 1px solid rgba(136, 136, 136, 0.95);
@@ -266,4 +551,8 @@ $input-area-width: 55%;
   text-align: left;
   font-size: 22px;
   font-weight: 900;
+
+  @include pad-width() {
+    font-size: 26px;
+  }
 }

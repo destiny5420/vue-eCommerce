@@ -175,6 +175,12 @@
   }
 }
 
+@media all and (max-width: 479px) {
+  .detail-left {
+    height: 60%;
+  }
+}
+
 .detail-left .navbar-info {
   margin: 0;
   height: 10%;
@@ -234,6 +240,16 @@
   font-size: 18px;
 }
 
+@media all and (max-width: 479px) {
+  .detail-right .detail-freight-info span:first-child,
+  .detail-right .detail-product-info span:first-child,
+  .detail-right .detail-color span:first-child,
+  .detail-right .detail-size span:first-child,
+  .detail-right .detail-quantity span:first-child {
+    font-size: 16px;
+  }
+}
+
 .detail-right .detail-freight-info {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -280,6 +296,12 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media all and (max-width: 479px) {
+  .detail-right .detail-freight-info .detail-freight-item {
+    margin: 10px 0px;
+  }
 }
 
 .detail-right .detail-freight-info .detail-freight-item svg {
@@ -336,6 +358,14 @@
   font-size: 14px;
 }
 
+@media all and (max-width: 479px) {
+  .detail-right .detail-product-info div:first-child {
+    font-size: 12px;
+    width: 55px;
+    height: 24px;
+  }
+}
+
 .detail-right .detail-product-info .product-info-title {
   font-size: 32px;
 }
@@ -345,10 +375,22 @@
   font-size: 32px;
 }
 
+@media all and (max-width: 479px) {
+  .detail-right .detail-product-info .product-info-price span {
+    font-size: 28px;
+  }
+}
+
 .detail-right .detail-product-info .product-info-price .origin-price {
   font-size: 26px;
   color: #d3d3d3;
   text-decoration: line-through;
+}
+
+@media all and (max-width: 479px) {
+  .detail-right .detail-product-info .product-info-price .origin-price {
+    font-size: 22px;
+  }
 }
 
 .detail-right .detail-product-info .product-info-price :nth-child(n) {
@@ -369,6 +411,12 @@
 @media all and (min-width: 1280px) and (max-width: 1919px) {
   .detail-right .detail-product-info .product-info-star {
     font-size: 16px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .detail-right .detail-product-info .product-info-star {
+    font-size: 14px;
   }
 }
 
@@ -400,7 +448,7 @@
 
 @media all and (max-width: 479px) {
   .detail-right .detail-product-info .product-info-content {
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 
@@ -630,6 +678,14 @@
           align-items: center;
   -webkit-transition: 0.25s;
   transition: 0.25s;
+}
+
+@media all and (max-width: 479px) {
+  .detail-right .group .block {
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+  }
 }
 
 .detail-right .group .block div:first-child {

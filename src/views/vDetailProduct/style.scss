@@ -199,6 +199,10 @@ $light-grey-color: #9e9e9e59;
     padding-right: 50px;
   }
 
+  @include phone-width() {
+    height: 60%;
+  }
+
   $navbar-info-height: 10%;
   .navbar-info {
     margin: 0;
@@ -238,6 +242,10 @@ $light-grey-color: #9e9e9e59;
     & span:first-child {
       margin-bottom: 5px;
       font-size: 18px;
+
+      @include phone-width() {
+        font-size: 16px;
+      }
     }
   }
 
@@ -263,6 +271,10 @@ $light-grey-color: #9e9e9e59;
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
+
+      @include phone-width() {
+        margin: 10px 0px;
+      }
 
       svg {
         font-size: 36px;
@@ -309,6 +321,12 @@ $light-grey-color: #9e9e9e59;
       justify-content: center;
       text-transform: uppercase;
       font-size: 14px;
+
+      @include phone-width {
+        font-size: 12px;
+        width: 55px;
+        height: 24px;
+      }
     }
 
     .product-info-title {
@@ -319,12 +337,20 @@ $light-grey-color: #9e9e9e59;
       span {
         color: red;
         font-size: 32px;
+
+        @include phone-width {
+          font-size: 28px;
+        }
       }
 
       .origin-price {
         font-size: 26px;
         color: #d3d3d3;
         text-decoration: line-through;
+
+        @include phone-width {
+          font-size: 22px;
+        }
       }
 
       & :nth-child(n) {
@@ -342,6 +368,10 @@ $light-grey-color: #9e9e9e59;
 
       @include pc2-width {
         font-size: 16px;
+      }
+
+      @include phone-width {
+        font-size: 14px;
       }
     }
 
@@ -362,7 +392,7 @@ $light-grey-color: #9e9e9e59;
       }
 
       @include phone-width {
-        font-size: 20px;
+        font-size: 16px;
       }
     }
   }
@@ -531,6 +561,12 @@ $light-grey-color: #9e9e9e59;
       justify-content: flex-start;
       align-items: center;
       transition: 0.25s;
+
+      @include phone-width() {
+        width: 50px;
+        height: 50px;
+        padding: 5px;
+      }
 
       & div:first-child {
         width: 100%;

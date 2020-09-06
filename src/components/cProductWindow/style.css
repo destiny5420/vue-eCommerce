@@ -39,9 +39,9 @@
 
 @media all and (max-width: 479px) {
   .product-window-main {
-    max-width: none;
+    min-width: 0px;
     width: calc(100% - 10px);
-    height: 940px;
+    height: 650px;
   }
 }
 
@@ -84,7 +84,7 @@
 @media all and (max-width: 479px) {
   .product-window-main .picture {
     background-position: center;
-    height: 700px;
+    height: 400px;
   }
 }
 
