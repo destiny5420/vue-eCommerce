@@ -90,6 +90,10 @@ div {
       font-size: 72px;
       margin-bottom: 70px;
       user-select: none;
+
+      @include phone-width {
+        font-size: 50px;
+      }
     }
 
     .shop-now {
@@ -304,6 +308,11 @@ div {
 
       .info-content {
         width: 75%;
+
+        @include phone-width() {
+          width: 100%;
+        }
+
         h6 {
           font-family: "Roboto", sans-serif;
           font-size: 12px;
@@ -619,6 +628,7 @@ div {
   }
 
   @include phone-width() {
+    height: 300px;
     padding: 10px 20px;
 
     flex-direction: column;
@@ -790,6 +800,11 @@ div {
       flex-wrap: wrap;
       justify-content: flex-start;
       align-items: center;
+
+      @include phone-width() {
+        font-size: 26px;
+        justify-content: space-around;
+      }
     }
   }
 }

@@ -65,6 +65,12 @@ div {
           user-select: none;
 }
 
+@media all and (max-width: 479px) {
+  .banner .textBox h1 {
+    font-size: 50px;
+  }
+}
+
 .banner .textBox .shop-now {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -372,6 +378,12 @@ div {
 
 .info-container .info-area .info .info-content {
   width: 75%;
+}
+
+@media all and (max-width: 479px) {
+  .info-container .info-area .info .info-content {
+    width: 100%;
+  }
 }
 
 .info-container .info-area .info .info-content h6 {
@@ -833,6 +845,7 @@ div {
 
 @media all and (max-width: 479px) {
   .subscribe {
+    height: 300px;
     padding: 10px 20px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1072,6 +1085,14 @@ div {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media all and (max-width: 479px) {
+  .footer-info div[name="main"] div[name="social-media"] {
+    font-size: 26px;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
 }
 
 .normal-padding-h {

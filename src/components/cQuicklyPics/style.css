@@ -147,7 +147,7 @@
 
 @media all and (max-width: 479px) {
   .content {
-    font-size: 30px;
+    font-size: 20px;
   }
 }
 
@@ -185,10 +185,10 @@
 
 @media all and (max-width: 479px) {
   .detail-btn {
-    height: 45px;
+    height: 35px;
     font-size: 14px;
     border-radius: 25px;
-    padding: 0 30px;
+    padding: 0 15px;
   }
 }
 
