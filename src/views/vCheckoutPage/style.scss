@@ -370,7 +370,7 @@ $count-width: 60px;
   margin-bottom: 20px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 
   @include pc-width() {
@@ -387,6 +387,7 @@ $count-width: 60px;
 
   @include phone-width() {
     width: 100%;
+    margin-bottom: 25px;
   }
 }
 
@@ -398,11 +399,51 @@ $count-width: 60px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+
+    @include phone-width() {
+      width: 80px;
+      height: 150px;
+      border-radius: 10%;
+    }
+  }
+}
+
+.cart-info-block {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  @include small-pad-width() {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 10px;
+  }
+
+  @include phone-width() {
+    flex-direction: column;
+    margin-left: 30px;
+  }
+}
+
+.cart-title,
+.cart-category,
+.cart-size,
+.cart-price,
+.cart-count {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include phone-width() {
+    align-items: flex-start;
   }
 }
 
 .cart-title {
   text-align: left;
+  width: 200px;
+
   @include pc-width() {
     width: 200px;
   }
@@ -412,15 +453,33 @@ $count-width: 60px;
   }
 
   @include small-pad-width() {
-    width: 200px;
+    width: 100%;
+    margin-bottom: 5px;
+    h4 {
+      margin-bottom: 0px;
+    }
+
+    span {
+      font-size: 14px;
+    }
   }
 
   @include phone-width() {
-    width: 200px;
+    width: 100%;
+    margin-bottom: 5px;
+    h4 {
+      margin-bottom: 0px;
+    }
+
+    span {
+      display: none;
+    }
   }
 }
 
 .cart-category {
+  width: 100px;
+
   @include pc-width() {
     width: 100px;
   }
@@ -439,6 +498,7 @@ $count-width: 60px;
 }
 
 .cart-size {
+  width: 30px;
   @include pc-width() {
     width: 30px;
   }
@@ -461,6 +521,8 @@ $count-width: 60px;
 }
 
 .cart-count {
+  width: 30px;
+
   @include pc-width() {
     width: 30px;
   }
@@ -561,6 +623,7 @@ $count-width: 60px;
       flex-direction: column;
       align-items: stretch;
       margin-bottom: 20px;
+      width: 100%;
     }
 
     // Total cost

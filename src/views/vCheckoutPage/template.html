@@ -96,20 +96,22 @@
             <div class="cart-image">
               <div :style="styleImage(item.product.imageUrl)"></div>
             </div>
-            <div class="cart-title">
-              <h4 class="p-font-family-button ">
-                {{ item.product.title }}
-              </h4>
-              <span>{{ item.product.id }}</span>
+            <div class="cart-info-block">
+              <div class="cart-title">
+                <h4 class="p-font-family-button ">
+                  {{ item.product.title }}
+                </h4>
+                <span>{{ item.product.id }}</span>
+              </div>
+              <div class="cart-category">{{ item.product.category }}</div>
+              <div class="cart-size">
+                {{ item.product.size[item.customData.sizeIndex].caption }}
+              </div>
+              <div class="p-font-family-filter-title cart-price">
+                ${{ item.product.price }}
+              </div>
+              <div class="cart-count">{{ item.qty }}</div>
             </div>
-            <div class="cart-category">{{ item.product.category }}</div>
-            <div class="cart-size">
-              {{ item.product.size[item.customData.sizeIndex].caption }}
-            </div>
-            <div class="p-font-family-filter-title cart-price">
-              ${{ item.product.price }}
-            </div>
-            <div class="cart-count">{{ item.qty }}</div>
           </div>
         </div>
         <div class="foot-bar">
