@@ -75,8 +75,6 @@ $count-width: 60px;
 }
 
 .checkout-done {
-  height: 300px;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -84,12 +82,32 @@ $count-width: 60px;
 }
 
 #checkout-done-title {
+  margin-top: 50px;
   font-size: 120px;
-  height: 40%;
+  height: auto;
+  line-height: 1;
+
+  @include pc3-width() {
+    height: 40%;
+  }
+
+  @include pc2-width() {
+    height: 40%;
+  }
+
+  @include small-pad-width() {
+    font-size: 60px;
+  }
+
+  @include phone-width() {
+    font-size: 50px;
+  }
 }
 
 .checkout-done-content {
+  margin: 50px 0;
   font-size: 20px;
+  line-height: 1.5;
 }
 
 .continue-shop-btn {

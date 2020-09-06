@@ -3,7 +3,6 @@
 }
 
 .checkout-done {
-  height: 300px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -20,12 +19,40 @@
 }
 
 #checkout-done-title {
+  margin-top: 50px;
   font-size: 120px;
-  height: 40%;
+  height: auto;
+  line-height: 1;
+}
+
+@media all and (min-width: 1920px) {
+  #checkout-done-title {
+    height: 40%;
+  }
+}
+
+@media all and (min-width: 1280px) and (max-width: 1919px) {
+  #checkout-done-title {
+    height: 40%;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  #checkout-done-title {
+    font-size: 60px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  #checkout-done-title {
+    font-size: 50px;
+  }
 }
 
 .checkout-done-content {
+  margin: 50px 0;
   font-size: 20px;
+  line-height: 1.5;
 }
 
 .continue-shop-btn {

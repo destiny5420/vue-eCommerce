@@ -89,13 +89,15 @@ $picture-height: 80%;
   @include small-pad-width {
     max-width: none;
     width: calc(100% - 10px);
-    height: 940px;
+    height: auto;
+    margin: 10px 10px 50px 10px;
   }
 
   @include phone-width {
     min-width: 0px;
     width: calc(100% - 10px);
-    height: 650px;
+    height: auto;
+    margin: 10px 10px 25px 10px;
   }
 
   .picture {
@@ -226,7 +228,9 @@ $picture-height: 80%;
       }
 
       @include phone-width {
+        display: inline-flex;
         margin-top: 10px;
+        height: 30px;
       }
 
       & > div:nth-child(n) {
@@ -275,11 +279,11 @@ $picture-height: 80%;
         }
 
         @include phone-width {
-          width: 45px;
+          width: 28px;
           height: auto;
-          padding: 0px 10px;
+          padding: 5px 5px;
           margin: 0 5px;
-          font-size: 22px;
+          font-size: 16px;
         }
       }
 
