@@ -4,8 +4,25 @@
   padding: 0 100px;
 }
 
+@media all and (min-width: 760px) and (max-width: 959px) {
+  .main {
+    padding: 0 50px;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .main {
+    padding: 0 50px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .main {
+    padding: 0 50px;
+  }
+}
+
 .main .nav-bar {
-  height: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -22,8 +39,56 @@
   margin-bottom: 30px;
 }
 
+@media all and (min-width: 760px) and (max-width: 959px) {
+  .main .nav-bar {
+    margin-top: 30px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .main .nav-bar {
+    margin-top: 30px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .main .nav-bar {
+    margin-top: 30px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .main .nav-bar h3 {
   display: inline-block;
+}
+
+@media all and (min-width: 760px) and (max-width: 959px) {
+  .main .nav-bar h3 {
+    margin-bottom: 30px;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .main .nav-bar h3 {
+    margin-bottom: 30px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .main .nav-bar h3 {
+    margin-bottom: 30px;
+  }
 }
 
 .main .nav-bar .symbol {
@@ -40,6 +105,42 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media all and (min-width: 760px) and (max-width: 959px) {
+  .main .nav-bar .symbol {
+    width: 100%;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .main .nav-bar .symbol {
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .main .nav-bar .symbol {
+    width: 100%;
+  }
+}
+
+@media all and (min-width: 760px) and (max-width: 959px) {
+  .main .nav-bar .symbol svg {
+    font-size: 26px;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .main .nav-bar .symbol svg {
+    font-size: 26px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .main .nav-bar .symbol svg {
+    font-size: 26px;
+  }
 }
 
 .main .nav-bar .symbol div:nth-child(n) {
@@ -76,9 +177,36 @@
   font-size: 18px;
 }
 
+@media all and (min-width: 760px) and (max-width: 959px) {
+  .main .nav-bar .symbol div:nth-child(n) div:nth-child(odd) {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .main .nav-bar .symbol div:nth-child(n) div:nth-child(odd) {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .main .nav-bar .symbol div:nth-child(n) div:nth-child(odd) {
+    width: 60px;
+    height: 60px;
+  }
+}
+
 .main .nav-bar .symbol div:nth-child(n) div:nth-child(even) {
   display: inline-block;
   width: 100px;
   border-bottom: 1px solid #6666663f;
+}
+
+@media all and (max-width: 479px) {
+  .main .nav-bar .symbol div:nth-child(n) div:nth-child(even) {
+    width: 50px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
