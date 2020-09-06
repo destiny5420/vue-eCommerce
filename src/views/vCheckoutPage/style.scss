@@ -1,3 +1,66 @@
+// pc3-width
+$pc3-media: 1920px;
+
+// pc2-width
+$pc3s-media: 1919px;
+$pc2-media: 1280px;
+
+// pc-width
+$pc2s-media: 1279px;
+$pc-media: 960px;
+
+// pad-width
+$pcs-media: 959px;
+$pad-media: 760px;
+
+// small-pad-width
+$pads-media: 759px;
+$phone-media: 480px;
+
+// phone-width
+$phones-media: 479px;
+
+// 電腦3
+@mixin pc3-width {
+  @media all and (min-width: $pc3-media) {
+    @content;
+  }
+}
+
+// 電腦2
+@mixin pc2-width {
+  @media all and (min-width: $pc2-media) and (max-width: $pc3s-media) {
+    @content;
+  }
+}
+
+// 電腦
+@mixin pc-width {
+  @media all and (min-width: $pc-media) and (max-width: $pc2s-media) {
+    @content;
+  }
+}
+
+// 平板
+@mixin pad-width {
+  @media all and (min-width: $pad-media) and (max-width: $pcs-media) {
+    @content;
+  }
+}
+
+// 小平板
+@mixin small-pad-width {
+  @media all and (min-width: $phone-media) and (max-width: $pads-media) {
+    @content;
+  }
+}
+// 手機
+@mixin phone-width {
+  @media all and (max-width: $phones-media) {
+    @content;
+  }
+}
+
 $first-color: #ffcb7d;
 $first-color-hover: #fab651;
 
@@ -53,6 +116,30 @@ $count-width: 60px;
   height: 300px;
   margin-bottom: 30px;
   display: inline-flex;
+
+  @include pc-width() {
+    display: flex;
+    flex-direction: column-reverse;
+    height: auto;
+  }
+
+  @include pad-width() {
+    display: flex;
+    flex-direction: column-reverse;
+    height: auto;
+  }
+
+  @include small-pad-width() {
+    display: flex;
+    flex-direction: column-reverse;
+    height: auto;
+  }
+
+  @include phone-width() {
+    display: flex;
+    flex-direction: column-reverse;
+    height: auto;
+  }
 }
 
 .bottom-block {
@@ -66,12 +153,56 @@ $count-width: 60px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @include pc-width() {
+    padding-right: 0px;
+    width: 100%;
+  }
+
+  @include pad-width() {
+    padding-right: 0px;
+    width: 100%;
+  }
+
+  @include small-pad-width() {
+    padding-right: 0px;
+    width: 100%;
+  }
+
+  @include phone-width() {
+    padding-right: 0px;
+    width: 100%;
+  }
 }
 
 .order-info-block {
   width: 30%;
   padding-left: 50px;
   text-align: left;
+
+  @include pc-width() {
+    padding-left: 0px;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  @include pad-width() {
+    padding-left: 0px;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  @include small-pad-width() {
+    padding-left: 0px;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  @include phone-width() {
+    padding-left: 0px;
+    width: 100%;
+    margin-bottom: 50px;
+  }
 
   h1 {
     text-transform: uppercase;
@@ -103,12 +234,53 @@ $count-width: 60px;
   justify-content: start;
   align-items: center;
 
+  @include pc2-width() {
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+
+  @include small-pad-width() {
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+
+  @include phone-width() {
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+
   & > div:nth-child(1) {
     flex: 1;
+
+    @include pc2-width() {
+      font-weight: bold;
+    }
+
+    @include small-pad-width() {
+      font-weight: bold;
+    }
+
+    @include phone-width() {
+      font-weight: bold;
+    }
   }
 
   & > div:nth-child(2) {
     flex: 2;
+
+    @include small-pad-width() {
+      color: gray;
+    }
+
+    @include phone-width() {
+      color: gray;
+    }
   }
 }
 
@@ -121,6 +293,26 @@ $count-width: 60px;
   justify-content: space-between;
   align-items: center;
   align-content: flex-start;
+
+  @include pc-width() {
+    margin-bottom: 15px;
+  }
+
+  @include pad-width() {
+    margin-bottom: 15px;
+  }
+
+  @include small-pad-width() {
+    margin-bottom: 15px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  @include phone-width() {
+    margin-bottom: 15px;
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 
 .section-img {
@@ -142,6 +334,14 @@ $count-width: 60px;
   align-items: center;
 
   transition: 0.25s ease;
+
+  @include small-pad-width() {
+    width: auto;
+  }
+
+  @include phone-width() {
+    width: auto;
+  }
 
   & > div:nth-child(n) {
     display: flex;
@@ -172,6 +372,22 @@ $count-width: 60px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  @include pc-width() {
+    width: 100%;
+  }
+
+  @include pad-width() {
+    width: 100%;
+  }
+
+  @include small-pad-width() {
+    width: 100%;
+  }
+
+  @include phone-width() {
+    width: 100%;
+  }
 }
 
 .cart-image {
@@ -187,12 +403,57 @@ $count-width: 60px;
 
 .cart-title {
   text-align: left;
+  @include pc-width() {
+    width: 200px;
+  }
+
+  @include pad-width() {
+    width: 200px;
+  }
+
+  @include small-pad-width() {
+    width: 200px;
+  }
+
+  @include phone-width() {
+    width: 200px;
+  }
 }
 
 .cart-category {
+  @include pc-width() {
+    width: 100px;
+  }
+
+  @include pad-width() {
+    width: 100px;
+  }
+
+  @include small-pad-width() {
+    width: 100px;
+  }
+
+  @include phone-width() {
+    width: 100px;
+  }
 }
 
 .cart-size {
+  @include pc-width() {
+    width: 30px;
+  }
+
+  @include pad-width() {
+    width: 30px;
+  }
+
+  @include small-pad-width() {
+    width: 30px;
+  }
+
+  @include phone-width() {
+    width: 30px;
+  }
 }
 
 .cart-price {
@@ -200,6 +461,21 @@ $count-width: 60px;
 }
 
 .cart-count {
+  @include pc-width() {
+    width: 30px;
+  }
+
+  @include pad-width() {
+    width: 30px;
+  }
+
+  @include small-pad-width() {
+    width: 30px;
+  }
+
+  @include phone-width() {
+    width: 30px;
+  }
 }
 
 .foot-bar {
@@ -207,6 +483,28 @@ $count-width: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @include pc-width() {
+    margin-bottom: 40px;
+  }
+
+  @include pad-width() {
+    margin-bottom: 40px;
+  }
+
+  @include small-pad-width() {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  @include phone-width() {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column-reverse;
+  }
 
   // Continue Shopping
   .foot-back {
@@ -219,6 +517,14 @@ $count-width: 60px;
     svg {
       font-size: 26px;
       margin-right: 20px;
+
+      @include small-pad-width() {
+        display: none;
+      }
+
+      @include phone-width() {
+        display: none;
+      }
     }
     span {
       font-size: 20px;
@@ -237,12 +543,42 @@ $count-width: 60px;
     flex-direction: row;
     justify-content: space-between;
 
+    @include pc-width() {
+      margin-bottom: 0px;
+    }
+
+    @include pad-width() {
+      margin-bottom: 0px;
+    }
+
+    @include small-pad-width() {
+      flex-direction: column;
+      align-items: stretch;
+      margin-bottom: 20px;
+    }
+
+    @include phone-width() {
+      flex-direction: column;
+      align-items: stretch;
+      margin-bottom: 20px;
+    }
+
     // Total cost
     .footer-total-cost {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+
+      @include small-pad-width() {
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+
+      @include phone-width() {
+        justify-content: center;
+        margin-bottom: 10px;
+      }
 
       & > span:nth-child(1) {
         margin-right: 15px;
@@ -275,6 +611,14 @@ $count-width: 60px;
       font-weight: bold;
       text-transform: uppercase;
       transition: 0.25s ease;
+
+      @include small-pad-width() {
+        width: auto;
+      }
+
+      @include phone-width() {
+        width: auto;
+      }
 
       &:hover {
         background: $first-color-hover;
