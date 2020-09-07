@@ -402,10 +402,6 @@
   transition: 0.15s;
 }
 
-.view .filter-area .size .size-option > :nth-child(n):hover {
-  border: 1px solid #444444;
-}
-
 .view .filter-area > :nth-child(n) {
   border-radius: 3px;
   border: 1px solid rgba(158, 158, 158, 0.35);
