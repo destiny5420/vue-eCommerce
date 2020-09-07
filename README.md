@@ -41,3 +41,6 @@
 
 ### RWD
 ![RWD-1](https://github.com/destiny5420/vue-eCommerce/blob/develop/page_source/pic_13.png)
+![RWD-2](https://github.com/destiny5420/vue-eCommerce/blob/develop/page_source/pic_14.png)
+![RWD-3](https://github.com/destiny5420/vue-eCommerce/blob/develop/page_source/pic_15.png)
+![RWD-4](https://github.com/destiny5420/vue-eCommerce/blob/develop/page_source/pic_16.png)
