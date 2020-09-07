@@ -32,7 +32,12 @@
     <!-- Color -->
     <div class="color">
       <span class="section-title">Category:</span>
-      <input class="color-picker" v-for="(item, index) in createData.colors" :key="index"type="color" v-model="createData.colors[index]">
+      <div class="color-picker-block" v-for="(item, index) in createData.colors" :key="index">
+        <input class="color-picker" type="color" v-model="createData.colors[index]">
+        <div class="picker-del-btn" @click="onDeleteColorHandler(index)">
+          <div style="widows: 100%; height: 100%; position:relative"></div>
+        </div>
+      </div>
       <button class="create-color-btn" @click="onCreateColorHandler">
         <font-awesome-icon
         :icon="['fas', 'plus']"

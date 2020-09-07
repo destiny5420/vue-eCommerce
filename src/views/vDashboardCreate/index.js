@@ -134,6 +134,9 @@ export default {
     onCreateColorHandler: function() {
       this.createData.colors.push("#ffffff");
     },
+    onDeleteColorHandler: function(index) {
+      this.createData.colors.splice(index, 1);
+    },
     onCreateProduct: function() {
       let vm = this;
       vm.isLoading = true;
