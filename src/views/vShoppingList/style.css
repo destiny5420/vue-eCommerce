@@ -779,9 +779,10 @@
 @media all and (max-width: 479px) {
   .list-main .list-info-block > div:nth-child(2) {
     width: auto;
-    padding: 0 16px;
-    height: 28px;
+    padding: 0 6px;
+    height: 24px;
     font-size: 14px;
+    border-radius: 5px;
   }
 }
 
@@ -806,7 +807,7 @@
 @media all and (max-width: 479px) {
   .list-main .list-info-block > div:nth-child(3) {
     width: 100%;
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
@@ -857,6 +858,7 @@
 @media all and (max-width: 479px) {
   .list-main .list-info-block > div:nth-child(5) {
     width: 100%;
+    font-size: 16px;
   }
 }
 
@@ -985,6 +987,7 @@
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    margin-bottom: 50px;
   }
 }
 
@@ -1030,7 +1033,7 @@
   .list-main .foot-bar > div:nth-child(2) > div:nth-child(1) {
     width: 100%;
     margin: 0px auto;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
 }
 

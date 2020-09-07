@@ -119,6 +119,14 @@ $light-grey-color: #9e9e9e59;
     background: #fff;
     border-radius: 5px;
 
+    @include small-pad-width() {
+      width: calc(100% - (20px * 2));
+    }
+
+    @include phone-width() {
+      width: calc(100% - (20px * 2));
+    }
+
     .close-btn {
       position: absolute;
       top: 10px;

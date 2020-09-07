@@ -95,9 +95,9 @@ $picture-height: 80%;
 
   @include phone-width {
     min-width: 0px;
-    width: calc(100% - 10px);
+    width: 100%;
     height: auto;
-    margin: 10px 10px 25px 10px;
+    margin: 10px 0px 25px 0px;
   }
 
   .picture {
@@ -129,7 +129,7 @@ $picture-height: 80%;
 
     @include phone-width {
       background-position: center;
-      height: 400px;
+      height: 450px;
     }
 
     .picture-mask {
@@ -229,7 +229,7 @@ $picture-height: 80%;
 
       @include phone-width {
         display: inline-flex;
-        margin-top: 10px;
+        margin-top: 5px;
         height: 30px;
       }
 
@@ -312,7 +312,7 @@ $picture-height: 80%;
       }
 
       @include phone-width {
-        margin-bottom: 10px;
+        margin-bottom: 5px;
       }
     }
 

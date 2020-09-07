@@ -86,6 +86,19 @@ div {
 .banner .textBox .shop-now a {
   text-decoration: none;
   color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .banner .textBox .shop-now div {
@@ -130,8 +143,8 @@ div {
 
 @media all and (max-width: 479px) {
   .banner .textBox .shop-now div {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
   }
 }
 
@@ -531,7 +544,7 @@ div {
 
 @media all and (max-width: 479px) {
   .just-for-you div {
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 
@@ -620,6 +633,7 @@ div {
 @media all and (max-width: 479px) {
   .shop-window {
     margin-bottom: 50px;
+    background-attachment: scroll;
   }
 }
 

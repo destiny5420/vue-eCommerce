@@ -104,6 +104,11 @@ div {
       a {
         text-decoration: none;
         color: #fff;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
       }
 
       div {
@@ -134,8 +139,8 @@ div {
         }
 
         @include phone-width {
-          width: 60px;
-          height: 60px;
+          width: 50px;
+          height: 50px;
         }
         svg {
           font-size: 20px;
@@ -408,7 +413,7 @@ div {
     }
 
     @include phone-width() {
-      font-size: 20px;
+      font-size: 16px;
     }
   }
 
@@ -485,6 +490,8 @@ div {
 
   @include phone-width() {
     margin-bottom: 50px;
+
+    background-attachment: scroll;
   }
 }
 

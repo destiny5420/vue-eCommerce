@@ -84,7 +84,7 @@ $phones-media: 479px;
   }
 
   @include phone-width() {
-    padding: 0 50px;
+    padding: 0 20px;
   }
 
   .nav-bar {
@@ -186,8 +186,8 @@ $phones-media: 479px;
           }
 
           @include phone-width() {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
           }
         }
 

@@ -5,7 +5,7 @@ export default {
   data: function() {
     return {
       msgData: [],
-      waitingTimeForDelete: 3
+      waitingTimeForDelete: 6
     };
   },
   methods: {
