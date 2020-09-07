@@ -1,6 +1,9 @@
 # vue e-commerce
 ![產品頁面](https://github.com/destiny5420/vue-eCommerce/blob/develop/page_source/banner.png)
 
+## Demo
+[Z-Shop](https://destiny5420.github.io/vue-eCommerce)
+
 ## 簡介
 此為練習作品「電商網站」，主要實踐功能如下：
 * 商品展示、購物車功能、下單流程、結帳資訊
