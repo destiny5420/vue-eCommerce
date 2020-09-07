@@ -112,14 +112,14 @@ new Vue({
 }).$mount("#app");
 
 router.beforeEach((to, from, next) => {
-  console.log(
-    "-- [ router.beforeEach ]\n/ to: ",
-    to,
-    "\n/ from: ",
-    from,
-    "\n/ next: ",
-    next
-  );
+  // console.log(
+  //   "-- [ router.beforeEach ]\n/ to: ",
+  //   to,
+  //   "\n/ from: ",
+  //   from,
+  //   "\n/ next: ",
+  //   next
+  // );
   next();
   if (to.meta.requiresAuthTesting) {
     store.commit("TOGGLE_LOADING_LOGIN", true);
@@ -139,9 +139,7 @@ router.beforeEach((to, from, next) => {
   }
 });
 
-let no_log_mode = false;
-
-if (no_log_mode) {
+if (process.env.VUE_APP_LOG_PRINT === "false") {
   console.log = function() {};
   console.warn = function() {};
   console.error = function() {};
