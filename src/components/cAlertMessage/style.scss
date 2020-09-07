@@ -1,10 +1,73 @@
+// pc3-width
+$pc3-media: 1920px;
+
+// pc2-width
+$pc3s-media: 1919px;
+$pc2-media: 1280px;
+
+// pc-width
+$pc2s-media: 1279px;
+$pc-media: 960px;
+
+// pad-width
+$pcs-media: 959px;
+$pad-media: 760px;
+
+// small-pad-width
+$pads-media: 759px;
+$phone-media: 480px;
+
+// phone-width
+$phones-media: 479px;
+
+// 電腦3
+@mixin pc3-width {
+  @media all and (min-width: $pc3-media) {
+    @content;
+  }
+}
+
+// 電腦2
+@mixin pc2-width {
+  @media all and (min-width: $pc2-media) and (max-width: $pc3s-media) {
+    @content;
+  }
+}
+
+// 電腦
+@mixin pc-width {
+  @media all and (min-width: $pc-media) and (max-width: $pc2s-media) {
+    @content;
+  }
+}
+
+// 平板
+@mixin pad-width {
+  @media all and (min-width: $pad-media) and (max-width: $pcs-media) {
+    @content;
+  }
+}
+
+// 小平板
+@mixin small-pad-width {
+  @media all and (min-width: $phone-media) and (max-width: $pads-media) {
+    @content;
+  }
+}
+// 手機
+@mixin phone-width {
+  @media all and (max-width: $phones-media) {
+    @content;
+  }
+}
+
 * {
   pointer-events: none;
 }
 
 .alert-message-main {
   width: 100%;
-  padding: 45px;
+  padding: 20px;
   position: fixed;
   top: 0;
   left: 0;
@@ -14,6 +77,10 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-end;
+
+  @include phone-width() {
+    padding: 20px;
+  }
 }
 
 .message-block {

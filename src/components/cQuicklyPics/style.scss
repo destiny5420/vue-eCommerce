@@ -184,10 +184,10 @@ $phones-media: 479px;
   }
 
   @include phone-width() {
-    height: 35px;
-    font-size: 14px;
+    height: 32px;
+    font-size: 12px;
     border-radius: 25px;
-    padding: 0 15px;
+    padding: 0 25px;
   }
 
   &:hover {

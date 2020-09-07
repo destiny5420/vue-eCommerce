@@ -30,7 +30,7 @@
 
 @media all and (max-width: 479px) {
   .main {
-    padding: 0 50px;
+    padding: 0 20px;
   }
 }
 
@@ -205,8 +205,8 @@
 
 @media all and (max-width: 479px) {
   .main .nav-bar .symbol div:nth-child(n) div:nth-child(odd) {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
   }
 }
 
