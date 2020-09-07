@@ -79,3 +79,12 @@ $phones-media: 479px;
   height: 100%;
   background: gray;
 }
+
+.link {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.75);
+  }
+}
