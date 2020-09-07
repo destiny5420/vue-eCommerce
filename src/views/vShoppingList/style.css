@@ -287,7 +287,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 60px;
+  width: 100px;
   height: 28px;
   font-size: 14px;
 }
@@ -751,7 +751,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 60px;
+  width: 100px;
   height: 28px;
   font-size: 14px;
   border: 1px solid rgba(94, 94, 94, 0.75);
@@ -760,10 +760,10 @@
 
 @media all and (min-width: 760px) and (max-width: 959px) {
   .list-main .list-info-block > div:nth-child(2) {
-    width: auto;
-    padding: 0 20px;
+    width: 155px;
+    padding: 0 10px;
     height: 32px;
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
@@ -778,7 +778,7 @@
 
 @media all and (max-width: 479px) {
   .list-main .list-info-block > div:nth-child(2) {
-    width: auto;
+    width: 80px;
     padding: 0 6px;
     height: 24px;
     font-size: 14px;
