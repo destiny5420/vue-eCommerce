@@ -1,137 +1,33 @@
 <div class="main">
-  <loading :active.sync="isLoading"></loading>
+  <div style="position: relative;">
+    <b-navbar toggleable="lg" type="dark" variant="dark" fixed="top">
+      <b-navbar-brand href="#">
+        <img id="logo" src="../../assets/z-shop-logo.png" alt="Logo" />
+        Dashboard
+      </b-navbar-brand>
 
-  <div class="btn-view">
-    <div class="login">
-      <b-button variant="danger" @click="onLogoutHandler">登出</b-button>
-    </div>
-    <div class="get-product">
-      <b-button variant="success" @click="onGetProductAllList"
-        >取得商品列表</b-button
-      >
-    </div>
-    <div class="create-product">
-       <!-- Title -->
-      <b-form-group
-        id="input-group-1"
-        label="Title"
-        label-for="input-1"
-        >
-        <b-form-input
-          id="input-1"
-          v-model="createData.title"
-          type="email"
-          required
-          placeholder="Enter title"
-        ></b-form-input>
-      </b-form-group>
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-      <!-- Sex -->
-      <b-form-group id="input-group-2" label="Sex" label-for="input-3">
-        <b-form-select
-          id="input-3"
-          v-model="createData.sex"
-          :options="viewData.sex.options"
-          required
-        ></b-form-select>
-      </b-form-group>
-
-      <!-- Color -->
-      <b-form-group id="input-group-3" label="Color" label-for="input-3">
-        <input class="color-picker" v-for="(item, index) in createData.colors" :key="index"type="color" v-model="createData.colors[index]">
-        <button class="create-color-btn" @click="onCreateColorHandler">
-          <font-awesome-icon
-          :icon="['fas', 'plus']"
-        />
-        </button>
-      </b-form-group>
-
-      <!-- Category -->
-      <b-form-group id="input-group-3" label="Category" label-for="input-3">
-        <b-form-select
-          id="input-3"
-          v-model="createData.category"
-          :options="viewData.category.options"
-          required
-        ></b-form-select>
-      </b-form-group>
-
-      <!-- Star -->
-      <div>
-        Star:
-        <b-form-select
-        v-model="createData.starScore"
-        :options="viewData.starScore.options"
-      ></b-form-select>
-      </div>
-
-      <!-- Size -->
-      <div>
-        <span style="display: block; margin-bottom: 8px;">Size:</span>
-        <b-button-group size="sm">
-          
-          <b-button
-            v-for="(item, index) in createData.size"
-            :key="index"
-            :pressed.sync="item.state"
-            variant="outline-primary"
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav>
+          <b-nav-item
+            ><router-link :to="{ name: 'vDashboardCreate' }"
+              >Create</router-link
+            ></b-nav-item
           >
-            {{ item.caption }}
-          </b-button>
-        </b-button-group>
-      </div>
-      
-      <!-- Description -->
-      <div>
-        <span style="display: block; margin-bottom: 8px;">Description:</span>
-        <b-row>
-          <b-col sm="10">
-            <b-form-textarea
-              id="textarea"
-              size="sm"
-              placeholder="description"
-              v-model="createData.description"
-            ></b-form-textarea>
-          </b-col>
-        </b-row>
-      </div>
+          <b-nav-item href="#"
+            ><router-link :to="{ name: 'vDashboardOrder' }"
+              >OrderList</router-link
+            ></b-nav-item
+          >
+        </b-navbar-nav>
 
-      <!-- Price -->
-      <div>
-        <div style="display: inline-block; margin-right: 30px;">
-          Origin Price
-          <b-form-input
-          v-model.number="createData.origin_price"
-          placeholder="origin_price"
-          ></b-form-input>
-        </div>
-        
-        <div style="display: inline-block">
-          Price
-          <b-form-input
-          v-model.number="createData.price"
-          placeholder="price"
-        ></b-form-input>
-        </div>
-        
-      </div>
-      
-      <input
-      type="file"
-      class="form-control"
-      placeholder="請輸入圖片網址"
-      ref="files"
-      @change="onUploadFile"
-    />
-      </form>
-      <b-button variant="primary" @click="onCreateProduct">創建商品</b-button>
-    </div>
-    <div class="delete-product">
-      <b-form-input
-        v-model.trim="deleteData.id"
-        placeholder="input delete ID"
-      ></b-form-input>
-      <b-button variant="danger" @click="onDeleteProduct">刪除商品</b-button>
-    </div>
+        <!-- Right aligned nav items -->
+        <b-navbar-nav class="ml-auto">
+          <b-nav-item @click="onLogoutHandler">Logout</b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
   </div>
+  <router-view id="router-view"></router-view>
 </div>

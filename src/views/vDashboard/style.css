@@ -1,92 +1,18 @@
+#logo {
+  width: 35px;
+  height: 35px;
+}
+
+#router-view {
+  margin-top: 61px;
+}
+
 .main {
+  position: relative;
   margin: 0;
   padding: 0;
   width: 100vw;
   height: 100%;
   background: gray;
-}
-
-.main .btn-view {
-  padding: 0 10px;
-  width: 70%;
-  height: 100%;
-  background: white;
-  text-align: left;
-}
-
-.main .btn-view .get-product,
-.main .btn-view .create-product,
-.main .btn-view .delete-product {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-}
-
-.main .btn-view .get-product > :nth-child(n),
-.main .btn-view .create-product > :nth-child(n),
-.main .btn-view .delete-product > :nth-child(n) {
-  margin-bottom: 20px;
-  font-size: 12px;
-}
-
-.main .btn-view .create-product {
-  padding: 20px 0px;
-  border-top: 5px solid black;
-  border-bottom: 5px solid black;
-}
-
-.main .btn-view .create-product .color-picker {
-  padding: 0;
-  margin: 0;
-  border: 0px solid transparent;
-  background-color: transparent;
-  width: 50px;
-  height: 50px;
-  outline: none;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-}
-
-.main .btn-view .create-product .create-color-btn {
-  width: 30px;
-  height: 30px;
-  border-radius: 5px;
-  border: 1px solid rgba(128, 128, 128, 0.5);
-  outline: none;
-}
-
-.main .btn-view .login {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-}
-
-.main .btn-view .login > :nth-child(n) {
-  margin-right: 15px;
-}
-
-.main .btn-view div:nth-child(n) {
-  margin-bottom: 20px;
 }
 /*# sourceMappingURL=style.css.map */
