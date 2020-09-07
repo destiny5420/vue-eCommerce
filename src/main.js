@@ -121,20 +121,22 @@ router.beforeEach((to, from, next) => {
   //   next
   // );
   next();
-  // if (to.meta.requiresAuth) {
-  //   let api = `${process.env.VUE_APP_APIPATH}/api/user/check`;
-  //   console.log(`-- [ Check API: Check ] / api: ${api}`);
-  //   Axios.post(api).then(response => {
-  //     console.log("-- [ Response: Check ] / res: ", response);
-  //     if (response.data.success) {
-  //       next();
-  //     } else {
-  //       next("/login");
-  //     }
-  //   });
-  // } else {
-  //   next();
-  // }
+  if (to.meta.requiresAuthTesting) {
+    store.commit("TOGGLE_LOADING_LOGIN", true);
+    let api = `${process.env.VUE_APP_APIPATH}/api/user/check`;
+    // console.log(`-- [ Check API: Check ] / api: ${api}`);
+    axios.post(api).then(response => {
+      store.commit("TOGGLE_LOADING_LOGIN", false);
+      // console.log("-- [ Response: Check ] / res: ", response);
+      if (response.data.success) {
+        next();
+      } else {
+        next("/login");
+      }
+    });
+  } else {
+    next();
+  }
 });
 
 let no_log_mode = false;

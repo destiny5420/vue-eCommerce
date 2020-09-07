@@ -22,7 +22,8 @@ const routes = [
   {
     path: "/dashboard",
     name: "vDashboard",
-    component: Dashboard
+    component: Dashboard,
+    meta: { requiresAuthTesting: true }
   },
   {
     path: "/products",

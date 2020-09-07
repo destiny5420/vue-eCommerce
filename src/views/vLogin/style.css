@@ -125,7 +125,8 @@
   height: 40px;
 }
 
-.login-window div[name="login-info"] input[type="text"] {
+.login-window div[name="login-info"] input[type="text"],
+.login-window div[name="login-info"] input[type="password"] {
   padding: 5px 15px 5px 40px;
   font-size: 14px;
   outline: none;
@@ -139,6 +140,7 @@
   font-size: 12px;
   -webkit-transition: 0.25s;
   transition: 0.25s;
+  outline: none;
 }
 
 .login-window div[name="login-info"] input[type="submit"]:hover {

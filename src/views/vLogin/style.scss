@@ -141,7 +141,8 @@ $window-border-radius: 10px;
       height: 40px;
     }
 
-    input[type="text"] {
+    input[type="text"],
+    input[type="password"] {
       padding: 5px 15px 5px 40px;
       font-size: 14px;
       outline: none;
@@ -154,7 +155,7 @@ $window-border-radius: 10px;
       border: 0px solid transparent;
       font-size: 12px;
       transition: 0.25s;
-
+      outline: none;
       &:hover {
         background: #fab651;
       }

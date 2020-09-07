@@ -98,21 +98,16 @@ export default {
     };
   },
   methods: {
-    onLoginHandler: function() {
-      let api = `${process.env.VUE_APP_APIPATH}/admin/signin`;
-      let data = {
-        username: this.loginData.account,
-        password: this.loginData.password
-      };
-
-      this.axios.post(api, data).then(response => {
-        console.log(response.data);
-      });
-    },
     onLogoutHandler: function() {
       let api = `${process.env.VUE_APP_APIPATH}/logout`;
       this.axios.post(api).then(response => {
         console.log(response.data);
+
+        if (response.data.success) {
+          this.$router.push({
+            name: "vLogin"
+          });
+        }
       });
     },
     onGetProductAllList: function() {

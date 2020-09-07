@@ -110,6 +110,7 @@ export default new Vuex.Store({
       price: 0
     },
     isLoading: {
+      login: false,
       getProductList: false,
       getCartList: false,
       deleteCartItem: false,
@@ -257,6 +258,9 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    TOGGLE_LOADING_LOGIN: function(state, data) {
+      state.isLoading.login = data;
+    },
     TOGGLE_LOADING_GET_PRODUCT_LIST: function(state, data) {
       state.isLoading.getProductList = data;
     },
