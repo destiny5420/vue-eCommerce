@@ -66,9 +66,10 @@ $medium_grey-color: #8f8f8f8c;
 $light-grey-color: rgba(158, 158, 158, 0.35);
 $spacing: 10px;
 .nav-bar {
-  margin: 20px 0;
+  margin-bottom: 10px;
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
   font-size: 14px;
