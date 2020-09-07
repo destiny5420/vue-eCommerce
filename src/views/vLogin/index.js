@@ -16,6 +16,12 @@ export default {
     };
   },
   methods: {
+    onGoHomeHandler: function() {
+      console.log("-- onGoHomeHandler --");
+      this.$router.push({
+        name: "vHome"
+      });
+    },
     onLoginHandler: function() {
       let api = `${process.env.VUE_APP_APIPATH}/admin/signin`;
       this.$store.commit("TOGGLE_LOADING_LOGIN", true);

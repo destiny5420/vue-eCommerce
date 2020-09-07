@@ -2,13 +2,15 @@
   <loading :active.sync="isLoading"></loading>
   <div class="login-window">
     <div name="login-info">
-      <img
-        class="p-mt-5"
-        src="../../assets/z-shop-logo.png"
-        style="width: 50px; user-select: none;"
-      />
-      <div class="p-mt-3 p-mb-3" style="font-weight: bold;">
-        Sign in to <span style="color: #ffcb7d;">Z-</span>Shop
+      <div class="logo-btn" @click="onGoHomeHandler">
+        <img
+          class="p-mt-5"
+          src="../../assets/z-shop-logo.png"
+          style="width: 50px; user-select: none;"
+        />
+        <div class=" p-mb-3" style="font-weight: bold;">
+          Sign in to <span style="color: #ffcb7d;">Z-</span>Shop
+        </div>
       </div>
       <div class="p-mb-2 input-area">
         <input type="text" placeholder="Email" v-model.trim="user.username" />

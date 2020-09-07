@@ -23,6 +23,10 @@ const routes = [
   },
   {
     path: "/dashboard",
+    redirect: "/dashboard/create"
+  },
+  {
+    path: "/dashboard",
     name: "vDashboard",
     component: Dashboard,
     meta: { requiresAuthTesting: true },
@@ -30,12 +34,14 @@ const routes = [
       {
         path: "create",
         name: "vDashboardCreate",
-        component: DashboardCreate
+        component: DashboardCreate,
+        meta: { requiresAuthTesting: true }
       },
       {
         path: "order",
         name: "vDashboardOrder",
-        component: DashboardOrder
+        component: DashboardOrder,
+        meta: { requiresAuthTesting: true }
       }
     ]
   },

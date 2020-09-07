@@ -117,6 +117,10 @@
   }
 }
 
+.login-window div[name="login-info"] .logo-btn {
+  cursor: pointer;
+}
+
 .login-window div[name="login-info"] input {
   -webkit-box-flex: 0;
       -ms-flex: none;
