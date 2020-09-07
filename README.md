@@ -1,24 +1,4 @@
-# vue_commerce
+# vue e-commerce
+![產品頁面](https://github.com/destiny5420/vue-eCommerce/blob/develop/page_source/banner.png)
+![圖片一](https://github.com/destiny5420/vue-eCommerce/blob/develop/page_source/pic_01.png)
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
