@@ -1,0 +1,116 @@
+<div class="detail-product-main">
+  <loading :active.sync="isLoadingForAddCart"></loading>
+  <div class="size-table" :style="styleSizeTable">
+    <div>
+      <button class="close-btn" @click="onSizeTableToggleHandler(false)">
+        <font-awesome-icon :icon="['fas', 'times']" />
+      </button>
+      <div name="title">{{ sizeTable.title }}</div>
+      <table>
+        <tr>
+          <th v-for="(item, index) in sizeTable.header" :key="index">
+            {{ item }}
+          </th>
+        </tr>
+        <tbody>
+          <tr v-for="(item, index) in sizeTable.data">
+            <td>{{ item.Size }}</td>
+            <td>{{ item.Chest }}</td>
+            <td>{{ item.Waist }}</td>
+            <td>{{ item.Length }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="detail-left">
+    <cProductNavbar class="navbar-info" :props_links="navBarInfo" />
+    <div class="detail-picture" :style="styleDetailPicture"></div>
+  </div>
+  <div class="detail-right">
+    <div class="detail-freight-info">
+      <div
+        class="detail-freight-item"
+        v-for="(item, index) in freightData"
+        :key="index"
+      >
+        <font-awesome-icon :icon="item.symbol" />
+        <div class="freight-message">
+          <div>{{ item.title }}</div>
+          <div>{{ item.content }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="detail-product-info">
+      <div>Sale</div>
+      <div class="product-info-title" v-if="product">
+        {{ product.title }}
+      </div>
+      <div class="product-info-price" v-if="product">
+        <span>
+          ${{ product.price }}
+        </span>
+        <span class="origin-price" v-if="product"
+          >${{ product.origin_price }}</span
+        >
+      </div>
+      <div class="product-info-star" v-if="product">
+        <font-awesome-icon
+          :icon="['fas', 'star']"
+          v-for="(item, index) in 5"
+          :key="index"
+          :style="styleStar(index)"
+        />
+      </div>
+      <div v-if="product" class="product-info-content">
+        {{ product.description }}
+      </div>
+    </div>
+    <div class="detail-color">
+      <span>Color</span>
+      <div class="group" v-if="product">
+        <div
+          v-for="(item, index) in product.colors"
+          :key="index"
+          class="block"
+          @click="onColorHandler(index)"
+          :style="styleColorBorder(index)"
+        >
+          <div :style="{ 'background': product.colors[index] }"></div>
+        </div>
+      </div>
+    </div>
+    <div class="detail-size" v-if="product">
+      <span>Size</span>
+      <div class="group">
+        <div
+          v-for="(item, index) in product.size"
+          :key="index"
+          :style="styleSizeBorder(index)"
+          class="block"
+          v-if="item.state"
+          @click="onSizeHandler(index)"
+        >
+          <div>{{ item.caption }}</div>
+        </div>
+      </div>
+      <button @click="onSizeTableToggleHandler(true)">size table</button>
+    </div>
+    <div class="detail-quantity">
+      <div class="calculator">
+        <font-awesome-icon :icon="['fas', 'minus']" @click="onMinusHandler" />
+        <span>{{ data.count }}</span>
+        <font-awesome-icon :icon="['fas', 'plus']" @click="onPlusHandler" />
+      </div>
+      <div class="cart-btn" @click="onAddCartHandler">
+        <span>add to cart</span>
+      </div>
+      <!-- <div class="favorite">
+        <font-awesome-icon
+          class="picture-favorite"
+          :icon="['fab', 'gratipay']"
+        />
+      </div> -->
+    </div>
+  </div>
+</div>

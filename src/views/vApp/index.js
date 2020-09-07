@@ -5,12 +5,7 @@ export default {
   data: function() {
     return {};
   },
-  methods: {
-    onLoginHandler: function() {
-      console.log("onLoginHandler -- ", this);
-      this.$router.push("/login-page");
-    }
-  },
+  methods: {},
   computed: {},
   // life cycle
   beforeCreate: function() {},

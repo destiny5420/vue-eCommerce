@@ -1,0 +1,126 @@
+<div>
+  <div>
+    <div class="banner">
+      <div class="textBox">
+        <h1 class="p-font-family-content">Sale of the summer collection</h1>
+        <div class="shop-now">
+          <router-link :to="{ name: 'vProducts', params: { id: 'all-products' }}">
+            <div>
+              <font-awesome-icon :icon="arrowRight" />
+            </div>
+            <span class="p-font-family-content"><b>SHOP NOW</b></span>
+          </router-link>
+        </div>
+      </div>
+    </div>
+    <div class="info-container">
+      <div class="info-area">
+        <div class="info" v-for="(item, index) in infoData" :key="index">
+          <div class="info-symbol">
+            <font-awesome-icon :icon="item.symbol" />
+          </div>
+          <div class="info-content">
+            <h6 class="no-margin p-font-family-button">{{ item.title }}</h6>
+            <span>{{ item.content }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-container no-margin">
+    <div class="quickly-pics p-mb-4">
+      <cQuicklyPics
+        :prop-flex="quitePicPaths[index].flex"
+        :prop-content="quitePicPaths[index].content"
+        :prop-cut-down="quitePicPaths[index].cutDown"
+        :prop-source-url="quitePicPaths[index].src"
+        :prop-btn-title="quitePicPaths[index].buttonTitle"
+        :prop-link="quitePicPaths[index].link"
+        v-for="(item, index) in quitePicPaths"
+        :key="index"
+      />
+    </div>
+
+    <div class="just-for-you p-mb-4 ">
+      <div>Selected just for you</div>
+      <input @click="onShowMoreHandler" class="p-font-family-button" type="button" value="SHOW MORE" />
+    </div>
+
+    <div class="shop-window"></div>
+
+    <div class="p-full-w p-font-large layout-row-center p-mb-3 p-font-family-button">
+      Why should choice us ?
+    </div>
+    <div class="advantage p-full-w">
+      <cAdvantage
+        :prop-symbol="item.symbol"
+        :prop-title="item.title"
+        :prop-content="item.content"
+        v-for="(item, index) in advantageData"
+        :key="index"
+      />
+    </div>
+
+    <div class="p-full-w p-font-large layout-row-center p-mb-3 p-font-family-button">
+      Products in today
+    </div>
+    <div class="product-today p-align-left p-full-w">
+        <div class="product-today-item" v-for="(item, index) in dailyProduct" :key="index">
+          <div class="p-ml-2 p-mr-2 p-mb-3">
+            <div class="img-block">
+              <img :src="item.src">
+            </div>
+            <div class="product-today-title p-font-lighter">{{item.title}}</div>
+            <div class="product-today-price p-font-bold">${{item.price}}</div>
+          </div>
+      </div>
+    </div>
+
+    <div class="subscribe p-full-w p-mb-5"">
+      <span>{{ subscribeData.content }}</span>
+      <div>
+        <input type="text" :placeholder="subscribeData.inputPlaceholder" />
+        <input type="button" :value="subscribeData.buttonMessage" />
+      </div>
+    </div>
+
+    <div class="footer-info p-full-w ">
+      <div name="main">
+        <div name="logo" class="p-mb-3">
+          <img class="p-mr-1" src="@/assets/z-shop-logo.png" style="height: 50px;" />
+          <span class="p-font-bold p-font-family-content"><span style="margin: 0; color: rgb(253, 166, 67);">Z-</span>Shop</span>
+        </div>
+        <span class="p-mb-3">We work with creative minds, content creators and technical geniuses willing to entertain and empower the world.</span>
+        <div name="social-media">
+          <div class="font-link p-mr-3" v-for="(item, index) in socialMedia" :key="index">
+            <font-awesome-icon @click="onSocialMedialHandler(item.link)" :icon="item.symbol" />
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="p-font-bold p-font-medium p-mt-1 p-mb-2">Shopping online</div>
+        <div class="p-font-small p-mb-1 font-link">Oder Status</div>
+        <div class="p-font-small p-mb-1 font-link">Shipping and Delivery</div>
+        <div class="p-font-small p-mb-1 font-link">Returns</div>
+        <div class="p-font-small p-mb-1 font-link">Payment Options</div>
+        <div class="p-font-small p-mb-1 font-link">Contents</div>
+      </div>
+      <div>
+        <div class="p-font-bold p-font-medium p-mt-1 p-mb-2">Information</div>
+        <div class="p-font-small p-mb-1 font-link">Gift Cards</div>
+        <div class="p-font-small p-mb-1 font-link">Find a store</div>
+        <div class="p-font-small p-mb-1 font-link">Newsletter</div>
+        <div class="p-font-small p-mb-1 font-link">Become a member</div>
+        <div class="p-font-small p-mb-1 font-link">Site feedback</div>
+      </div>
+      <div>
+        <div class="p-font-bold p-font-medium p-mt-1 p-mb-2">Contact</div>
+        <div class="p-font-small p-mb-1">paper.hsiao@gmail.com</div>
+        <div class="p-font-small p-mb-1">Hotline: +886983580912</div>
+      </div>
+    </div>
+
+  </div>
+
+  <cFooter />
+</div>

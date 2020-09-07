@@ -1,0 +1,811 @@
+// pc3-width
+$pc3-media: 1920px;
+
+// pc2-width
+$pc3s-media: 1919px;
+$pc2-media: 1280px;
+
+// pc-width
+$pc2s-media: 1279px;
+$pc-media: 960px;
+
+// pad-width
+$pcs-media: 959px;
+$pad-media: 760px;
+
+// small-pad-width
+$pads-media: 759px;
+$phone-media: 480px;
+
+// phone-width
+$phones-media: 479px;
+
+// 電腦3
+@mixin pc3-width {
+  @media all and (min-width: $pc3-media) {
+    @content;
+  }
+}
+
+// 電腦2
+@mixin pc2-width {
+  @media all and (min-width: $pc2-media) and (max-width: $pc3s-media) {
+    @content;
+  }
+}
+
+// 電腦
+@mixin pc-width {
+  @media all and (min-width: $pc-media) and (max-width: $pc2s-media) {
+    @content;
+  }
+}
+
+// 平板
+@mixin pad-width {
+  @media all and (min-width: $pad-media) and (max-width: $pcs-media) {
+    @content;
+  }
+}
+
+// 小平板
+@mixin small-pad-width {
+  @media all and (min-width: $phone-media) and (max-width: $pads-media) {
+    @content;
+  }
+}
+// 手機
+@mixin phone-width {
+  @media all and (max-width: $phones-media) {
+    @content;
+  }
+}
+
+$first-color: #ffcb7d;
+$first-color-hover: #fab651;
+
+$image-width: 200px;
+$category-width: 200px;
+$size-width: 60px;
+$price-width: 100px;
+$count-width: 60px;
+$function-width: 30px;
+
+.product-category {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  margin: 50px 0 10px 0;
+  color: rgba(128, 128, 128, 0.459);
+
+  @include pad-width() {
+    display: none;
+  }
+
+  @include small-pad-width() {
+    display: none;
+  }
+
+  @include phone-width() {
+    display: none;
+  }
+}
+
+.category-image {
+  width: $image-width;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  @include pc2-width() {
+    width: 100px;
+  }
+
+  @include pc-width() {
+    width: 100px;
+  }
+
+  @include pad-width() {
+    flex: 2;
+  }
+
+  @include small-pad-width() {
+    flex: 2;
+    align-items: start;
+  }
+
+  @include phone-width() {
+    flex: 2;
+    align-items: start;
+  }
+
+  div[name="image"] {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include pad-width() {
+      border-radius: 5%;
+      width: 150px;
+      height: 100%;
+    }
+
+    @include small-pad-width() {
+      border-radius: 5%;
+      width: 100px;
+      height: 150px;
+    }
+
+    @include phone-width() {
+      border-radius: 5%;
+      width: 100px;
+      height: 150px;
+    }
+  }
+}
+
+.category-info-block {
+  flex: 5;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  @include pad-width() {
+    flex: 5;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 40px;
+  }
+
+  @include small-pad-width() {
+    flex: 5;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 30px;
+  }
+
+  @include phone-width() {
+    flex: 5;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 20px;
+  }
+
+  & > div:nth-child(n) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include pad-width() {
+      margin-bottom: 5px;
+      align-items: start;
+    }
+
+    @include small-pad-width() {
+      margin-bottom: 2px;
+      align-items: start;
+    }
+
+    @include phone-width() {
+      margin-bottom: 2px;
+      align-items: start;
+    }
+  }
+
+  // title
+  & > div:nth-child(1) {
+    width: $category-width;
+
+    @include pad-width() {
+      width: 100%;
+      h4 {
+        font-size: 36px;
+      }
+
+      font-size: 20px;
+      text-align: left;
+    }
+
+    @include small-pad-width() {
+      width: 100%;
+      h4 {
+        font-size: 26px;
+      }
+
+      div {
+        display: none;
+      }
+      text-align: left;
+    }
+
+    @include phone-width() {
+      width: 100%;
+      h4 {
+        font-size: 20px;
+      }
+
+      div {
+        display: none;
+      }
+      text-align: left;
+    }
+  }
+
+  // category
+  & > div:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $size-width;
+    height: 28px;
+    font-size: 14px;
+
+    @include pad-width() {
+      width: auto;
+      padding: 0 20px;
+      height: 32px;
+      font-size: 20px;
+    }
+
+    @include small-pad-width() {
+      width: auto;
+      padding: 0 16px;
+      height: 28px;
+      font-size: 14px;
+    }
+
+    @include phone-width() {
+      width: auto;
+      padding: 0 16px;
+      height: 28px;
+      font-size: 14px;
+    }
+  }
+
+  // size
+  & > div:nth-child(3) {
+    width: $price-width;
+
+    @include pad-width() {
+      width: 100%;
+      font-size: 20px;
+    }
+
+    @include small-pad-width() {
+      width: 100%;
+      font-size: 20px;
+    }
+
+    @include phone-width() {
+      width: 100%;
+      font-size: 20px;
+    }
+  }
+
+  // price
+  & > div:nth-child(4) {
+    width: $count-width;
+
+    @include pad-width() {
+      width: 100%;
+      font-size: 26px;
+    }
+
+    @include small-pad-width() {
+      width: 100%;
+      font-size: 22px;
+    }
+
+    @include phone-width() {
+      width: 100%;
+      font-size: 22px;
+    }
+  }
+
+  // count
+  & > div:nth-child(5) {
+    cursor: pointer;
+    width: $function-width;
+    height: 30px;
+    font-size: 20px;
+
+    @include pad-width() {
+      width: 100%;
+    }
+
+    @include small-pad-width() {
+      width: 100%;
+    }
+
+    @include phone-width() {
+      width: 100%;
+    }
+  }
+}
+
+.category-info-close-btn {
+  cursor: pointer;
+  width: 50px;
+  height: 30px;
+  font-size: 20px;
+
+  @include pad-width() {
+    flex: 1;
+  }
+
+  @include small-pad-width() {
+    flex: 1;
+  }
+
+  @include phone-width() {
+    flex: 1;
+  }
+
+  svg {
+    color: gray;
+    transition: 0.25s ease;
+  }
+
+  &:hover svg {
+    color: rgb(252, 53, 53);
+  }
+}
+
+.list-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .product-list {
+    .list {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+
+      @include pad-width() {
+        flex-wrap: wrap;
+        margin-top: 20px;
+        align-items: stretch;
+      }
+
+      @include small-pad-width() {
+        flex-wrap: wrap;
+        margin-top: 20px;
+        align-items: stretch;
+      }
+
+      @include phone-width() {
+        flex-wrap: wrap;
+        margin-top: 20px;
+        align-items: stretch;
+      }
+    }
+  }
+
+  .list-image {
+    width: $image-width;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    @include pc2-width() {
+      width: 100px;
+    }
+
+    @include pc-width() {
+      width: 100px;
+    }
+
+    @include pad-width() {
+      flex: 2;
+    }
+
+    @include small-pad-width() {
+      flex: 2;
+      align-items: start;
+    }
+
+    @include phone-width() {
+      flex: 2;
+      align-items: start;
+    }
+
+    div[name="image"] {
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      @include pad-width() {
+        border-radius: 5%;
+        width: 150px;
+        height: 100%;
+      }
+
+      @include small-pad-width() {
+        border-radius: 5%;
+        width: 100px;
+        height: 150px;
+      }
+
+      @include phone-width() {
+        border-radius: 5%;
+        width: 100px;
+        height: 150px;
+      }
+    }
+  }
+
+  .list-info-block {
+    flex: 5;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    @include pad-width() {
+      flex: 5;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-left: 40px;
+    }
+
+    @include small-pad-width() {
+      flex: 5;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-left: 30px;
+    }
+
+    @include phone-width() {
+      flex: 5;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-left: 20px;
+    }
+
+    & > div:nth-child(n) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      @include pad-width() {
+        margin-bottom: 5px;
+        align-items: flex-start;
+      }
+
+      @include small-pad-width() {
+        margin-bottom: 2px;
+        align-items: flex-start;
+      }
+
+      @include phone-width() {
+        margin-bottom: 2px;
+        align-items: flex-start;
+      }
+    }
+
+    // title
+    & > div:nth-child(1) {
+      width: $category-width;
+
+      @include pad-width() {
+        width: 100%;
+        h4 {
+          font-size: 36px;
+        }
+
+        font-size: 20px;
+        text-align: left;
+      }
+
+      @include small-pad-width() {
+        width: 100%;
+        h4 {
+          font-size: 26px;
+        }
+
+        div {
+          display: none;
+        }
+        text-align: left;
+      }
+
+      @include phone-width() {
+        width: 100%;
+        h4 {
+          font-size: 20px;
+        }
+
+        div {
+          display: none;
+        }
+        text-align: left;
+      }
+    }
+
+    // category
+    & > div:nth-child(2) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: $size-width;
+      height: 28px;
+      font-size: 14px;
+      border: 1px solid rgba(94, 94, 94, 0.75);
+      border-radius: 15px;
+
+      @include pad-width() {
+        width: auto;
+        padding: 0 20px;
+        height: 32px;
+        font-size: 20px;
+      }
+
+      @include small-pad-width() {
+        width: auto;
+        padding: 0 16px;
+        height: 28px;
+        font-size: 14px;
+      }
+
+      @include phone-width() {
+        width: auto;
+        padding: 0 16px;
+        height: 28px;
+        font-size: 14px;
+      }
+    }
+
+    // size
+    & > div:nth-child(3) {
+      width: $price-width;
+
+      @include pad-width() {
+        width: 100%;
+        font-size: 20px;
+      }
+
+      @include small-pad-width() {
+        width: 100%;
+        font-size: 20px;
+      }
+
+      @include phone-width() {
+        width: 100%;
+        font-size: 20px;
+      }
+    }
+
+    // price
+    & > div:nth-child(4) {
+      width: $count-width;
+
+      @include pad-width() {
+        width: 100%;
+        font-size: 26px;
+      }
+
+      @include small-pad-width() {
+        width: 100%;
+        font-size: 22px;
+      }
+
+      @include phone-width() {
+        width: 100%;
+        font-size: 22px;
+      }
+    }
+
+    // count
+    & > div:nth-child(5) {
+      cursor: pointer;
+      width: $function-width;
+      height: 30px;
+      font-size: 20px;
+
+      @include pad-width() {
+        width: 100%;
+      }
+
+      @include small-pad-width() {
+        width: 100%;
+      }
+
+      @include phone-width() {
+        width: 100%;
+      }
+    }
+  }
+
+  .list-info-close-btn {
+    cursor: pointer;
+    width: 50px;
+    height: 30px;
+    font-size: 20px;
+
+    @include pad-width() {
+      flex: 1;
+    }
+
+    @include small-pad-width() {
+      flex: 1;
+    }
+
+    @include phone-width() {
+      flex: 1;
+    }
+
+    svg {
+      color: gray;
+      transition: 0.25s ease;
+    }
+
+    &:hover svg {
+      color: rgb(252, 53, 53);
+    }
+  }
+
+  .foot-bar {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    @include pc-width() {
+      margin-top: 30px;
+    }
+
+    @include pad-width() {
+      flex-direction: column-reverse;
+      margin-top: 30px;
+    }
+
+    @include small-pad-width() {
+      flex-direction: column-reverse;
+      align-items: stretch;
+      margin-top: 30px;
+    }
+
+    @include phone-width() {
+      flex-direction: column-reverse;
+      align-items: stretch;
+      margin-top: 30px;
+    }
+
+    & > div:nth-child(n) {
+      margin-bottom: 30px;
+    }
+
+    // Continue Shopping
+    & > div:nth-child(1) {
+      cursor: pointer;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      color: rgba(128, 128, 128, 0.55);
+      transition: 0.25s ease;
+
+      @include phone-width() {
+        justify-content: center;
+      }
+
+      svg {
+        font-size: 26px;
+        margin-right: 20px;
+
+        @include phone-width() {
+          display: none;
+        }
+      }
+      span {
+        font-size: 20px;
+      }
+
+      &:hover {
+        color: rgba(48, 48, 48, 0.9);
+      }
+    }
+
+    // Right
+    & > div:nth-child(2) {
+      // Total cost
+      & > div:nth-child(1) {
+        display: inline-block;
+        margin: 0 100px;
+
+        @include pc-width() {
+          margin: 0 30px;
+        }
+
+        @include small-pad-width() {
+          width: 100%;
+          margin: 0px auto;
+          margin-bottom: 50px;
+        }
+
+        @include phone-width() {
+          width: 100%;
+          margin: 0px auto;
+          margin-bottom: 50px;
+        }
+
+        & > span:nth-child(1) {
+          margin-right: 10px;
+          font-size: 18px;
+          color: rgba(128, 128, 128, 0.55);
+
+          @include small-pad-width() {
+            font-size: 24px;
+          }
+
+          @include phone-width() {
+            font-size: 24px;
+          }
+        }
+
+        & > span:nth-child(2) {
+          font-weight: bold;
+          font-size: 20px;
+
+          @include small-pad-width() {
+            font-size: 28px;
+          }
+
+          @include phone-width() {
+            font-size: 28px;
+          }
+        }
+      }
+
+      // Next Step Button
+      & > div:nth-last-child(1) {
+        cursor: pointer;
+
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        height: 60px;
+        width: 200px;
+        background: $first-color;
+        border-radius: 60px;
+        margin: 0px 0px;
+
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: 0.25s ease;
+
+        @include small-pad-width() {
+          font-size: 16px;
+        }
+
+        @include phone-width() {
+          font-size: 16px;
+        }
+
+        &:hover {
+          background: $first-color-hover;
+        }
+      }
+    }
+  }
+}

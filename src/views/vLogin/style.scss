@@ -1,0 +1,194 @@
+// pc3-width
+$pc3-media: 1920px;
+
+// pc2-width
+$pc3s-media: 1919px;
+$pc2-media: 1280px;
+
+// pc-width
+$pc2s-media: 1279px;
+$pc-media: 960px;
+
+// pad-width
+$pcs-media: 959px;
+$pad-media: 760px;
+
+// small-pad-width
+$pads-media: 759px;
+$phone-media: 480px;
+
+// phone-width
+$phones-media: 479px;
+
+// 電腦3
+@mixin pc3-width {
+  @media all and (min-width: $pc3-media) {
+    @content;
+  }
+}
+
+// 電腦2
+@mixin pc2-width {
+  @media all and (min-width: $pc2-media) and (max-width: $pc3s-media) {
+    @content;
+  }
+}
+
+// 電腦
+@mixin pc-width {
+  @media all and (min-width: $pc-media) and (max-width: $pc2s-media) {
+    @content;
+  }
+}
+
+// 平板
+@mixin pad-width {
+  @media all and (min-width: $pad-media) and (max-width: $pcs-media) {
+    @content;
+  }
+}
+
+// 小平板
+@mixin small-pad-width {
+  @media all and (min-width: $phone-media) and (max-width: $pads-media) {
+    @content;
+  }
+}
+// 手機
+@mixin phone-width {
+  @media all and (max-width: $phones-media) {
+    @content;
+  }
+}
+
+.login {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+$window-border-radius: 10px;
+.login-window {
+  width: 60%;
+  height: 70%;
+  display: flex;
+  flex-direction: row;
+  border-radius: $window-border-radius;
+  border: 1px solid #e3e3e380;
+  box-shadow: -3px 4px 8px 0px #00000015;
+
+  @include pc-width() {
+    width: 80%;
+    height: 50%;
+  }
+
+  @include pad-width() {
+    width: 90%;
+    height: 50%;
+  }
+
+  @include small-pad-width() {
+    width: 90%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  @include phone-width() {
+    width: 90%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .input-area {
+    position: relative;
+
+    .symbol {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      color: rgba(128, 128, 128, 0.514);
+    }
+  }
+
+  div[name="login-info"] {
+    position: relative;
+    flex: 1;
+    padding: 0 30px;
+
+    @include small-pad-width() {
+      flex: none;
+      width: 100%;
+      padding: 30px 30px;
+    }
+
+    @include phone-width() {
+      flex: none;
+      width: 100%;
+      padding: 30px 30px;
+    }
+
+    .logo-btn {
+      cursor: pointer;
+    }
+
+    input {
+      flex: none;
+      width: 100%;
+      height: 40px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      padding: 5px 15px 5px 40px;
+      font-size: 14px;
+      outline: none;
+      border: 1px solid #e4e4e4;
+      border-radius: 3px;
+    }
+
+    input[type="submit"] {
+      background: #ffcb7d;
+      border: 0px solid transparent;
+      font-size: 12px;
+      transition: 0.25s;
+      outline: none;
+      &:hover {
+        background: #fab651;
+      }
+    }
+  }
+
+  div[name="login-img"] {
+    flex: 1;
+    background-image: url("https://i.postimg.cc/cLd8qX9T/haryo-setyadi-acn5-ERAe-Sb4-unsplash.jpg");
+    border-radius: 0 $window-border-radius $window-border-radius 0;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+
+    @include small-pad-width() {
+      border-radius: 0px;
+    }
+
+    @include phone-width() {
+      border-radius: 0px;
+    }
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: calc(100% - (30px * 2));
+    height: 50px;
+    border-top: 1px solid #e4e4e4;
+  }
+}

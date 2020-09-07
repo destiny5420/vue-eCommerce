@@ -1,0 +1,208 @@
+// pc3-width
+$pc3-media: 1920px;
+
+// pc2-width
+$pc3s-media: 1919px;
+$pc2-media: 1280px;
+
+// pc-width
+$pc2s-media: 1279px;
+$pc-media: 960px;
+
+// pad-width
+$pcs-media: 959px;
+$pad-media: 760px;
+
+// small-pad-width
+$pads-media: 759px;
+$phone-media: 480px;
+
+// phone-width
+$phones-media: 479px;
+
+// 電腦3
+@mixin pc3-width {
+  @media all and (min-width: $pc3-media) {
+    @content;
+  }
+}
+
+// 電腦2
+@mixin pc2-width {
+  @media all and (min-width: $pc2-media) and (max-width: $pc3s-media) {
+    @content;
+  }
+}
+
+// 電腦
+@mixin pc-width {
+  @media all and (min-width: $pc-media) and (max-width: $pc2s-media) {
+    @content;
+  }
+}
+
+// 平板
+@mixin pad-width {
+  @media all and (min-width: $pad-media) and (max-width: $pcs-media) {
+    @content;
+  }
+}
+
+// 小平板
+@mixin small-pad-width {
+  @media all and (min-width: $phone-media) and (max-width: $pads-media) {
+    @content;
+  }
+}
+// 手機
+@mixin phone-width {
+  @media all and (max-width: $phones-media) {
+    @content;
+  }
+}
+
+.main {
+  width: 100%;
+  margin-top: 80px;
+
+  padding: 0 100px;
+
+  @include pc2-width() {
+    padding: 0 50px;
+  }
+
+  @include pc-width() {
+    padding: 0 50px;
+  }
+
+  @include pad-width() {
+    padding: 0 50px;
+  }
+
+  @include small-pad-width() {
+    padding: 0 50px;
+  }
+
+  @include phone-width() {
+    padding: 0 50px;
+  }
+
+  .nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+
+    @include pad-width() {
+      margin-top: 30px;
+      flex-direction: column;
+    }
+
+    @include small-pad-width() {
+      margin-top: 30px;
+      flex-direction: column;
+    }
+
+    @include phone-width() {
+      margin-top: 30px;
+      flex-direction: column;
+    }
+
+    h3 {
+      display: inline-block;
+
+      @include pad-width() {
+        margin-bottom: 30px;
+      }
+
+      @include small-pad-width() {
+        margin-bottom: 30px;
+      }
+
+      @include phone-width() {
+        margin-bottom: 30px;
+      }
+    }
+
+    .symbol {
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      @include pad-width() {
+        width: 100%;
+      }
+
+      @include small-pad-width() {
+        width: 100%;
+      }
+
+      @include phone-width() {
+        width: 100%;
+      }
+
+      svg {
+        @include pad-width() {
+          font-size: 26px;
+        }
+
+        @include small-pad-width() {
+          font-size: 26px;
+        }
+
+        @include phone-width() {
+          font-size: 26px;
+        }
+      }
+
+      & div:nth-child(n) {
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        $radius-value: 38px;
+        & div:nth-child(odd) {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          width: $radius-value;
+          height: $radius-value;
+          background: transparent;
+          border: 1px solid;
+          border-radius: 50%;
+          font-size: 18px;
+
+          @include pad-width() {
+            width: 60px;
+            height: 60px;
+          }
+
+          @include small-pad-width() {
+            width: 60px;
+            height: 60px;
+          }
+
+          @include phone-width() {
+            width: 60px;
+            height: 60px;
+          }
+        }
+
+        $line-width: 100px;
+        $border-line-width: 1px;
+        & div:nth-child(even) {
+          display: inline-block;
+          width: $line-width;
+          border-bottom: $border-line-width solid #6666663f;
+
+          @include phone-width() {
+            width: 50px;
+          }
+        }
+      }
+    }
+  }
+}

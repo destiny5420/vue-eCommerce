@@ -1,0 +1,135 @@
+<div class="btn-view">
+  <loading :active.sync="isLoading"></loading>
+  <div class="create-product">
+     <!-- Title & Sex -->
+    <div class="title-sex">
+      <!-- Title -->
+      <b-form-group
+      class="group"
+      label="Title"
+      label-for="input-1"
+      >
+      <b-form-input
+        id="input-1"
+        v-model="createData.title"
+        type="email"
+        required
+        placeholder="Enter title"
+      ></b-form-input>
+      </b-form-group>
+
+      <!-- Sex -->
+      <b-form-group class="group" label="Sex" label-for="input-3">
+        <b-form-select
+          id="input-3"
+          v-model="createData.sex"
+          :options="viewData.sex.options"
+          required
+        ></b-form-select>
+      </b-form-group>
+    </div>
+   
+    <!-- Color -->
+    <div class="color">
+      <span class="section-title">Category:</span>
+      <div class="color-picker-block" v-for="(item, index) in createData.colors" :key="index">
+        <input class="color-picker" type="color" v-model="createData.colors[index]">
+        <div class="picker-del-btn" @click="onDeleteColorHandler(index)">
+          <div style="widows: 100%; height: 100%; position:relative"></div>
+        </div>
+      </div>
+      <button class="create-color-btn" @click="onCreateColorHandler">
+        <font-awesome-icon
+        :icon="['fas', 'plus']"
+      />
+      </button>
+    </div>
+    
+    <!-- Category -->
+    <div class="category">
+      <span class="section-title">Category:</span>
+      <b-form-select
+        id="input-3"
+        v-model="createData.category"
+        :options="viewData.category.options"
+        required
+      ></b-form-select>
+    </div>
+    
+    <!-- Star -->
+    <div  class="star">
+      <span class="section-title">Star:</span>
+      <b-form-select
+      v-model="createData.starScore"
+      :options="viewData.starScore.options"
+      ></b-form-select>
+    </div>
+
+    <!-- Size -->
+    <div>
+      <span class="section-title">Size:</span>
+      <b-button-group>
+        <b-button
+          v-for="(item, index) in createData.size"
+          :key="index"
+          :pressed.sync="item.state"
+          variant="outline-primary"
+        >
+          {{ item.caption }}
+        </b-button>
+      </b-button-group>
+    </div>
+    
+    <!-- Description -->
+    <div class="description">
+      <span class="section-title">Description:</span>
+      <b-form-textarea
+        id="textarea"
+        size="sm"
+        placeholder="description"
+        v-model="createData.description"
+      ></b-form-textarea>
+    </div>
+
+    <!-- Price -->
+    <div class="price">
+      <div style="display: inline-block; margin-right: 30px;">
+        <span style="display: block; margin-bottom: 8px;">Origin Price:</span>
+        <b-form-input
+        v-model.number="createData.origin_price"
+        placeholder="origin_price"
+        ></b-form-input>
+      </div>
+      
+      <div style="display: inline-block">
+        <span style="display: block; margin-bottom: 8px;">Price:</span>
+        <b-form-input
+        v-model.number="createData.price"
+        placeholder="price"
+      ></b-form-input>
+      </div>
+    </div>
+    
+    <!-- Upload -->
+    <div class="upload">
+      <span class="section-title">Image file:</span>
+      <input
+      type="file"
+      class="form-control"
+      placeholder="請輸入圖片網址"
+      ref="files"
+      @change="onUploadFile"
+      />
+      </form>
+    </div>
+    
+    <b-button variant="primary" @click="onCreateProduct">創建商品</b-button>
+  </div>
+  <div class="product-list">
+    <div class="product" v-for="(item, index) in productsList" :key="index">
+      <img :src="item.imageUrl" alt="">
+      <span class="p-font-family-hammersmith">{{ item.title }}</span>
+      <div @click="onDeleteProductHandler(item.id)"></div>
+    </div>
+  </div>
+</div>

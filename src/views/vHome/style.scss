@@ -1,0 +1,837 @@
+$color: (
+  first-color: #ffcb7d,
+  seconds-color: #2c3e50,
+  main-border: #e0e0e0,
+  white: #fff,
+  tmp-background: #afafaf,
+  btn-bg-color: #ffffff8c,
+  font-color: #242424,
+  font-black: #242424,
+  font-gray: #8a8a8a,
+  first-color-hover: #fab651,
+  btn-bg-color-hover: #6e6e6e8c,
+  font-color-hover: #ffffff
+);
+
+$pc-media: 960px;
+$pcs-media: 959px;
+$pad-media: 760px;
+$pads-media: 759px;
+$phone-media: 480px;
+$phones-media: 479px;
+
+// 電腦
+@mixin pc-width {
+  @media all and (min-width: $pc-media) {
+    @content;
+  }
+}
+
+// 平板
+@mixin pad-width {
+  @media all and (min-width: $pad-media) and (max-width: $pcs-media) {
+    @content;
+  }
+}
+
+// 小平板
+@mixin small-pad-width {
+  @media all and (min-width: $phone-media) and (max-width: $pads-media) {
+    @content;
+  }
+}
+// 手機
+@mixin phone-width {
+  @media all and (max-width: $phones-media) {
+    @content;
+  }
+}
+
+div {
+  position: relative;
+}
+
+.banner {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background: url(../../assets/banner.png);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  .textBox {
+    color: map-get($map: $color, $key: white);
+    text-align: left;
+    width: 700px;
+
+    @include pc-width {
+      padding-left: 250px;
+    }
+
+    @include pad-width {
+      padding-left: 90px;
+    }
+
+    @include small-pad-width {
+      padding-left: 65px;
+    }
+
+    @include phone-width {
+      padding-left: 55px;
+      width: 95%;
+    }
+
+    h1 {
+      font-weight: 700;
+      font-size: 72px;
+      margin-bottom: 70px;
+      user-select: none;
+
+      @include phone-width {
+        font-size: 50px;
+      }
+    }
+
+    .shop-now {
+      display: inline-flex;
+      justify-content: space-between;
+      align-items: center;
+
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
+
+      div {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        background: map-get($map: $color, $key: first-color);
+        border-radius: 50%;
+
+        transition: 0.25s;
+
+        @include pc-width {
+          width: 40px;
+          height: 40px;
+        }
+
+        @include pad-width {
+          width: 60px;
+          height: 60px;
+        }
+
+        @include small-pad-width {
+          width: 60px;
+          height: 60px;
+        }
+
+        @include phone-width {
+          width: 60px;
+          height: 60px;
+        }
+        svg {
+          font-size: 20px;
+
+          @include pc-width {
+            font-size: 20px;
+          }
+
+          @include pad-width {
+            font-size: 30px;
+          }
+
+          @include small-pad-width {
+            font-size: 30px;
+          }
+
+          @include phone-width {
+            font-size: 30px;
+          }
+        }
+      }
+
+      span {
+        color: #fff;
+        font-size: 12px;
+        transition: 0.25s;
+        font-weight: bold;
+
+        @include pc-width {
+          font-size: 16px;
+        }
+
+        @include pad-width {
+          font-size: 20px;
+        }
+
+        @include small-pad-width {
+          font-size: 16px;
+        }
+
+        @include phone-width {
+          font-size: 16px;
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        div {
+          background: map-get($map: $color, $key: first-color-hover);
+          box-shadow: 2px 2px 3px 0px #00000052;
+        }
+
+        span {
+          color: map-get($map: $color, $key: first-color-hover);
+          text-shadow: 2px 2px 1px #00000052;
+        }
+      }
+    }
+  }
+}
+
+.info-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 85vw;
+  height: 120px;
+  padding: 35px 80px 35px 150px;
+  background: #fff;
+  z-index: 1;
+  border-radius: 0 45px 0 0;
+
+  @include pc-width() {
+    padding: 35px 40px 35px 100px;
+    height: 120px;
+  }
+
+  @include pad-width() {
+    width: 100vw;
+    position: relative;
+    padding: 35px 40px;
+    height: auto;
+  }
+
+  @include small-pad-width() {
+    width: 100vw;
+    position: relative;
+    padding: 35px 50px;
+    height: auto;
+  }
+
+  @include phone-width() {
+    width: 100vw;
+    position: relative;
+    padding: 20px 20px;
+    height: auto;
+  }
+
+  .info-area {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+
+    @include small-pad-width() {
+      flex-wrap: wrap;
+    }
+
+    @include phone-width() {
+      flex-wrap: wrap;
+    }
+
+    .info {
+      width: 100%;
+      margin: 0 10px;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      text-align: left;
+
+      @include small-pad-width() {
+        margin: 20px 0;
+
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      @include phone-width() {
+        margin: 20px 0;
+
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .info-symbol {
+        box-sizing: border-box;
+        height: 43px;
+        width: 43px;
+        margin-right: 10px;
+        font-size: 20px;
+        background: map-get($map: $color, $key: first-color);
+        border-radius: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        @include small-pad-width() {
+          margin-right: 0px;
+          margin-bottom: 20px;
+          height: 60px;
+          width: 60px;
+          font-size: 28px;
+        }
+
+        @include phone-width() {
+          margin-right: 0px;
+          margin-bottom: 20px;
+          height: 60px;
+          width: 60px;
+          font-size: 28px;
+        }
+      }
+
+      .info-content {
+        width: 75%;
+
+        @include phone-width() {
+          width: 100%;
+        }
+
+        h6 {
+          font-family: "Roboto", sans-serif;
+          font-size: 12px;
+          font-weight: 800;
+
+          @include small-pad-width() {
+            font-size: 25px;
+          }
+
+          @include phone-width() {
+            font-size: 18px;
+          }
+        }
+        span {
+          font-size: 12px;
+          color: rgb(119, 119, 119);
+
+          @include small-pad-width() {
+            font-size: 20px;
+          }
+
+          @include phone-width() {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.product-container {
+  width: 100%;
+  padding-top: 80px;
+  padding-bottom: 10px;
+  background: rgb(255, 255, 255);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  @include pc-width() {
+    padding: 80px 100px 50px 100px;
+  }
+
+  @include pad-width() {
+    padding: 0px 20px 10px 20px;
+  }
+
+  @include small-pad-width() {
+    padding: 0px 20px 10px 20px;
+  }
+
+  @include phone-width() {
+    padding: 0px 20px 10px 20px;
+  }
+}
+
+.quickly-pics {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+
+  @include small-pad-width() {
+    flex-direction: column;
+  }
+
+  @include phone-width() {
+    flex-direction: column;
+  }
+}
+
+.just-for-you {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  div {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 25px;
+
+    @include pc-width() {
+      font-size: 30px;
+    }
+
+    @include pad-width() {
+      font-size: 30px;
+    }
+
+    @include small-pad-width() {
+      font-size: 22px;
+    }
+
+    @include phone-width() {
+      font-size: 20px;
+    }
+  }
+
+  > input {
+    width: 130px;
+    height: 40px;
+    padding: 0 5px;
+    background: map-get($map: $color, $key: btn-bg-color);
+
+    display: inline-block;
+    margin: 0 10px;
+
+    border-radius: 30px;
+    border: 1px solid map-get($map: $color, $key: main-border);
+
+    color: map-get($map: $color, $key: font-color);
+    font-weight: bold;
+    font-size: 10px;
+
+    transition: 0.15s;
+
+    @include pc-width() {
+      width: 130px;
+      height: 40px;
+      font-size: 10px;
+    }
+
+    @include pad-width() {
+      width: 200px;
+      height: 60px;
+      font-size: 16px;
+    }
+
+    @include small-pad-width() {
+      width: 150px;
+      height: 50px;
+      font-size: 14px;
+    }
+
+    @include phone-width() {
+      width: 130px;
+      height: 40px;
+      font-size: 14px;
+    }
+  }
+
+  & > input:hover {
+    background: map-get($map: $color, $key: btn-bg-color-hover);
+    color: map-get($map: $color, $key: font-color-hover);
+  }
+}
+
+.shop-window {
+  width: 100%;
+  height: 400px;
+  margin-bottom: 100px;
+  background: url("https://i.postimg.cc/fLYvV72q/benjamin-voros-Tn-No84-AJJ5-A-unsplash.jpg");
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @include pc-width() {
+    margin-bottom: 100px;
+  }
+
+  @include pad-width() {
+    margin-bottom: 50px;
+  }
+
+  @include small-pad-width() {
+    margin-bottom: 50px;
+  }
+
+  @include phone-width() {
+    margin-bottom: 50px;
+  }
+}
+
+.advantage {
+  width: 100%;
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+
+  @include pc-width() {
+    margin-bottom: 100px;
+  }
+
+  @include pad-width() {
+    margin-bottom: 50px;
+  }
+
+  @include small-pad-width() {
+    margin-bottom: 50px;
+
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  @include phone-width() {
+    margin-bottom: 50px;
+
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+.product-today {
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+
+  .product-today-item {
+    width: 25%;
+    min-width: 170px;
+
+    @include pc-width() {
+      width: 25%;
+    }
+
+    @include pad-width() {
+      width: 50%;
+    }
+
+    @include small-pad-width() {
+      width: 100%;
+    }
+
+    @include phone-width() {
+      width: 100%;
+    }
+
+    .product-today-title {
+      font-size: 12px;
+
+      @include pc-width() {
+        font-size: 12px;
+      }
+
+      @include pad-width() {
+        font-size: 16px;
+      }
+
+      @include small-pad-width() {
+        font-size: 16px;
+      }
+
+      @include phone-width() {
+        font-size: 16px;
+      }
+    }
+
+    .product-today-price {
+      font-size: 16px;
+
+      @include pc-width() {
+        font-size: 16px;
+      }
+
+      @include pad-width() {
+        font-size: 18px;
+      }
+
+      @include small-pad-width() {
+        font-size: 18px;
+      }
+
+      @include phone-width() {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .img-block {
+    margin-bottom: 20px;
+    max-height: 300px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.subscribe {
+  position: relative;
+  height: 200px;
+  padding: 0 50px;
+  background: url("https://i.postimg.cc/8kn3T2w5/kenan-buhic-yjcr-VIGAw9-A-unsplash-1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  @include small-pad-width() {
+    padding: 10px 20px;
+
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  @include phone-width() {
+    height: 300px;
+    padding: 10px 20px;
+
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  span {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+
+    @include pc-width() {
+      width: 50%;
+    }
+
+    @include pad-width() {
+      font-size: 20px;
+    }
+
+    @include small-pad-width() {
+      font-size: 20px;
+    }
+
+    @include phone-width() {
+      font-size: 20px;
+      width: 95%;
+    }
+  }
+
+  input[type="text"] {
+    height: 40px;
+    width: 200px;
+    padding: 10px 20px;
+    margin: 0 15px 10px 15px;
+    font-size: 10px;
+    color: black;
+
+    outline: none;
+    border: 0px solid transparent;
+    border-radius: 17px;
+
+    @include small-pad-width() {
+      margin: 0 15px 0px 15px;
+    }
+
+    @include phone-width() {
+      margin: 0 15px 10px 15px;
+    }
+  }
+
+  input[type="button"] {
+    height: 40px;
+    width: 120px;
+    padding: 0 20px;
+    background-color: map-get($map: $color, $key: first-color);
+    outline: none;
+    border: 0px solid transparent;
+    border-radius: 20px;
+
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    transition: 0.15s;
+
+    &:hover {
+      background-color: map-get($map: $color, $key: first-color-hover);
+    }
+  }
+}
+
+.font-link {
+  cursor: pointer;
+  color: map-get($map: $color, $key: font-gray);
+  transition: 0.15s;
+
+  &:hover {
+    color: map-get($map: $color, $key: font-black);
+  }
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: flex-start;
+
+  @include pc-width() {
+    flex-wrap: nowrap;
+  }
+
+  @include pad-width() {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  @include small-pad-width() {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  @include phone-width() {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  > div {
+    box-sizing: border-box;
+    margin: 0 20px;
+    width: 20%;
+    height: 100%;
+    text-align: left;
+
+    @include pc-width() {
+      width: 20%;
+      margin: 0 20px;
+    }
+
+    @include pad-width() {
+      width: 50%;
+      margin: 0 0 50px 0;
+      padding: 0 6%;
+    }
+
+    @include small-pad-width() {
+      width: 50%;
+      margin: 0 0 50px 0;
+      padding: 0 3%;
+    }
+
+    @include phone-width() {
+      width: 50%;
+      margin: 0 0 50px 0;
+      padding: 0 3%;
+    }
+  }
+
+  div[name="main"] {
+    width: 40%;
+
+    @include pc-width() {
+      width: 40%;
+    }
+
+    @include pad-width() {
+      width: 50%;
+    }
+
+    @include small-pad-width() {
+      width: 100%;
+    }
+
+    @include phone-width() {
+      width: 100%;
+    }
+
+    > span {
+      display: block;
+      font-size: 12px;
+    }
+
+    div[name="social-media"] {
+      display: flex;
+
+      font-size: 20px;
+
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
+
+      @include phone-width() {
+        font-size: 26px;
+        justify-content: space-around;
+      }
+    }
+  }
+}
+
+$normal_padding-h-value: 100px;
+.normal-padding-h {
+  padding-left: $normal_padding-h-value;
+  padding-right: $normal_padding-h-value;
+}
+
+.layout-row-around {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.layout-row-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.layout-row-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

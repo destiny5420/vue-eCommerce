@@ -1,0 +1,80 @@
+.nav-bar {
+  margin: 20px 0;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+}
+
+@media all and (min-width: 1280px) and (max-width: 1919px) {
+  .nav-bar {
+    font-size: 18px;
+  }
+}
+
+@media all and (min-width: 960px) and (max-width: 1279px) {
+  .nav-bar {
+    font-size: 18px;
+  }
+}
+
+@media all and (min-width: 760px) and (max-width: 959px) {
+  .nav-bar {
+    font-size: 18px;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .nav-bar {
+    font-size: 16px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .nav-bar {
+    font-size: 14px;
+  }
+}
+
+.nav-bar .home-btn {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.nav-bar .home-btn a {
+  text-decoration: none;
+  color: #8f8f8f8c;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+
+.nav-bar .home-btn a:hover {
+  color: #2c3e50;
+}
+
+.nav-bar span {
+  color: #8f8f8f8c;
+}
+
+.nav-bar .path {
+  color: #8f8f8f8c;
+  position: relative;
+  display: inline-block;
+  margin: 0 10px;
+  -webkit-transition: 0.25s ease;
+  transition: 0.25s ease;
+}
+
+.nav-bar .path:hover {
+  color: black;
+}
+/*# sourceMappingURL=style.css.map */

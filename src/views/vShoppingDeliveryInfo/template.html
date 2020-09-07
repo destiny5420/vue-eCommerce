@@ -1,0 +1,193 @@
+<div>
+  <div class="main-control">
+    <div class="input-area">
+      <span class="p-font-family-button item-title">Shipping Information</span>
+      <!-- First Name -->
+      <div>
+        <div class="input-title">{{ firstName.title }}</div>
+        <input
+          type="text"
+          :placeholder="firstName.placeholder"
+          :style="{ border: validation.hasError('firstNameValue') ? '1px solid rgb(250, 96, 96)' : '1px solid rgba(128, 128, 128, 0.45)' }"
+          v-model="firstNameValue"
+        />
+        <div class="errorMsg">
+          {{ validation.firstError('firstNameValue') }}
+        </div>
+      </div>
+      <!-- Last Name -->
+      <div>
+        <div class="input-title">{{ lastName.title }}</div>
+        <input
+          type="text"
+          :placeholder="lastName.placeholder"
+          :style="{ border: validation.hasError('lastNameValue') ? '1px solid rgb(250, 96, 96)' : '1px solid rgba(128, 128, 128, 0.45)' }"
+          v-model="lastNameValue"
+        />
+        <div class="errorMsg">
+          {{ validation.firstError('lastNameValue') }}
+        </div>
+      </div>
+      <!-- Phone Number -->
+      <div>
+        <div class="input-title">{{ phone.title }}</div>
+        <input
+          type="text"
+          :placeholder="phone.placeholder"
+          :style="{ border: validation.hasError('phoneValue') ? '1px solid rgb(250, 96, 96)' : '1px solid rgba(128, 128, 128, 0.45)' }"
+          v-model="phoneValue"
+        />
+        <div class="errorMsg">
+          {{ validation.firstError('phoneValue') }}
+        </div>
+      </div>
+      <!-- Email -->
+      <div>
+        <div class="input-title">{{ email.title }}</div>
+        <input
+          type="text"
+          :placeholder="email.placeholder"
+          :style="{ border: validation.hasError('emailValue') ? '1px solid rgb(250, 96, 96)' : '1px solid rgba(128, 128, 128, 0.45)' }"
+          v-model="emailValue"
+        />
+        <div class="errorMsg">
+          {{ validation.firstError('emailValue') }}
+        </div>
+      </div>
+      <!-- City Name -->
+      <div>
+        <div class="input-title">{{ city.title }}</div>
+        <input
+          type="text"
+          :placeholder="city.placeholder"
+          v-model="cityValue"
+        />
+      </div>
+      <!-- Address Name -->
+      <div>
+        <div class="input-title">{{ address.title }}</div>
+        <input
+          type="text"
+          :placeholder="address.placeholder"
+          :style="{ border: validation.hasError('addressValue') ? '1px solid rgb(250, 96, 96)' : '1px solid rgba(128, 128, 128, 0.45)' }"
+          v-model="addressValue"
+        />
+        <div class="errorMsg">
+          {{ validation.firstError('addressValue') }}
+        </div>
+      </div>
+      <!-- State -->
+      <div>
+        <div class="input-title">{{ state.title }}</div>
+        <input
+          type="text"
+          :placeholder="state.placeholder"
+          :style="{ border: validation.hasError('stateValue') ? '1px solid rgb(250, 96, 96)' : '1px solid rgba(128, 128, 128, 0.45)' }"
+          v-model="stateValue"
+        />
+        <div class="errorMsg">
+          {{ validation.firstError('stateValue') }}
+        </div>
+      </div>
+      <!-- Postcode -->
+      <div>
+        <div class="input-title">{{ postcode.title }}</div>
+        <input
+          type="text"
+          :placeholder="postcode.placeholder"
+          :style="{ border: validation.hasError('postcodeValue') ? '1px solid rgb(250, 96, 96)' : '1px solid rgba(128, 128, 128, 0.45)' }"
+          v-model="postcodeValue"
+        />
+        <div class="errorMsg">
+          {{ validation.firstError('postcodeValue') }}
+        </div>
+      </div>
+    </div>
+    <div class="right-area">
+      <div class="delivery-method">
+        <span class="p-font-family-button item-title">Delivery method</span>
+        <div
+          v-for="(item, index) in deliveryOption"
+          :key="index"
+          :style="styleDeliveryOption(index)"
+          @click="onDeliverySelect(index)"
+        >
+          <img :src="item.imageUrl" />
+          <div class="p-font-family-filter-title">${{ item.price }}</div>
+        </div>
+      </div>
+      <div class="payment-method">
+        <span class="p-font-family-button item-title">Payment method</span>
+        <div
+          v-for="(item, index) in paymentOption"
+          :key="index"
+          :style="stylePaymentOption(index)"
+          @click="onPaymentSelect(index)"
+        >
+          <img :src="item.imageUrl" />
+        </div>
+      </div>
+      <div class="payment-info">
+        <div>
+          <div name="payment-info-title">
+            Enter your card information:
+          </div>
+          <div name="payment-info-credit-card">
+            <input
+              name="credit-card-number"
+              type="text"
+              :style="{ border: validation.hasError('creditCardValue') ? '1px solid rgb(250, 96, 96)' : '1px solid rgba(128, 128, 128, 0.45)' }"
+              :placeholder="creditCard.placeholder"
+              v-model="creditCardValue"
+            />
+            <div class="errorMsg">
+              {{ validation.firstError('creditCardValue') }}
+            </div>
+          </div>
+          <div name="payment-info-last">
+            <div name="expiration">
+              <input
+                name="credit-expiration"
+                type="text"
+                :placeholder="expiration.placeholder"
+                v-model="expirationValue"
+                :style="{ border: validation.hasError('expirationValue') ? '1px solid rgb(250, 96, 96)' : '1px solid rgba(128, 128, 128, 0.45)' }"
+              />
+              <div class="errorMsg">
+                {{ validation.firstError('expirationValue') }}
+              </div>
+            </div>
+            <div name="cvv">
+              <input
+                name="credit-cvv"
+                type="text"
+                :placeholder="cvv.placeholder"
+                v-model="cvvValue"
+                :style="{ border: validation.hasError('cvvValue') ? '1px solid rgb(250, 96, 96)' : '1px solid rgba(128, 128, 128, 0.45)' }"
+              />
+              <div class="errorMsg">
+                {{ validation.firstError('cvvValue') }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <b style="display: block;">Paying with Apple Card?</b>
+          <a href="http://www.google.com" target="_blank"
+            >Learn how to find your Apple Card number</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bar">
+    <div @click="onBackHandler">
+      <font-awesome-icon :icon="['fas', 'long-arrow-alt-left']" />
+      <span>Back</span>
+    </div>
+    <div>
+      <div @click="onContinueShopHandler">Continue Shopping</div>
+      <div @click="onNextStepHandler">Next Step</div>
+    </div>
+  </div>
+</div>

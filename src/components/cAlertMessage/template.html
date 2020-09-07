@@ -1,0 +1,10 @@
+<div class="alert-message-main">
+  <div
+    :style="styleMessageWindow(index)"
+    v-for="(item, index) in msgData"
+    :key="index"
+    class="message-block"
+  >
+    {{ item.message }}
+  </div>
+</div>

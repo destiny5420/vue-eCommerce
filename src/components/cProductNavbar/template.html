@@ -1,0 +1,21 @@
+<div class="nav-bar">
+  <div class="home-btn">
+    <router-link :to="homePath">
+      <font-awesome-icon :icon="['fas', 'home']" />
+    </router-link>
+  </div>
+  <div
+    style="display: inline-block;"
+    v-for="(item, index) in props_links"
+    :key="index"
+  >
+    <span>/</span>
+    <div
+      class="path"
+      :style="styleDirection(index)"
+      @click="onClickHandler(index)"
+    >
+      {{ item.displayName }}
+    </div>
+  </div>
+</div>

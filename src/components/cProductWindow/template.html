@@ -1,0 +1,30 @@
+<div class="product-window-main">
+  <div class="picture" :style="stylePicture">
+    <div class="picture-mask" @click="onClickHandler"></div>
+    <!-- <div @click="onFavoriteHandler" class="picture-favorite">
+      <font-awesome-icon class="picture-favorite" :icon="['fab', 'gratipay']" />
+    </div> -->
+  </div>
+  <div class="info">
+    <div>
+      <div class="title-block">
+        <div id="title" class="p-font-family-button">{{ props_title }}</div>
+        <div id="category">{{ props_category }}</div>
+      </div>
+      <div class="info-size p-font-family-button">
+        <div v-if="item.state" v-for="(item, index) in props_size" :key="index">
+          {{ item.caption }}
+        </div>
+      </div>
+    </div>
+    <div>
+      <font-awesome-icon
+        :icon="['fas', 'star']"
+        v-for="(item, index) in 5"
+        :key="index"
+        :style="styleStar(index)"
+      />
+    </div>
+    <span name="price" class="p-font-family-button">${{ props_price }}</span>
+  </div>
+</div>

@@ -1,0 +1,137 @@
+.item {
+  width: 25%;
+  min-width: 170px;
+}
+
+@media all and (min-width: 960px) {
+  .item {
+    width: 25%;
+  }
+}
+
+@media all and (min-width: 760px) and (max-width: 959px) {
+  .item {
+    width: 50%;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .item {
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .item {
+    width: 100%;
+  }
+}
+
+.item .item-container {
+  height: 100%;
+  margin: 0 10px 20px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  text-align: left;
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .item .item-container {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    margin: 0 0 50px 0;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .item .item-container {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    margin: 0 0 50px 0;
+  }
+}
+
+.item .symbol {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  width: 60px;
+  height: 60px;
+  background: #f0f0f0;
+  border-radius: 8px;
+  font-size: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .item .symbol {
+    width: 70px;
+    height: 70px;
+    font-size: 30px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .item .symbol {
+    width: 70px;
+    height: 70px;
+    font-size: 30px;
+  }
+}
+
+.item .title {
+  font-weight: bold;
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .item .title {
+    font-size: 20px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .item .title {
+    font-size: 20px;
+  }
+}
+
+.item .content {
+  font-size: 12px;
+  color: #8a8a8a;
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .item .content {
+    font-size: 16px;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .item .content {
+    font-size: 16px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

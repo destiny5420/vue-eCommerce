@@ -1,0 +1,384 @@
+$padding: (
+  desktop-header-horizontal: 100px,
+  pad-header-horizontal: 40px,
+  small-pad-header-horizontal: 30px,
+  phone-header-horizontal: 20px
+);
+
+$seconds-color: #2c3e50;
+$normal-header: 80px;
+$scroll-header: 71px;
+
+$pc-media: 960px;
+$pcs-media: 959px;
+$pad-media: 760px;
+$pads-media: 759px;
+$phone-media: 480px;
+$phones-media: 479px;
+
+$burger-area-width: 40px;
+$burger-line-height: 4px;
+$burger-line-spacing: 10px;
+
+// 電腦
+@mixin pc-width {
+  @media all and (min-width: $pc-media) {
+    @content;
+  }
+}
+
+// 平板
+@mixin pad-width {
+  @media all and (min-width: $pad-media) and (max-width: $pcs-media) {
+    @content;
+  }
+}
+
+// 小平板
+@mixin small-pad-width {
+  @media all and (min-width: $phone-media) and (max-width: $pads-media) {
+    @content;
+  }
+}
+// 手機
+@mixin phone-width {
+  @media all and (max-width: $phones-media) {
+    @content;
+  }
+}
+
+.header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: $normal-header;
+  width: 100vw;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.15s;
+
+  @include pc-width {
+    padding: 25px map-get($map: $padding, $key: desktop-header-horizontal);
+  }
+
+  @include pad-width {
+    padding: 25px map-get($map: $padding, $key: pad-header-horizontal);
+  }
+
+  @include small-pad-width {
+    padding: 25px map-get($map: $padding, $key: small-pad-header-horizontal);
+  }
+
+  @include phone-width {
+    padding: 25px map-get($map: $padding, $key: phone-header-horizontal);
+  }
+
+  .logo {
+    font-weight: 800;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    a {
+      text-decoration: none;
+      color: $seconds-color;
+
+      &:hover {
+        color: $seconds-color;
+      }
+    }
+
+    span {
+      margin-left: 5px;
+    }
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    li {
+      position: relative;
+      list-style: none;
+
+      a {
+        position: relative;
+        display: inline-block;
+        margin: 0 15px;
+        color: rgb(238, 238, 238);
+        text-decoration: none;
+
+        transition: 0.25s;
+      }
+    }
+  }
+
+  &.sticky {
+    height: $scroll-header;
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+
+    @include pc-width {
+      padding: 20px map-get($map: $padding, $key: desktop-header-horizontal);
+    }
+
+    @include pad-width {
+      padding: 20px map-get($map: $padding, $key: pad-header-horizontal);
+    }
+
+    @include small-pad-width {
+      padding: 20px map-get($map: $padding, $key: small-pad-header-horizontal);
+    }
+
+    @include phone-width {
+      padding: 20px map-get($map: $padding, $key: phone-header-horizontal);
+    }
+
+    a {
+      color: $seconds-color;
+    }
+  }
+
+  .catalog {
+    @include pc-width {
+      display: inline-block;
+    }
+
+    @include pad-width {
+      display: none;
+    }
+
+    @include small-pad-width {
+      display: none;
+    }
+
+    @include phone-width {
+      display: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: $seconds-color;
+    }
+
+    span {
+      position: relative;
+      cursor: pointer;
+      padding: 0 10px;
+      transition: 0.15s;
+
+      &:hover .hove-line::after {
+        transform: scale(1, 1);
+      }
+    }
+  }
+
+  .show-burger-line-1 {
+    transform: translateY(0) rotate(45deg) scale(0.8, 1);
+    top: calc((25% * 2) - #{$burger-line-height / 2});
+  }
+
+  .show-burger-line-2 {
+    transform: translateY(0) scale(0.1, 1);
+    opacity: 0;
+  }
+
+  .show-burger-line-3 {
+    transform: translateY(0) rotate(-45deg) scale(0.8, 1);
+    top: calc((25% * 2) - #{$burger-line-height / 2});
+  }
+
+  .hamburger-1 {
+    transform-origin: center center;
+    top: calc((25% * 1) - #{$burger-line-height / 2});
+  }
+
+  .hamburger-2 {
+    top: calc((25% * 2) - #{$burger-line-height / 2});
+  }
+
+  .hamburger-3 {
+    transform-origin: center center;
+    top: calc((25% * 3) - #{$burger-line-height / 2});
+  }
+
+  .toggle {
+    display: none;
+
+    @include pc-width {
+      display: none;
+    }
+
+    @include pad-width {
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @include small-pad-width {
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @include phone-width {
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    div[name="toggle-cart"] {
+      position: relative;
+      display: inline-block;
+      font-size: 30px;
+      margin-right: 20px;
+      cursor: pointer;
+      color: $seconds-color;
+
+      @include pad-width {
+        font-size: 30px;
+      }
+
+      @include small-pad-width {
+        font-size: 25px;
+      }
+
+      @include phone-width {
+        font-size: 25px;
+      }
+    }
+
+    .menu-open-button {
+      position: relative;
+      width: $burger-area-width;
+      height: 50px;
+      cursor: pointer;
+      user-select: none;
+      margin: 0;
+
+      @include pad-width {
+        height: 50px;
+      }
+
+      @include small-pad-width {
+        height: 35px;
+      }
+
+      @include phone-width {
+        height: 30px;
+      }
+
+      .hamburger {
+        box-sizing: border-box;
+        position: absolute;
+        left: calc(50% - (#{$burger-area-width} * 0.8 * 0.5));
+        width: 80%;
+        height: $burger-line-height;
+        background: $seconds-color;
+        transition: 0.3s;
+
+        @include pad-width {
+          width: 80%;
+        }
+
+        @include small-pad-width {
+          width: 70%;
+        }
+
+        @include phone-width {
+          width: 65%;
+        }
+      }
+    }
+  }
+
+  .menu {
+    @include pad-width {
+      display: none;
+    }
+
+    @include small-pad-width {
+      display: none;
+    }
+
+    @include phone-width {
+      display: none;
+    }
+
+    li {
+      position: relative;
+      a {
+        color: $seconds-color;
+      }
+
+      &:hover .hove-line::after {
+        transform: scale(1, 1);
+      }
+    }
+  }
+
+  .side-bar {
+    position: fixed;
+    top: $normal-header;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+
+    height: calc(100vh - #{$normal-header});
+    background: rgba(255, 255, 255, 0.89);
+    transition: 0.3s;
+
+    @include pc-width {
+      display: none;
+    }
+
+    .side-bar-item {
+      height: 100px;
+      margin: 0 20%;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+      font-size: 50px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      transition: 0.25s;
+      cursor: pointer;
+      text-transform: uppercase;
+      user-select: none;
+      &:hover {
+        background: rgba(0, 0, 0, 0.15);
+      }
+    }
+
+    &.sticky {
+      top: $scroll-header;
+      height: calc(100vh - #{$scroll-header});
+    }
+  }
+
+  .side-bar.active {
+    left: 0%;
+  }
+}
+
+.cart-count-icon {
+  position: absolute;
+  bottom: -3px;
+  right: -8px;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 0, 0, 0.95);
+  border-radius: 50%;
+}

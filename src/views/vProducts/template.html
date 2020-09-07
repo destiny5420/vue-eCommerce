@@ -1,0 +1,129 @@
+<div class="main">
+  <loading :active.sync="isLoading"></loading>
+  <cProductNavbar :props_links="navbar_info" />
+  <div class="view">
+    <div class="filter-area">
+      <!-- Type -->
+      <div class="type">
+        <div
+          class="filter-title p-font-family-content"
+          @click="onTypeShowHandler"
+        >
+          PRODUCT TYPE
+          <font-awesome-icon
+            :icon="['fas', 'angle-down']"
+            class="arrow"
+            :style="styleArrow('type')"
+          />
+        </div>
+        <div
+          class="type-option p-font-family-filter-title"
+          :style="styleTypeSelect"
+        >
+          <div v-for="(item, index) in filterData_type.option" :key="index">
+            <input
+              type="checkbox"
+              :id="matchID(index)"
+              @click="onClickTypeHandler(index)"
+            />
+            <div class="nike">
+              <label :for="matchID(index)"></label>
+            </div>
+            {{ item.title }}
+          </div>
+        </div>
+      </div>
+      <!-- Price -->
+      <div class="price">
+        <div
+          class="filter-title p-font-family-content"
+          @click="onPriceShowHandler"
+        >
+          PRICE
+          <font-awesome-icon
+            :icon="['fas', 'angle-down']"
+            class="arrow"
+            :style="styleArrow('price')"
+          />
+        </div>
+        <div class="price-option" :style="stylePriceSelect">
+          <div class="price-area">
+            <div class="limit-number">{{ filterData_price.min }}</div>
+            <div id="filter-price" style="font-size: 22px;">
+              ${{ filterData_price.sliderValue }}
+            </div>
+            <div class="limit-number">{{ filterData_price.max }}</div>
+          </div>
+          <div class="slider-area">
+            <input
+              type="range"
+              :min="filterData_price.min"
+              :max="filterData_price.max"
+              v-model="filterData_price.sliderValue"
+              @change="onPriceHandler"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- Size -->
+      <div class="size">
+        <div
+          class="filter-title p-font-family-content"
+          @click="onSizeShowHandler"
+        >
+          SIZE
+          <font-awesome-icon
+            :icon="['fas', 'angle-down']"
+            class="arrow"
+            :style="styleArrow('size')"
+          />
+        </div>
+        <div class="size-option" :style="styleSizeSelect">
+          <div
+            :style="styleSizeOption(index)"
+            v-for="(item, index) in sizeList"
+            :key="index"
+            @click="onClickSizeHandler(index)"
+          >
+            {{ item.value }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="product-item-area p-font-family-content">
+      <div class="condition-bar">
+        <div class="short-title p-font-family-button">
+          {{ conditionBarTitle }}
+        </div>
+        <div class="sort">
+          <span name="title">{{ conditionBar.sort.title }}: </span>
+          <select
+            class="sort-style"
+            name="sort"
+            v-model="conditionBar.sort.curValue"
+          >
+            <option
+              v-for="(item, index) in conditionBar.sort.options"
+              :key="index"
+              :value="item.value"
+              >{{ item.displayName }}</option
+            >
+          </select>
+        </div>
+      </div>
+      <div class="product-list">
+        <cProductWindow
+          v-for="(item, index) in products"
+          :key="index"
+          :props_title="item.title"
+          :props_price="item.price"
+          :props_url="item.imageUrl"
+          :props_id="item.id"
+          :props_starScore="item.starScore"
+          :props_size="item.size"
+          :props_category="item.category"
+        />
+      </div>
+    </div>
+  </div>
+</div>

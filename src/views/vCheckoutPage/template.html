@@ -1,0 +1,137 @@
+<div class="main-summary">
+  <template v-if="pageInfo">
+    <template v-if="pageInfo.is_paid">
+      <div class="checkout-done">
+        <div class="p-font-family-hammersmith" id="checkout-done-title">
+          THANK YOU!
+        </div>
+        <div class="checkout-done-content">
+          Thank you very much for your purchase, the product number (
+          <span style="color: rgb(226, 107, 107); font-weight: bold;"
+            >{{ pageInfo.id }}</span
+          >
+          ) will be send out for 2 work days.
+        </div>
+        <div class="continue-shop-btn" @click="onContinueShopHandler">
+          CONTINUE SHOP
+        </div>
+      </div>
+    </template>
+    <template v-else>
+      <div class="top-block">
+        <div class="method-block">
+          <!-- Delivery Info -->
+          <div class="method">
+            <span class="p-font-family-button item-title">Delivery method</span>
+            <div
+              class="select-section"
+              v-for="(item, index) in deliveryOption"
+              :key="index"
+              :style="styleDeliveryOption(index)"
+            >
+              <img class="section-img" :src="item.imageUrl" />
+              <div class="p-font-family-filter-title">${{ item.price }}</div>
+            </div>
+          </div>
+          <!-- Payment Info -->
+          <div class="method">
+            <span class="p-font-family-button item-title">Payment method</span>
+            <div
+              class="select-section"
+              v-for="(item, index) in paymentOption"
+              :key="index"
+              :style="stylePaymentOption(index)"
+            >
+              <img class="section-img" :src="item.imageUrl" />
+            </div>
+          </div>
+        </div>
+        <div class="order-info-block">
+          <div class="order-info" v-if="this.pageInfo">
+            <span class="p-font-family-button item-title"
+              >Order information</span
+            >
+            <div class="order-group">
+              <h1>{{ this.pageInfo.user.name }}</h1>
+              <div class="p-font-family-lato order-single-item">
+                <div>Address:</div>
+                <div>{{ this.pageInfo.user.address }}</div>
+              </div>
+              <div class="p-font-family-lato order-single-item">
+                <div>Email:</div>
+                <div>{{ this.pageInfo.user.email }}</div>
+              </div>
+              <div class="p-font-family-lato order-single-item">
+                <div>Phone:</div>
+                <div>{{ this.pageInfo.user.tel }}</div>
+              </div>
+              <div class="p-font-family-lato order-single-item">
+                <div>Credit Card:</div>
+                <div>{{ this.pageInfo.user.creditCardNumber }}</div>
+              </div>
+              <div class="p-font-family-lato order-single-item">
+                <div>Order Number:</div>
+                <div>{{ this.pageInfo.id }}</div>
+              </div>
+              <div class="p-font-family-lato order-single-item">
+                <div>Status:</div>
+                <div
+                  :style="{ 'color': this.pageInfo.is_paid ? 'black' : 'red' }"
+                >
+                  {{ this.pageInfo.is_paid ? "" : "Not paid yet" }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-block">
+        <div class="cart" v-if="pageInfo">
+          <span class="p-font-family-button item-title">Your cart</span>
+          <div
+            class="cart-list"
+            v-for="(item, index) in pageInfo.products"
+            :key="index"
+          >
+            <div class="cart-image">
+              <div :style="styleImage(item.product.imageUrl)"></div>
+            </div>
+            <div class="cart-info-block">
+              <div class="cart-title">
+                <h4 class="p-font-family-button ">
+                  {{ item.product.title }}
+                </h4>
+                <span>{{ item.product.id }}</span>
+              </div>
+              <div class="cart-category">{{ item.product.category }}</div>
+              <div class="cart-size">
+                {{ item.product.size[item.customData.sizeIndex].caption }}
+              </div>
+              <div class="p-font-family-filter-title cart-price">
+                ${{ item.product.price }}
+              </div>
+              <div class="cart-count">{{ item.qty }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="foot-bar">
+          <div class="foot-back" @click="onBackHandler">
+            <font-awesome-icon :icon="['fas', 'long-arrow-alt-left']" />
+            <span>Back</span>
+          </div>
+          <div class="foot-checkout-info">
+            <div class="footer-total-cost">
+              <span>Total cost: </span>
+              <span class="p-font-family-button" v-if="pageInfo"
+                >${{ pageInfo.total }}</span
+              >
+            </div>
+            <div class="footer-checkout-btn" @click="onCheckOutHandler">
+              Check Out
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+  </template>
+</div>

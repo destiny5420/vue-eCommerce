@@ -1,0 +1,417 @@
+// pc3-width
+$pc3-media: 1920px;
+
+// pc2-width
+$pc3s-media: 1919px;
+$pc2-media: 1280px;
+
+// pc-width
+$pc2s-media: 1279px;
+$pc-media: 960px;
+
+// pad-width
+$pcs-media: 959px;
+$pad-media: 760px;
+
+// small-pad-width
+$pads-media: 759px;
+$phone-media: 480px;
+
+// phone-width
+$phones-media: 479px;
+
+// 電腦3
+@mixin pc3-width {
+  @media all and (min-width: $pc3-media) {
+    @content;
+  }
+}
+
+// 電腦2
+@mixin pc2-width {
+  @media all and (min-width: $pc2-media) and (max-width: $pc3s-media) {
+    @content;
+  }
+}
+
+// 電腦
+@mixin pc-width {
+  @media all and (min-width: $pc-media) and (max-width: $pc2s-media) {
+    @content;
+  }
+}
+
+// 平板
+@mixin pad-width {
+  @media all and (min-width: $pad-media) and (max-width: $pcs-media) {
+    @content;
+  }
+}
+
+// 小平板
+@mixin small-pad-width {
+  @media all and (min-width: $phone-media) and (max-width: $pads-media) {
+    @content;
+  }
+}
+// 手機
+@mixin phone-width {
+  @media all and (max-width: $phones-media) {
+    @content;
+  }
+}
+
+$picture-height: 80%;
+.product-window-main {
+  width: calc(33.3% - (10px * 2));
+  min-width: 370px;
+  height: 1000px;
+  padding: 0px;
+  margin: 10px 10px;
+
+  @include pc2-width {
+    max-width: none;
+    width: calc(50% - 20px);
+  }
+
+  @include pc-width {
+    max-width: none;
+    width: calc(50% - 20px);
+    height: 945px;
+  }
+
+  @include pad-width {
+    max-width: none;
+    width: calc(100% - 10px);
+    height: 960px;
+  }
+
+  @include small-pad-width {
+    max-width: none;
+    width: calc(100% - 10px);
+    height: auto;
+    margin: 10px 10px 50px 10px;
+  }
+
+  @include phone-width {
+    min-width: 0px;
+    width: calc(100% - 10px);
+    height: auto;
+    margin: 10px 10px 25px 10px;
+  }
+
+  .picture {
+    position: relative;
+    width: 100%;
+    height: $picture-height;
+    background-position: center;
+    background-size: cover;
+
+    @include pc2-width {
+      background-position: center;
+      height: 700px;
+    }
+
+    @include pc-width {
+      background-position: center;
+      height: 700px;
+    }
+
+    @include pad-width {
+      background-position: center;
+      height: 700px;
+    }
+
+    @include small-pad-width {
+      background-position: center;
+      height: 700px;
+    }
+
+    @include phone-width {
+      background-position: center;
+      height: 400px;
+    }
+
+    .picture-mask {
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0);
+      z-index: 1;
+      cursor: pointer;
+      transition: 0.15s ease-out;
+
+      div {
+        display: block;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+      }
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 3px 8px 5px #00000099;
+      }
+    }
+
+    .picture-favorite {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+
+      color: rgba(255, 255, 255, 0.25);
+      font-size: 35px;
+      cursor: pointer;
+      transition: 0.15s;
+      svg {
+        line-height: 0;
+      }
+
+      &:hover {
+        color: rgba(255, 255, 255, 0.75);
+      }
+    }
+  }
+
+  .info {
+    width: 100%;
+    height: calc(100% - #{$picture-height});
+
+    padding-top: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    span[name="price"] {
+      font-size: 24px;
+
+      @include pc2-width {
+        font-size: 30px;
+      }
+
+      @include pc-width {
+        font-size: 30px;
+      }
+
+      @include pad-width {
+        font-size: 30px;
+      }
+
+      @include small-pad-width {
+        font-size: 30px;
+      }
+
+      @include phone-width {
+        font-size: 30px;
+      }
+    }
+
+    .info-size {
+      display: inline-block;
+      height: 40px;
+
+      @include pc2-width {
+        margin-top: 10px;
+      }
+
+      @include pc-width {
+        margin-top: 10px;
+      }
+
+      @include pad-width {
+        margin-top: 10px;
+      }
+
+      @include small-pad-width {
+        margin-top: 10px;
+      }
+
+      @include phone-width {
+        display: inline-flex;
+        margin-top: 10px;
+        height: 30px;
+      }
+
+      & > div:nth-child(n) {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2px 5px;
+        margin: 0 2px;
+        border: 1px solid rgba(0, 0, 0, 0.45);
+        border-radius: 3px;
+        font-size: 14px;
+        font-weight: normal;
+        width: 32px;
+        height: 26px;
+
+        @include pc2-width {
+          width: 45px;
+          height: auto;
+          padding: 0px 10px;
+          margin: 0 5px;
+          font-size: 22px;
+        }
+
+        @include pc-width {
+          width: 45px;
+          height: auto;
+          padding: 0px 10px;
+          margin: 0 5px;
+          font-size: 22px;
+        }
+
+        @include pad-width {
+          width: 45px;
+          height: auto;
+          padding: 0px 10px;
+          margin: 0 5px;
+          font-size: 22px;
+        }
+
+        @include small-pad-width {
+          width: 45px;
+          height: auto;
+          padding: 0px 10px;
+          margin: 0 5px;
+          font-size: 22px;
+        }
+
+        @include phone-width {
+          width: 28px;
+          height: auto;
+          padding: 5px 5px;
+          margin: 0 5px;
+          font-size: 16px;
+        }
+      }
+
+      & > div:nth-child(1) {
+        margin-left: 0px;
+      }
+    }
+
+    & > :nth-child(n) {
+      margin-bottom: 5px;
+
+      @include pc2-width {
+        margin-bottom: 10px;
+      }
+
+      @include pc-width {
+        margin-bottom: 10px;
+      }
+
+      @include pad-width {
+        margin-bottom: 10px;
+      }
+
+      @include small-pad-width {
+        margin-bottom: 5px;
+      }
+
+      @include phone-width {
+        margin-bottom: 10px;
+      }
+    }
+
+    & > :nth-child(1) {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      @include pc2-width {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+
+      @include pc-width {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+
+      @include pad-width {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+
+      @include small-pad-width {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+
+      @include phone-width {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+    }
+
+    & > :nth-child(2) {
+      font-size: 22px;
+
+      @include pc-width {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.title-block {
+  #title {
+    font-size: 22px;
+    text-align: left;
+
+    @include pc2-width {
+      font-size: 30px;
+    }
+
+    @include pc-width {
+      font-size: 30px;
+    }
+
+    @include pad-width {
+      font-size: 30px;
+    }
+
+    @include small-pad-width {
+      font-size: 30px;
+    }
+
+    @include phone-width {
+      font-size: 30px;
+    }
+  }
+
+  #category {
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    color: gray;
+    font-size: 14px;
+
+    @include pc2-width {
+      font-size: 18px;
+    }
+
+    @include pc-width {
+      font-size: 18px;
+    }
+
+    @include pad-width {
+      font-size: 18px;
+    }
+
+    @include small-pad-width {
+      font-size: 18px;
+    }
+
+    @include phone-width {
+      font-size: 18px;
+    }
+  }
+}

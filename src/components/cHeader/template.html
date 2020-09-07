@@ -1,0 +1,56 @@
+<header class="header p-font-family-content" :class="classHeader">
+  <div class="logo">
+    <router-link to="/home">
+      <img src="@/assets/z-shop-logo.png" style="height: 30px;" />
+      <span
+        ><span style="margin: 0; color: rgb(253, 166, 67);">Z-</span>Shop</span
+      >
+    </router-link>
+  </div>
+  <div class="catalog">
+    <router-link
+      :to="{ name: 'vProducts', params: { id: item.value }}"
+      v-for="(item, index) in shopPathData"
+      :key="index"
+    >
+      <span><b class="hove-line">{{ item.displayName }}</b></span>
+    </router-link>
+  </div>
+  <div class="toggle">
+    <div name="toggle-cart">
+      <font-awesome-icon
+        :icon="['fas', 'shopping-cart']"
+        @click="onCartHandler"
+      />
+      <div v-if="isThereItemInCart" class="cart-count-icon"></div>
+    </div>
+    <div class="menu-open-button" @click="onToggleHandler">
+      <div :class="classBurgerLine1" class="hamburger"></div>
+      <div :class="classBurgerLine2" class="hamburger hamburger-2"></div>
+      <div :class="classBurgerLine3" class="hamburger"></div>
+    </div>
+  </div>
+  <ul class="menu">
+    <li>
+      <a class="hove-line">
+        <font-awesome-icon
+          :icon="['fas', 'shopping-cart']"
+          @click="onCartHandler"
+        />
+        <div v-if="isThereItemInCart" class="cart-count-icon"></div>
+      </a>
+    </li>
+    <li>
+      <router-link class="hove-line" to="/login"
+        ><font-awesome-icon :icon="['far', 'user']"
+      /></router-link>
+    </li>
+  </ul>
+  <div class="side-bar" :class="classSideBar">
+    <template v-for="(item, index) in sideBarData">
+      <div class="side-bar-item" :key="index" @click="onSideBarHandler(index)">
+        {{ item.title }}
+      </div>
+    </template>
+  </div>
+</header>

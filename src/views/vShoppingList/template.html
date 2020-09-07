@@ -1,0 +1,48 @@
+<div class="list-main">
+  <div class="product-category">
+    <div class="category-image"></div>
+    <div class="category-info-block">
+      <div>Title</div>
+      <div>Category</div>
+      <div>Size</div>
+      <div>Price</div>
+      <div>Count</div>
+    </div>
+    <div class="category-info-close-btn"></div>
+  </div>
+  <div class="product-list">
+    <div class="list" v-for="(item, index) in cartList" :key="index">
+      <div class="list-image">
+        <div :style="styleImage(item.product.imageUrl)" name="image"></div>
+      </div>
+      <div class="list-info-block">
+        <div>
+          <h4 class="p-font-family-button">{{ item.product.title }}</h4>
+          <div>{{ item.id }}</div>
+        </div>
+        <div>{{ item.product.category }}</div>
+        <div class="p-font-family-title">
+          {{ item.product.size[item.customData.sizeIndex].caption }}
+        </div>
+        <div class="p-font-family-button">${{ item.product.price }}</div>
+        <div>{{ item.qty }}</div>
+      </div>
+      <div class="list-info-close-btn" @click="deleteCartItem(item.id)">
+        <font-awesome-icon :icon="['fas', 'times']" />
+      </div>
+    </div>
+  </div>
+  <div class="foot-bar">
+    <div @click="onContinueShopHandler">
+      <font-awesome-icon :icon="['fas', 'long-arrow-alt-left']" />
+      <span>Continue Shopping</span>
+    </div>
+    <div>
+      <div>
+        <span>Total cost: </span>
+        <span class="p-font-family-button">${{ finalCost }}</span>
+      </div>
+      <div @click="onNextStep">Next Step</div>
+    </div>
+  </div>
+</div>

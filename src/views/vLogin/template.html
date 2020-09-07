@@ -1,3 +1,34 @@
-<div>
-  <h1>This is login page.</h1>
+<div class="login">
+  <loading :active.sync="isLoading"></loading>
+  <div class="login-window">
+    <div name="login-info">
+      <div class="logo-btn" @click="onGoHomeHandler">
+        <img
+          class="p-mt-5"
+          src="../../assets/z-shop-logo.png"
+          style="width: 50px; user-select: none;"
+        />
+        <div class=" p-mb-3" style="font-weight: bold;">
+          Sign in to <span style="color: #ffcb7d;">Z-</span>Shop
+        </div>
+      </div>
+      <div class="p-mb-2 input-area">
+        <input type="text" placeholder="Email" v-model.trim="user.username" />
+        <font-awesome-icon :icon="['fas', 'envelope']" class="symbol" />
+      </div>
+      <div class="p-mb-2 input-area">
+        <input
+          type="password"
+          placeholder="Password"
+          v-model.trim="user.password"
+        />
+        <font-awesome-icon :icon="['fas', 'lock']" class="symbol" />
+      </div>
+      <div class="p-mb-2">
+        <input type="submit" value="Sign in" @click="onLoginHandler" />
+      </div>
+      <div class="p-mb-1  p-mr-3 p-ml-3 footer"></div>
+    </div>
+    <div name="login-img"></div>
+  </div>
 </div>

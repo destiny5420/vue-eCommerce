@@ -1,0 +1,197 @@
+$color: (
+  btn-bg-color: #ffffff8c,
+  btn-bg-color-hover: #6e6e6e8c,
+  font-color: #242424,
+  font-color-hover: #ffffff
+);
+
+$pc-media: 960px;
+$pcs-media: 959px;
+$pad-media: 760px;
+$pads-media: 759px;
+$phone-media: 480px;
+$phones-media: 479px;
+
+// 電腦 x >= 960
+@mixin pc-width {
+  @media all and (min-width: $pc-media) {
+    @content;
+  }
+}
+
+// 平板 760 >=  x > 959
+@mixin pad-width {
+  @media all and (min-width: $pad-media) and (max-width: $pcs-media) {
+    @content;
+  }
+}
+
+// 小平板 480 >= x > 759
+@mixin small-pad-width {
+  @media all and (min-width: $phone-media) and (max-width: $pads-media) {
+    @content;
+  }
+}
+// 手機 x < 480
+@mixin phone-width {
+  @media all and (max-width: $phones-media) {
+    @content;
+  }
+}
+
+.product-area {
+  height: 300px;
+  position: relative;
+  margin: 0 10px;
+
+  display: inline-block;
+
+  @include small-pad-width() {
+    margin: 10px 0px;
+  }
+
+  @include phone-width() {
+    margin: 10px 0px;
+  }
+
+  .product-item {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .info-area {
+    z-index: 2;
+    position: absolute;
+    bottom: 35px;
+    left: 35px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    $pc-spacing-left: 35px;
+    $pad-spacing-left: 35px;
+    $small-pad-spacing-left: 35px;
+    $phone-spacing-left: 35px;
+    @include pc-width() {
+      bottom: 35px;
+      left: 35px;
+      width: calc((100% - 35px));
+    }
+
+    @include pad-width() {
+      bottom: 15px;
+      left: 15px;
+      width: calc((100% - 15px));
+    }
+
+    @include small-pad-width() {
+      bottom: 20px;
+      left: 20px;
+      width: calc((100% - 20px));
+      height: auto;
+    }
+
+    @include phone-width() {
+      bottom: 15px;
+      left: 15px;
+      width: calc((100% - 15px));
+      height: auto;
+    }
+  }
+}
+
+.mask {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #6d6d6d65;
+}
+
+.count-down {
+  width: 45px;
+  height: 20px;
+  border-radius: 30px;
+  background-color: #f35252;
+  color: #fff;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include pad-width() {
+    width: 55px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  @include small-pad-width() {
+    width: 60px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  @include phone-width() {
+    width: 60px;
+    height: 30px;
+    font-size: 14px;
+  }
+}
+
+.content {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 20px;
+  text-align: left;
+
+  @include small-pad-width() {
+    font-size: 30px;
+  }
+
+  @include phone-width() {
+    font-size: 20px;
+  }
+}
+
+.detail-btn {
+  height: 35px;
+  padding: 0 15px;
+  border-radius: 20px;
+  background: map-get($map: $color, $key: btn-bg-color);
+  color: map-get($map: $color, $key: font-color);
+  font-size: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  transition: 0.15s;
+
+  @include small-pad-width() {
+    height: 45px;
+    font-size: 14px;
+    border-radius: 25px;
+    padding: 0 30px;
+  }
+
+  @include phone-width() {
+    height: 35px;
+    font-size: 14px;
+    border-radius: 25px;
+    padding: 0 15px;
+  }
+
+  &:hover {
+    background: map-get($map: $color, $key: btn-bg-color-hover);
+    color: map-get($map: $color, $key: font-color-hover);
+  }
+}
