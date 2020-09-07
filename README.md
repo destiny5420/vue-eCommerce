@@ -44,3 +44,11 @@
 ![RWD-2](https://github.com/destiny5420/vue-eCommerce/blob/develop/page_source/pic_14.png)
 ![RWD-3](https://github.com/destiny5420/vue-eCommerce/blob/develop/page_source/pic_15.png)
 ![RWD-4](https://github.com/destiny5420/vue-eCommerce/blob/develop/page_source/pic_16.png)
+
+## 結語
+製作這個電商網站後，才發現到有許多細節需要注意，實際的走過一次建置流程與線上單元式的教學，有很大的不同。以及此網站UI的量不少，讓我能更加熟悉CSS的使用方式，也碰到很多沒遇過及沒想過的問題，感謝許多國外論壇與臉書社群熱心的人們替我解惑，才得以最終完成此項作品。
+
+## 內容來源
+* [Behance](https://www.behance.net/)
+* [Unsplash](https://unsplash.com/)
+* [Amazon](https://amazon.com/)
