@@ -4,7 +4,7 @@
 ## Demo
 [Z-Shop](https://destiny5420.github.io/vue-eCommerce)
 
-## 簡介
+## Introduction
 This is a exercise project for e-commerce, the following main feature:：
 * Product showcase、Cart、Order、Checkout
 * Membership login flow
