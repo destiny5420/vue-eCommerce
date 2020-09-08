@@ -15,6 +15,7 @@ This is a exercise project for e-commerce, the following main feature:：
 * Use [Sass](https://sass-lang.com/) to write style of front-end 
 * Use [Vue-bootstrap Component](https://bootstrap-vue.org/) in member page to implement UI component
 * Use [simple-vue-validator](https://github.com/semisleep/simple-vue-validator) to validate form in order page
+* Implement faecbook messenger feature
 
 ## Content
 ### Home Page
